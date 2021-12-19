@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     #'cloudinary_storage',
     'cloudinary',
     #'account',
-    #'artisan',
+  
     'account',
      'artisan',
     'crispy_forms',
