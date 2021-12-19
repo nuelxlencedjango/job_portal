@@ -1,2 +1,2 @@
-web: gunicorn iwan_work .wsgi:application --log-file -
+web: gunicorn iwan_work .wsgi:iwan_work --log-file -
 
