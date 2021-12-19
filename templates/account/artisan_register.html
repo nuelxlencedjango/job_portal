@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+{% load static %}  
+{% block content %} 
+
+{% load crispy_forms_tags %}
+
+<style>
+  .form4{
+    display: block;
+    width: 50%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 200;
+  
+    color: #212529;
+   
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+</style>
+
+<div id="form2" class="container form2" style="width: 500px;  background-color: #2b3032a1; align-items: center; text-align: center; margin-top: 50px;">
+    <form action="{% url 'artsans:artisanReg' %}" method="POST" class="row g-3">
+        {% csrf_token %}
+        <div class="col-md-8">
+            <label for="inputEmail4" class="form-label" >Username</label>
+            <input type="text" class="form-control" id="inputusername" name="username" placeholder="username">
+   
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">First name</label>
+            <input type="text" class="form-control" id="inputfirst_name" name="first_name" placeholder="First name" >
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Last name</label>
+            <input type="text" class="form-control" id="inputlast_name" name="last_name" placeholder="Last name" >
+          </div>
+        
+          <div class="col-md-4 form4">
+            {{ form4.location|as_crispy_field }}
+        </div>
+        
+        <div class="col-6">
+          <label for="inputAddress2" class="form-label">Address</label>
+          <input type="text" class="form-control" id="inputAddress2" name="address" placeholder="Address">
+        </div>
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Phone</label>
+            <input type="text" class="form-control" id="inputNumber" name="phone" placeholder="Phone Number">
+          </div>
+        <div class="col-md-6">
+            <label for="inputEmail4" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputlast_name" name="email" placeholder="Email" >
+     
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">NIN</label>
+            <input type="text" class="form-control" id="inputlast_name" name="nin" placeholder="NIN" >
+          </div>
+  
+        <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="password" class="form-control" id="inputPassword4" name="password1" placeholder="Password">
+          </div>
+          <div class="col-md-6">
+            <label for="inputPassword4" class="form-label">Password</label>
+            <input type="text" class="form-control" id="inputPassword4" name="password2" placeholder="Repeat Password">
+          </div>
+  
+        
+    
+        
+         
+        <div class="col-12">
+          <button type="submit" class="btn btn-danger">Submit</button>
+        </div>
+      </form>
+
+
+
+{{ form1.errors }}
+{{ form4.errors }}
+
+
+<div class="mt-4">
+    <div class="d-flex justify-content-center links">
+        Already Have An Account? <a href="{% url 'account:login' %}"
+        class="ml-2">Login</a>
+    </div>
+</div>
+</div>
+
+
+
+{% endblock %}

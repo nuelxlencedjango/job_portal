@@ -1,0 +1,49 @@
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %} 
+
+
+<div class="container">
+
+
+<h2 style="margin-top: 70px; text-align: center; margin-bottom: 30px;">Our services include the following:</h2>
+
+<table>
+  <tr>
+    <th>Profession</th>
+    <th>Description</th>
+    <th>Location</th>
+  </tr>
+  <!--{% for job in jobs %}
+ 
+  <tr>
+    <td><a href="{% url 'products:product_desc' job.pk %}"> {{ job.name }} </a></td>
+    <td><a href="{% url 'products:product_desc' job.pk %}"> {{ job.desc }} </a></td>
+    <td><a href="{% url 'products:product_desc' job.pk %}"> {{ job.category.title }} </a></td>
+  </tr>
+
+  {% endfor %}-->
+
+  {% for pr in prod %}
+  <tr>
+    <td><a href="{% url 'products:product_dest' pr.pk %}">{{ pr.name }} </a></td>
+    <td><a href="{% url 'products:product_dest' pr.pk %}">{{ pr.desc }} </a></td>
+    <td><a href="{% url 'products:product_dest' pr.pk %}">{{ pr.category.title }} </a></td>
+  </tr>
+  {% endfor %}
+  
+</table>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+

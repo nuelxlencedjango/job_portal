@@ -1,0 +1,277 @@
+
+
+{% extends 'base.html' %}
+{% load static %}  
+{% block content %} 
+<body>
+    <div class="container h-100 " style="margin-top: 100px;">
+        <!--<div class="d-flex justify-content-center h-100">
+            <div class="user_card">
+                <div class="d-flex justify-content-center">
+
+                    <h3 id="form-title">Login</h3>
+                </div>
+                <div class="d-flex justify-content-center form_container">
+
+                    <form action="{% url 'account:login' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="fas fa-user"></i>
+                                </span>
+                            </div>
+                            <input type="text" name="username" placeholder=" username"><br>
+                        </div>
+                 
+                        <div class="input-group mb-2">
+                            <div class="input-group-append">
+                                <span class="input-group-text">
+                                    <i class="fas fa-key"></i>
+                                </span>
+                            </div>
+                            <input type="text" name="password" placeholder="password"><br>
+                           
+                        </div>
+                       
+                        <div class="d-flex justify-content-center mt-3 login_container">
+                            <input class="btn login_btn" type="submit" value="Login">
+
+                        </div>
+                    </form>
+                </div>-->
+
+               <!-- {% for message in messages %}
+                <p id="messages">{{ message }}</p>
+                {% endfor %}
+
+                <div class="mt-4">
+                    <div class="d-flex justify-content-center links">
+                        Don't Have An Account? <a href="{% url 'account:register' %}"
+                        class="ml-2">Sign Up</a>
+                    </div>
+                    <div class="d-flex justify-content-center links">
+                        Forgot password ? <a href=""
+                        class="ml-2">Reset Password</a>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+
+    </div>
+
+     <!-- <span class="hello-msg">Hello ,{{ request.user }}</span>
+      <span><a class="hello-msg" href="">Logout</a></span>-->
+</body>
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+/* Set a style for all buttons */
+button {
+  background-color: #45ccb8;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+  position: relative;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+  /*background-color: brown;*/
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 300px;
+  top: 0;
+  width: 500px; /* Full width */
+  height: 500px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  /*background-color: rgb(0,0,0); *//* Fallback color */
+  /*background-color: rgba(0,0,0,0.4); *//* Black w/ opacity */
+  padding-top: 60px;
+  padding-left: 150px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+</style>
+</head>
+<body>
+
+
+<!--<div  class="container toggle " style="align-items: center; text-align: center;">
+    <h2>Please click the login button </h2>
+
+<button onclick="toggleLogin().style.display='block'" style="width:auto;">Login</button>
+
+</div>-->
+
+<div class="container" style="align-items: center; text-align: center;" >
+    <h2>Please click the login button </h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+</div>
+
+<div class="container">
+
+<div id="id01" class="modal" style="align-items: center; text-align: center; padding: 40px;">
+  
+    <form class="modal-content animate" action="{% url 'account:login' %}" method="POST">
+        {% csrf_token %}
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+        <img src="{% static 'images/avatar2.png' %}" alt="Avatar" class="avatar">
+      </div>
+  
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+  
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+          
+        <button type="submit">Login</button>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+  
+      <div class="container" style="background-color:#f1f1f1">
+        <!--<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>-->
+       
+        <span class="psw"> <a href="{% url 'account:registration' %}">Sing Up?</a></span>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+
+      
+    </form>
+
+    {% for message in messages %}
+    <p id="messages">{{ message }}</p>
+    {% endfor %}
+
+ 
+  </div>
+</div>
+
+<span class="hello-msg">Hello ,{{ request.user }}</span>
+<span><a class="hello-msg" href="">Logout</a></span>
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+{% endblock %}

@@ -1,0 +1,161 @@
+{% extends 'base.html' %}
+ {% load static %}
+{% block content %}
+
+
+
+  <!--<div class="container" style="margin-top: 10%; background-color:whitesmoke ; align-items: center; padding: 50px;">
+
+<h4 style="align-items: center; text-align: center;"> your desired workers</h4>
+
+<div class="container" style="align-items: center; text-align: center;">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+    {% for product in products %}
+   <a href="{% url 'product:detail' product.id %}">
+    <div class="col" style="height: 400px;">
+      <div class="card">
+        <img src="{{ product.image.url }}" class="card-img-top" alt="..." style="height: 300px;">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name}}</h5>
+          <p class="card-text">{{ product.desc }}</p>
+        </div>
+      </div>
+    </div>
+   </a>
+    {% endfor %}
+</div>
+</div>
+
+  </div>-->
+
+
+
+
+    <div class="container" style="margin-top: 10%; background-color:whitesmoke ;">
+
+      <h4 style="align-items: center; text-align: center;"> your desired workers</h4>
+      <!--to be removed-->
+      <div class="conted">
+      
+          <div class="row row-cols-1 row-cols-md-4 g-4">
+            {% for product in prod %}
+            <button onclick="toggleChoice()" class="card" href="">
+            <div class="col" style="height: 400px;">
+              <div class="card">
+                <img src="{{ product.img.url }}" class="card-img-top" alt="..." style="height: 300px;">
+                <div class="card-body">
+                  <h5 class="card-title">{{ product.name}}</h5>
+                  <p class="card-text">{{ product.desc }}</p>
+                </div>
+              </div>
+            </div>
+            </button>
+           
+            {% endfor %}
+        </div>
+      
+
+      </div>
+      
+      <!--d-->
+
+
+      <div id ="choice" class="select-choice">
+         
+        <div class="what-do-want">
+          <h3>What do you want?</h3>
+
+<button onclick="toggleChoice()"  type="button" class="btn btn-danger newB">Back</button>
+
+
+
+        </div>  
+        <div class="choose">
+          <div class="employ">
+            <button ><a href="{% url 'account:login' %}">Request a service </a></button>
+          </div>
+          <div class="job">
+            <button ><a href="{% url 'account:login' %}"> find a job </a></button>
+          </div>
+        </div>
+      </div>
+        </div>
+
+
+
+<hr>
+
+
+<!--<div class="container" style="margin-top: 10%; background-color:whitesmoke ;">
+
+  <h4 style="align-items: center; text-align: center;"> your desired workers</h4>
+ 
+  <div class="cont">
+   
+      <div class="row row-cols-1 row-cols-md-4 g-4">
+        {% for product in prod %}
+        <button onclick="toggleSelect()" class="card" href="">
+        <div class="col" style="height: 400px;">
+          <div class="card">
+            <img src="{{ product.img.url }}" class="card-img-top" alt="..." style="height: 300px;">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name}}</h5>
+              <p class="card-text">{{ product.desc }}</p>
+            </div>
+          </div>
+        </div>
+        </button>
+       
+        {% endfor %}
+    </div>
+    </div>
+
+ 
+  
+  
+
+
+  <div id ="choice" class="select-choice">
+     
+    <div class="what-do-want">
+      <h3>What do you want?</h3>
+
+<button onclick="toggleSelect()"  type="button" class="btn btn-danger newB">Back</button>
+
+
+
+    </div>  
+    <div class="choose">
+      <div class="employ">
+        <button ><a href="{% url 'account:login' %}">Request a service </a></button>
+      </div>
+      <div class="job">
+        <button ><a href="{% url 'account:login' %}"> find a job </a></button>
+      </div>
+    </div>
+  </div>
+    </div>-->
+<!--to be removed-->
+<!--<div class="row">
+  <h2>{{ customer}}</h2>
+  {% for product in products %}
+  <div class="col-lg-4">
+    <img class="thumbnail" src="{{ product.imageURL }}" alt="">
+    <div class="box-element product">
+      <h6><strong>{{ product.name }}</strong></h6>
+      <br>
+      <button data-product="{{product.id}}" data-action
+      ="add" class="btn btn-outline-secondary add-btn update-cart">Add to cart</button>
+      <a href="" class="btn btn-outline-success">view</a>
+      <h4 style="display: inline-block; float: right;">
+      #{{ product.price|floatformat:2 }}</h4>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>-->
+
+
+</body>
+</html>
+{% endblock %}

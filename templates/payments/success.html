@@ -1,0 +1,13 @@
+<h2>items should be displayed here</h2>
+{{confirm}}
+
+
+
+{% for item in confirm.items.all %}
+{{item.product}}
+{{item.product.name}}
+{{item.items.product}}
+
+
+<h2>good work</h2>
+{% endfor%}

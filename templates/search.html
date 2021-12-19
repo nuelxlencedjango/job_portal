@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}  
+{% block content %} 
+
+<div class="container">
+{% for product in item %}
+<div class="card" style="width: 25rem; margin-top: 60px;">
+    <img class="card-img-top" src="{{ products.img.url }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">{{product.desc}}</p>
+      <a href="{% url 'products:product_dest' product.pk %}" class="btn btn-danger">Request the service</a>
+    </div>
+  </div>
+{% endfor %}
+</div>
+  {% endblock %}

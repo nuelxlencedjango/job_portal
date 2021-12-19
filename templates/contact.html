@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% load static %}  
+{% block content %} 
+
+{% load crispy_forms_tags %} 
+
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style>
+
+/* contact us*/
+
+</style>
+
+
+<section class="contact">
+    
+	<div class="content">
+		<h2>Contact Us</h2>
+		<p>Contact us for all your household jobs and professional services</p>
+	</div>
+	<div class="container">
+		<div class="contactInfo">
+			<div class="box">
+				<div class="icon">
+                    <i class="far fa-address-card"></i>
+                </div>
+				<div class="text">
+					<h3>Address</h3>
+					<p>Here will be for office address</p>
+				</div>
+			</div>
+			<div class="box">
+				<div class="icon">
+                    <i class="fas fa-phone-square-alt"></i>
+                </div>
+				<div class="text">
+					<h3>Phone</h3>
+					<p>08079385255 </p>
+					<p>Whatsapp  :8079385255 </p>
+				</div>
+                <div class="text">
+					<h3>Phone</h3>
+					<p>08177206739 </p>
+					<p>Whatsapp  :08177206739 </p>
+				</div>
+			</div>
+			<div class="box">
+				<div class="icon">
+                    <i class="fas fa-envelope-square"></i>
+                </div>
+				<div class="text">
+					<h3>Email</h3>
+					<p>iwanwork@gmail.com</p>
+				</div>
+			</div>
+		
+		</div>
+        <div class="contactForm">
+            <form action="{% url 'products:contact' %}" method="POST">
+                <h2>Send Us A  Message  - {{ message_name }}</h2>
+                {% csrf_token %}
+                <div class="inputBox">
+                    <input type="text" name="message-name" placeholder="Full name" required>
+                    <!--<span>Full Name</span>-->
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="message-phone" placeholder="Phone Number" required>
+                   <!--- <span>Phone</span>-->
+                </div>
+                <div class="inputBox">
+                    <input type="text" name="message-email" placeholder="Email" required>
+                    <!--<span>Email</span>-->
+                </div>
+                <div class="inputBox">
+                    <textarea name="message" placeholder="Type your message here" id="" cols="30" rows="10"></textarea>
+                    <!--<span>Type your message</span>-->
+                </div>
+                <div class="inputBox">
+                    <input type="submit" name="" value="Send">
+                   
+                </div>
+            </form>
+
+        </div>
+	</div>
+</section>
+ <!--font awsome-->
+ 
+
+
+
+<center>
+    <h1> Thanks {{ message_name }}</h1>
+    <p>Email recieved,will contact you soon</p>
+</center>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

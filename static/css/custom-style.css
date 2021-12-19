@@ -1,0 +1,12 @@
+.big-banner{
+    background-size: 100%;
+    
+}
+
+.fresh-content{
+    background: linear-gradient(-45deg,#ec5252,#6e1a52);
+}
+.big-banner{
+    background-color: rgba(0, 0, 0, 0.45);
+    /*opacity: .7;*/
+}

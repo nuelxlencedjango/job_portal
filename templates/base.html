@@ -1,0 +1,471 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.slim.min.js" integrity="sha512-6ORWJX/LrnSjBzwefdNUyLCMTIsGoNP6NftMy2UAm1JBm6PRZCO1d7OHBStWpVFZLO+RerTvqX/Z9mBFfCJZ4A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!--bootstrap-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<!--for registration-->
+  <!-- <link rel="stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" >-->
+   
+   
+   <!--<script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
+
+   <!--animation link-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+   <!-- Bootstrap CSS -->
+   <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous"> -->
+<!--
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+   <link rel="stylesheet" href="{% static 'css/style.css' %}" >
+
+   
+   <script type="text/Javascript">
+    var user = '{{ request.user }}'
+
+    function getToken(name) {
+      var cookieValue = null;
+      if(document.cookie && document.cookie !== ''){
+        var cookies = document.cookie.split(';');
+        for(var i=0; i < cookies.length; i++){
+          var cookie = cookies[i].trim();
+          if (cookie.substring(0, name.length + 1) === (name + '=')){
+            cookieValue = decodeURIComponent(cookie.substring(
+              name.length + 1 ));
+              break;
+          }
+        }
+      }
+      return cookieValue;
+      
+    }
+    var csrftoken = getToken('csrftoken');
+
+    
+    </script>
+
+
+
+<style>
+  .logo{
+    width: 200px;
+    height: 70px;
+    position: absolute;
+    left: 50px;
+    top: 0;
+    content: "";
+  
+  }
+  .welcome{
+    color: whitesmoke;
+    text-align: left;
+    font-size: 28px;
+
+  }
+  
+  .req{
+    color: #ff3838;
+    text-align: left;
+    font-size: 28px;
+  }
+  .req:hover{
+    background-color: whitesmoke;
+  }
+
+</style>
+
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-12">
+        <div class="btn-group">
+       <!--style="margin-bottom: 30px; padding-bottom: 25px; width: 100px; height: 120px; border-radius: 100%;"-->
+      <a class="navbar-brand" href="#"><img src="{%  static 'images/brand2.jpg' %}"  class="img-fluid logo" alt="banner1">
+      </a>
+      <!--<a class="navbar-brand" href="#"><img src="{%  static 'images/brand3.jpg' %}" style="margin-bottom: 30px; padding: 25px;" class="img-fluid" alt="banner1">
+      </a>-->
+     
+         <!-- <button class="btn border dropdown-toggle my-md-4 my-2" data-toggle="dropdown" aria-haspopup="true"
+          aria-expanded="false">Categories</button>-->
+          <div class="dropdown-menu">
+            <a href="{% url 'account:register' %}" class="dropdown-item">Workers</a>
+            <a href="#" class="dropdown-item">employment</a>
+            <a href="#" class="dropdown-item">Services</a>
+            <a href="{% url 'products:contact' %}" class="dropdown-item">Contact us</a>
+
+
+            <a class="dropdown-item" href="{% url 'account:register' %}">partnership</a>
+            <a class="dropdown-item" href="{% url 'account:register' %}">employment</a>
+            <a class="dropdown-item" href="{% url 'products:jobs' %}">request a service</a>
+            <a class="dropdown-item" href="">indoor jobs/services</a>
+            <a class="dropdown-item" href="">outdoor jobs/services</a>
+            
+         
+          </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-12 text-center">
+      <h2 class="my-md-3 site-title ">I-wan-wok.com</h2>
+
+    </div>
+    {% if user.is_authenticated %}
+    <div class="col-md-4 col-12 text-right">
+      <p class="my-md-4 header-links">
+        <a href="{% url 'account:logout' %}" style="font-size: 18px; font-weight: 500;" class="px-2">Logout</a>
+   
+      </p>
+    </div>
+    <h2  class="welcome">Welcome <strong class="req">{{ request.user }}! </strong> </h2>
+  {% else %}
+
+    <div class="col-md-4 col-12 text-right">
+      <p class="my-md-4 header-links">
+        <a href="{% url 'account:login' %}" class="px-2">Login</a>
+        <a href="{% url 'account:registration' %}" class="px-1">Create An Account</a>
+      </p>
+    </div>
+  
+      {% endif %}
+    <!--badge-->
+    <!--<button type="button" class="btn btn-primary position-relative">
+      Inbox
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        99+
+        <span class="visually-hidden">unread messages </span>
+      </span>
+    </button>
+
+    <button type="button" class="btn btn-primary position-relative">
+      Profile
+      <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+        <span class="visually-hidden">New alerts</span>
+      </span>
+    </button>-->
+
+    </div>
+  </div>
+
+  <div class="container-fluid p-0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+       
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'products:home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'account:login' %}">Partners</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products:jobs' %}">Services 24/7</a>
+            </li>
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Categories
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                <a class="dropdown-item" href="{% url 'account:register' %}">partnership</a>
+                <a class="dropdown-item" href="{% url 'account:register' %}">employment</a>
+                <a class="dropdown-item" href="">request a service</a>
+                <a class="dropdown-item" href="">indoor jobs/services</a>
+                <a class="dropdown-item" href="">outdoor jobs/services</a>
+      
+
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products:jobs' %}">Request A Service</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products:orderlist' %}">Cart</a>
+              <div style="color: red;" >{{ request.user }}</div>
+             
+            </li>
+           
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products:contact' %}">Contact us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'products:terms' %}">Terms and conditions</a>
+            </li>
+          </ul>
+          <form action="{% url 'products:search' %}" method="GET" class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+
+
+
+<!--carousel -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{%  static 'images/hairdresser2.jpg' %}" class="img-fluid" alt="banner1">
+      
+      <div class="carousel-caption d-none d-md-block">
+        <h5>First slide label</h5>
+        <p>Some representative placeholder content for the first slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{%  static 'images/evenp1.jpg' %}" class="img-fluid" alt="banner4">
+       
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{%  static 'images/welder2.jpg' %}" class="img-fluid" alt="banner4">
+       
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{%  static 'images/barber2.jpg' %}" class="img-fluid" alt="banner2">
+     
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Second slide label</h5>
+        <p>Some representative placeholder content for the second slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{%  static 'images/elect1.jpg' %}" class="img-fluid" alt="banner3">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{%  static 'images/evenp1.jpg' %}" class="img-fluid" alt="banner4">
+       
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="{%  static 'images/hairdresser2.jpg' %}" class="img-fluid" alt="banner5">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Third slide label</h5>
+        <p>Some representative placeholder content for the third slide.</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!--carousel end -->
+</head>
+
+
+
+
+
+
+<body>
+
+    {% block content %}
+    {% endblock %}
+
+<hr>
+      
+    
+      
+      
+      <div class="container " style="margin-top: 120px;">
+        <div class="row">
+          <div class="col text-center border-right">
+           <div class="col-8 offset-1">
+            <h4>Become a Partner</h4>
+            <p class="lead" style="font-size: 15px;">let us project you to the world </p>
+           <a href="{% url 'account:register' %}" class="btn btn-lg btn-danger">Start Teaching</a>
+           </div>
+         </div>
+      
+         <div class="col text-center">
+             <div class="col-8 offset-1">
+              <h4>Iwanwok for Business</h4>
+              <p class="lead" style="font-size: 15px;">Get unlimited access to numerous Iwanwok’s professionals for your team.</p>
+             <a href="{% url 'account:login' %}" class="btn btn-lg btn-danger">Iwanwok for business</a>
+             </div>
+           </div>
+      
+      
+        </div>
+      </div>
+      
+
+
+    <div class="row" style="font-size: 12px;">
+
+      <div class="col">
+         <ul class="nav justify-content-end">
+             <li class="nav-item">
+               <a class="nav-link active text-info" href="#">Terms</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link text-info" href="#">Privacy and Cookie Police</a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link text-info" href="#">Intellectual Property</a>
+             </li>
+           </ul>
+      
+      </div>
+      </div>
+    <div class="container mt-5">
+      
+
+      <div class="row" style="margin-top: 15rem;">
+        <div class="col">
+           <a href="#" class="btn btn-primary btn-block btn-lg">Services</a>
+        </div>
+        <div class="col">
+           <a href="#" class="btn btn-secondary btn-block btn-lg">Plumber</a>
+         </div>
+         <div class="col">
+           <a href="#" class="btn btn-secondary btn-block btn-lg">Hair slylist</a>
+         </div>
+         <div class="col">
+           <a href="#" class="btn btn-secondary btn-block btn-lg">Mechanic</a>
+         </div>
+         <div class="col">
+           <a href="#" class="btn btn-secondary btn-block btn-lg">Electrician</a>
+         </div>
+         <div class="col">
+           <a href="#" class="btn btn-secondary btn-block btn-lg">Tiler</a>
+         </div>
+        <div class="col">
+        <a href="#" class="btn btn-info btn-block btn-lg">Cook</a>
+        </div>
+        <div class="col">
+         <a href="#" class="btn btn-info btn-block btn-lg">Nanny</a>
+         </div>
+      </div>
+
+</div>
+
+
+<hr>
+
+
+
+
+<div class="row pt-5 px-3 border-top mt-5 " style="font-size: 13px;">
+  <div class="col">
+  
+  
+  <ul class="nav flex-column">
+   <li class="nav-item">
+     <a class="nav-link text-info" href="#"><b>Iwanwok for business</b></a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link text-info" href="#"><b>Become and Instructor</b></a>
+   </li>
+   <li class="nav-item">
+     <a class="nav-link text-info" href="#">Mobile Apps</a>
+   </li>
+  </ul>
+  
+  
+  </div>
+  <div class="col">
+  
+  <ul class="nav flex-column">
+     <li class="nav-item">
+       <a class="nav-link text-info" href="#">About</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link text-info" href="#">Careers</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link text-info" href="#">Blog</a>
+     </li>
+   </ul>
+  
+  </div>
+  <div class="col">
+  
+  <ul class="nav flex-column">
+     <li class="nav-item">
+       <a class="nav-link text-info" href="#">Topics</a>
+     </li>
+     <li class="nav-item">
+      <a class="nav-link" href="{% url 'products:terms' %}">Terms and conditions</a>
+    </li>
+     <li class="nav-item">
+       <a class="nav-link text-info" href="#">Support</a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link text-info" href="#">Affiliate</a>
+     </li>
+   </ul>
+  
+  </div>
+  <div class="col">
+  
+  
+  </div>
+  </div>
+
+ 
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+ <script src="{% static 'js/carousels.js' %}"></script>
+
+<script src="{% static 'js/event.js' %}"></script>
+<script>
+  // In your Javascript (external .js resource or <script> tag)
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+</body>
+</html>
+
+
+
