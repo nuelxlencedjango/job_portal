@@ -46,7 +46,7 @@ def home(request):
     }
 
     #return render(request ,'products/items.html',context)
-    return render(request,'home.html',context)
+    return render(request,'homePage.html',context)
 
 
 
