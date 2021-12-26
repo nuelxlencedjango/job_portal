@@ -187,14 +187,9 @@
    
     }
 
-    span.psw {
-      display: block;
-      float: none;
-      text-align: left;
-      align-items: center;
-   }
-   .cancelbtn {
-      width: 100%;
+   .ido-main{
+     align-items: center;
+     margin-left: 0px;
    }
 
 
