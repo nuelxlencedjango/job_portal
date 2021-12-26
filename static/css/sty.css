@@ -178,6 +178,10 @@
     .col-12{
       margin-top: 70px;
     }
+    .col-md-4 {
+      align-items: center;
+      
+    }
   
     .nav > .nav-btn > label {
       display: inline-block;
@@ -253,7 +257,7 @@
       height: 0px;
     }
     .nav > #nav-check:checked ~ .nav-links {
-      height: calc(70vh - 50px);
+      height: calc(100vh - 50px);
       overflow-y: auto;
     }
   }
