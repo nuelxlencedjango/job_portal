@@ -175,7 +175,9 @@
       background-color:#2b3032a1;
    
     }
-    
+    .col-12{
+      margin-top: 40px;
+    }
   
     .nav > .nav-btn > label {
       display: inline-block;
