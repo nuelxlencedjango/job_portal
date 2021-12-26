@@ -424,13 +424,16 @@
       width: 100%;
       color: white;
     }
-    span.psw {
+    .id01{
+      margin-left: -20px;
+    }
+    /*span.psw {
      display: block;
      float: none;
   }
   .cancelbtn {
      width: 100%;
-  }
+  }*/
 
     /*   */
 
