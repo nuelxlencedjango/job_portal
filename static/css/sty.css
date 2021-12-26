@@ -136,7 +136,7 @@
   }
 
  .nav .nav-links ul a.icon{
- margin-left: 40px;
+ margin-left: 80px;
  margin-right: 10px;
  }
 
@@ -161,12 +161,7 @@
 
 
 
-
-
-
-
-
-
+ 
 
 /* media query here*/
 
@@ -197,6 +192,7 @@
     }
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
       background-color: rgba(0, 0, 0, 0.3);
+      margin-top: 10px;
      
     }
     .nav > .nav-btn > label > span {
