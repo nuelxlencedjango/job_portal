@@ -187,11 +187,7 @@
    
     }
 
-   .id01{
-     align-items: center;
-     margin-left: -50px;
-   }
-
+   
 
     .col-12{
       margin-top: 70px;
@@ -300,16 +296,7 @@
       padding: 13px;
     
     }
-    span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-  .id01{
-    margin-left: -250px;
-  }
+   
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
       background-color: rgba(0, 0, 0, 0.3);
      
@@ -430,13 +417,13 @@
     .id01{
       margin-left: -250px;
     }
-    /*span.psw {
+    span.psw {
      display: block;
      float: none;
   }
   .cancelbtn {
      width: 100%;
-  }*/
+  }
 
     /*   */
 
