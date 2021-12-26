@@ -186,6 +186,17 @@
       background-color:#2b3032a1;
    
     }
+
+    span.psw {
+      display: block;
+      float: none;
+      text-align: left;
+   }
+   .cancelbtn {
+      width: 100%;
+   }
+
+
     .col-12{
       margin-top: 70px;
     }
