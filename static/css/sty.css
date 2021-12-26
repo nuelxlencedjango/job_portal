@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Lato&family=Lobster&family=Montserrat&family=Open+Sans&family=Roboto&display=swap');
-
 * {
     box-sizing: border-box;
 
@@ -11,25 +9,21 @@
     transition: all .2s linear;
     font-family: sans-serif,'Poppins',
   }
-
-
-:root{
-  --light-gray:#2b3032a1;
-  --primary-color:#45ccb8;
-  --border:#2b303218;
-  --text-color:#ff686b;
-  --roboto:"Roboto",san-seerif;
-  --gugi:"Gugi",cursive;
-  --sofia:"Sofia", cursive;
-  --red:#ff3838;
+  :root{
+    --light-gray:#2b3032a1;
+    --primary-color:#45ccb8;
+    --border:#2b303218;
+    --text-color:#ff686b;
+    --roboto:"Roboto",san-seerif;
+    --gugi:"Gugi",cursive;
+    --sofia:"Sofia", cursive;
+    --red:#ff3838;
 }
 
   body {
     margin: 0px;
     font-family: 'segoe ui';
   }
-
-
   header{
     background-color: var(--primary-color);
  
@@ -164,8 +158,32 @@
 }
 
 
+/**/
 
-/* ends here */
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
