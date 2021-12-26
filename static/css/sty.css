@@ -232,7 +232,7 @@
         display: block;
         margin-bottom: 20px;
         padding: 0;
-        margin-top: 0px;
+        margin-top: 2px 2px;
         /*background-color: #333;*/
 
       }
@@ -241,7 +241,7 @@
          
       }
       .nav > .nav-links > ul li a{
-          margin-left: 40%;
+          margin-left: 20px;
       }
 
       .nav .nav-links ul a.icon{
