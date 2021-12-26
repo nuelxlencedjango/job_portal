@@ -191,6 +191,7 @@
       display: block;
       float: none;
       text-align: left;
+      align-items: center;
    }
    .cancelbtn {
       width: 100%;
