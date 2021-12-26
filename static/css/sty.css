@@ -307,6 +307,9 @@
   .cancelbtn {
      width: 100%;
   }
+  .id01{
+    margin-left: -250px;
+  }
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
       background-color: rgba(0, 0, 0, 0.3);
      
