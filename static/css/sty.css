@@ -300,6 +300,13 @@
       padding: 13px;
     
     }
+    span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
       background-color: rgba(0, 0, 0, 0.3);
      
@@ -417,6 +424,13 @@
       width: 100%;
       color: white;
     }
+    span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
 
     /*   */
 
