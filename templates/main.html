@@ -47,7 +47,7 @@
 
 
 <header>
-    <div class="container">
+    <div class="container" id="header">
       <div class="row">
         <div class="col-md-4 col-sm-12 col-12">
           <div class="btn-group">
@@ -388,14 +388,17 @@
     menuQuery =false;
 
 let toggleSelect = function(){
-    let getChoice = document.querySelector("nav-check")
+    let getChoice = document.querySelector("nav-check");
     let getSelect = document.querySelector(".carousel");
+    let getheader = document.querySelector('header');
     //let mt5 = document.querySelector('mt-5')  
   
 
     if(menuQuery === false){
         getSelect.style.visibility = "hidden";
         getSelect.style.transition = "all 0.3s ease-in";
+        getheader.style.visibility ="hiden";
+        getChoice.style.marginTop = "0px";
         //mt5.style.marginTop ="40px";
         menuQuery =true;
 
