@@ -315,8 +315,8 @@ span.psw {
     }
 
    .nav-btn{
-     left: 10px;
-     width: 100%;
+     left: 0px;
+     width: auto;
    }
 
     .col-12{
