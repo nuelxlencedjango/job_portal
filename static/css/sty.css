@@ -360,11 +360,12 @@ span.psw {
       display: block;
       width: 100%;
       background-color:  #45ccb8;
-      height: 20%;
+      height: 10%;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
       top: 50px;
       left: -300px;
+      padding-right: 40px;
       
     
       /*color: #fff;*/
