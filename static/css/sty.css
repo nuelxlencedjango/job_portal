@@ -255,6 +255,12 @@ span.psw {
 
 /* The Close Button (x) */
 
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
 /*login end*/
 
 
