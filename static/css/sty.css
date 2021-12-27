@@ -206,6 +206,11 @@ button:hover {
   position: relative;
 }
 
+img.avatar {
+  width: 20%;
+  border-radius: 50%;
+}
+
 /*login end*/
 
 
