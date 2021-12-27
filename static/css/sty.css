@@ -374,6 +374,7 @@ span.psw {
       display: block;
       width: 100%;
       color: white;
+      padding-top: -50px;
     }
 
     /*   */
