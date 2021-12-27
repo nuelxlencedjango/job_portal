@@ -308,15 +308,12 @@ span.psw {
     .nav > .nav-btn {
       display: inline-block;
       position: absolute;
-     
+      right: 0px;
       top: 0px;
       background-color:#2b3032a1;
-      left: -200px;
    
     }
-    .nav-links{
-      left: 0px;
-    }
+    
 
    .nav-btn{
      left: 0px;
