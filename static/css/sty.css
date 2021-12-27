@@ -287,7 +287,20 @@ span.psw {
   }
 }
 /*login end*/
+.welcome{
+  color: whitesmoke;
+  text-align: left;
+  font-size: 28px;
 
+}
+.req{
+  color: #ff3838;
+  text-align: left;
+  font-size: 28px;
+}
+.req:hover{
+  background-color: whitesmoke;
+}
 
 
 
@@ -529,9 +542,21 @@ span.psw {
       border-top: 2px solid #eee;
     }
 
-
     .nav > .nav-links {
       position: absolute;
+      display: block;
+      width: 100%;
+      background-color:  #2b3032a1;
+      height: 10%;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 50px;
+      left: -300px;
+      padding-right: 40px;
+    }
+
+    .nav > .nav-links {
+      /*position: absolute;
       display: block;
       width: 100%;
       background-color:  #2b3032a1;;
@@ -539,12 +564,14 @@ span.psw {
       transition: all 0.3s ease-in;
       overflow-y: hidden;
       top: 50px;
-      /*left: 0px;*/
+      left: 0px;
       text-align: left;
-      align-items: left;
+      align-items: left;*/
     
       /*color: #fff;*/
     }
+
+
     .nav > .nav-links > ul li a {
       display: block;
       width: 100%;
