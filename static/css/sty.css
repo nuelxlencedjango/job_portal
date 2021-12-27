@@ -340,6 +340,7 @@ span.psw {
     .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
       background-color: rgba(0, 0, 0, 0.3);
       margin-top: 10px;
+      left: 0px;
      
     }
     .nav > .nav-btn > label > span {
