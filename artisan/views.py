@@ -71,7 +71,7 @@ def artisan_update(request):
             form4.save()
 
             messages.success(request,"Successfully updated")
-            return redirect('artsans:confirmed_orders')
+            return redirect('artisan:confirmed_orders')
                
         else:
             messages.warning(request,"Not updated")
