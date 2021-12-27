@@ -314,7 +314,9 @@ span.psw {
    
     }
 
-   
+   .nav-btn{
+     left: -20px;
+   }
 
     .col-12{
       margin-top: 70px;
