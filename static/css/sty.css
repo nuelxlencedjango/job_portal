@@ -226,7 +226,7 @@ span.psw {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
-  left: 300px;
+  left: 30px;
   top: 0;
   width: 500px; /* Full width */
   height: 500px; /* Full height */
@@ -234,7 +234,7 @@ span.psw {
   /*background-color: rgb(0,0,0); *//* Fallback color */
   /*background-color: rgba(0,0,0,0.4); *//* Black w/ opacity */
   padding-top: 60px;
-  padding-left: 150px;
+  padding-left: 30px;
 }
 
 /*login end*/
