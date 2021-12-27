@@ -77,8 +77,8 @@ a {
           <div  class="card-body">
             <!--<h5 class="card-title"><button>Workers/Artisans</button></h5>
             <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>-->
-            <!--<a href="{% url 'artsans:artisanReg' %}"  onclick="myFunction()" class="btn btn-primary"  style="text-align: center; align-items: center; padding: 50px;">Workers/Artisans</a>-->
-            <a href="{% url 'artsans:artisanReg' %}" class="btn btn-primary"  style="text-align: center; align-items: center; padding: 50px;">Workers/Artisans</a>
+            <!--<a href="{% url 'artisan:artisanReg' %}"  onclick="myFunction()" class="btn btn-primary"  style="text-align: center; align-items: center; padding: 50px;">Workers/Artisans</a>-->
+            <a href="{% url 'artisan:artisanReg' %}" class="btn btn-primary"  style="text-align: center; align-items: center; padding: 50px;">Workers/Artisans</a>
           </div>
         </div>
       </div>
@@ -96,7 +96,7 @@ a {
 </div>
 
 <div id="form2" class="container form2" style="width: 500px;  background-color: #2b3032a1; align-items: center; text-align: center; margin-top: 50px;">
-    <form action="{% url 'artsans:artisanReg' %}" method="POST" class="row g-3">
+    <form action="{% url 'artisan:artisanReg' %}" method="POST" class="row g-3">
         {% csrf_token %}
         <div class="col-md-8">
             <label for="inputEmail4" class="form-label"> User</label>
