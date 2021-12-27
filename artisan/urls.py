@@ -6,7 +6,7 @@ from django.contrib.auth import views as auth_views
 
 
 
-app_name = 'artsan'
+app_name = 'artisan'
 
 
 urlpatterns = [
