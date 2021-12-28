@@ -279,7 +279,16 @@ color: #e83e8c;
   color: brown;
   margin-top: 50px;
 }
+.container .row .col-sm-6 .card{
+  background-color: #343a40;
+  
 
+}
+.container .row .col-sm-6 .card .card-body a{ 
+  font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-transform: capitalize;
+}
 
 
 /*employment */
