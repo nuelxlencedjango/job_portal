@@ -272,12 +272,8 @@ td a:hover{
 color: #e83e8c;
   text-decoration: none;
 }
-.desktop-item{
-  display: none;
-}
-.navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: #e83e8c;
-}
+
+
 
 
 /*employment */
