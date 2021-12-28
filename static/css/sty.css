@@ -167,7 +167,7 @@
   width: 15px;
   height: 15px;
 }
-/* not too necessary*/
+/* not too necessary. toggle menu in products*/
 
 .what-do-want{
   color: #fff;
@@ -176,6 +176,107 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
 
+}
+.rn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.newB{
+  position: absolute;
+  left: 5px;
+  top:3%;
+}
+.select-choice{
+  background-color: #343a40;
+  height: 14rem;
+  width: 50%;
+  border: 0em;
+  visibility: hidden;
+  overflow: hidden;
+ 
+  position: absolute;
+  top: 200%;
+
+
+}
+.select-choice a{
+  text-decoration: none;
+  color: #dc3545;
+  /*background-color: #dc3545;*/
+
+}
+.select-option{
+  background-color: #343a40;
+  height: 14rem;
+  width: 50%;
+  border: 0em;
+
+}
+.select-option a{
+  text-decoration: none;
+  color: #dc3545;
+  /*background-color: #dc3545;*/
+
+}
+
+.select-decision{
+  background-color: #343a40;
+  height: 14rem;
+  width: 50%;
+  border: 0em;
+
+}
+.select-decision a{
+  text-decoration: none;
+  color: #dc3545;
+ 
+
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td , th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+td a{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 20px;
+  border: none;
+  color: #343a40;
+}
+td a:hover{
+    text-decoration: none;
+    color: #dc3545;
+}
+.d-flex{
+    color: #fff;
+}
+.ml-2{
+    color: #343a40;
+}
+.ml-2:hover{
+    
+color: #e83e8c;
+  text-decoration: none;
+}
+.desktop-item{
+  display: none;
+}
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #e83e8c;
 }
 
 
@@ -338,14 +439,24 @@
   text-transform: capitalize;
   font-size: 24px;
   /*background-color: #dc3545;*/
+}
 
- 
+.hello-msg{
+  font-size: 18px;
+  color: #fff;
+  margin-right: 20px;
 }
 
 /* */
 .container .my-5 .col-md-4 .w-100{
     height: 200px;
 }
+
+.card-body button{
+  border: none;
+}
+
+
 .form4{
   display: block;
   width: 50%;
