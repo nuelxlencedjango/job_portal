@@ -274,7 +274,11 @@ td a:hover{
 color: #e83e8c;
   text-decoration: none;
 }
-
+.display-44{
+  text-transform: capitalize;
+  color: brown;
+  margin-top: 50px;
+}
 
 
 
