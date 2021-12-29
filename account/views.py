@@ -45,7 +45,7 @@ def loginPage(request):
            
             elif username =="iwanwok" and password =="iwanwok":
                 login(request,user)
-                return redirect('accounts:admin_page')
+                return redirect('account:admin_page')
 
         else:
             messages.info(request, 'Username OR password is incorrect')
@@ -68,12 +68,12 @@ def logoutPage(request):
  
        # if user is not None:
         #    login(request, user)
-         #   return redirect('accounts:admin_page')
+         #   return redirect('account:admin_page')
         #else:
          #   messages.info(request, 'Username OR password is incorrect')
 
    # context = {}
-   # return render(request, 'accounts/login.html', context)
+   # return render(request, 'account/login.html', context)
 
 
 def registerPage(request):
