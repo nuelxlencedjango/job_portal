@@ -217,7 +217,7 @@ def add_to_cart(request, pk):
 
             order_item.save()
             messages.info(request ,"Added additional worker successfully")
-            return redirect("product:orderlist")
+            return redirect("products:orderlist")
 
         else:
             order.items.add(order_item)
