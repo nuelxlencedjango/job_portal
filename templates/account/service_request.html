@@ -1,12 +1,13 @@
 
 {% extends 'main.html' %}
 {% load static %}  
-{% block content %} 
-
 
 {% for message in messages %}
 <p id="messages">{{ message }}</p>
 {% endfor %}
+{% block content %} 
+
+
 
 <div class="container" style="width: 20rem; margin-top: 70px; height: 20rem; background-color:#e9ecef;" >
 
