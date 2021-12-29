@@ -113,7 +113,7 @@ a {
     <form action="{% url 'artisan:artisanReg' %}" method="POST" class="row g-3">
         {% csrf_token %}
         <div class="col-md-8">
-            <label for="inputEmail4" class="form-label"> Usering</label>
+            <label for="inputEmail4" class="form-label"> User</label>
             <input type="text" class="form-control" id="inputusername" name="username" placeholder="username">
 
           </div>
@@ -167,10 +167,11 @@ a {
   
      
         <div class="col-12">
-        <!--<button role="button" class="btn btn-danger btn-lg" style="align-items: center; margin-top: 40px;">Submit</button>-->
+        <button role="button" class="btn btn-danger btn-lg" style="align-items: center; margin-top: 40px;">Submit</button>-->
 
      <a action="" role="button" class="btn btn-danger btn-lg">Submit </a>
-              <!--<button type="submit" class="btn btn-danger">Submit</button>-->
+     <a action="" role="button" class="btn btn-danger btn-lg">Send </a>
+              <button type="submit" class="btn btn-danger">Submit</button>-->
         </div>
       </form>
             
@@ -184,7 +185,7 @@ a {
 <div class="mt-4">
     <div class="d-flex justify-content-center links">
         Already Have An Account? <a href="{% url 'account:login' %}"
-        class="ml-2">Login</a>
+        class="ml-2" style="color: red;">Login</a>
     </div>
 </div>
 </div>
