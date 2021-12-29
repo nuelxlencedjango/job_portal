@@ -147,7 +147,7 @@ input[type=text]:focus, input[type=password]:focus {
   <form action="{% url 'account:register' %}" method="POST" class="row g-3">
       {% csrf_token %}
       <div class="col-md-8">
-          <label for="inputEmail4" class="form-label" >Usernaming</label>
+          <label for="inputEmail4" class="form-label" >Username</label>
           <input type="text" class="form-control" id="inputusername" name="username" placeholder="username">
  
         </div>
@@ -212,9 +212,9 @@ input[type=text]:focus, input[type=password]:focus {
 <!--{{ form2.errors }}-->
 
 <div class="mt-4">
-  <div class="d-flex justify-content-center links">
+  <div class="d-flex justify-content-center links" style="color:black">
       Already Have An Account? <a href="{% url 'account:login' %}"
-      class="ml-2">Login</a>
+      class="ml-2" style="color: red;">Login</a>
   </div>
 </div>
 </div>
