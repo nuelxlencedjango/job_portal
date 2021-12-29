@@ -273,7 +273,6 @@ td a:hover{
 }
 .ml-2{
     color: #343a40;
-    
 }
 .ml-2:hover{
     
@@ -510,7 +509,7 @@ color: #e83e8c;
 
 
 #messages{
-  margin-top: 40px;
+  margin-top: 30px;
   font-size: 35px;
   font-family: monospace;
   background-color: #e91e63;
