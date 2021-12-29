@@ -471,7 +471,7 @@ color: #e83e8c;
 .card-body button{
   border: none;
 }
-#floatingInput{
+.col-md-6 h2{
   font-family: serif;
   background-color: green;
 }
