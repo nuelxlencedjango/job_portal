@@ -473,7 +473,9 @@ color: #e83e8c;
 }
 .col-md-6 h2{
   font-family: serif;
-  background-color: green;
+  color: #ced4da;
+  text-align: center;
+  font-size: 30px;
 }
 
 .col-md-6 .des{
