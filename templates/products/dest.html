@@ -9,6 +9,8 @@
 
 
 
+{% if user.is_authenticated %}
+
 <div class="container" style="margin-top: 70px; background-color:#e9ecef;">
 
     <div class="col-md-10 offset-md-1 mt-5">
@@ -50,28 +52,13 @@
    <!--<button role="button" class="btn btn-danger btn-lg" style="align-items: center; margin-top: 40px;">Submit</button>-->
 
      <a action="" role="button" class="btn btn-danger btn-lg">Submit </a>
+     
+    <button role="button" class="btn btn-danger btn-lg"></button>
     </div>
             </form>
         </div>
     </div>
 </div>
-
-
-
-{% if user.is_authenticated %}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 {{ form.errors }}
