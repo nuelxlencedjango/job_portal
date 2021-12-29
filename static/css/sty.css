@@ -290,7 +290,7 @@ td a:hover{
   font-family:'Playfair Display';
 }
 .mm-3:hover{
-  color: #000;
+  color: #fff;
   background-color: var(--red);
 }
 .mm-2:hover{
