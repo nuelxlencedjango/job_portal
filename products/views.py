@@ -235,7 +235,7 @@ def add_to_cart(request, pk):
             return redirect('products:orderlist')          
     
     else:
-        return render(request ,'account/register.html')   
+        return render(request ,'account/service_request.html')   
         
 
 
