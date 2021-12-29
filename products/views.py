@@ -195,46 +195,51 @@ def product_desc(request, pk):
 
 
 def add_to_cart(request, pk):
-    
+    if request.user.is_authenticated:
+
    
-    product = Product.objects.get(pk=pk)  
+        product = Product.objects.get(pk=pk)  
     
-    order_item,created = OrderItem.objects.get_or_create(
-        product =product,
-        user = request.user,
-        ordered = False,
-        description = request.POST['description'],
+        order_item,created = OrderItem.objects.get_or_create(
+            product =product,
+            user = request.user,
+            ordered = False,
+            description = request.POST['description'],
         #desc = request.POST.get('desc', False),
-        address = request.POST['address'],
+            address = request.POST['address'],
         #address = request.POST.get('address', False),
-        quantity = int(request.POST['quantity']),
+            quantity = int(request.POST['quantity']),
 
-    )
-    order_qs = Order.objects.filter(user=request.user,ordered=False)
-    if order_qs.exists():
-        order =order_qs[0]
-        if order.items.filter(product__pk=pk).exists():
-            order_item.quantity +=1
+            )
+        order_qs = Order.objects.filter(user=request.user,ordered=False)
+        if order_qs.exists():
+            order =order_qs[0]
+            if order.items.filter(product__pk=pk).exists():
+                order_item.quantity +=1
 
-            order_item.save()
-            messages.info(request ,"Added additional worker successfully")
-            return redirect("products:orderlist")
+                order_item.save()
+                messages.info(request ,"Added additional worker successfully")
+                return redirect("products:orderlist")
+
+            else:
+                order.items.add(order_item)
+                messages.info(request ," successfully booked")
+                return redirect("products:orderlist")  
 
         else:
+            ordered_date =timezone.now()
+            order =Order.objects.create(user=request.user, ordered_date=ordered_date)
             order.items.add(order_item)
-            messages.info(request ," successfully booked")
-            return redirect("products:orderlist")  
+            messages.info(request," Successfully booked")
 
+            return redirect('products:orderlist')          
+    
     else:
-        ordered_date =timezone.now()
-        order =Order.objects.create(user=request.user, ordered_date=ordered_date)
-        order.items.add(order_item)
-        messages.info(request," Successfully booked")
-
-        return redirect('products:orderlist')          
-   
-    #return render(request ,'products/desc.html',context)   
+        return render(request ,'products/desc.html')   
         
+
+
+
 
 def orderlist(request):
     if Order.objects.filter(user=request.user, ordered =False).exists():
