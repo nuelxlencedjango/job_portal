@@ -476,7 +476,11 @@ color: #e83e8c;
  
   font-size: 25px;
 }
-
+.col-md-6 p{
+  font-family: serif;
+ 
+  font-size: 25px;
+}
 .col-md-6 .des{
   font-size: 33px;
   font-family: 'Spline Sans';
