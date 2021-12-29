@@ -282,6 +282,14 @@ td a:hover{
   none; 
   font-family: monospace;
 }
+.mm-3{
+  padding-left: 7px; 
+  font-size: 20px; 
+  color: rgb(163, 28, 28); 
+  text-decoration: 
+  none; 
+  font-family: monospace;
+}
 .mm-2:hover{
   background-color:#2b303218;
   color: #fff;
