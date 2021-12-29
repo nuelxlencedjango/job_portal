@@ -16,14 +16,12 @@
 <div class="container">
     <div class="row my-5">
         {% for product in prod %}
-        <a href="#">
         <div class="col-md-4 my-4">
             <img  src="{{ product.img.url }}" alt="" class="w-100">
             <h4 class="my-">{{ product.name}}</h4>
             <p>{{ product.desc}}</p>
             <a href="" class="btn btn-dark btn-md">View detail</a>
         </div>
-        </a>
         {% endfor %}
         <!--<div class="col-md-4 my-4">
             <img src="{% static 'images/photographer2.jpg' %}" alt="" class="w-100">
