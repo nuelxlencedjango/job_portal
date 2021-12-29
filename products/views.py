@@ -222,7 +222,7 @@ def add_to_cart(request, pk):
         else:
             order.items.add(order_item)
             messages.info(request ," successfully booked")
-            return redirect("product:orderlist")  
+            return redirect("products:orderlist")  
 
     else:
         ordered_date =timezone.now()
@@ -230,7 +230,7 @@ def add_to_cart(request, pk):
         order.items.add(order_item)
         messages.info(request," Successfully booked")
 
-        return redirect('product:orderlist')          
+        return redirect('products:orderlist')          
    
     #return render(request ,'products/desc.html',context)   
         
