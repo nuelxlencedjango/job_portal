@@ -274,6 +274,18 @@ td a:hover{
 .ml-2{
     color: #343a40;
 }
+.mm-2{
+  padding-left: 7px; 
+  font-size: 20px; 
+  color: #000; 
+  text-decoration: 
+  none; 
+  font-family: monospace;
+}
+.mm-2:hover{
+  background-color: #e83e8c;
+  color: #fff;
+}
 .ml-2:hover{
     
 color: #e83e8c;
