@@ -1,3 +1,4 @@
+
 * {
     box-sizing: border-box;
 
@@ -7,7 +8,11 @@
     outline: none;
     text-decoration: none;
     transition: all .2s linear;
-    font-family: sans-serif,'Poppins',
+    font-family: sans-serif,'Poppins','Playfair Display', serif;
+    font-family: 'Playfair Display', serif;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Roboto Mono', monospace;
+    font-family: 'Spline Sans', sans-serif;
   }
   :root{
     --light-gray:#2b3032a1;
@@ -468,8 +473,8 @@ color: #e83e8c;
 }
 
 .col-md-6 .des{
-  font-size: 35px;
-  font-family: 'Poppins';
+  font-size: 33px;
+  font-family: 'Roboto Mono';
   margin-top: 20px;
   padding: 20px 20px;
 }
