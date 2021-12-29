@@ -235,7 +235,7 @@ def add_to_cart(request, pk):
             return redirect('products:orderlist')          
     
     else:
-        messages.info(request," Please login before you make a request")
+        messages.info(request,"Request unsuccessful! Please login before you can make a request")
         return render(request ,'account/service_request.html')   
         
 
