@@ -509,13 +509,13 @@ color: #e83e8c;
 
 
 #messages{
-  margin-top: 20px;
+  margin-top: 40px;
   font-size: 35px;
   font-family: monospace;
   background-color: #e91e63;
   color: #fff;
   transition: 2s;
-  padding: 10px 10px;
+  padding: 20px 20px;
 }
 /* product request */
 
