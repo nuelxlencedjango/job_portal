@@ -273,6 +273,9 @@ td a:hover{
 }
 .ml-2{
     color: #343a40;
+    padding-left: 7px; 
+    font-size: 20px; 
+   
 }
 .ml-2:hover{
     
