@@ -508,7 +508,13 @@ color: #e83e8c;
 }
 
 
-
+#messages{
+  font-size: 40px;
+  font-family: monospace;
+  background-color: #e91e63;
+  color: #fff;
+  transition: 2s;
+}
 /* product request */
 
 .display-3{
