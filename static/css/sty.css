@@ -471,6 +471,10 @@ color: #e83e8c;
 .card-body button{
   border: none;
 }
+#floatingInput{
+  font-family: serif;
+  color: #ced4da;
+}
 
 .col-md-6 .des{
   font-size: 33px;
