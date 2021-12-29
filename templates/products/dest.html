@@ -75,54 +75,6 @@
 
 
        
-       
-
-            <form class="display-3" action="{% url 'products:add_to_cart' prod.pk %}"  method="POST" enctype="multipart/form-data" >
-                {% csrf_token %}
-          
-                  <div class="col-lg-4" style="align-items: center; text-align: center;">
-       
-                    <img class="thumbnail" src="{{ prod.img.url }}" alt="" width="500" height="333">
-                  </div>
-
-                <div class="row" style="background-color: #e9ecef; width: 500px; margin-top: 30px; align-items: center;">
-                    <div class="col-md-4" class="form-control" id="floatingInput" style="text-align: center; font-size: 30px; text-transform: capitalize;">
-                        {{ prod.name }}
-                    </div>
-                   
-                    <div class="col-md-8" class="form-control"  id="floatingInput" style="text-align: center; font-size: 30px;">
-                        {{ prod.price}}
-                    </div>
-                </div>
-                <div class="row" style="background-color: #e9ecef; width: 500px; margin-top: 30px; align-items: center;">
-                    <div class="col-md-8">
-                        <label for="inputAddress2" class="form-label" style="font-size: 15px;">Address</label>
-                        <input type="text" class="form-control" id="inputtext" name="address" placeholder="Address">
-                      </div>
-
-                      <div class="col-md-4">
-                        <label for="inputAddress2" class="form-label" style="font-size: 15px;">Number of workers</label>
-    
-                        <input type="number" class="form-control" id="inputtext" name="quantity">
-                      </div>
-
-                </div>
-
-
-<!--<textarea id="w3review" name="w3review" rows="4" cols="50" placeholder="Tell us about the job">
-     </textarea>-->
-
-
-     <div class="col-md-12" style="margin-top: 50px; width: 300px; text-align: center;">
-                        
-        <!--<textarea class="form-control" id="w3review" name="description" rows="4" cols="50" placeholder=" describe what you want to do ">
-              </textarea>-->
-        <textarea class="form-control" name="description"  id="exampleFormControlTextarea1" rows="4" cols="50"   placeholder=" Tell us about the job " style="text-align: center;" ></textarea>
-    
-   
-                <button role="button" class="btn btn-danger btn-lg" style="align-items: center; margin-top: 40px;">Submit</button>
-     </div>
-            </form>
         </div>
     </div>
 </div>
