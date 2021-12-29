@@ -20,7 +20,7 @@
             <img  src="{{ product.img.url }}" alt="" class="w-100">
             <h4 class="my-">{{ product.name}}</h4>
             <p>{{ product.desc}}</p>
-            <a href="" class="btn btn-dark btn-md">View detail</a>
+            <a href="{% url 'products:product_dest' product.id %} " class="btn btn-dark btn-md">View detail</a>
         </div>
         {% endfor %}
         <!--<div class="col-md-4 my-4">
