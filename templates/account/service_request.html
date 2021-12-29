@@ -7,6 +7,10 @@
 
 
 <div class="container" style="width: 20rem; margin-top: 70px; height: 20rem; background-color:#e9ecef;" >
+
+    {% for message in messages %}
+    <p id="messages">{{ message }}</p>
+    {% endfor %}
     <div class="col-md-10 offset-md-1 mt-5" >
         <!--<div class="jumbotron"> 
              <h3 id="form-title" style="text-align: center;">Please login to enable you request the service you want</h3>-->
