@@ -37,7 +37,7 @@ def loginPage(request):
             #obj = Customer.objects.get(user=user.id)
             if Customer.objects.filter(user = user).exists():
                 login(request,user)
-                return redirect('product:jobs')
+                return redirect('products:jobs')
 
             elif Artisan.objects.filter(user = user).exists():
                 login(request,user)
@@ -56,7 +56,7 @@ def loginPage(request):
 
 def logoutPage(request):
     logout(request)
-    return redirect('product:home')
+    return redirect('products:home')
 
 
 #def adminLoginPage(request):
@@ -117,7 +117,7 @@ def update_info(request):
             form2.save()
 
             messages.success(request,"Successfully updated")
-            return redirect('product:orderlist')
+            return redirect('products:orderlist')
             
            
         else:
