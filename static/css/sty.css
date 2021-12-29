@@ -287,11 +287,11 @@ td a:hover{
   font-size: 20px; 
   color: rgb(163, 28, 28); 
   text-decoration:none; 
-  font-family: monospace;
+  font-family:'Playfair Display';
 }
 .mm-3:hover{
   color: #000;
-  background-color: rgb(163, 28, 28);
+  background-color: var(--red);
 }
 .mm-2:hover{
   background-color:#2b303218;
