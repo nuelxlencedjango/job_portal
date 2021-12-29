@@ -147,7 +147,7 @@ input[type=text]:focus, input[type=password]:focus {
   <form action="{% url 'account:register' %}" method="POST" class="row g-3">
       {% csrf_token %}
       <div class="col-md-8">
-          <label for="inputEmail4" class="form-label" >Username</label>
+          <label for="inputEmail4" class="form-label" >Usernaming</label>
           <input type="text" class="form-control" id="inputusername" name="username" placeholder="username">
  
         </div>
@@ -196,11 +196,12 @@ input[type=text]:focus, input[type=password]:focus {
         </div>
 
       <div class="col-12">
-      <button role="button" class="btn btn-danger btn-lg" style="align-items: center; margin-top: 40px;">Submit</button>
+      <!--<button role="button" class="btn btn-danger btn-lg" style="align-items: center; margin-top: 40px;">Submit</button>
+      
+      <button type="submit" class="btn btn-danger">Submit</button>-->
 
      <a action="" role="button" class="btn btn-danger btn-lg">Submit </a>
      
-        <button type="submit" class="btn btn-danger">Submit</button>
       </div>
     </form>
 
