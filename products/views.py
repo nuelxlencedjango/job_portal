@@ -195,6 +195,7 @@ def product_desc(request, pk):
 
 
 def add_to_cart(request, pk):
+    
    
     product = Product.objects.get(pk=pk)  
     
