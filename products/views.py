@@ -102,7 +102,7 @@ def updateOrder(request,pk):
         if form.is_valid():
             form.save()
             message = "Successfully updated your item"
-            return redirect('product:orderlist')
+            return redirect('products:orderlist')
            
         else:
             message = "Not successful.Pls retry!"   
@@ -115,7 +115,7 @@ def updateOrder(request,pk):
 def delete_order(request,pk):
     item = OrderItem.objects.get(pk=pk)
     item.delete()
-    return redirect('product:orderlist')  
+    return redirect('products:orderlist')  
 
 
 
