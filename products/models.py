@@ -247,6 +247,11 @@ class OrderItem(models.Model):
 
 
 
+     
+
+
+
+
 
 class Order(models.Model):
 
@@ -363,4 +368,6 @@ class PaymentDetail(models.Model):
    #   return self.user.username
    
   
+#import os
+#os.getcwd()
       

@@ -127,3 +127,46 @@ let toggleLogin= function(){
     }
    
 }
+
+
+
+//payment inttegration- flutterwaves
+
+
+
+
+const form  = document.getElementById("payForm");
+form.addEventListener("submit", payNow);
+
+function payNow(e){
+    //prevent normal form submission
+    e.preventDefault();
+    
+    // set configurations
+    FlutterwaveCheckout({
+       public_key:"FLWPUBK_TEST-6941e4117be9902646d54ec0509e804c-X",
+       tx_ref: "iwanwok_" +Math.floor((Math.random()*1000000000)+1),
+       amount: document.getElementById("amount").value,
+       currency:"NGN",
+       redirect_url:"https://iwanwok.herokuapp.com/payment_confirmation/",
+       //redirect_url:"https://iwanwok.herokuapp.com",
+       //payment_options:true,
+       //redirect_url:true,
+       customer:{
+           email: document.getElementById("email").value,
+           phone_number:document.getElementById("phoneNumber").value,
+           name:document.getElementById("fullname").value,
+       },
+       callback:function(data){
+           const reference = data.tx_ref;
+           alert("Payment was successfully completed!" + reference);
+           //console.log(data);
+       },
+       customizations: {
+        title: "Iwan_wok",
+        description: "Payment for the services requested"
+        //logo: "https://assets.piedpiper.com/logo.png",
+      },
+       //customizations:true
+    });
+}

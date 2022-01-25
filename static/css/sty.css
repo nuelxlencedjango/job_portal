@@ -648,6 +648,51 @@ span.psw {
   font-weight: bold;
 }
 
+
+
+
+.main-content{
+  margin-top: 50px;
+  width: 80%;
+  margin: auto;
+}
+
+
+
+.main-content h2{
+  text-align: center;
+  color: #dc3545;
+  font-size: 3em;
+
+}
+.main-content label{
+  font-size: 1.5em;
+  color: #45ccb8;
+}
+.main-content input[type=text],input[type=email],input[type=number]{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.main-content input[type=submit]{
+  background: #ff3838;
+  width: 100%;
+  /*font-size: 2em;*/
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.main-content input[type=submit]:hover{
+  background: green;
+ 
+}
+
+
 /* The Close Button (x) */
 
 .close:hover,

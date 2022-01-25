@@ -813,6 +813,9 @@ section .img-fluid{
     width: 80%;
     margin: auto;
 }
+
+
+
 .main-content h2{
     text-align: center;
     color: #dc3545;
@@ -843,7 +846,12 @@ section .img-fluid{
 }
 .main-content input[type=submit]:hover{
     background: green;
+   
 }
+
+
+
+
 /*.site-slider-two .product{
   /*  height: 25rem;
   

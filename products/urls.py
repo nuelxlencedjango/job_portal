@@ -24,20 +24,10 @@ urlpatterns = [
     path('terms/',views.terms_and_conditions, name="terms"),
     path('product_desc/<pk>', views.product_desc, name='product_desc'),
 
-     #path('product_dest/<pk>', views.add_to_shop, name='product_dest'),
-     
-   # path('product/', views.products, name='product'),
-    #path('add_product/', views.add_products, name='add_product'),
     path('product_dest/<pk>', views.product_dest, name='product_dest'),
     #path('add_to_cart/<pk>', views.add_to_cart, name='add_to_cart'),
     path('orderlist/', views.orderlist, name='orderlist'),
-    #path('add_item/<int:pk>', views.add_item, name='add_item'),
-    #path('remove_item/<int:pk>', views.remove_item, name='remove_item'),
-    # path('client_order/<int:id>', views.client_order, name='client_order'),
-    #path('checkout_page/', views.checkout_page, name='checkout_page'),
-
-  
-    #path('check_exist/', views.check_exist, name='check_exist'),
+   
     path('product_desc/<pk>', views.product_desc, name='product_desc'),
     path('add_to_cart/<pk>', views.add_to_cart, name='add_to_cart'),
     path('orderlist/', views.orderlist, name='orderlist'),
@@ -47,6 +37,7 @@ urlpatterns = [
     path('search/', views.search , name='search'),
 
     path('contact/',views.contact ,name='contact'),
+    
     path('payment/', views.payment, name='payment'),
     path('payment_confirmation/', views.payment_confirmation, name='payment_confirmation'),
 

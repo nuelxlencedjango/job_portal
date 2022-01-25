@@ -134,7 +134,7 @@ def updateItem(request):
 
     if action == 'add':
         orderItem.quantity = (orderItem.quantity + 1) 
-        return render(request, 'product/orderlist',context)
+        return render(request, 'product/orderlist')
         message = "Added"
 
     elif action == 'remove':
@@ -416,7 +416,7 @@ def payment_confirmation(request):
       #  try:
     payment_id =request.POST.get("tx_ref")
     
-    order = Order.objects.get(user=request.user, order_id =payment_id,name=order.product.name)
+    order = Order.objects.get(user=request.user, order_id =payment_id,name=order.items.product.name)
    
     order.ordered = True
   
