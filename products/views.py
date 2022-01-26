@@ -416,7 +416,7 @@ def payment_confirmation(request):
       #  try:
     payment_id =request.POST.get("tx_ref")
     
-    order = Order.objects.get(user=request.user, order_id =payment_id,name=order.items.name)
+    order = Order.objects.get(user=request.user, order_id =payment_id,items=order.items.name)
    
     order.ordered = True
   
