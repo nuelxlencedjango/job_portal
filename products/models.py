@@ -247,7 +247,7 @@ class OrderItem(models.Model):
 
 
 
-     
+
 
 
 
@@ -267,7 +267,7 @@ class Order(models.Model):
     
    razorpay_order_id = models.CharField(max_length=50, blank=True,null=True)
 
-   razorpay_payment_id = models.CharField(max_length=50, blank=True,null=True)
+   payment_id = models.CharField(max_length=50, blank=True,null=True)
 
    razorpay_signature = models.CharField(max_length=50, blank=True,null=True)
 

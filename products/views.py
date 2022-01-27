@@ -379,8 +379,7 @@ def payment_confirm(request):
         note ={"stree_address":address.street_address,
            "aprtment_address":address.apartment_address,
            "country":address.country.name,
-           "zip_code":address.zip_code
-     }
+           "zip_code":address.zip_code }
         razorpay_order = razorpay_client.order.create(
          dict(
              amount=order_amount ,
@@ -414,9 +413,15 @@ def payment_confirmation(request):
     #order_item = OrderItem.objects.filter(user=request.user, ordered=False)
     #if request.method == "POST":
       #  try:
+    order_id = order.id  
+    #order_amount = order.get_total_price()
     payment_id =request.POST.get("tx_ref")
+    payment_id = order.payment_id
+
+    #order.save()
     
-    order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
+    order = Order.objects.get(user=request.user, order_id = order_id,payment_id=payment_id)
+    #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
    
     order.ordered = True
   
