@@ -410,7 +410,7 @@ def payment_confirm(request):
 @csrf_exempt
 def payment_confirmation(request):
     order = Order.objects.get(user=request.user, ordered=False)
-    if order.exists():
+    if order:
         messages.info(request,'order found here')
 
         return redirect('/')
