@@ -416,11 +416,25 @@ def payment_confirmation(request):
    
     #order_amount = order.get_total_price()
     payment_id =request.POST.get("tx_ref")
-    payment_id = order.payment_id
-    #context ={'payment_id':payment_id}
+    
 
    
-    return redirect('products:handle_confirmation')
+    
+    order = Order.objects.get(user=request.user, payment_id=payment_id)
+    #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
+   
+    order.ordered = True
+  
+    
+    order.save()
+    
+
+    if order:
+        context ={ 'orderline':order}
+        #order_item.ordered=True
+        #order_item.staus='paid'
+        #order_item.save()
+        return redirect('product:handle_confirmation')
 
     
 
