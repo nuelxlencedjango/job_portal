@@ -410,11 +410,17 @@ def payment_confirm(request):
 @csrf_exempt
 def payment_confirmation(request):
     order = Order.objects.get(user=request.user, ordered=False)
-    id = order.id
-    if id:
-        context ={'id':id}
+    #order_item = OrderItem.objects.filter(user=request.user, ordered=False)
+    #if request.method == "POST":
+      #  try:
+   
+    #order_amount = order.get_total_price()
+    payment_id =request.POST.get("tx_ref")
+    payment_id = order.payment_id
+    context ={'payment_id':payment_id}
 
-        return redirect('products:handle_confirmation')
+   
+    return redirect('product:handle_confirmation')
 
     
 
