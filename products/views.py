@@ -420,7 +420,7 @@ def payment_confirmation(request):
     #context ={'payment_id':payment_id}
 
    
-    return redirect('product:handle_confirmation')
+    return redirect('products:handle_confirmation')
 
     
 
