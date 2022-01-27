@@ -413,13 +413,36 @@ def payment_confirmation(request):
     #order_item = OrderItem.objects.filter(user=request.user, ordered=False)
     #if request.method == "POST":
       #  try:
-    if order:
-        order_id = order.id  
-        context = {
-            'order_id':order_id
-        }
-        return redirect('account:login')
+    order_id = order.id  
+    #order_amount = order.get_total_price()
+    payment_id =request.POST.get("tx_ref")
+    payment_id = order.payment_id
+
+    order.save()
     
+    order = Order.objects.get(user=request.user, order_id = order_id,payment_id=payment_id)
+    #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
+   
+    order.ordered = True
+  
+    
+    order.save()
+    
+
+    if order:
+        context ={ 'orderline':order}
+        #order_item.ordered=True
+        #order_item.staus='paid'
+        #order_item.save()
+        return redirect('product:handle_confirmation')
+
+    
+
+    return render(request,"payments/unsuccessful.html")
+    #paid_services =Order.objects.get(user=request.user, ordered=True,order_id =payment_id)
+    #context ={"paid_services":paid_services}
+        #except:
+            #return HttpResponse("error occurred")  
             
              
 
