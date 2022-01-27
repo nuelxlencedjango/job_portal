@@ -62,10 +62,10 @@ function payNow(e){
      
        //payment_options:true,
        //  country: "US",
-       meta: {
-        consumer_id:document.getElementById("id").value,
+       //meta: {
+        //consumer_id:document.getElementById("id").value,
         //consumer_mac: "92a3-912ba-1192a",
-      },
+      //},
        customer:{
            email: document.getElementById("email").value,
            phone_number:document.getElementById("phoneNumber").value,
