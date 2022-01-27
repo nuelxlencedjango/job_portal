@@ -417,7 +417,7 @@ def payment_confirmation(request):
     #order_amount = order.get_total_price()
     payment_id =request.POST.get("tx_ref")
     payment_id = order.payment_id
-    context ={'payment_id':payment_id}
+    #context ={'payment_id':payment_id}
 
    
     return redirect('product:handle_confirmation')
