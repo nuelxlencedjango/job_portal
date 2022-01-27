@@ -414,7 +414,7 @@ def payment_confirmation(request):
     if id:
         context ={'id':id}
 
-        return redirect('product:handle_confirmation')
+        return redirect('products:handle_confirmation')
 
     
 
