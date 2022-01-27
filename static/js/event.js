@@ -47,6 +47,7 @@ function updateUserOrder(productId, action){
 const form  = document.getElementById("payForm");
 form.addEventListener("submit", payNow);
 
+
 function payNow(e){
     //prevent normal form submission
     e.preventDefault();
@@ -58,9 +59,13 @@ function payNow(e){
        amount: document.getElementById("amount").value,
        currency:"NGN",
        redirect_url:"https://iwanwok.herokuapp.com/payment_confirmation/",
-       //redirect_url:"https://iwanwok.herokuapp.com",
+     
        //payment_options:true,
-       //redirect_url:true,
+       //  country: "US",
+       meta: {
+        consumer_id:document.getElementById("id").value,
+        //consumer_mac: "92a3-912ba-1192a",
+      },
        customer:{
            email: document.getElementById("email").value,
            phone_number:document.getElementById("phoneNumber").value,
@@ -79,3 +84,10 @@ function payNow(e){
        //customizations:true
     });
 }
+
+
+
+
+
+
+
