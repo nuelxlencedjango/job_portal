@@ -49,7 +49,7 @@
 
 <!--ok-->
 
-		{% for order_item in paid_services.items.all %}<tr>
+		{% for order_item in paid_services.all %}<tr>
 			<td>{{ forloop.counter }}</td>
 			<td>{{ order_item.product.name }}</td>
 			
