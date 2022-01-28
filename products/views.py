@@ -434,7 +434,7 @@ def payment_confirmation(request):
         #order_item.ordered=True
         #order_item.staus='paid'
         #order_item.save()
-        return redirect('product:handle_confirmation')
+        return redirect('products:handle_confirmation')
 
     
 
