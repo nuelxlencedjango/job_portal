@@ -20,7 +20,7 @@
 
 
 
-{{hey}}
+
 
 
 <div class="row">
@@ -49,10 +49,36 @@
 
 <!--ok-->
 
-		{% for order_item in paid_services %}<tr>
+		{% for order_item in paid_services<tr>
 			<td>{{ forloop.counter }}</td>
 			<td>{{ order_item.product.name }}</td>
-			
+			<td>{{ order_item.product.price }}</td>
+			<td>{{ order_item.items.quantity}}</td>
+			<td>{{ order_item.start_date }}</td>
+			<td>{{order_item.get_total_price}}</td>
+			<td style="text-align: center;">
+				<!--<p><strong><i class="fas fa-arrow-up"></i></strong></p>
+						<img data-product="{{ item.product.id }}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}" alt="" style="background-color: green; font-size: x-large;">-->
+												
+					<!--<img data-product="{{ item.product.id }}" data-action="remove" class="chg-quantity update-cart" class="chg-quantity" src="{% static 'images/arrow-down.png' %}" alt="" style="background-color: green;">
+					<i class="fas fa-sort"></i>-->
+						
+				
+				<!--<strong><a href="{% url 'products:add_item' order_item.pk %}"><i class="fas fa-sort-up"></i></a></strong>-->
+				{{ order_item.quantity }}
+				
+									
+			</td>		
+									
+			<td>{{order_item.get_total_item_price}}</td>
+			<td>{{order_item.ordered}}</td>
+				
+			<td>{{order_item.date_created}}</td>
+								
+				
+			<!--<td>{{order_item.get_final_price}}</td>
+			<td style="color: tomato;">{{order_item.id}}</td>
+			<td style="color: blue;">{{order_item.pk}}</td>-->
 						
 									
 		</tr>
