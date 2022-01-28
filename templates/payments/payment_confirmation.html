@@ -51,9 +51,9 @@
 
 		{% for order_item in paid_services %}<tr>
 			<td>{{ forloop.counter }}</td>
-			<td>{{ order_item.product.name }}</td>
-			<td>{{ order_item.product.price }}</td>
-			<td>{{ order_item.items.quantity}}</td>
+		
+
+
 			<td>{{ order_item.start_date }}</td>
 			<td>{{order_item.get_total_price}}</td>
 			<td style="text-align: center;">
