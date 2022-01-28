@@ -424,9 +424,11 @@ def payment_confirmation(request):
     #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
    
     order.ordered = True
-  
-    
     order.save()
+
+    #orderitem = OrderItem.objects.get(user=request.user)
+    #orderitem.ordered = True
+    #orderitem.status = 'paid'
     
 
     if order:

@@ -227,6 +227,7 @@ class OrderItem(models.Model):
    #location = models.ForeignKey('artsans.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
    address = models.CharField(max_length=300, null=True,blank=True)
    date_created = models.DateField(auto_now_add = True, null=True, blank=True)
+   #payment_id
    
    class Meta:
       verbose_name_plural='Orderitem'
