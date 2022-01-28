@@ -1,3 +1,4 @@
+from multiprocessing import context
 from os import name
 from django.shortcuts import render,redirect ,get_object_or_404, resolve_url
 from django.contrib import auth, messages
@@ -451,9 +452,9 @@ def payment_confirmation(request):
 def handle_confirmation(request):
     if Order.objects.filter(user=request.user, ordered =True).exists():
         #if OrderItem.objects.filter(user=request.user, ordered=True).exists():
+        hey = "obaject ordered found"
+        context ={'hey':hey}
 
-        paid_services = Order.objects.filter(user=request.user, ordered=True)
-        context ={'paid_services':paid_services}
         return render(request, 'payments/payment_confirmation.html',context) 
         
 
