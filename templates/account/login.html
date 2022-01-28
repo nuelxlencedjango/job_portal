@@ -195,6 +195,10 @@ span.psw {
 <button onclick="toggleLogin().style.display='block'" style="width:auto;">Login</button>
 
 </div>-->
+{% for message in messages %}
+<h3 id="messages">{{ message }}</h3>
+{% endfor %}
+
 
 <div class="container" style="align-items: center; text-align: center;" >
     <h2>Please click the login button </h2>
@@ -237,9 +241,7 @@ span.psw {
       
     </form>
 
-    {% for message in messages %}
-    <p id="messages">{{ message }}</p>
-    {% endfor %}
+ 
 
  
   </div>

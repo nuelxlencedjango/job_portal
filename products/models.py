@@ -307,7 +307,8 @@ class Order(models.Model):
 
                 
    
-
+class PaidServices(models.Model):
+   pass
 
 
 
