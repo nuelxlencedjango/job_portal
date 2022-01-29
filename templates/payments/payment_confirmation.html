@@ -49,6 +49,8 @@
 
 <!--ok-->
 
+
+
 		{% for order_item in paid_services.items.all %}<tr>
 			<td>{{ forloop.counter }}</td>
 			
@@ -81,8 +83,9 @@
 			<td style="color: blue;">{{order_item.pk}}</td>-->
 						
 						
-			
-			<td>{{ order_item.items}}</td>
+			                    
+
+			<td>{{ order_item.items.product}}</td>
 			<td>{{ order_item.product.price }}</td>
 			<td>{{ order_item.items.quantity}}</td>
 		</tr>

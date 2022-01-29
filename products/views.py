@@ -456,7 +456,7 @@ def handle_confirmation(request):
         context ={'paid_services':paid_services}
         return render(request, 'payments/payment_confirmation.html',context) 
         
-
+        #items = order.orderitem_set.all()
         #return render(request ,'payments/pay.html') 
 
     return render(request ,'payments/no_order.html')             
