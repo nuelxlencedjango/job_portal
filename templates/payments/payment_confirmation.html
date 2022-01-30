@@ -68,8 +68,11 @@
 						
 				
 				<!--<strong><a href="{% url 'products:add_item' order_item.pk %}"><i class="fas fa-sort-up"></i></a></strong>-->
-				{{ order_item.quantity }}
-				
+				{{ order_item.items.quantity }}
+				{{order_item.ordered }}
+				{{order_item.user.username }}
+				{{order_item.order_id }}
+				{{order_item.paymment_id }}
 									
 			</td>		
 									
