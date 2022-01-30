@@ -215,6 +215,33 @@ class Product(models.Model):
 
 
 
+{{ order_item.item.title }}
+class Item(models.Model):
+    title = models.CharField(max_length=100)
+    price = models.FloatField()
+
+class OrderItem(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, 
+                                on_delete=models.CASCADE)
+    ordered = models.BooleanField(default=False)
+    item = models.ForeignKey(Item, on_delete=models.CASCADE)
+    quantity = models.IntegerField(default=1)
+    variation = models.ManyToManyField(Variation)
+
+class Order(models.Model):
+    items = models.ManyToManyField(Item, through='OrderItem')
+
+
+
+
+
+
+
+
+
+
+
+
 class OrderItem(models.Model):
 
    user = models.ForeignKey(User, on_delete=models.CASCADE)
