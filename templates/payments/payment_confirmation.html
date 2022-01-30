@@ -51,7 +51,7 @@
 
 
 
-		{% for order_item in orderlist.items.all  %}<tr>
+		{% for order_item in order.items.all  %}<tr>
 			<td>{{ order_item.items.name }}</td>
 			<td>{{ forloop.counter }}</td>
 			
