@@ -465,7 +465,7 @@ def handle_confirmation(request):
 
 def handle(request):
 
-    list_items = OrderItem.objects.filter(user=request)
+    list_items = OrderItem.objects.all()
     #list_items = Order.objects.filter(user=request.user, ordered =True)
     context ={'list_items':list_items}
     return render(request, 'payments/payment_confirmation.html',context) 
