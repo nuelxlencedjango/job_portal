@@ -452,10 +452,10 @@ def handle_confirmation(request):
     if Order.objects.filter(user=request.user, ordered =True).exists():
         #if OrderItem.objects.filter(user=request.user, ordered=True).exists():
 
-        orderlist = Order.objects.filter(user=request.user, ordered=True)
+        order_list = Order.objects.filter(user=request.user, ordered=True)
         #orderlist = paid_services.order_set.all()
        
-        context ={'orderlist':orderlist}
+        context ={'order_list':order_list}
         return render(request, 'payments/payment_confirmation.html',context) 
         
         #items = order.orderitem_set.all()
