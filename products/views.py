@@ -420,7 +420,7 @@ def payment_confirmation(request):
 
    
     
-    order = Order.objects.get(user=request.user, payment_id=payment_id)
+    order = Order.objects.get(user=request.user, payment_id=payment_id,ordered=False)
     #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
    
     order.ordered = True
