@@ -420,16 +420,15 @@ def payment_confirmation(request):
 
    
     
-    order = Order.objects.filter(user=request.user, payment_id=payment_id)
+    order = Order.objects.get(user=request.user, payment_id=payment_id)
     #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
    
     order.ordered = True
     order.save()
 
-    orderitem = OrderItem.objects.get(user=request.user)
-    orderitem.ordered = True
-    orderitem.status = 'paid'
-    orderitem.save()
+    #orderitem = OrderItem.objects.get(user=request.user)
+    #orderitem.ordered = True
+    #orderitem.status = 'paid'
     
 
     if order:
@@ -466,7 +465,7 @@ def handle_confirmation(request):
 
 def handle(request):
 
-    list_items = OrderItem.objects.filter(user=request.user)
+    list_items = OrderItem.objects.filter(user=request)
     #list_items = Order.objects.filter(user=request.user, ordered =True)
     context ={'list_items':list_items}
     return render(request, 'payments/payment_confirmation.html',context) 
