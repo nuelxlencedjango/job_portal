@@ -49,7 +49,7 @@
 
 <!--ok-->
 
-		{% for order_item in order_list.items.all  %}<tr>
+		{% for order_item in order_list_set.all  %}<tr>
 			<td>{{ order_item.items.name }}</td>
 			<td>{{ forloop.counter }}</td>
 			<td style="background-color: green;">{{ order_item.product.name }}</td>
@@ -72,7 +72,7 @@
 				{{order_item.ordered }}
 				{{order_item.user.username }}
 				{{order_item.order_id }}
-				{{order_item.paymment_id }}
+				{{<order_item class="paymment_id"></order_item> }}
 									
 			</td>		
 									
