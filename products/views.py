@@ -410,49 +410,69 @@ def payment_confirm(request):
 @csrf_exempt
 def payment_confirmation(request):
     order = Order.objects.get(user=request.user, ordered=False)
+    #order_item = OrderItem.objects.filter(user=request.user, ordered=False)
+    #if request.method == "POST":
+      #  try:
+   
+    #order_amount = order.get_total_price()
     payment_id =request.POST.get("tx_ref")
     
-    order = Order.objects.filter(user=request.user, payment_id=payment_id)
+
+   
     
+    order = Order.objects.get(user=request.user, payment_id=payment_id)
+    #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
+   
     order.ordered = True
     order.save()
 
-    orderitem = OrderItem.objects.filter(user=request.user,ordered=False)
+    orderitem = OrderItem.objects.get(user=request.user)
     orderitem.ordered = True
     orderitem.status = 'paid'
-    orderitem.saved()
+    orderitem.save()
     
 
     if order:
         context ={ 'orderline':order}
-      
+        #order_item.ordered=True
+        #order_item.staus='paid'
+        #order_item.save()
         return redirect('products:handle_confirmation')
 
+    
+
     return render(request,"payments/unsuccessful.html")
-  
+    #paid_services =Order.objects.get(user=request.user, ordered=True,order_id =payment_id)
+    #context ={"paid_services":paid_services}
+        #except:
+            #return HttpResponse("error occurred")  
             
              
 
 def handle_confirmation(request):
     if Order.objects.filter(user=request.user, ordered =True).exists():
-        order_list = Order.objects.filter(user=request.user, ordered=True)
+        #if OrderItem.objects.filter(user=request.user, ordered=True).exists():
 
+        order_list = Order.objects.filter(user=request.user, ordered=True)
+        #orderlist = paid_services.order_set.all()
+       
         context ={'order_list':order_list}
         return render(request, 'payments/payment_confirmation.html',context) 
         
+        #items = order.orderitem_set.all()
+        #return render(request ,'payments/pay.html') 
 
-    return render(request ,'payments/no_order.html')    
-
-
-
+    return render(request ,'payments/no_order.html')             
 
 def handle(request):
+
     list_items = OrderItem.objects.filter(user=request.user)
+    #list_items = Order.objects.filter(user=request.user, ordered =True)
     context ={'list_items':list_items}
     return render(request, 'payments/payment_confirmation.html',context) 
         
     
-  
+    #return render(request ,'payments/no_order.html') 
    
 
 
