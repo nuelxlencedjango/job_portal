@@ -464,16 +464,18 @@ def handle_confirmation(request):
     return render(request ,'payments/no_order.html')             
 
 def handle(request):
+    item =get_object_or_404(user = request.user, ordered=True)
     #user = request.user
-    list_items = Order.objects.filter(user = request.user,ordered=True)
-   
-    context ={'list_items':list_items}
-    return render(request, 'payments/payment_confirmation.html',context) 
+    list_items = Order.objects.filter(user = request.user,items =item)
+    paid_items = list_items.order_set.all()
+    if paid_items:
+
+        context ={'paid_items':paid_items}
+        return render(request, 'payments/payment_confirmation.html',context) 
         
     
-    #return render(request ,'payments/no_order.html') 
+    return render(request ,'payments/no_order.html') 
    
-
 
 
 @csrf_exempt

@@ -49,11 +49,14 @@
 
 <!--ok-->
 
-		{% for order_item in list_items.items.all  %}<tr>
+		{% for order_item in paid_items  %}<tr>
 			<td>{{ order_item.items.name }}</td>
-			{{order_item.quantity}}
+			<h3 style="color: chartreuse;">
+				{{order_item.quantity}}
 			{{order_item.name}}
 			{{order_item.price}}
+			</h3>
+			{{order_item.product.name}}
 			<td>{{ forloop.counter }}</td>
 			<td style="background-color: green;">{{ order_item.product.name }}</td>
 			
