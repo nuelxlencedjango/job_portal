@@ -52,7 +52,15 @@
 		{% for order_item in list_items  %}<tr>
 			<td>{{ order_item.items.name }}</td>
 			<h3 style="color: chartreuse;">
-				{{order_item.quantity}}
+
+
+           <td>{{order_item.quantity}}</td>
+		    <td>{{ order_item.items.quantity }}</td>
+			
+			>
+		
+
+
 			{{order_item.name}}
 			{{order_item.price}}
 			</h3>
@@ -74,7 +82,7 @@
 						
 				
 				<!--<strong><a href="{% url 'products:add_item' order_item.pk %}"><i class="fas fa-sort-up"></i></a></strong>-->
-				{{ order_item.items.quantity }}
+			
 				{{order_item.ordered }}
 				{{order_item.user.username }}
 				{{order_item.order_id }}
@@ -97,11 +105,10 @@
 			<td>{{ order_item.items }}</td>
 			<td style="color: red;  font-size: 35px;">{{ order_item.items.product.name}}</td>
 			<td>{{ order_item.product.price }}</td>
-			<td>{{ order_item.items.quantity}}</td>
-
-
-			<td>{{ order_item.product.quantity}}</td>
+		
 			<td>{{ order_item.product.name}}</td>
+
+
 		</tr>
 {% endfor %}
 	{{orderlist}}
