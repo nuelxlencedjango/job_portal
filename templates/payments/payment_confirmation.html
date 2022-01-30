@@ -49,10 +49,6 @@
 
 <!--ok-->
 
-<td style="background-color: brown; font-size: 30px;" >{{ orderlist.items }}</td>
-
-<td style="background-color: yellowgreen; font-size: 35px;">{{ orderlist.product.name }}</td>
-
 		{% for order_item in order_list.items.all  %}<tr>
 			<td>{{ order_item.items.name }}</td>
 			<td>{{ forloop.counter }}</td>
