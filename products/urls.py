@@ -41,6 +41,6 @@ urlpatterns = [
     path('payment/', views.payment, name='payment'),
     path('payment_confirmation/', views.payment_confirmation, name='payment_confirmation'),
 
-     path('handle_confirmation/', views.handle_confirmation, name='handle_confirmation'),
+     path('handle_confirmation/', views.handle, name='handle_confirmation'),
 ]
 
