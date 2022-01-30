@@ -464,9 +464,9 @@ def handle_confirmation(request):
     return render(request ,'payments/no_order.html')             
 
 def handle(request):
-    item =get_object_or_404(user = request.user, ordered=True)
+    #item =get_object_or_404(user = request.user, ordered=True)
     #user = request.user
-    list_items = Order.objects.filter(user = request.user,items =item)
+    list_items = Order.objects.filter(user = request.user, ordered =True)
     paid_items = list_items.order_set.all()
     if paid_items:
 
