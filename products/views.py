@@ -478,7 +478,6 @@ def handle(request):
 
 
 
-
 @csrf_exempt
 def handlerequest(request):
     if request.method == "POST":
