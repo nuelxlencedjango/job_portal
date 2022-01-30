@@ -466,7 +466,7 @@ def handle_confirmation(request):
 def handle(request):
     #user = request.user
     list_items = Order.objects.get(user = request.user,ordered=True)
-    paid_items =list_items.Order_set.all()
+    paid_items =list_items.order_set.all()
     if paid_items:
 
         context ={'paid_items':paid_items}
