@@ -412,7 +412,7 @@ def payment_confirmation(request):
     order = Order.objects.get(user=request.user, ordered=False)
     payment_id =request.POST.get("tx_ref")
     
-    order = Order.objects.get(user=request.user, payment_id=payment_id)
+    order = Order.objects.filter(user=request.user, payment_id=payment_id)
     
     order.ordered = True
     order.save()
