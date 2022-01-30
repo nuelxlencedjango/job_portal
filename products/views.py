@@ -466,14 +466,12 @@ def handle_confirmation(request):
 def handle(request):
     #user = request.user
     list_items = Order.objects.filter(user = request.user,ordered=True)
-    paid_items =list_items.order_set.all()
-    if paid_items:
-
-        context ={'paid_items':paid_items}
-        return render(request, 'payments/payment_confirmation.html',context) 
+   
+    context ={'list_items':list_items}
+    return render(request, 'payments/payment_confirmation.html',context) 
         
     
-    return render(request ,'payments/no_order.html') 
+    #return render(request ,'payments/no_order.html') 
    
 
 
