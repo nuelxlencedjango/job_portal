@@ -53,7 +53,7 @@
 
 <td style="background-color: yellowgreen; font-size: 35px;">{{ orderlist.product.name }}</td>
 
-		{% for order_item in orderlist.items.all  %}<tr>
+		{% for order_item in order_list.items.all  %}<tr>
 			<td>{{ order_item.items.name }}</td>
 			<td>{{ forloop.counter }}</td>
 			<td style="background-color: green;">{{ order_item.product.name }}</td>
