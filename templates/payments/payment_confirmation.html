@@ -49,13 +49,17 @@
 
 <!--ok-->
 
+<td style="background-color: brown;">{{ order_item.items }}</td>
 
+<td style="background-color: yellowgreen;">{{ order_item.product.name }}</td>
 
 		{% for order_item in order.items.all  %}<tr>
 			<td>{{ order_item.items.name }}</td>
 			<td>{{ forloop.counter }}</td>
+			<td style="background-color: green;">{{ order_item.product.name }}</td>
 			
 
+			<td style="background-color: blue">{{ order_item.name }}</td>
 			
 			<td>{{ order_item.start_date }}</td>
 			<td>{{order_item.get_total_price}}</td>
@@ -86,7 +90,7 @@
 			<td>{{ order_item.product }}</td>	
 			<td>{{ order_item.items.product}}</td>                 
 			<td>{{ order_item.items }}</td>
-			<td>{{ order_item.items.product.name}}</td>
+			<td style="color: red;">{{ order_item.items.product.name}}</td>
 			<td>{{ order_item.product.price }}</td>
 			<td>{{ order_item.items.quantity}}</td>
 
