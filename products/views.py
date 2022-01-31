@@ -430,6 +430,9 @@ def payment_confirmation(request):
 
         orderitem = OrderItem.objects.filter(user=request.user, ordered=False,status='pending')
         
+        for items in orderitem:
+            print(items)
+        
     
 
     if order:
