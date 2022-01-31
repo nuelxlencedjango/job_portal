@@ -431,6 +431,7 @@ def payment_confirmation(request):
         item.order = True
         item.status = 'paid'
         item.save()
+    orderitem.save()    
     
 
     if order:
