@@ -428,7 +428,7 @@ def payment_confirmation(request):
 
     orderitem = OrderItem.objects.filter(user=request.user, ordered=True,status='paid')
     
-    orderitem.save()
+    #orderitem.save()
     
 
     if order:
