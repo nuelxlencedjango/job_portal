@@ -176,7 +176,7 @@ class AvailableJobs(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        context['jobs'] =Production.objects.all()
+       # context['jobs'] =Production.objects.all()
         context['prod'] =Product.objects.all()
         return context
 
@@ -185,7 +185,7 @@ class AvailableJobs(TemplateView):
         
 
 def product_desc(request, pk):
-    desc = Production.objects.get(pk =pk)
+   # desc = Production.objects.get(pk =pk)
     #prod = Product.objects.get(pk=pk)   
     context ={'desc':desc}
     return render(request ,'products/desc.html',context)   
