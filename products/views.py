@@ -39,10 +39,11 @@ from .forms import *
 
 def home(request):
     #prod = Product.objects.all()
-    products = Production.objects.all()
+    #products = Production.objects.all()
     prod = Product.objects.all()
     context ={
-        'products':products,'prod':prod
+        #'products':products,
+        'prod':prod
     }
 
     #return render(request ,'products/items.html',context)
