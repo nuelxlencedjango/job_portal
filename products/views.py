@@ -326,6 +326,8 @@ def payment(request):
     if Order.objects.filter(user=request.user, ordered =False).exists():
 
         order = Order.objects.get(user=request.user, ordered=False)
+        #from django.db import connection
+        #order.query
         context ={'order':order}
         return render(request, 'payments/payment.html',context) 
 
