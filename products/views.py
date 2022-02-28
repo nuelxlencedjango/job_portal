@@ -412,6 +412,7 @@ def payment_confirm(request):
 
 @csrf_exempt
 def payment_confirmation(request):
+ 
     order = Order.objects.get(user=request.user, ordered=False)
     #order_item = OrderItem.objects.filter(user=request.user, ordered=False)
     #if request.method == "POST":
@@ -479,8 +480,29 @@ def handle_confirmation(request):
 def handle(request):
 
     list_items = Order.objects.filter(user=request.user,ordered=True)
+    #listite =list_items.orderitem_set.all()
+    #lst = list_items.items.product.all()
     #list_items = Order.objects.filter(user=request.user, ordered =True)
-    context ={'list_items':list_items}
+
+
+    #carts = Cart.objects.all()
+
+    #for listitem in list_items:
+     #   if not listitem in list_items.items.all():
+      #      print(listitem)
+    #else:
+     #   cart.items.remove(item
+
+
+    #carts = Cart.objects.all()
+
+    #for cart in carts:
+     #   if not item in cart.items.all():
+       #     cart.items.add(item)
+    #else:
+     #   cart.items.remove(item)
+
+    context ={'list_items':list_items}#,'listitem':listitem}
     return render(request, 'payments/payment_confirmation.html',context) 
         
     

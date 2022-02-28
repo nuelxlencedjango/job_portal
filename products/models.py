@@ -258,7 +258,7 @@ class OrderItem(models.Model):
 
 
 class Order(models.Model):
-
+   #date=models.DateField(auto_now=False,auto_now_add=True)
    user = models.ForeignKey(User, on_delete=models.CASCADE)
    items = models.ManyToManyField(OrderItem)
    start_date = models.DateTimeField(auto_now_add=True)
