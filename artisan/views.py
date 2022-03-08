@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 
 # Create your views here.
@@ -11,6 +12,7 @@ from django.contrib.auth.decorators import login_required
 #from .decorators import unauthenticated_user, allowed_users, admin_only
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import Group
+from products .models import *
 #from .filters import OrderFilter
 
 from .models import *
@@ -85,3 +87,9 @@ def artisan_update(request):
     return render(request,'account/update_artisan_info.html',context)  
 
 
+
+
+def paidJobs(request):
+    services_paid_for = Order.objects.filter(ordered =True)
+    context ={'services_paid_for':services_paid_for}
+    return render(request,'products/paid_services.html',context)
