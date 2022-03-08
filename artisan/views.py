@@ -34,7 +34,7 @@ def artisanRegistration(request):
 
             messages.success(request, 'Account was created for ' , id)
 
-            return redirect('accounts:login')
+            return redirect('account:login')
 
 
        
