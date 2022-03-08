@@ -91,5 +91,7 @@ def artisan_update(request):
 
 def paidJobs(request):
     services_paid_for = Order.objects.filter(ordered =True)
+
     context ={'services_paid_for':services_paid_for}
+    
     return render(request,'products/paid_services.html',context)
