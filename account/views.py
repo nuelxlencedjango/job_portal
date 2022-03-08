@@ -41,7 +41,7 @@ def loginPage(request):
 
             elif Artisan.objects.filter(user = user).exists():
                 login(request,user)
-                return redirect('artsans:confirmed_orders')
+                return redirect('artisan:confirmed_orders')
            
             elif username =="iwanwok" and password =="iwanwok":
                 login(request,user)
