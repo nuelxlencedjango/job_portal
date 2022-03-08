@@ -1,9 +1,10 @@
 {% for service in services_paid_for %}
 
-{ for item  in service.items.all }
+{% for item  in service.items.all %}
 
 {{ item.items.product.name}}
 {% endfor %}
+
 {{ a.ordered }}
 {{ a.order_id }}
 {% endfor %}
