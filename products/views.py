@@ -430,9 +430,9 @@ def payment_confirmation(request):
     order.ordered = True
     order.save()
 
-    if OrderItem.objects.filter(user=request.user, ordered=False,status='pending').exists():
+    #if OrderItem.objects.filter(user=request.user, ordered=False,status='pending').exists():
 
-        return redirect('products:handle_confirmation')
+    return redirect('products:handle_confirmation')
 
         #orderitem = OrderItem.objects.filter(user=request.user, ordered=False,status='pending')
         
@@ -453,7 +453,7 @@ def payment_confirmation(request):
 
     
 
-    return render(request,"payments/unsuccessful.html")
+    #return render(request,"payments/unsuccessful.html")
     #paid_services =Order.objects.get(user=request.user, ordered=True,order_id =payment_id)
     #context ={"paid_services":paid_services}
         #except:
