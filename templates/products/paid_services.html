@@ -1,10 +1,11 @@
 {% for service in services_paid_for %}
 
-{% for item  in service.items.all %}
 
-{{ item.items.product.name}}
-{% endfor %}
+<h3>{{service.items}}</h3>
 
-{{ a.ordered }}
-{{ a.order_id }}
+<h3>{{service.ordered}}</h3>
+<h3>{{service.start_date}}</h3>
+<h3>{{service.order_id}}</h3>
+<h3>{{service.payment_date}}</h3>
+{{service.payment_id}}
 {% endfor %}
