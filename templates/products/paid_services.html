@@ -1,6 +1,12 @@
+
+	
+
+
+                
+
 {% for service in services_paid_for %}
 
-{% for item in service.all %}
+{% for item in service.items.all %}
 <h3>{{item.product.name}}</h3>
 {% endfor %}
 
