@@ -1,7 +1,8 @@
 {% for service in services_paid_for %}
 
-
-<h3>{{service.items.all }}</h3>
+{% for item in service.all %}
+<h3>{{item.product.name}}</h3>
+{% endfor %}
 
 <h3>{{service.ordered}}</h3>
 <h3>{{service.start_date}}</h3>
