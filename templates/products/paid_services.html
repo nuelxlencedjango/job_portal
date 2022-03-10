@@ -136,11 +136,18 @@
 					<!--<th>Final Amount </th>-->
 				</tr>
 
-                {% for order_item in order.items.all %}
+
+
+                {% for service in services_paid_for %}
                 <tr>
 					<td>{{ forloop.counter }}</td>
-					<td>{{ order_item.product.name }}</td>
-                    <td>{{ order_item.product.price }}</td>
+
+                    {% for item in service.items.all %}
+                    <td>{{item.product.name}}</td>
+                    {% endfor %}
+                    
+					<td>{{service.ordered}}</td>
+                    <td>{{service.start_date}}</td>
 					<td style="text-align: center;">
 						<!--<p><strong><i class="fas fa-arrow-up"></i></strong></p>
 								<img data-product="{{ item.product.id }}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}" alt="" style="background-color: green; font-size: x-large;">-->
@@ -155,10 +162,11 @@
 					
 					</td>		
 					
-					<td>{{order_item.get_total_item_price}}</td>
-					<td>{{order_item.ordered}}</td>
+					<td>{{service.order_id}}</td>
+					<td>{{service.order_id}}</td>
 
-					<td>{{order_item.date_created}}</td>
+					<td>{{service.payment_date}}</td>
+                    
 				
 
 					<!--<td>{{order_item.get_final_price}}</td>
