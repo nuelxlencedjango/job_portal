@@ -1,5 +1,8 @@
 
-	
+	{% extends 'main.html' %}
+    {% load static %}  
+    
+    {% block content %} 
 
 
                 
@@ -16,3 +19,202 @@
 <h3>{{service.payment_date}}</h3>
 {{service.payment_id}}
 {% endfor %}
+
+
+
+
+
+
+
+
+
+{% if user %}
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Customer:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'account:update_info' %}">Update Your information</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'products:jobs' %}">Place Order</a>
+
+		</div>
+	</div>
+
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>username: {{user.username}}</p>
+			<p>first name: {{user.first_name}}</p>
+			<p>Phone: {{user.details.phone}}</p>
+		
+			<p>Email: {{user.email}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Orders</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{ order.get_total_count }}</h1>
+		</div>
+	</div>
+
+
+{% endif %}
+
+
+
+
+<br><br>
+{%  include 'status.html' %}
+<link rel="stylesheet" href="{% static 'css/cs.css' %}" >
+
+<br>
+
+
+
+
+
+
+
+
+<br>
+
+
+   
+
+
+
+
+
+<div class="row">
+	<div class="col-md-5">
+		<h5>CUSTOMERS:</h5>
+		<hr>
+		<div class="card card-body">
+			<!--<td colspan="4"><a href="{% url 'products:handle_confirmation' %}" class="btn btn-danger" style="color: whitesmoke; float: right; font-size: 25px;">View paid services</a>-->
+			<a class="btn btn-primary  btn-sm btn-block" style="color: whitesmoke; float: right; font-size: 20px;" href="{% url 'products:handle_confirmation' %}">View Paid Services</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					
+					
+				</tr>
+
+				{% for customer in customers %}
+					<tr>
+						<td><a class="btn btn-sm btn-info" href="">View</a></td>
+						<td>{{user.username}}</td>
+						<td>{{customer.phone}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+		</div>
+	</div>
+	<!--<td><b>{{ object.get_total_count }}</b></td>-->
+
+	<div class="col-md-7">
+		
+		<h5>YOUR LASTEST  ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
+			
+			<table class="table table-sm" style="margin-top: 30px;">
+				<tr>
+					<th>No</th>
+					<th>Product</th>
+					<th>Price</th>
+					
+                    <th>No of workers </th>
+					<th>Total Amount </th>
+					<th>Paid</th>
+                    <th>Date Orderd</th>
+					<!--<th>Final Amount </th>-->
+				</tr>
+
+                {% for order_item in order.items.all %}
+                <tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{ order_item.product.name }}</td>
+                    <td>{{ order_item.product.price }}</td>
+					<td style="text-align: center;">
+						<!--<p><strong><i class="fas fa-arrow-up"></i></strong></p>
+								<img data-product="{{ item.product.id }}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}" alt="" style="background-color: green; font-size: x-large;">-->
+								
+							<!--<img data-product="{{ item.product.id }}" data-action="remove" class="chg-quantity update-cart" class="chg-quantity" src="{% static 'images/arrow-down.png' %}" alt="" style="background-color: green;">
+							<i class="fas fa-sort"></i>-->
+		
+
+						<!--<strong><a href="{% url 'products:add_item' order_item.pk %}"><i class="fas fa-sort-up"></i></a></strong>-->
+						{{ order_item.quantity }}
+
+					
+					</td>		
+					
+					<td>{{order_item.get_total_item_price}}</td>
+					<td>{{order_item.ordered}}</td>
+
+					<td>{{order_item.date_created}}</td>
+				
+
+					<!--<td>{{order_item.get_final_price}}</td>
+					<td style="color: tomato;">{{order_item.id}}</td>
+					<td style="color: blue;">{{order_item.pk}}</td>-->
+		
+					
+					<td><a class="btn btn-sm btn-info" style="padding: 4px;" href="{% url 'products:update_order' order_item.id %}">Update</a></td>
+
+					<td><a class="btn btn-sm btn-danger" style="padding: 4px;" href="{% url 'products:remove_item' order_item.id %}">Delete</a></td>
+				</tr>
+		{% endfor %}
+
+		
+		
+		
+		
+		<!--<tr style="margin-top: 40px; padding: 40px;">
+			<td style="margin-bottom: 40px;"></td>
+			
+			   <td colspan="3" ><b>VAT </b></td>
+			   <td><b>100</b></td>
+			   <td><b>{{ order.get_vat }}</b></td>
+			    
+		   </tr>-->
+		   <tr  style="background-color: black; padding: 30px;">
+			<td></td>
+	   
+			   <td colspan="3" ><b style="color: whitesmoke;"> Amount Before Tax /Amount payable</b></td>
+			   <td style="color: whitesmoke;"><b>{{ order.get_total_price }}</b></td>
+			   <td colspan="4"><a href="{% url 'products:payment' %}" class="btn btn-danger" style="color: whitesmoke; float: right;"> Pay Now</a>
+		   
+			   
+		   
+		   </tr>
+		<!--<tr  style="background-color: black; padding: 30px;">
+			<td></td>
+	   
+			   <td colspan="3" ><b style="color: whitesmoke;">Total Payable Amount </b></td>
+			   <td style="color: whitesmoke;"><b>{{ order.get_final_amount }}</b></td>
+			   <td colspan="4"><a href="" class="btn btn-danger" style="color: whitesmoke; float: right;"> Pay</a>
+		   
+		   </tr>-->
+	
+			</table>
+			
+		
+		</div>
+			
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+
+{% endblock %}
