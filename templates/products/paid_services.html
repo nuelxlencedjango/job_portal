@@ -54,7 +54,7 @@
 <td>{{ forloop.counter }} </td>
 
 {% for item in service.items.all %}
-<h3>{{item.product.name}} &nbsp;<a href="" class="btn btn-success">accept</a> &nbsp;<a href="" class="btn btn-success">decline</a> </h3>
+<h3>{{item.product.name}} &nbsp;<a href="" class="btn btn-success">accept</a> &nbsp;<a href="" class="btn btn-danger">decline</a> </h3>
 
 <td><a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a></td>
 {% endfor %}
