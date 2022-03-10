@@ -52,9 +52,12 @@
 {% for service in services_paid_for %}
 <tr>
 <td>{{ forloop.counter }} </td>
+<a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a>
 {% for item in service.items.all %}
-<h3>{{item.product.name}}
-    <td><a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a></td> </h3>
+<a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a>
+<h3>{{item.product.name}}<a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a> </h3>
+
+<td><a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a></td>
 {% endfor %}
 </tr>
 {% endfor %}
