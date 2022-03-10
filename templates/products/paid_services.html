@@ -7,24 +7,7 @@
 
 
 
-    <div>  
-        <h1>Insert Data, Update Data and Delete Data In HTML5</h1>  
-        <input type="hidden" id="id" />  
-        <b>First name:</b><input type="text" id="firstName" /><br />  
-        <b>Last name:</b><input type="text" id="lastName" /><br />  
-        <b>City:</b><input type="text" id="city" /><br />  
-        <b>State:</b><input type="text" id="state" /><br />  
-        <b>Phone:</b>  
-        <input type="text" id="phone" /><br />  
-        <b>Email:</b><input type="text" id="email" /><br />  
-        <button onclick="InsertData()">Insert Data</button>  
-        <button onclick="UpdateData()">Update Data</button>  
-        <button onclick="ClearData()">Clear</button>  
-        <br />  
-        <br />  
-        <br />  
-        <div id="details"></div>  
-    </div>
+    
                 
 
 {% for service in services_paid_for %}
@@ -69,10 +52,11 @@
 {% for service in services_paid_for %}
 <tr>
 <td>{{ forloop.counter }} </td>
-<td><a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a></td>
 {% for item in service.items.all %}
-<h3>{{item.product.name}}</h3>
+<h3>{{item.product.name}}
+    <td><a href="" class="btn btn-danger">accept</a><a href="" class="btn btn-danger">decline</a></td> </h3>
 {% endfor %}
+</tr>
 {% endfor %}
 </table>
 </div>
