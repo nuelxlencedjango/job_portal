@@ -8,21 +8,7 @@
 
 
     
-                
-
-{% for service in services_paid_for %}
-<td>{{ forloop.counter }}</td>
-{% for item in service.items.all %}
-<h3>{{item.product.name}}</h3>
-{% endfor %}
-
-<h3>{{service.ordered}}</h3>
-<h3>{{service.start_date}}</h3>
-<h3>{{service.order_id}}</h3>
-<h3>{{service.payment_date}}</h3>
-{{service.payment_id}}
-{% endfor %}
-
+       
 
 
 
