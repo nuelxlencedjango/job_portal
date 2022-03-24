@@ -430,7 +430,7 @@ def payment_confirmation(request):
     order.ordered = True
     order.save()
 
-    if OrderItem.objects.get(user=request.user, ordered=False,status='pending'):
+    if OrderItem.objects.get(user=request.user, ordered=False,status='Pending'):
         
         OrderItem.ordered=True
         OrderItem.status ='paid'
