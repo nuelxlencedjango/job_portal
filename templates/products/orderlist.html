@@ -71,11 +71,12 @@
 
 <div class="row">
 	<div class="col-md-5">
-		<h5>CUSTOMERS:</h5>
-		<hr>
+		
+	<br>
+	<br>
 		<div class="card card-body">
 			<!--<td colspan="4"><a href="{% url 'products:handle_confirmation' %}" class="btn btn-danger" style="color: whitesmoke; float: right; font-size: 25px;">View paid services</a>-->
-			<a class="btn btn-primary  btn-sm btn-block" style="color: whitesmoke; float: right; font-size: 20px;" href="{% url 'products:handle_confirmation' %}">View Paid Services</a>
+			<a class="btn btn-primary  btn-sm btn-block" style="color: whitesmoke; float: right; font-size: 20px;" href="{% url 'products:handle_confirmation' %}">Your previous  Paid Services</a>
 			<table class="table table-sm">
 				<tr>
 					<th></th>
@@ -83,13 +84,14 @@
 					
 				</tr>
 
-				{% for customer in customers %}
+				<!--{% for customer in customers %}
 					<tr>
 						<td><a class="btn btn-sm btn-info" href="">View</a></td>
 						<td>{{user.username}}</td>
 						<td>{{customer.phone}}</td>
 					</tr>
-				{% endfor %}
+				
+				{% endfor %}-->
 
 			</table>
 		</div>
@@ -101,7 +103,7 @@
 		<h5>YOUR LASTEST  ORDERS</h5>
 		<hr>
 		<div class="card card-body">
-			<a class="btn btn-primary  btn-sm btn-block" href="">Create Order</a>
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'products:jobs' %}">Create Order</a>
 			
 			<table class="table table-sm" style="margin-top: 30px;">
 				<tr>
@@ -164,6 +166,7 @@
 			   <td><b>{{ order.get_vat }}</b></td>
 			    
 		   </tr>-->
+		   {% if order.get_total_price  %}
 		   <tr  style="background-color: black; padding: 30px;">
 			<td></td>
 	   
@@ -174,6 +177,7 @@
 			   
 		   
 		   </tr>
+		   {% endif %}
 		<!--<tr  style="background-color: black; padding: 30px;">
 			<td></td>
 	   

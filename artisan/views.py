@@ -58,7 +58,7 @@ def artisanRegistration(request):
 
 
 def confirmedOrders(request):
-    return render(request ,'available_order.html')  
+    return render(request ,'artisans/available_jobs.html')  
 
 
 
@@ -89,9 +89,22 @@ def artisan_update(request):
 
 
 
+
+
+
 def paidJobs(request):
+    artisan = Artisan.objects.filter(user=request.user)
+    
+    phone = request.user.artisan.location
+    area = request.user.artisan.address
+
     services_paid_for = Order.objects.filter(ordered =True)
 
-    context ={'services_paid_for':services_paid_for}
+    areaJobs = Order.objects.filter(Q(location__icontains=area) | Q(address__icontains=phone) )
+
+    #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':areaJobs}
+   
+
+    context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':phone ,'area':area}
 
     return render(request,'products/paid_services.html',context)

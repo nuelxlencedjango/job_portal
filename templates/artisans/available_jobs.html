@@ -1,0 +1,127 @@
+
+    {% extends 'main.html' %}
+    {% load static %}  
+    
+    {% block content %} 
+
+
+
+
+ <!--<button type="button" class="btn btn-primary position-relative">
+      Inbox
+      <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        99+
+        <span class="visually-hidden">unread messages</span>
+      </span>
+    </button>
+
+
+    <button type="button" class="btn btn-primary position-relative">
+      Profile
+      <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+        <span class="visually-hidden">New alerts</span>
+      </span>
+    </button>-->
+
+
+
+
+
+    
+    
+    
+    
+    
+    {% if user %}
+    <div class="row">
+      <div class="col-md">
+        <div class="card card-body">
+         
+          <hr>
+          <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'artisan:artisan_update' %}">Update Your information</a>
+   
+    
+        </div>
+      </div>
+    
+    
+      <div class="col-md">
+        <div class="card card-body">
+          <h5>Contact Information</h5>
+          <hr>
+          <p>username: {{user.username}}</p>
+          <p>Full name: {{user.first_name}} &nbsp; {{user.last_name}}</p>
+          <p>Phone: {{user.artisan.phone}}</p>
+          <p>NIN: {{user.artisan.nin}}</p>
+         
+          <p>Email: {{user.email}}</p>
+          <p>Address: {{user.artisan.address}}</p>
+        </div>
+      </div>
+    
+      <div class="col-md">
+        <div class="card card-body">
+          <!--<h5>Total Orders</h5>-->
+          <hr>
+          <h1 style="text-align: center;padding: 10px">{{ order.get_total_count }}</h1>
+        </div>
+      </div>
+    
+    
+    {% endif %}
+    
+    
+    
+    
+    <br>
+    {%  include 'status.html' %}
+    <link rel="stylesheet" href="{% static 'css/cs.css' %}" >
+    
+    <br>
+    
+    
+    
+    <div class="row" style="margin-top: 40px;">
+      <div class="col-md-5">
+       
+        <div class="card card-body">
+          <a class="btn btn-primary  btn-sm btn-block" href="{% url 'artisan:paidJobs' %}" style="margin-top: 40px; font-size: 24px;">Available jobs in your area</a>
+   
+        </div>
+      </div>
+      <!--<td><b>{{ object.get_total_count }}</b></td>-->
+      <div class="col-md-7">
+        
+       
+        <div class="card card-body">
+          <a class="btn btn-primary  btn-sm btn-block" href="">Service Completed </a>
+          
+          <table class="table table-sm" style="margin-top: 30px;">
+            <tr>
+              <th>No</th>
+              <th>Service</th>
+              <th>Address</th>
+              <th>Date </th>
+              <th>Price</th>        
+            </tr>
+
+            <!--data -->
+            <tr>
+            </tr>
+          <!--end-->
+
+
+          </table>
+          
+        
+        </div>
+          
+        </div>
+        
+      </div>
+    </div>
+    
+    
+    
+    
+    {% endblock %}    
