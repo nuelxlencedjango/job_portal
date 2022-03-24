@@ -430,11 +430,11 @@ def payment_confirmation(request):
     order.ordered = True
     order.save()
 
-    if OrderItem.objects.filter(user=request.user, ordered=False,status='Pending'):
+    items= OrderItem.objects.filter(user=request.user, ordered=False,status='Pending')
         
-        OrderItem.ordered=True
-        OrderItem.status ='Paid'
-        OrderItem.save()
+        items.ordered=True
+        items.status ='Paid'
+        items.save()
 
     return redirect('products:handle_confirmation')
 
