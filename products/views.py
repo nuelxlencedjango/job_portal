@@ -494,7 +494,7 @@ def handle_confirmation(request):
 
 def handle(request):
 
-    list_items = OrderItem.objects.filter(user=request.user,ordered=True)#.order_by('-date_created')
+    list_items = Order.objects.filter(user=request.user,ordered=True)#.order_by('-date_created')
     #listite =list_items.orderitem_set.all()
     #lst = list_items.items.product.all()
     #list_items = Order.objects.filter(user=request.user, ordered =True)
