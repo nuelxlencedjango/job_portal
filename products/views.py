@@ -472,8 +472,8 @@ def payment_confirmation(request):
 def handle_confirmation(request):
     if Order.objects.filter(user=request.user, ordered =True).exists():
         #if OrderItem.objects.filter(user=request.user, ordered=True).exists():
-        OrderItem.objects.filter(user=request.user,ordered=False)
-        OrderItem.ordered =True
+        #OrderItem.objects.filter(user=request.user,ordered=False)
+        #OrderItem.ordered =True
 
         order_list = Order.objects.filter(user=request.user, ordered=True)
         #orderlist = paid_services.order_set.all()
