@@ -434,7 +434,7 @@ def payment_confirmation(request):
     #ordered = True
     #status = 'Paid'
 
-    if OrderItem.objects.filter(user=request.user, ordered=False):
+    if OrderItem.objects.filter(user=request.user, ordered=False,status='Pending'):
 
         OrderItem.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
             #object.ordered = True
