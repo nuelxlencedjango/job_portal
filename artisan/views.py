@@ -95,16 +95,16 @@ def artisan_update(request):
 def paidJobs(request):
     artisan = Artisan.objects.filter(user=request.user)
     
-    phone = request.user.artisan.location
-    area = request.user.artisan.address
+    job_location = request.user.artisan.location
+    job_address = request.user.artisan.address
 
-    services_paid_for = Order.objects.filter(ordered =True)
+    services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
 
-    areaJobs = Order.objects.filter(Q(location__icontains=area) | Q(address__icontains=phone) )
+    areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
 
     #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':areaJobs}
    
 
-    context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':phone ,'area':area}
+    context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':phone ,'area':area ,'areaJobs':areaJobs}
 
     return render(request,'products/paid_services.html',context)

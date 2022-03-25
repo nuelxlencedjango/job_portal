@@ -26,16 +26,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import *
 
-# to be removed
-#razorpay_client = razorpay.Client(auth=(settings.razorpay_id, settings.razorpay_screet))
 
-# Create your views here.
-
-# heroku ps:scale web=1 
-#heroku buildpacks:clear
-#git commit --allow-empty -m "Adjust buildpacks on Heroku
-#
-# git push heroku main
 
 def home(request):
     #prod = Product.objects.all()
@@ -46,7 +37,6 @@ def home(request):
         'prod':prod
     }
 
-    #return render(request ,'products/items.html',context)
     return render(request,'homePage.html',context)
 
 
@@ -414,112 +404,57 @@ def payment_confirm(request):
 def payment_confirmation(request):
  
     order = Order.objects.get(user=request.user, ordered=False)
-    #order_item = OrderItem.objects.filter(user=request.user, ordered=False)
-    #if request.method == "POST":
-      #  try:
-   
-    #order_amount = order.get_total_price()
+    #get payment receipt from flutter wave
     payment_id =request.POST.get("tx_ref")
     
-
-   
-    
-    order = Order.objects.get(user=request.user, payment_id=payment_id,ordered=False)
-    #order = Order.objects.get(user=request.user, order_id =payment_id,name=order.name)
-   
+    order = Order.objects.get(user=request.user, payment_id=payment_id,ordered=False) 
     order.ordered = True
     order.save()
 
-    
-  
-
+    #orderItem goods
     if OrderItem.objects.filter(user=request.user, ordered=False,status='Pending'):
-
         OrderItem.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
-            #object.ordered = True
-            #object.status = 'Paid'
-            #object.save()
-        return redirect('products:handle_confirmation')
+
+        if OrderItem.objects.filter(user=request.user, ordered=True,status='Paid'):
+           
+            return redirect('products:handle_confirmation')
+
+        else:
+            return render(request,'payments/no_order.html')    
        
         
-   
-   #change the url here
     return redirect('products:home')
 
-        #orderitem = OrderItem.objects.filter(user=request.user, ordered=False,status='pending')
-        
-        #for items in orderitem:
-         #   items.ordered =True
-          #  items.status ='paid'
-           # items.saved()
- 
-    #if order:
-     #   context ={ 'orderline':order}
-        #order_item.ordered=True
-        #order_item.staus='paid'
-        #order_item.save()
-
-    
-
-    #return render(request,"payments/unsuccessful.html")
-    #paid_services =Order.objects.get(user=request.user, ordered=True,order_id =payment_id)
-    #context ={"paid_services":paid_services}
-        #except:
-            #return HttpResponse("error occurred")  
+       
+  
             
              
 
 def handle_confirmation(request):
     if Order.objects.filter(user=request.user, ordered =True).exists():
-        #if OrderItem.objects.filter(user=request.user, ordered=True).exists():
-        #OrderItem.objects.filter(user=request.user,ordered=False)
-        #OrderItem.ordered =True
 
-        order_list = Order.objects.filter(user=request.user, ordered=True)
-        #orderlist = paid_services.order_set.all()
-       
+        order_list = Order.objects.filter(user=request.user, ordered=True)   
         context ={'order_list':order_list}
+
         return render(request, 'payments/payment_confirmation.html',context) 
         
-        #items = order.orderitem_set.all()
-        #return render(request ,'payments/pay.html') 
 
     return render(request ,'payments/no_order.html')             
 
 
+
 def handle(request):
 
-    list_items = Order.objects.filter(user=request.user,ordered=True).order_by('-datetime_ofpayment')#,status='Paid').order_by('-date_created')
-    #listite =list_items.orderitem_set.all()
-    #lst = list_items.items.product.all()
-    #list_items = Order.objects.filter(user=request.user, ordered =True)
-
-
-    #carts = Cart.objects.all()
-
-    #for listitem in list_items:
-     #   if not listitem in list_items.items.all():
-      #      print(listitem)
-    #else:
-     #   cart.items.remove(item
-
-
-    #carts = Cart.objects.all()
-
-    #for cart in carts:
-     #   if not item in cart.items.all():
-       #     cart.items.add(item)
-    #else:
-     #   cart.items.remove(item)
+    list_items = Order.objects.filter(user=request.user,ordered=True).order_by('-datetime_ofpayment')
 
     context ={'list_items':list_items}#,'listitem':listitem}
     return render(request, 'payments/payment_confirmation.html',context) 
         
     
-    #return render(request ,'payments/no_order.html') 
-   
+    
 
 
+# to be removed
 @csrf_exempt
 def handlerequest(request):
     if request.method == "POST":
@@ -562,24 +497,8 @@ def handlerequest(request):
                     return render(request, "paymentfail.html") 
         except:
             return HttpResponse("error occurred")             
-    #Order.save()
 
-        #context = {'order':order}
-        #if order:
-            #order.ordered=True
-            #order.save()
-       
-            #    mes = "there are orders"
-           # else:
-             #   mes ="wrong logic"    
-                #confirmed_order  = Order.objects.get(user=request.user, ordered=True)
 
-                #context ={'confirmed_order ':confirmed_order }
-
-                #messages.info(request ,"Payment was successfully")
-            #return render(request,'payments/payment_confirmation.html')
-
-    #return render(request,'payments/pay.html',{'nothing':'nothig'})    
 
 def cartContent(request):
     if request.user.is_authenticated():
