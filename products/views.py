@@ -431,8 +431,7 @@ def payment_confirmation(request):
     order.save()
 
     
-    #ordered = True
-    #status = 'Paid'
+  
 
     if OrderItem.objects.filter(user=request.user, ordered=False,status='Pending'):
 
@@ -443,12 +442,8 @@ def payment_confirmation(request):
         return redirect('products:handle_confirmation')
        
         
-    #items.ordered=True
-    #items.status ='Paid'
-    #items.save()
-
-
    
+   #change the url here
     return redirect('products:home')
 
         #orderitem = OrderItem.objects.filter(user=request.user, ordered=False,status='pending')
@@ -494,7 +489,7 @@ def handle_confirmation(request):
 
 def handle(request):
 
-    list_items = Order.objects.filter(user=request.user,ordered=True)#.order_by('-date_created')
+    list_items = OrderItem.objects.filter(user=request.user,ordered=True,status='Paid').order_by('-date_created')
     #listite =list_items.orderitem_set.all()
     #lst = list_items.items.product.all()
     #list_items = Order.objects.filter(user=request.user, ordered =True)
