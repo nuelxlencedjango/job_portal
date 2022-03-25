@@ -434,7 +434,6 @@ def payment_confirmation(request):
     ordered = True
     status = 'Paid'
 
-
     items= OrderItem.objects.filter(user=request.user, ordered=ordered,status=status)
     for object in items:
         object.save()
@@ -490,7 +489,7 @@ def handle_confirmation(request):
 
 def handle(request):
 
-    list_items = Order.objects.filter(user=request.user,ordered=True)
+    list_items = Order.objects.filter(user=request.user,ordered=True).order_by('-date_created')
     #listite =list_items.orderitem_set.all()
     #lst = list_items.items.product.all()
     #list_items = Order.objects.filter(user=request.user, ordered =True)
