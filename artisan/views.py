@@ -111,7 +111,7 @@ def paidJobs(request):
     #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':areaJobs}
    
 
-        context ={'areaJobs':areaJobs}
+        context ={'areaJobs':areaJobs,"job_location":job_location, 'job_address':job_address}
 
         return render(request,'products/paid_services.html',context)
 
