@@ -99,8 +99,6 @@ def paidJobs(request):
     job_location = request.user.artisan.location
     job_address = request.user.artisan.address
 
-    #profession_name = request.user.artisan.profession
-
     services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
 
     areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
