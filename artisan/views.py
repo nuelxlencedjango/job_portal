@@ -108,4 +108,6 @@ def paidJobs(request):
 
     context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
 
+
+    
     return render(request,'products/paid_services.html',context)
