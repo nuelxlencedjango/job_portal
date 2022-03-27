@@ -101,19 +101,13 @@ def paidJobs(request):
 
     #profession_name = request.user.artisan.profession
 
-    #services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
-    #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':phone ,'area':area ,'areaJobs':areaJobs}
+    services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
 
-    if OrderItem.objects.filter(ordered =True,status='Paid'):
-        areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
-
+    areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
 
     #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':areaJobs}
    
 
-        context ={'areaJobs':areaJobs,"job_location":job_location, 'job_address':job_address}
+    context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
 
-        return render(request,'products/paid_services.html',context)
-
-
-    return render(request,'products/paid_services.html')    
+    return render(request,'products/paid_services.html',context)
