@@ -14,8 +14,9 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import Group
 from products .models import *
 from django.db.models import Q 
-#from .filters import OrderFilter
 
+
+#from .filters import OrderFilter
 from .models import *
 from .forms import *
 
@@ -98,13 +99,21 @@ def paidJobs(request):
     job_location = request.user.artisan.location
     job_address = request.user.artisan.address
 
-    services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
+    #profession_name = request.user.artisan.profession
 
-    areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
+    #services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
+    #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':phone ,'area':area ,'areaJobs':areaJobs}
+
+    if OrderItem.objects.filter(ordered =True,status='Paid'):
+        areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
+
 
     #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':areaJobs}
    
 
-    context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':phone ,'area':area ,'areaJobs':areaJobs}
+        context ={'areaJobs':areaJobs}
 
-    return render(request,'products/paid_services.html',context)
+        return render(request,'products/paid_services.html',context)
+
+
+    return render(request,'products/paid_services.html')    

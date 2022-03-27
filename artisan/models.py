@@ -9,6 +9,7 @@ from django.dispatch import receiver
 from PIL import Image
 
 from django.contrib.auth.models import AbstractUser
+from cloudinary.models import CloudinaryField
 
 #from django.contrib.auth import get_user_model
 
@@ -115,8 +116,8 @@ class Area(models.Model):
 class Profession(models.Model):
    name =models.CharField(max_length=200, null=False, unique = True)
 
-    def __str__(self):
-      return str(self.user.name)
+   def __str__(self):
+      return str(self.name)
 
 
 
@@ -130,9 +131,12 @@ class Artisan(models.Model):
    address = models.CharField(max_length=200, null=True)
    phone = models.CharField(max_length=15, null=True,unique=True)
 
-   #profession_name = models.CharField(Area ,on_delete =models.CASCADE ,null=True,blank=True))
-   #profile_img = CloudinaryField(blank=True,null=True)
-   date_created = models.DateTimeField(auto_now_add=True, null=True)
+   profession_name = models.ForeignKey(Profession ,on_delete =models.CASCADE ,null=True,blank=True)
+   profile_img = CloudinaryField(blank=True,null=True)
+
+   #date_created = models.DateTimeField(auto_now_add=True, null=True)
+   date_created = models.DateField(auto_now_add = True, null=True, blank=True)
+
 
    def __str__(self):
       return str(self.user.username)
