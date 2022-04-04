@@ -118,5 +118,6 @@ def paidJobs(request):
 
 def jobDetail(request,id):
     job_info  = OrderItem.objects.filter(id =id)
+    number = len(job_info)
     context = {'job_info': job_info}
     return render(request,'products/job_detail.html',context)
