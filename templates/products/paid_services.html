@@ -24,7 +24,7 @@
 <tr style="margin-top: 70px;"> 
 
 {% for item in service.items.all %}
-<h3>{{item.product.name}} &nbsp;<a href="" style="align-items: center;" class="btn btn-success right">accept</a> &nbsp;<a href="" class="btn btn-danger" style="align-items: center;">decline</a> </h3>
+<h3>{{item.product.name}} &nbsp;<a href="" style="align-items: center; text-transform: capitalize;" class="btn btn-success right">accept</a> &nbsp;<a href="" class="btn btn-danger" style="align-items: center;">decline</a> </h3>
 
 <hr>
 
@@ -32,6 +32,13 @@
 </tr>
 {% endfor %}
 
+
+<div class="container" style="background-color: green;">
+    {% for service in areaJobs %}
+    <h1 style="color: aliceblue;">{{ service.product.name }}</h1>
+    {% endfor %}
+
+</div>
 </table>
 </div>
 </div>
