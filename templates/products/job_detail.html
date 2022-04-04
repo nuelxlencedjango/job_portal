@@ -8,20 +8,6 @@
 
 
 
-{% for i in job_info %}
-{{i.product.name }}
-{{ i.product.category}}
-{{i.quantity}}
-{{i.description}}
-{{i.address}}
-{{i.date_created}}
-
-{{i.user.username}}
-{{i.user.details.phone}}
-
-
-{% endfor %}
-
 
 
 
@@ -63,9 +49,10 @@
     margin-left: 10px;
 }
 .property-information h3{
-    font-size: 18px;
+    font-size: 22px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #333;
+    font-weight: 400;
 
 }
 .property-information span{
@@ -89,6 +76,20 @@
 
 
 
+   {% for i in job_info %}
+   {{i.product.name }}
+   {{ i.product.category}}
+   {{i.quantity}}
+   {{i.description}}
+   {{i.address}}
+   {{i.date_created}}
+   
+   {{i.user.username}}
+   {{i.user.details.phone}}
+   
+   
+   {% endfor %}
+   
 
 <div class="search-section">
 
@@ -97,37 +98,58 @@
 <div class="flex-container">
    
  
- 
+    {% for job in job_info %}
   <div class="property-information">
       <h3 class="right"> Services</h3>
+      <div class="">
+          <h4> {{job.product.name }}</h4>
+      </div>
   </div> 
   <div class="property-information">
     <h3 class="right">Category
      </h3>
+     <div class="">
+        <h4> {{job.product.category }}</h4>
+    </div>
 </div> 
 <div class="property-information">
     <h3 class="right">No Of Person
       </h3>
+      <div class="">
+        <h4>  {{job.quantity}}</h4>
+    </div>
 </div> 
 <div class="property-information">
     <h3 class="right">Job Description
       </h3>
+      <div class="">
+        <h4>  {{job.description}}</h4>
+    </div>
 </div> 
 <div class="property-information">
     <h3 class="right">Address</h3>
+    <div class="">
+        <h4>  {{job.address}}</h4>
+    </div>
 </div> 
 
   <div class="property-information">
-    <h3 class="right"> Date
-     </h3>
+    <h3 class="right"> Date</h3>
+     <div class="">
+        <h4>  {{job.date_created}}</h4>
+    </div>
 </div> 
 <div class="property-information">
-    <h3 class="right">Client's Name
-      </h3>
+    <h3 class="right">Client's Name</h3>
+      <div class="">
+        <h4>  {{job.user.username}}}</h4>
+    </div>
 </div> 
 <div class="property-information">
-    <h3 class="right">Phone
-     </h3>
+    <h3 class="right">Phone</h3>
+     <div class="">
+        <h4>  {{job.user.details.phone}}</h4>
+    </div>
 </div> 
 </div>
 
