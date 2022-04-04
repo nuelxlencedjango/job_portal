@@ -40,14 +40,7 @@
 .property-information{
     margin-left: 20px;
 }
-.property-address h2{
-    font-size: 20px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-weight: 400;
-  
-    color: #0076AD;
-    margin-left: 10px;
-}
+
 .property-information h3{
     font-size: 22px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -55,11 +48,12 @@
     font-weight: 400;
 
 }
-.property-information span{
-    color: green;
+.property-information h4{
+    font-size: 18px;
 }
+
 .right{
-    margin-left: 30px;
+    margin-left: 40px;
 }
 
 
@@ -76,20 +70,6 @@
 
 
 
-   {% for i in job_info %}
-   {{i.product.name }}
-   {{ i.product.category}}
-   {{i.quantity}}
-   {{i.description}}
-   {{i.address}}
-   {{i.date_created}}
-   
-   {{i.user.username}}
-   {{i.user.details.phone}}
-   
-   
-   {% endfor %}
-   
 
 <div class="search-section">
 
@@ -142,7 +122,7 @@
 <div class="property-information">
     <h3 class="right">Client's Name</h3>
       <div class="">
-        <h4>  {{job.user.lastname}}}</h4>
+        <h4>  {{job.user.lastname}}</h4>
     </div>
 </div> 
 <div class="property-information">
