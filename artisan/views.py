@@ -118,6 +118,11 @@ def paidJobs(request):
 
 def jobDetail(request,id):
     job_info  = OrderItem.objects.filter(id =id)
-    number = len(job_info)
-    context = {'job_info': job_info}
+    number = len(job_info)-1
+    if number < 1:
+        job_info.delete()
+
+    else:
+        nu = number    
+    context = {'job_info': job_info ,'nu':nu}
     return render(request,'products/job_detail.html',context)
