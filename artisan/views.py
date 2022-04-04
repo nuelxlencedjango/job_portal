@@ -122,7 +122,6 @@ def jobDetail(request,id):
     if number < 1:
         job_info.delete()
 
-    else:
-        return number    
+      
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
