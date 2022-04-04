@@ -1,3 +1,13 @@
+{% extends 'main.html' %}
+{% load static %}  
+
+{% block content %} 
+
+
+
+
+
+
 {% for i in job_info %}
 {{i.product.name }}
 {{ i.product.category}}
@@ -12,3 +22,158 @@
 {{i.details.username}}
 {{i.details.phone}}
 {% endfor %}
+
+
+
+
+
+
+
+
+{% endblock %}
+
+
+
+
+
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<style>
+
+  
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+/*margin-top: 25px;*/
+}
+
+.flex-item-left {
+  flex: 50%;
+}
+
+.flex-item-right {
+  flex: 50%;
+}
+.card-image{
+    width: 300px;
+    height: 280px;
+    margin-left: 20px;
+}
+.card-image img{
+    width: 100%;
+    height: 100%;
+}
+.property-information{
+    margin-left: 20px;
+}
+.property-address h2{
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+  
+    color: #0076AD;
+    margin-left: 10px;
+}
+.property-information h3{
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+
+}
+.property-information span{
+    color: green;
+}
+.right{
+    margin-left: 50px;
+}
+.search-result{
+    margin-left: 30px;
+}
+.search-section .description{
+    font-size: 15px;
+    color: #333;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+}
+    </style>
+   
+  
+
+
+
+
+<div class="search-section">
+    
+    <h1 class="search-result">Search result</h1>
+
+ 
+<div class="flex-container">
+   
+  <div>
+    <h1>how</h1>
+    <!--<div class="property-flex">
+        
+        <a href="">
+        <div class="card-image ">
+            <img src="{{ result.img.url }}" alt="">
+        </div>
+        </a>
+    </div>-->
+  </div>
+  <div>
+      <div class="property-information">
+        
+          <div class="property-information">
+              
+              <h3>SubdivisionSee Legal Description Below.</h3>
+             
+          </div>
+      </div>
+  </div>
+  <div class="property-information">
+      <h3 class="right">Listing ID50044316
+        PBMLS-RETS</h3>
+  </div>  
+  <div class="property-information">
+    <h3 class="right">Listing ID50044316
+      PBMLS-RETS</h3>
+</div> 
+<div class="property-information">
+    <h3 class="right">Listing ID50044316
+      PBMLS-RETS</h3>
+</div> 
+<div class="property-information">
+    <h3 class="right">Listing ID50044316
+      PBMLS-RETS</h3>
+</div> 
+</div>
+<h3 class="description"> {{result.describe </h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
+
