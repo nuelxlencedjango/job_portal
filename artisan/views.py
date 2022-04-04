@@ -123,6 +123,6 @@ def jobDetail(request,id):
         job_info.delete()
 
     else:
-        nu = number    
-    context = {'job_info': job_info ,'nu':nu}
+        return number    
+    context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
