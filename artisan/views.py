@@ -118,7 +118,7 @@ def paidJobs(request):
 
 def jobDetail(request,id):
     job_info  = OrderItem.objects.filter(id =id)
-    number = len(job_info)-1
+    #number = len(job_info)-1
     #if number < 1:
      #   job_info.delete()
 
