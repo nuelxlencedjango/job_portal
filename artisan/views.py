@@ -113,3 +113,10 @@ def paidJobs(request):
 
     
     return render(request,'products/paid_services.html',context)
+
+
+
+def jobDetail(request,id):
+    job_info  = OrderItem.objects.filter(id =id)
+    context = {'job_info': job_info}
+    return render(request,'products/job_detail.html',context)
