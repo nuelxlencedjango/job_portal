@@ -28,6 +28,9 @@
             <label for="inputAddress2" class="form-label">Job Type</label>
             <input type="text" class="form-control" id="inputAddress2" name="job_type" placeholder="Job Type">
           </div>
+          <div class="col-md-4 form4">
+            {{ form4.profile_img|as_crispy_field }}
+        </div>
           <div class="col-6">
             <label for="inputAddress2" class="form-label">Upload your pic</label>
             {{ form4.profile_img|as_crispy_field }}
