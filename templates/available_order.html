@@ -94,21 +94,21 @@
         <h5>CUSTOMERS:</h5>
         <hr>
         <div class="card card-body">
-          <a class="btn btn-success  btn-sm btn-block" href="{% url 'artisan:paidJobs' %}">Available jobs in your area</a>
+          <a class="btn btn-danger  btn-sm btn-block" href="{% url 'artisan:paidJobs' %}">Available jobs in your area</a>
           <table class="table table-sm">
             <tr>
-              <th> <a href="">On Going Job</a></th>
+              <th></th>
               
               
             </tr>
     
-          
+            {% for customer in customers %}
               <tr>
                 <td><a class="btn btn-sm btn-info" href="">View</a></td>
-                <td>job</td>
-                <td>now</td>
+                <td>{{user.username}}</td>
+                <td>{{customer.phone}}</td>
               </tr>
-         
+            {% endfor %}
     
           </table>
         </div>
