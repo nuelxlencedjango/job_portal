@@ -1,0 +1,151 @@
+{% extends 'main.html' %}
+{% load static %}  
+
+{% block content %} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+  
+
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #0d6efd;
+  height: 250px;
+  
+/*margin-top: 25px;*/
+}
+
+
+
+.property-information{
+    margin-left: 10px;
+}
+
+.property-information h3{
+    font-size: 22px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #000;
+    font-weight: 400;
+    margin-top: 10px;
+  
+
+}
+.job_detail{
+    margin-top: 50px;
+}
+.property-information h4{
+    font-size: 16px;
+    text-align: center;
+    margin-top: 60px;
+    color: #fff;
+    margin: 0 auto;
+
+  max-width: 150px;
+  /*border: solid 2px #ccc;*/
+  padding: 12px;
+    overflow-wrap: break-word;
+    text-transform: capitalize;
+}
+
+.right{
+    margin-left: 10px;
+}
+
+
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+@media (max-width: 800px) {
+  .flex-item-right, .flex-item-left {
+    flex: 100%;
+  }
+}
+    </style>
+   
+  
+
+
+
+
+<div class="job_detail">
+
+
+ 
+<div class="flex-container">
+   
+ 
+    {% for job in job_info %}
+  <div class="property-information">
+      <h3 class="right"> Services</h3>
+      <div class="">
+          <h4> {{job.product.name }}</h4>
+      </div>
+  </div> 
+  <div class="property-information">
+    <h3 class="right">Category
+     </h3>
+     <div class="">
+        <h4> {{job.product.category }}</h4>
+    </div>
+</div> 
+<div class="property-information">
+    <h3 class="right">No Of Person
+      </h3>
+      <div class="">
+        <h4>  {{job.quantity}}</h4>
+    </div>
+</div> 
+<div class="property-information">
+    <h3 class="right">Job Description
+      </h3>
+      <div class="">
+        <h4>  {{job.description}}</h4>
+    </div>
+</div> 
+<div class="property-information">
+    <h3 class="right">Address</h3>
+    <div class="">
+        <h4>  {{job.address}}</h4>
+    </div>
+</div> 
+
+  <div class="property-information">
+    <h3 class="right"> Date</h3>
+     <div class="">
+        <h4>  {{job.date_created}}</h4>
+    </div>
+</div> 
+<div class="property-information">
+    <h3 class="right">Client's Name</h3>
+      <div class="">
+        <h4>  {{job.user.last_name}}</h4>
+    </div>
+</div> 
+<div class="property-information">
+    <h3 class="right">Phone</h3>
+     <div class="">
+        <h4>  {{job.user.details.phone}}</h4>
+    </div>
+</div> 
+{% endfor %}
+</div>
+
+
+
+{% endblock %}
+
