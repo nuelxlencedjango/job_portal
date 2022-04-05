@@ -90,7 +90,7 @@ class WorkersForm(ModelForm):
   
   def __init__(self ,*args ,**kwargs):
     super(WorkersForm ,self).__init__(*args ,**kwargs)
-    self.fields['location',].empty_label ='select your zone'  
+    self.fields['location'].empty_label ='select your zone'  
   
 
   
