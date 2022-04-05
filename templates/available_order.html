@@ -97,18 +97,18 @@
           <a class="btn btn-success  btn-sm btn-block" href="{% url 'artisan:paidJobs' %}">Available jobs in your area</a>
           <table class="table table-sm">
             <tr>
-              <th></th>
+              <th> <a href="">On Going Job</a></th>
               
               
             </tr>
     
-            {% for customer in customers %}
+          
               <tr>
                 <td><a class="btn btn-sm btn-info" href="">View</a></td>
-                <td>{{user.username}}</td>
-                <td>{{customer.phone}}</td>
+                <td>job</td>
+                <td>now</td>
               </tr>
-            {% endfor %}
+         
     
           </table>
         </div>
