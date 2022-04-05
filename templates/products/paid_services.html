@@ -30,9 +30,9 @@
 {% if item.quantity > 0 %}
 <h3 style="text-transform: capitalize;">{{item.product.name}} &nbsp;<a href="{% url 'artisan:job_detail' item.id %}" style="align-items: center; text-transform: capitalize;" class="btn btn-success right">accept</a> &nbsp;<a href="" class="btn btn-danger" style="align-items: center; text-transform: capitalize;">decline</a> </h3>
 {% item.quantity-1 %}
-    {% if item.quantity < 1 %}
+    {% elif item.quantity < 1 %}
     <h1>no job </h1>
-    {% endif %}
+    
     {% endif %}
 
 <hr>
