@@ -26,7 +26,7 @@ from .forms import *
 def artisanRegistration(request):
     if request.method == 'POST':
         form1 = CreateUserForm(request.POST)
-        form4 = WorkersForm(request.POST) 
+        form4 = WorkersForm(request.POST,request.FILES) 
 
         if form1.is_valid() and form4.is_valid():
             user = form1.save()

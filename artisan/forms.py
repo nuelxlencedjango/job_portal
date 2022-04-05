@@ -78,8 +78,8 @@ class WorkersForm(ModelForm):
   #location= forms.CharField(max_length=30, required=True, label='location',widget=forms.TextInput(attrs={'placeholder': 'location'}))
   address = forms.CharField(max_length=30, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
-  profession_name = forms.CharField(max_length=50, required=True,label='Job T',widget=forms.TextInput(attrs={'placeholder': 'love'}))
-  phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
+  profession_name = forms.CharField(max_length=50, required=True,label='Job Type',widget=forms.TextInput(attrs={'placeholder': 'love'}))
+  #phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
   nin = forms.CharField(max_length=15, required=True,label='NIN',widget=forms.TextInput(attrs={'placeholder': 'NIN'}))
  
   class Meta:
