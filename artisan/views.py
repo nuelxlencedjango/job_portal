@@ -33,6 +33,7 @@ def artisanRegistration(request):
             profile = form4.save(commit=False)
             profile.user =user
             profile.save()
+            img_obj = form4.instance
 
             id = form1.cleaned_data.get('id')
 
