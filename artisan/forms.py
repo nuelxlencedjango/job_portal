@@ -90,8 +90,8 @@ class WorkersForm(ModelForm):
   
   def __init__(self ,*args ,**kwargs):
     super(WorkersForm ,self).__init__(*args ,**kwargs)
-    self.fields['location','profile_img'].empty_label ='select your zone'  
-    #self.fields['profile_img'].empty_label ='Upload Your picture' 
+    self.fields['location',].empty_label ='select your zone'  
+  
 
   
  
