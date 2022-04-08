@@ -78,14 +78,14 @@ class WorkersForm(ModelForm):
   #location= forms.CharField(max_length=30, required=True, label='location',widget=forms.TextInput(attrs={'placeholder': 'location'}))
   address = forms.CharField(max_length=30, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
-  profession_name = forms.CharField(max_length=50, required=True,label='Job Type',widget=forms.TextInput(attrs={'placeholder': 'love'}))
-  profile_img = CloudinaryField()
+  profession_name = forms.CharField(max_length=50, required=True,label='Job Type',widget=forms.TextInput(attrs={'placeholder': 'Job Type'}))
+  profile_img =CloudinaryField()
   nin = forms.CharField(max_length=15, required=True,label='NIN',widget=forms.TextInput(attrs={'placeholder': 'NIN'}))
  
   class Meta:
     model = Artisan
     fields ="__all__"
-    #fields = ['address','phone','profession_name','nin','profile_img','location']
+    #fields = ['address','phone','','nin']
   
   
   def __init__(self ,*args ,**kwargs):
