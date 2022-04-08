@@ -160,6 +160,9 @@
 			<div class="card text-center text-white  mb-3" id="total-orders">
 			  	<div class="card-header">
 			  		<h5 class="card-title">Total Orderings</h5>
+            <a class="btn btn-danger" href="{% url 'artisan:paidJobs' %}" style="margin-top: 40px; font-size: 22px;">Available jobs in your area</a>
+            <span class="position-absolute start-50 translate-middle badge rounded-pill bg-primary">
+             99+
 			  	</div>
 			  	<div class="card-body">
 			    	<h3 class="card-title">get_total_count </h3>
@@ -176,6 +179,7 @@
 			  	</div>
 			  	<div class="card-body">
 			    	<h3 class="card-title">delivered</h3>
+            <a class="btn btn-primary  btn-sm btn-block" href="" style="margin-top: 40px; font-size: 20px;">current jobs</a>
 			  	</div>
 			</div>
 		</div>
@@ -189,6 +193,7 @@
 			  	</div>
 			  	<div class="card-body">
 			    	<h3 class="card-title">{{pending}}</h3>
+            <a class="btn btn-primary  btn-sm btn-block" href="" style="margin-top: 40px; font-size: 20px;">current jobs</a>
 			  	</div>
 			</div>
 		</div>
