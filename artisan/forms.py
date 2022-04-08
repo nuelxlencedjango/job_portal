@@ -85,7 +85,7 @@ class WorkersForm(ModelForm):
   class Meta:
     model = Artisan
     fields ="__all__"
-    #fields = ['address','phone','','nin']
+    fields = ['address','phone','profession_name','nin','profile_img']
   
   
   def __init__(self ,*args ,**kwargs):
