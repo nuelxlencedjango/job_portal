@@ -32,9 +32,7 @@
     width: 300px;
     height: 300px;
 }
-.card{
-  background-color: none;
-}
+
 
 </style>
 
@@ -48,7 +46,7 @@
     {% if user %}
     <div class="row">
       <div class="col-md">
-        <div class="card card-body">
+        <div class="card card-body" style="background-color: black;">
          
           <div class="wrap-inn">
             <img class="img-with-animation skip-lazy animated-in" data-delay="0" height="450" width="450" data-animation="fade-in" src="{{ user.artisan.profile_img.url }}" alt="">
