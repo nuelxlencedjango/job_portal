@@ -62,9 +62,19 @@
     
       <div class="col-md">
         <div class="card card-body">
+          
+          <div class="row my-5">
+            {% for product in user %}
+            <div class="col-md-4 my-4">
+                <img  src="{{ product.img.url }}" alt="" class="w-100">
+                <h4 class="my-">g</h4>
+               
+                <a href="{% url 'products:product_dest' product.id %} " class="btn btn-dark btn-md">View detail</a>
+            </div>
+            {% endfor %}
           <!--<h5>Total Orders</h5>-->
-          <hr>
-          <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'artisan:artisan_update' %}">Update Your information</a>
+         
+          <!--<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'artisan:artisan_update' %}">Update Your information</a>-->
    
         </div>
       </div>
