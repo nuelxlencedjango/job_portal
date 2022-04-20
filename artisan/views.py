@@ -105,6 +105,10 @@ def paidJobs(request):
     #services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
 
     areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
+    
+
+    artisan =areaJobs.artisan_assigned
+    artisan.save()
 
     #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':areaJobs}
    
