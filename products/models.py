@@ -10,7 +10,7 @@ from django.contrib.auth.models import AbstractUser
 
 from django.contrib.auth import get_user_model
 from django.shortcuts import reverse
-from artisan.models import *
+from artisan.models import Artisan
 
 User = get_user_model()
 
