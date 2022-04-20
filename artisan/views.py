@@ -120,9 +120,10 @@ def paidJobs(request):
 def jobDetail(request,id):
    # limit = 0
     artisan = Artisan.objects.filter(user=request.user)
-    
+
     job_info  = OrderItem.objects.filter(id =id)
-    OrderItem.objects.filter(id =id,artisan_assigned =artisan)
+    OrderItem.objects.filter(id =id,artisan_assigned =artisan).update()
+    
     
       
     context = {'job_info': job_info }
