@@ -106,10 +106,6 @@ def paidJobs(request):
 
     areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
     
-
-    areaJobs.artisan_assigned = artisan
-    areaJobs.save()
-
     #context ={'services_paid_for':services_paid_for,'artisan':artisan,'phone':areaJobs}
    
 
@@ -124,6 +120,14 @@ def paidJobs(request):
 def jobDetail(request,id):
    # limit = 0
     job_info  = OrderItem.objects.filter(id =id)
+
+    #areaJobs = OrderItem.objects.filter( )
+    
+
+    job_info.artisan_assigned = request.user
+    job_info.save()
+
+    
     #number = len(job_info)
     #number = len(job_info)-1
     #if number >= 1:
