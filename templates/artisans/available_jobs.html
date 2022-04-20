@@ -94,12 +94,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark "  style="margin-top: 50px; background-color: #7abecc; padding: 20px; ">
       <div class="container-fluid">
-        <a href="{% url 'artisan:paidJobs' %}" class="navbar-brand btn btn-dark" style="font-size: 22px;" >Available jobs in your area</a>
-        <li>
         <span class="position-absolute start-50 translate-middle badge rounded-pill bg-primary">
           99+</span>
+        <a href="{% url 'artisan:paidJobs' %}" class="navbar-brand btn btn-dark" style="font-size: 22px;" >Available jobs in your area</a>
         <a type="button" href="{% url 'artisan:artisan_update' %}" class="navbar-brand btn btn-dark" style="font-size: 22px;">Account Setting</a>
-        </li>
+        
         <!-- Example single danger button -->
     
         <div class="collapse navbar-collapse" id="navbarNavDarkDropdown" style="align-items: center;">
