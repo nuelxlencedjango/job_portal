@@ -122,9 +122,7 @@ def jobDetail(request,id):
     OrderItem.objects.get(id =job_info).add(artisan_assigned=artisan)
    
     #job_info =OrderItem.objects.filter(id =job).update(artisan_assigned=artisan)
-   
-   
-    
+
    
     #job_info.save()
     #job_info =OrderItem.objects.get(id =job_id).update(artisan_assigned=artisan)
