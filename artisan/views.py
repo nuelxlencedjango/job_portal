@@ -121,8 +121,8 @@ def jobDetail(request,id):
    # limit = 0
     artisan = Artisan.objects.filter(user=request.user)
     job_info  = OrderItem.objects.get(id =id)
-    job_info.artisan_assigned=artisan
-    job_info.save()
+    job_info.artisan_assigned.set(artisan)
+    
       
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
