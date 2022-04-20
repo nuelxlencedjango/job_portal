@@ -121,8 +121,10 @@ def jobDetail(request,id):
    # limit = 0
     artisan = Artisan.objects.filter(user=request.user)
 
-    job_id  = OrderItem.objects.filter(id =id)
-    job_info =OrderItem.objects.get(id =job_id).update(artisan_assigned=artisan)
+    job_info  = OrderItem.objects.filter(id =id)
+    for job_info in job_info:
+        job_info.rtisan_assigned =artisan
+    #job_info =OrderItem.objects.get(id =job_id).update(artisan_assigned=artisan)
     #OrderItem.save()
     
     
