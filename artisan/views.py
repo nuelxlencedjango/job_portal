@@ -122,7 +122,7 @@ def jobDetail(request,id):
     artisan = Artisan.objects.filter(user=request.user)
     job_info  = OrderItem.objects.filter(id =id)
     job_info.artisan_assigned = artisan
-    job_info.update()
+    job_info.save()
       
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
