@@ -1,3 +1,5 @@
+from http import client
+from pydoc import describe
 from django.db import models
 
 
@@ -10,6 +12,7 @@ from PIL import Image
 
 from django.contrib.auth.models import AbstractUser
 from cloudinary.models import CloudinaryField
+from products.models import *
 
 #from django.contrib.auth import get_user_model
 
@@ -137,6 +140,67 @@ class Artisan(models.Model):
       return str(self.user.username)
 
       
+
+
+
+class CompletedJob(models.Model):
+   
+   user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='artisan_job')
+   job_name =  models.CharField(max_length=20, null=True, unique = True)
+   description = models.CharField(max_length=20, null=True, unique = True)
+   client = models.CharField(max_length=200, null=True)
+   address = models.CharField(max_length=200, null=True)
+   pay =models.FloatField(default=00.00)
+   
+   date = models.DateField(auto_now_add = True, null=True, blank=True)
+
+
+   def __str__(self):
+      return str(self.user.username)
+
+
+   #work on this
+   #def get_total_count(self):
+    #  order =OrderItem.objects.get(pk=self.pk)
+     # return order.items.count() 
+
+   #def __str__(self):
+
+    #  return f"{self.pay} of {self.product.name}"
+
+   #def get_total_item_price(self):
+    #  return (self.pay * self.product.price)/2
+
+   #def get_final_price(self):
+     # return self.get_total_item_price() 
+
+   #def vat(self):
+     # return self.get_vat()    
+
+
+
+   #def get_total_price(self):
+     # total =0
+     # for order_item in self.items.all():
+       #        total +=order_item.get_final_price()
+               
+
+     # return total
+
+   #def get_total_count(self):
+     # order =Order.objects.get(pk=self.pk)
+    #  return order.items.count()  
+
+   
+   #def get_vat(self):
+    #  return (self.get_total_price() * 5)/100
+
+   
+   #def get_final_amount(self):
+     # return (self.get_total_price() + self.get_vat()) 
+   
+
+
 
       #python manage.py migrate location --database=location_db
 
