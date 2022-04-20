@@ -120,12 +120,7 @@ def paidJobs(request):
 def jobDetail(request,id):
    # limit = 0
     job_info  = OrderItem.objects.filter(id =id)
-
-    #areaJobs = OrderItem.objects.filter( )
-    
-
-    job_info.artisan_assigned = request.user
-    job_info.save()
+    job_info.update(artisan_assigned=request.user)
 
     
     #number = len(job_info)
