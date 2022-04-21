@@ -118,7 +118,7 @@ def jobDetail(request,id):
    # limit = 0
     artisan = Artisan.objects.filter(user=request.user)
 
-    job_info= OrderItem.objects.first(id =id)
+    job_info= OrderItem.objects.filter(id =id)
     job_info.artisan_assigned.set(artisan)
   
     
