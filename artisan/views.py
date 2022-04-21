@@ -120,6 +120,14 @@ def jobDetail(request,id):
 
     job_info= OrderItem.objects.get(id =id)
     job_info.artisan_assigned.set(artisan)
+
+    if OrderItem.objects.filter(artisan_assigned=artisan).exists():
+        answer = 'yes'
+    else:
+        answer = 'no' 
+
+
+           
     
   
     
@@ -131,5 +139,5 @@ def jobDetail(request,id):
     #job_info =OrderItem.objects.get(id =job_id).update(artisan_assigned=artisan)
     #OrderItem.save()
     
-    context = {'job_info': job_info,'artisan':artisan }
+    context = {'job_info': job_info,'artisan':artisan,'answer':answer }
     return render(request,'products/job_detail.html',context)
