@@ -119,7 +119,7 @@ def jobDetail(request,id):
     artisan = Artisan.objects.filter(user=request.user)
 
     job_info= OrderItem.objects.get(id =id)
-    job_info.artisan_assigned.set(artisan).update()
+    job_info.artisan_assigned.set(artisan)
     
   
     
