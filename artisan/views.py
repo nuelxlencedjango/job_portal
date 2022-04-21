@@ -121,10 +121,7 @@ def jobDetail(request,id):
     job_info= OrderItem.objects.get(id =id)
     job_info.artisan_assigned.set(artisan)
 
-    if OrderItem.objects.get(artisan_assigned=artisan).exists():
-        answer = 'yes'
-    else:
-        answer = 'no' 
+  
 
 
            
