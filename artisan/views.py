@@ -116,18 +116,10 @@ def paidJobs(request):
 
 def jobDetail(request,id):
    # limit = 0
-    artisan =(request.user) #(Artisan.objects.filter(user=request.user))
+    artisan = (Artisan.objects.filter(user=request.user))
 
     job_info= OrderItem.objects.get(id =id)
-    ad=job_info.artisan_assigned=artisan
-    job_info.update(artisan_assigned=ad)
-    #job_info.artisan_assigned.set(artisan)
-
-
-   
-
-
-
+    job_info.artisan_assigned.set(artisan)
 
   
 
@@ -144,7 +136,5 @@ def jobDetail(request,id):
     #job_info =OrderItem.objects.get(id =job_id).update(artisan_assigned=artisan)
     #OrderItem.save()
     
-    context = {'job_info': job_info,'artisan':artisan }
+    context = {'job_info': job_info,'artisan':artisan,'answer':answer }
     return render(request,'products/job_detail.html',context)
-
-
