@@ -88,32 +88,32 @@
  
 <div class="flex-container">
    
- 
+ {% for result in job_info %}
   <div class="property-information">
       <h3 class="right"> Services</h3>
       <div class="">
-          <h4> {{job_info.product.name }}</h4>
+          <h4> {{result.product.name }}</h4>
       </div>
   </div> 
   <div class="property-information">
     <h3 class="right">Category
      </h3>
      <div class="">
-        <h4> {{job_info.product.category }}</h4>
+        <h4> {{result.product.category }}</h4>
     </div>
 </div> 
 <div class="property-information">
     <h3 class="right">No Of Person
       </h3>
       <div class="">
-        <h4>  {{job_info.quantity}}</h4>
+        <h4>  {{result.quantity}}</h4>
     </div>
 </div> 
 <div class="property-information">
     <h3 class="right">Job Description
       </h3>
       <div class="">
-        <h4>  {{job_info.description}}</h4>
+        <h4>  {{result.description}}</h4>
     </div>
 </div> 
 <div class="property-information">
@@ -126,29 +126,29 @@
   <div class="property-information">
     <h3 class="right"> Date</h3>
      <div class="">
-        <h4>  {{job_info.date_created}}</h4>
+        <h4>  {{result.date_created}}</h4>
     </div>
 </div> 
 <div class="property-information">
     <h3 class="right">Client's Name</h3>
       <div class="">
-        <h4>  {{job_info.user.last_name}}</h4>
+        <h4>  {{result.user.last_name}}</h4>
     </div>
 </div> 
 <div class="property-information">
     <h3 class="right">Phone</h3>
      <div class="">
-        <h4>  {{job_info.user.details.phone}}</h4>
+        <h4>  {{result.user.details.phone}}</h4>
     </div>
 </div> 
 <div class="property-information">
     <h3 class="right">Artisan</h3>
      <div class="">
-        <h4>  {{job_info.artisan_assigned.artisan.username}}</h4>
+        <h4>  {{result.artisan_assigned.artisan.username}}</h4>
     </div>
 </div> 
-
-
+{% endfor %}
+{{ artisan }}
 </div>
 
 <div class="row">
