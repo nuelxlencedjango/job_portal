@@ -13,7 +13,8 @@
           <table class="table table-sm" style="margin-top: 30px;">
             <tr>
               <td>Job Name</td>
-              <td>How Mnaay Time?</td>
+              <!--<td>How Mnaay Time?</td>-->
+              <td>Category</td>
               <td>Address </td>
               <td>Client'S Name</td>
               <td>Date</td>
@@ -27,9 +28,10 @@
   {% for job in job_info %}
   <tr>
     <td>{{ job.product.name }}</td>
-    <td>{{ job.quantity }}</td>
-    <td>{{ job.address }}</td>
+    <!--<td>{{ job.quantity }}</td>-->
     <td>{{job.product.category }}</td>
+    <td>{{ job.address }}</td>
+  
     <td>{{job.address}}</td>
     <td>{{job.date_created}}</td>
     <td> {{job.user.last_name}}</td>
@@ -100,6 +102,7 @@ th, td {
 <table style="width:100%">
   <tr>
     <td>Job Name</td>
+    <td>Category </td>
     <td>How Mnaay Time?</td>
     <td>Address </td>
     <td>Category </td>
@@ -113,9 +116,10 @@ th, td {
   {% for job in job_info %}
   <tr>
     <td>{{ job.product.name }}</td>
+    <td>{{job.product.category }}</td>
     <td>{{ job.quantity }}</td>
     <td>{{ job.address }}</td>
-    <td>{{job.product.category }}</td>
+   
     <td>{{job.address}}</td>
     <td>{{job.date_created}}</td>
     <td> {{job.user.last_name}}</td>
