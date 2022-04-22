@@ -119,7 +119,8 @@ def jobDetail(request,id):
     artisan = Artisan.objects.filter(user=request.user)
 
     job_info= OrderItem.objects.get(id =id)
-    job_info.artisan_assigned.__set(artisan)
+    job_info.artisan_assigned.set(artisan)
+    name = job_info.artisan_assigned
 
     #job_info =OrderItem.objects.filter(id =job).update(artisan_assigned=artisan)
 
@@ -128,5 +129,5 @@ def jobDetail(request,id):
     #job_info =OrderItem.objects.get(id =job_id).update(artisan_assigned=artisan)
     #OrderItem.save()
     
-    context = {'job_info': job_info,'artisan':artisan,'answer':answer }
+    context = {'job_info': job_info,'artisan':artisan,'name':name}
     return render(request,'products/job_detail.html',context)
