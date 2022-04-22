@@ -123,7 +123,7 @@ def jobDetail(request,id):
     job_info.artisan_assigned =artisan
     job_info.update()
     boy =Artisan.objects.filter(user=request.user)
-    if OrderItem.objects.get(artisan_assigned =boy).exists():
+    if OrderItem.objects.filter(artisan_assigned =boy).exists():
         all_names =OrderItem.objects.filter(artisan_assigned =boy )
 
 
