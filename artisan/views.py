@@ -124,7 +124,7 @@ def jobDetail(request,id):
     job_info.update()
    
     if OrderItem.objects.filter(artisan_assigned = artisan).exists():
-        all_names =OrderItem.objects.filter(artisan_assigned = artisan)
+        all_names =OrderItem.objects.filter(artisan_assigned = Artisan.objects.filter(user=request.user))
 
 
 
