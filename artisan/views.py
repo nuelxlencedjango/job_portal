@@ -129,10 +129,10 @@ def jobDetail(request,id):
 
 
 def artisan_services(request):
-    user = Artisan.objects.filter(user=request.user)
+    user = Artisan.objects.get(user=request.user)
 
     #job = OrderItem.objects.all()
-    if OrderItem.objects.get(artisan_assigned=user).exists():
+    if OrderItem.objects.filter(artisan_assigned=user).exists():
         job_info = OrderItem.objects.filter(artisan_assigned=user)
         context ={'job_info':job_info}
     return render(request,'artisans/completed_services.html',context)
