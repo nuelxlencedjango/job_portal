@@ -141,12 +141,14 @@
         <h4>  {{result.user.details.phone}}</h4>
     </div>
 </div> 
+{% for name in result.artisan_assigned.all %}
 <div class="property-information">
     <h3 class="right">Artisan</h3>
      <div class="">
-        <h4 style="color: red;">  {{result.artisan_assigned.user.last_name}}</h4>
+        <h4 style="color: red;">  {{result.user.username}}</h4>
     </div>
 </div> 
+{% endfor %}
 {% endfor %}
 {{ artisan }}
 </div>
