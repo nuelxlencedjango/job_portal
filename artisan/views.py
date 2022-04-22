@@ -136,5 +136,5 @@ def jobDetail(request,id):
     #job_info =OrderItem.objects.get(id =job_id).update(artisan_assigned=artisan)
     #OrderItem.save()
     
-    context = {'job_info': job_info,'artisan':artisan,'answer':answer }
+    context = {'job_info': job_info,'artisan':artisan }
     return render(request,'products/job_detail.html',context)
