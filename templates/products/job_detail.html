@@ -157,7 +157,11 @@
 </div>
 
 
+{% for name in all_names %}
+{{name.product.name}}
+{{name.product.quantity}}
 
+{% endfor %}
 
 
 
