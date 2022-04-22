@@ -236,6 +236,8 @@ class OrderItem(models.Model):
    
    class Meta:
       verbose_name_plural='Orderitem'
+       
+      ordering = ['-date_created']
 
    def __str__(self):
       return f"{self.quantity} of {self.product.name}"
@@ -252,6 +254,8 @@ class OrderItem(models.Model):
    def get_service_rate(self):
       amount = (self.product.price * 75/100)
       return amount   
+
+#OrderItem.objects.order_by('-date_created')      
      
 
 
@@ -313,7 +317,8 @@ class Order(models.Model):
 
    
    def get_final_amount(self):
-      return (self.get_total_price() + self.get_vat()) 
+      return (self.get_total_price() + self.get_vat())
+
 
                 
    

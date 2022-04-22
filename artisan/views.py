@@ -122,9 +122,21 @@ def jobDetail(request,id):
     #work here -conditions
     job_info.artisan_assigned.set(artisan)
 
-    context = {'job_info': job_info,'artisan':artisan }
+
+
+    context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
 
+
+
+def currentJob(request):
+    user = Artisan.objects.get(user=request.user)
+
+    #job = OrderItem.objects.all()
+    if OrderItem.objects.filter(artisan_assigned=user).exists():
+        current_job = OrderItem.objects.filter(artisan_assigned=user)[0]
+        context ={'current_job':current_job}
+    return render(request,'artisans/current_job.html',context)
 
 
 def artisan_services(request):
