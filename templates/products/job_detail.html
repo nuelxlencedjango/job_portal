@@ -160,7 +160,9 @@
 {% for name in all_names %}
 {{name.product.name}}
 {{name.product.quantity}}
-{{name.artisan_assigned.user}}
+{% for n in name.artisan_assigned.all %}
+{{n.user.user}}
+{% endfor %}
 
 {% endfor %}
 
