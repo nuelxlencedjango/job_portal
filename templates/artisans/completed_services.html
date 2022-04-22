@@ -35,7 +35,7 @@
     <td> {{job.user.last_name}}</td>
 
     {% for name in job_info.artisan_assigned.all %}
-    <td> {{name.user.username}}</td>
+    <td style="color: green;"> {{name.user.username}}</td>
     {% endfor %}
   </tr>
   {% endfor %}
