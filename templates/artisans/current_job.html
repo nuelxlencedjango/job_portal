@@ -3,149 +3,73 @@
 
 {% block content %} 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
 <style>
 
-  
-
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  background-color: #0d6efd;
-  height: 250px;
-  
-/*margin-top: 25px;*/
-}
-
-
-
-.property-information{
-    margin-left: 10px;
-}
-
-.property-information h3{
-    font-size: 22px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #000;
-    font-weight: 400;
-    margin-top: 10px;
-  
-
-}
-.job_detail{
-    margin-top: 50px;
-}
-.property-information h4{
-    font-size: 16px;
+  table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
     text-align: center;
-    margin-top: 60px;
-    color: #fff;
-    margin: 0 auto;
-
-  max-width: 150px;
-  /*border: solid 2px #ccc;*/
-  padding: 12px;
-    overflow-wrap: break-word;
-    text-transform: capitalize;
-}
-
-.right{
-    margin-left: 10px;
-}
-
-
-
-/* Responsive layout - makes a one column layout instead of a two-column layout */
-@media (max-width: 800px) {
-  .flex-item-right, .flex-item-left {
-    flex: 100%;
+    word-wrap: break-word;
+    
   }
-}
-    </style>
-   
+  th, td {
+    /*background-color: #96D4D4;*/
+  }
+  </style>
   
+    <div class="row artisan-job-info" style="margin-top: 40px;">
+     
+      <div class="col-md-12">
+        
+       
+        <div class="card card-body">
+          <button class="btn btn-success  btn-sm btn-block" style="background-color: #96D4D4;" href="">Service Completed 
+            &nbsp;&nbsp;<a class="btn btn-dark  btn-sm btn-block" style=" border: none;" href="{% url 'artisan:confirmed_orders' %}">Dashboard</a>
+          </button>
+          
+          <table class="table table-sm" style="margin-top: 30px;">
+            <tr>
+              <td>Job Name</td>
+              <td>Category </td>
+              <td>No Of Person</td>
+              <td>Job Description</td>
+              <td>Address </td>
+              <td>Date</td>
+              <td>Client's Name</td>
+              <td>Phone</td>
+            </tr>
+
+          
+         
+           
+            <tr>
+              <td>{{ job_info.product.name }}</td>
+              <td>{{job_info.product.category }}</td>
+              <td>{{ job_info.quantity }}</td>
+              <td>{{job_info.description}}</td>
+              <td>{{ job_info.address }}</td>
+              <td>{{job_info.date_created}}</td>
+
+              <td> {{job_info.user.last_name}}</td>
+              <td> {{job_info.user.details.phone}}</td>
+            </tr>
+       
+        
 
 
-
-
-<div class="job_detail">
-
-
- 
-<div class="flex-container">
-   
- 
-    {% for job in job_info %}
-  <div class="property-information">
-      <h3 class="right"> Services</h3>
-      <div class="">
-          <h4> {{job.product.name }}</h4>
+          </table>
+          
+        
+        </div>
+          
+        </div>
+        
       </div>
-  </div> 
-  <div class="property-information">
-    <h3 class="right">Category
-     </h3>
-     <div class="">
-        <h4> {{job.product.category }}</h4>
-    </div>
-</div> 
-<div class="property-information">
-    <h3 class="right">No Of Person
-      </h3>
-      <div class="">
-        <h4>  {{job.quantity}}</h4>
-    </div>
-</div> 
-<div class="property-information">
-    <h3 class="right">Job Description
-      </h3>
-      <div class="">
-        <h4>  {{job.description}}</h4>
-    </div>
-</div> 
-<div class="property-information">
-    <h3 class="right">Address</h3>
-    <div class="">
-        <h4>  {{job.address}}</h4>
-    </div>
-</div> 
-
-  <div class="property-information">
-    <h3 class="right"> Date</h3>
-     <div class="">
-        <h4>  {{job.date_created}}</h4>
-    </div>
-</div> 
-<div class="property-information">
-    <h3 class="right">Client's Name</h3>
-      <div class="">
-        <h4>  {{job.user.last_name}}</h4>
-    </div>
-</div> 
-<div class="property-information">
-    <h3 class="right">Phone</h3>
-     <div class="">
-        <h4>  {{job.user.details.phone}}</h4>
-    </div>
-</div> 
-{% endfor %}
-</div>
 
 
 
+  
 {% endblock %}
+
 
