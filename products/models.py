@@ -173,7 +173,7 @@ class Product(models.Model):
    desc=models.TextField()
    category=models.ForeignKey(Category,on_delete=models.CASCADE)
     
-   price = models.FloatField(default=0.00)
+   price = models.FloatField(default=00.00)
    #product_available_count =models.IntegerField(default=0)
    img = CloudinaryField(blank=True,null=True)
 
@@ -248,6 +248,10 @@ class OrderItem(models.Model):
 
    def vat(self):
       return self.get_vat()   
+
+   def get_service_rate(self):
+      amount = (self.product.price * 75/100)
+      return amount   
      
 
 
