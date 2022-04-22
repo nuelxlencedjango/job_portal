@@ -116,7 +116,7 @@ def paidJobs(request):
 
 def jobDetail(request,id):
    # limit = 0
-    artisan = (Artisan.objects.filter(user=request.user))
+    artisan = [Artisan.objects.filter(user=request.user)]
     job_info= OrderItem.objects.get(id =id)
 
     #work here -conditions

@@ -17,6 +17,9 @@
     /*background-color: #96D4D4;*/
   }
   </style>
+
+
+<h2>On Going Job</h2>
   
     <div class="row artisan-job-info" style="margin-top: 40px;">
      
@@ -32,7 +35,7 @@
             <tr>
               <td>Job Name</td>
               <td>Category </td>
-              <td>No Of Person</td>
+            
               <td>Job Description</td>
               <td>Address </td>
               <td>Date</td>
@@ -46,7 +49,7 @@
             <tr>
               <td>{{ current_job.product.name }}</td>
               <td>{{current_job.product.category }}</td>
-              <td>{{ current_job.quantity }}</td>
+            
               <td>{{current_job.description}}</td>
               <td>{{ current_job.address }}</td>
               <td>{{current_job.date_created}}</td>
@@ -54,10 +57,7 @@
               <td> {{current_job.user.last_name}}</td>
               <td> {{current_job.user.details.phone}}</td>
             </tr>
-       
-        
-
-
+            <a href="" class="btn btn-danger">Confirm Your Job</a>
           </table>
           
         
