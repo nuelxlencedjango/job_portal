@@ -34,7 +34,7 @@
     <td>{{job.date_created}}</td>
     <td> {{job.user.last_name}}</td>
 
-    {% for name in job_info.artisan_assigned.all %}
+    {% for name in job.artisan_assigned.all %}
     <td style="color: green;"> {{name.user.username}}</td>
     {% endfor %}
   </tr>
@@ -120,7 +120,7 @@ th, td {
     <td>{{job.date_created}}</td>
     <td> {{job.user.last_name}}</td>
 
-    {% for name in job_info.artisan_assigned.all %}
+    {% for name in job.artisan_assigned.all %}
     <td> {{name.user.username}}</td>
     {% endfor %}
   </tr>
