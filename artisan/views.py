@@ -133,6 +133,6 @@ def artisan_services(request):
 
     #job = OrderItem.objects.all()
     if OrderItem.objects.get(artisan_assigned=user).exists():
-        job_info = OrderItem.filter(artisan_assigned=user)
+        job_info = OrderItem.objects.filter(artisan_assigned=user)
         context ={'job_info':job_info}
     return render(request,'artisans/completed_services.html',context)
