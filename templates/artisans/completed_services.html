@@ -40,7 +40,7 @@
 </div> 
 {% endfor %}
 
-{% for name in all_names %}
+{% for name in job_info %}
 {{name.product.name}}
 {{name.product.quantity}}
 {% for n in name.artisan_assigned.all %}
