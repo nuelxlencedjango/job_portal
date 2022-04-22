@@ -15,7 +15,8 @@ urlpatterns = [
      path('confirmed_orders/', views.confirmedOrders, name='confirmed_orders'),
      path('artisan_update/', views.artisan_update, name="artisan_update"),
      path('paidJobs',views.paidJobs, name='paidJobs'),
-     path('job_detail/<int:id>/',views.jobDetail, name='job_detail')
+     path('job_detail/<int:id>/',views.jobDetail, name='job_detail'),
+     path('services_completed/',views.artisan_services, name='services_completed')
      #path('available_job/', views.availableJob, name='available_job'),
      
 
