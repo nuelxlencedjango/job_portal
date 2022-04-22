@@ -55,48 +55,30 @@
         
       </div>
 
-      {% for name in job_info.artisan_assigned.all %}
-<div class="property-information">
-    <h3 class="right">Artisan</h3>
-     <div class="">
-        <h4 style="color: red;">  {{name.user.username}}</h4>
-    </div>
-</div> 
-{% endfor %}
-
-{% for name in job_info %}
-{{name.product.name}}
-{{name.product.quantity}}
-{% for n in name.artisan_assigned.all %}
-{{n.user.username}}
-{% endfor %}
+  
 
 
 
 
 
-<!DOCTYPE html>
-<html>
 <style>
 
 table, th, td {
   border: 1px solid white;
   border-collapse: collapse;
   text-align: center;
+  word-wrap: break-word;
+  
 }
 th, td {
   /*background-color: #96D4D4;*/
 }
 </style>
-<body>
 
 
 
-</body>
-</html>
 
-{% endfor %}
-
+{% endblock %}
 
 
 <h2>TR elements define table rows</h2>
@@ -132,5 +114,3 @@ th, td {
   </tr>
   {% endfor %}
 </table>
-
-{% endblock %}
