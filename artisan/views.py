@@ -122,6 +122,8 @@ def jobDetail(request,id):
     job_info= OrderItem.objects.filter(id =id)
     job_info.artisan_assigned =artisan
     job_info.update()
+    name =job_info.artisan_assigned
+
     
 
 
