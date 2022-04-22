@@ -44,15 +44,15 @@
          
            
             <tr>
-              <td>{{ job_info.product.name }}</td>
-              <td>{{job_info.product.category }}</td>
-              <td>{{ job_info.quantity }}</td>
-              <td>{{job_info.description}}</td>
-              <td>{{ job_info.address }}</td>
-              <td>{{job_info.date_created}}</td>
+              <td>{{ current_job.product.name }}</td>
+              <td>{{current_job.product.category }}</td>
+              <td>{{ current_job.quantity }}</td>
+              <td>{{current_job.description}}</td>
+              <td>{{ current_job.address }}</td>
+              <td>{{current_job.date_created}}</td>
 
-              <td> {{job_info.user.last_name}}</td>
-              <td> {{job_info.user.details.phone}}</td>
+              <td> {{current_job.user.last_name}}</td>
+              <td> {{current_job.user.details.phone}}</td>
             </tr>
        
         
