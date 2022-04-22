@@ -118,9 +118,9 @@ def jobDetail(request,id):
    # limit = 0
     artisan =request.user
 
-    job_info= OrderItem.objects.get(id =id)
-    job_info.artisan_assigned.set(artisan)
-    name = job_info.artisan_assigned
+    job= OrderItem.objects.filter(id =id)
+    job_info = OrderItem.objects.get(id=job).update(artisan_assigned=artisan)
+
 
     #job_info =OrderItem.objects.filter(id =job).update(artisan_assigned=artisan)
 
