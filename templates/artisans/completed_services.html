@@ -30,3 +30,21 @@
         </div>
         
       </div>
+
+      {% for name in job_info.artisan_assigned.all %}
+<div class="property-information">
+    <h3 class="right">Artisan</h3>
+     <div class="">
+        <h4 style="color: red;">  {{name.user.username}}</h4>
+    </div>
+</div> 
+{% endfor %}
+
+{% for name in all_names %}
+{{name.product.name}}
+{{name.product.quantity}}
+{% for n in name.artisan_assigned.all %}
+{{n.user.username}}
+{% endfor %}
+
+{% endfor %}
