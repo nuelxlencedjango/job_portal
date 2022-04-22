@@ -116,12 +116,14 @@ def paidJobs(request):
 
 def jobDetail(request,id):
    # limit = 0
-    artisan = [request.user]
+    artisan = (request.user)
   
 
     job_info= OrderItem.objects.filter(id =id)
     job_info.artisan_assigned =artisan
     job_info.update()
+
+
     boy =Artisan.objects.get(user=request.user)
     if OrderItem.objects.filter(artisan_assigned =boy).exists():
         all_names =OrderItem.objects.filter(artisan_assigned =boy )
