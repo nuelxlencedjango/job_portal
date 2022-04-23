@@ -118,17 +118,25 @@ def jobDetail(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
 
     job_info= OrderItem.objects.filter(id =id)
-    for a in job_info:
-        name = a.product.name
+    
 
-
+    job_detail=ViewedJob.objects.add(user=request.user)
+    job_detail.user=artisan
+    job_detail.job_name=job_info.product.name
+    job_detail.category=job_info.category
+    job_detail.description =job_info.description
+    job_detail.client=job_info.user.last_name
+    job_detail.address =job_info.address
+    job_detail.date=job_info.date_created
+    job_detail.phone=job_info.user.details.phone
+    job_detail.save()
 
     #work here -conditions
     #job_info.artisan_assigned.set(artisan)
 
 
 
-    context = {'job_info': job_info,'name':name }
+    context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
 
 
