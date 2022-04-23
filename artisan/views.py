@@ -2,7 +2,7 @@ from multiprocessing import context
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 #from django.http import HttpResponse
 #from django.forms import inlineformset_factory
 from django.contrib.auth.forms import UserCreationForm
@@ -108,9 +108,8 @@ def paidJobs(request):
 
     context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
 
-
-    
     return render(request,'products/paid_services.html',context)
+
 
 
 def jobDetail(request,id):
@@ -118,10 +117,16 @@ def jobDetail(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
 
     job_info= OrderItem.objects.filter(id =id)
-    #for job in job_info: 
-     #   ViewedJob(user=request.user,job_name=job.product.name,category=job.product.category,
-      #  description =job.description,client=job.user.last_name,address =job.address,
-       # date=job.date_created,phone=job.user.details.phone).save()
+
+
+
+   
+    job_detail,created = ViewedJob.objects.get_or_create(user=request.user,
+    job_name=job_info.product.name,category=job_info.product.category,
+    description =job_info.description,client=job_info.user.last_name,
+    address =job_info.address,
+    date=job_info.date_created,phone=job_info.user.details.phone)
+    
     
   #category=job.category,
     #work here -conditions
