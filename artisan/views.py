@@ -114,7 +114,7 @@ def paidJobs(request):
 
 
 def jobDetail(request,id):
-   # limit = 0
+   #  if request.user.is_authenticated:
     artisan = [Artisan.objects.filter(user=request.user)]
 
     job_info= OrderItem.objects.filter(id =id)
@@ -122,10 +122,12 @@ def jobDetail(request,id):
    
     for job in job_info:
 
-        ViewedJob.objects.get_or_create(user=request.user,
+        job_detail,create=ViewedJob.objects.get_or_create(user=request.user,
         job_name=job.product.name,category=job.product.category,
         description =job.description,client=job.user.last_name,address =job.address,
         date=job.date_created,phone=job.user.details.phone)
+
+         
     
     
   #category=job.category,
