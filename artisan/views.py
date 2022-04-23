@@ -118,10 +118,10 @@ def jobDetail(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
 
     job_info= OrderItem.objects.filter(id =id)
-    
-    ViewedJob.objects.get(user=request.user,job_name=job_info.product.name,category=job_info.category,
-    description =job_info.description,client=job_info.user.last_name,address =job_info.address,
-    date=job_info.date_created,phone=job_info.user.details.phone).update()
+    for job in job_info: 
+        ViewedJob.objects.get(user=request.user,job_name=job_info.product.name,category=job_info.category,
+        description =job_info.description,client=job_info.user.last_name,address =job_info.address,
+        date=job_info.date_created,phone=job_info.user.details.phone).update()
     
   
     #work here -conditions
