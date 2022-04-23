@@ -122,7 +122,7 @@ def jobDetail(request,id):
    
     for job in job_info:
 
-        job_detail,created = ViewedJob.objects.get_or_create(user=request.user,
+        ViewedJob.objects.get_or_create(user=request.user,
         job_name=job.product.name,category=job.product.category,
         description =job.description,client=job.user.last_name,address =job.address,
         date=job.date_created,phone=job.user.details.phone)
