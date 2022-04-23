@@ -120,7 +120,7 @@ def jobDetail(request,id):
     job_info= OrderItem.objects.filter(id =id)
 
 
-    job_detail=ViewedJob.objects.get(id = artisan.id)
+    job_detail=ViewedJob.objects.get(id = Artisan.objects.get(id=request.id))
     job_detail.user=artisan
     job_detail.job_name=job_info.product.name
     job_detail.category=job_info.category
