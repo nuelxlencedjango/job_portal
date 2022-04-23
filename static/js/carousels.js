@@ -35,7 +35,7 @@ let toggleChoice = function(){
 }
 
 
-let toggleSelect = function(){
+let toggleSelected = function(){
     //let getCard = document.querySelectorAll(".card")
     let getChoice = document.querySelector(".select-choice")
     let getSelect = document.querySelector(".cont");
