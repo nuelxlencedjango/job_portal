@@ -119,11 +119,11 @@ def jobDetail(request,id):
 
     job_info= OrderItem.objects.filter(id =id)
     for job in job_info: 
-        ViewedJob.objects.get(user=request.user,job_name=job.product.name,category=job.category,
+        ViewedJob.objects.get(user=request.user,job_name=job.product.name,
         description =job.description,client=job.user.last_name,address =job.address,
         date=job.date_created,phone=job.user.details.phone).update()
     
-  
+  #category=job.category,
     #work here -conditions
     #job_info.artisan_assigned.set(artisan)
 
