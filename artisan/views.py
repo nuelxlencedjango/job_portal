@@ -120,7 +120,7 @@ def jobDetail(request,id):
     job_info= OrderItem.objects.get(id =id)
 
     #work here -conditions
-    job_info.artisan_assigned.set(artisan)
+    #job_info.artisan_assigned.set(artisan)
 
 
 
@@ -135,9 +135,11 @@ def currentJob(request):
     #job = OrderItem.objects.all()
     if OrderItem.objects.filter(artisan_assigned=user).exists():
         current_job = OrderItem.objects.filter(artisan_assigned=user)[0]
-        
+
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
+
+
 
 
 def artisan_services(request):
