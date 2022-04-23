@@ -135,6 +135,7 @@ def currentJob(request):
     #job = OrderItem.objects.all()
     if OrderItem.objects.filter(artisan_assigned=user).exists():
         current_job = OrderItem.objects.filter(artisan_assigned=user)[0]
+        
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
 
