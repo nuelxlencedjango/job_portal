@@ -115,7 +115,9 @@
              </li>
             <li><button  class="dropdown-item" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Confirm Your Job</button></li>
             <li><a href="{% url 'artisan:services_completed' %}" class="dropdown-item">Services Completed</a></li>
-            
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              Launch demo modal
+            </button>
           </ul>
           </div>
         </div>
@@ -128,6 +130,10 @@
     
     
 
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
