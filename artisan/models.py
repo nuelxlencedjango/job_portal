@@ -144,26 +144,25 @@ class Artisan(models.Model):
 
 
 class CompletedJob(models.Model):
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  job_name =  models.CharField(max_length=200, null=True, unique = True)
+  description = models.CharField(max_length=200, null=True, unique = True)
+  client = models.CharField(max_length=200, null=True)
+  address = models.CharField(max_length=200, null=True)
+  pay =models.FloatField(default=00.00)
    
-   user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='artisan_job')
-   job_name =  models.CharField(max_length=200, null=True, unique = True)
-   description = models.CharField(max_length=200, null=True, unique = True)
-   client = models.CharField(max_length=200, null=True)
-   address = models.CharField(max_length=200, null=True)
-   pay =models.FloatField(default=00.00)
-   
-   date = models.DateField(auto_now_add = True, null=True, blank=True)
+  date = models.DateField(auto_now_add = True, null=True, blank=True)
 
 
-   def __str__(self):
+  def __str__(self):
       return str(self.user.username)
 
 
 
 
 class ViewedJob(models.Model):
-   
-   user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+   #user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
    job_name =  models.CharField(max_length=200, null=True, unique = True)
    category = models.CharField(max_length=200, null=True, unique = True)
    description = models.CharField(max_length=200, null=True, unique = True)
