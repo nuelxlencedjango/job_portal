@@ -164,9 +164,9 @@ class CompletedJob(models.Model):
 class ViewedJob(models.Model):
    
    user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
-   job_name =  models.CharField(max_length=20, null=True, unique = True)
-   category = models.CharField(max_length=20, null=True, unique = True)
-   description = models.CharField(max_length=20, null=True, unique = True)
+   job_name =  models.CharField(max_length=100, null=True, unique = True)
+   category = models.CharField(max_length=100, null=True, unique = True)
+   description = models.CharField(max_length=100, null=True, unique = True)
    client = models.CharField(max_length=200, null=True)
    address = models.CharField(max_length=200, null=True)
    date = models.DateField(auto_now_add = True, null=True, blank=True)
