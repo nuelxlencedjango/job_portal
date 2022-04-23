@@ -159,6 +159,23 @@ class CompletedJob(models.Model):
       return str(self.user.username)
 
 
+
+
+class ViewedJob(models.Model):
+   
+   user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
+   job_name =  models.CharField(max_length=20, null=True, unique = True)
+   category = models.CharField(max_length=20, null=True, unique = True)
+   description = models.CharField(max_length=20, null=True, unique = True)
+   client = models.CharField(max_length=200, null=True)
+   address = models.CharField(max_length=200, null=True)
+   date = models.DateField(auto_now_add = True, null=True, blank=True)
+   phone = models.CharField(max_length=15, null=True)
+
+
+   def __str__(self):
+      return str(self.user.username)
+
    #work on this
    #def get_total_count(self):
     #  order =OrderItem.objects.get(pk=self.pk)
