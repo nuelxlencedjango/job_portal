@@ -118,7 +118,8 @@ def jobDetail(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
 
     job_info= OrderItem.objects.filter(id =id)
-    name = job_info.product.name
+    for a in job_info:
+        name = a.product.name
 
 
 
