@@ -163,13 +163,13 @@ class CompletedJob(models.Model):
 class ViewedJob(models.Model):
    user = models.ForeignKey(User, on_delete=models.CASCADE)
    #user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
-   job_name =  models.CharField(max_length=200, null=True, unique = True)
-   category = models.CharField(max_length=200, null=True, unique = True)
-   description = models.CharField(max_length=200, null=True, unique = True)
-   client = models.CharField(max_length=200, null=True)
-   address = models.CharField(max_length=200, null=True)
+   job_name =  models.CharField(max_length=200, null=True, unique = False)
+   category = models.CharField(max_length=200, null=True, unique = False)
+   description = models.CharField(max_length=200, null=True, unique = False)
+   client = models.CharField(max_length=200, null=True, unique = False)
+   address = models.CharField(max_length=200, null=True, unique = False)
    date = models.DateField(auto_now_add = True, null=True, blank=True)
-   phone = models.CharField(max_length=15, null=True)
+   phone = models.CharField(max_length=15, null=True, unique = False)
 
 
    def __str__(self):
