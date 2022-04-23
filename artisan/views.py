@@ -127,8 +127,6 @@ def jobDetail(request,id):
     #work here -conditions
     #job_info.artisan_assigned.set(artisan)
 
-
-
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
 
