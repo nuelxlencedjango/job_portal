@@ -101,7 +101,7 @@
 
 
     <div class="nav">
-        <input type="checkbox" id="nav-check" class="nav-check" onclick="toggleSelect()">
+        <input type="checkbox" id="nav-check" class="nav-check" onclick="toggleSelected()">
         <div class="nav-header">
           <div class="nav-title">
             <!--MysteryCode-->
@@ -546,7 +546,7 @@
 <script type="text/Javascript">
     menuQuery =false;
 
-let toggleSelect = function(){
+let toggleSelected = function(){
     let getChoice = document.querySelector("nav-check");
     let getSelect = document.querySelector(".carousel");
     let getheader = document.querySelector(".head");
