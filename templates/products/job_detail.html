@@ -42,18 +42,19 @@
 
           
          
-           
+           {% for result in job_info %}
             <tr>
-              <td>{{ job_info.product.name }}</td>
-              <td>{{job_info.product.category }}</td>
-              <td>{{ job_info.quantity }}</td>
-              <td>{{job_info.description}}</td>
-              <td>{{ job_info.address }}</td>
-              <td>{{job_info.date_created}}</td>
+              <td>{{ result.product.name }}</td>
+              <td>{{result.product.category }}</td>
+              <td>{{ result.quantity }}</td>
+              <td>{{result.description}}</td>
+              <td>{{ result.address }}</td>
+              <td>{{result.date_created}}</td>
 
-              <td> {{job_info.user.last_name}}</td>
-              <td> {{job_info.user.details.phone}}</td>
+              <td> {{result.user.last_name}}</td>
+              <td> {{result.user.details.phone}}</td>
             </tr>
+            {% endfor %}
        
         
 
