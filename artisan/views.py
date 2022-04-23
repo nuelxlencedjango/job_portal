@@ -121,7 +121,7 @@ def jobDetail(request,id):
     for job in job_info: 
         ViewedJob(user=request.user,job_name=job.product.name,category=job.product.category,
         description =job.description,client=job.user.last_name,address =job.address,
-        date=job.date_created,phone=job.user.details.phone).update()
+        date=job.date_created,phone=job.user.details.phone).save()
     
   #category=job.category,
     #work here -conditions
