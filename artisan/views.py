@@ -108,8 +108,9 @@ def paidJobs(request):
 
     context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
 
-    return render(request,'products/paid_services.html',context)
 
+    
+    return render(request,'products/paid_services.html',context)
 
 
 def jobDetail(request,id):
@@ -118,14 +119,13 @@ def jobDetail(request,id):
 
     job_info= OrderItem.objects.filter(id =id)
 
-
-
    
-    job_detail,created = ViewedJob.objects.get_or_create(user=request.user,
-    job_name=job_info.product.name,category=job_info.product.category,
-    description =job_info.description,client=job_info.user.last_name,
-    address =job_info.address,
-    date=job_info.date_created,phone=job_info.user.details.phone)
+    for job in job_detail:
+
+        job_detail,created = ViewedJob.objects.get_or_create(user=request.user,
+        job_name=job.product.name,category=job.product.category,
+        description =job.description,client=job.user.last_name,address =job.address,
+        date=job.date_created,phone=job.user.details.phone)
     
     
   #category=job.category,
