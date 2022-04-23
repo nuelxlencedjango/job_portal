@@ -124,10 +124,19 @@ def jobDetail(request,id):
 
         job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
         job_name=job.product.name,category=job.product.category,
-        description =job.description,client=job.user.last_name,address =job.address,
+        description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
         date=job.date_created,phone=job.user.details.phone)
+         #job_qs = ViewedJob.objects.filter(user=request.user,id =job_detail.id)
 
-           
+    #job_qs = ViewedJob.objects.filter(user=request.user,id =job_detail.id)
+    #if job_qs.exists():
+     #       order =job_qs[0]
+      #      if order.items.filter(product__pk=pk).exists():
+       #         order_item.quantity +=1
+
+        #        order_item.save()
+         #       messages.info(request ,"Added additional worker successfully")
+          #      return redirect("products:orderlist")        
     
     
   #category=job.category,
