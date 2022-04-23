@@ -119,7 +119,7 @@ def jobDetail(request,id):
 
     job_info= OrderItem.objects.filter(id =id)
     for job in job_info: 
-        ViewedJob.objects.get(user=request.user,job_name=job.product.name,
+        ViewedJob.objects.get(user=request.user,job_name=job.product.name,category=job.product.category,
         description =job.description,client=job.user.last_name,address =job.address,
         date=job.date_created,phone=job.user.details.phone).update()
     
