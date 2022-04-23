@@ -113,11 +113,17 @@ def paidJobs(request):
     return render(request,'products/paid_services.html',context)
 
 
-
 def jobDetail(request,id):
    # limit = 0
     artisan = [Artisan.objects.filter(user=request.user)]
+
     job_info= OrderItem.objects.filter(id =id)
+
+    
+    ViewedJob.objects.get(id=id,user=artisan,job_name=job_info.product.job_name,
+    category=job_info.category,description =job_info.description,client=job_info.user.last_name,
+    address =job_info.address,date=job_info.date_created,phone=job_info.user.details.phone).update()
+    
 
     #work here -conditions
     #job_info.artisan_assigned.set(artisan)
