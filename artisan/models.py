@@ -128,7 +128,7 @@ class Artisan(models.Model):
    
    address = models.CharField(max_length=200, null=True)
    phone = models.CharField(max_length=15, null=True,unique=True)
-   profession_name = models.CharField(max_length=20, null=True, unique = False)
+   profession_name = models.CharField(max_length=200, null=True, unique = False)
  
    profile_img = CloudinaryField(blank=True,null=True)
 
@@ -146,8 +146,8 @@ class Artisan(models.Model):
 class CompletedJob(models.Model):
    
    user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='artisan_job')
-   job_name =  models.CharField(max_length=20, null=True, unique = True)
-   description = models.CharField(max_length=20, null=True, unique = True)
+   job_name =  models.CharField(max_length=200, null=True, unique = True)
+   description = models.CharField(max_length=200, null=True, unique = True)
    client = models.CharField(max_length=200, null=True)
    address = models.CharField(max_length=200, null=True)
    pay =models.FloatField(default=00.00)
@@ -164,9 +164,9 @@ class CompletedJob(models.Model):
 class ViewedJob(models.Model):
    
    user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
-   job_name =  models.CharField(max_length=100, null=True, unique = True)
-   category = models.CharField(max_length=100, null=True, unique = True)
-   description = models.CharField(max_length=100, null=True, unique = True)
+   job_name =  models.CharField(max_length=200, null=True, unique = True)
+   category = models.CharField(max_length=200, null=True, unique = True)
+   description = models.CharField(max_length=200, null=True, unique = True)
    client = models.CharField(max_length=200, null=True)
    address = models.CharField(max_length=200, null=True)
    date = models.DateField(auto_now_add = True, null=True, blank=True)
