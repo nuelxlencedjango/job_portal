@@ -140,7 +140,8 @@ def jobAccepted(request,id):
 
         info = OrderItem.objects.get(id=id)   
 
-    for b in info:
+    for b in OrderItem.objects.filter(id =id):
+        
         b.artisan_assigned.set(artisan)  
      
 
