@@ -133,26 +133,14 @@
             <div class="container" style="margin-top: 20px;">
               <div class="items" style="align-items: center; text-align: center;">
 
-            <td><a class="btn btn-success" id="accept" href="">Accept</a></td>
-            <td><button type="button" class="btn btn-danger" onclick="openPopup()">check</button></td>
+            <td><a class="btn btn-success" name="accept" id="accept" href="">Accept</a></td>
+      
             <td><a class="btn btn-danger" href="{% url 'artisan:confirmed_orders' %}">Decline</a></td>
               </div>
             </div>
 
 
-            <div class="container pop">
-           
-              <div class="popup" id="popup">
-               <!--<div class="pop-img">
-                <img src="/static/images/elect1.jpg" alt="">
-               </div>
-                <h2>thank you</h2>
-                <p>your details has been successfully submitted</p>-->
-                <p>Hope you understand what the job requires and you have the necessary skills to do it.Please understand that here is no room for mistakes </p>
-                <button type="button" onclick="closePopup()">Ok</button>
-                <a class="btn btn-success" id="" href="">Accept</a>
-              </div>
-            </div>
+          
 
             {% endfor %}
        
@@ -183,7 +171,23 @@
     <p>your details has been successfully submitted</p>
     <button type="button" onclick="closePopup()">Ok</button>
   </div>
-</div>-->
+</div>
+
+
+  <div class="container pop">
+              <td><button type="button" class="btn btn-danger" onclick="openPopup()">check</button></td>
+              <div class="popup" id="popup" >
+               <div class="pop-img">
+                <img src="/static/images/elect1.jpg" alt="">
+               </div>
+                <h2>thank you</h2>
+                <p>your details has been successfully submitted</p>
+                <p>Hope you understand what the job requires and you have the necessary skills to do it.Please understand that here is no room for mistakes </p>
+                <button type="button" onclick="closePopup()">Ok</button>
+                <a class="btn btn-success"  id="" href="">Accept</a>
+              </div>
+            </div>
+-->
 
 
 
