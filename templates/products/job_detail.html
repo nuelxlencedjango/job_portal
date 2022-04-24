@@ -84,9 +84,9 @@
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
   }
-  #accept{
+  /*#accept{
     visibility: hidden;
-  }
+  }*/
   </style>
   
     <div class="row artisan-job-info" style="margin-top: 40px;">
@@ -143,11 +143,12 @@
             <div class="container pop">
            
               <div class="popup" id="popup">
-               <div class="pop-img">
+               <!--<div class="pop-img">
                 <img src="/static/images/elect1.jpg" alt="">
                </div>
                 <h2>thank you</h2>
-                <p>your details has been successfully submitted</p>
+                <p>your details has been successfully submitted</p>-->
+                <p>Hope you understand what the job requires and you have the necessary skills to do it.Please understand that here is no room for mistakes </p>
                 <button type="button" onclick="closePopup()">Ok</button>
                 <a class="btn btn-success" id="" href="">Accept</a>
               </div>
@@ -170,11 +171,6 @@
 
 
 
-<!--<div class="row">
-    <div class="col-md-12"  style="font-size: 14px; color: 9999; background-color: aquamarine; margin-top: 30px;">
-        <h3>when you complete this job, go to your dashboard,click on Activities,confirm job and click confirm</h3>
-    </div>
-</div>-->
   
 
 <!--<div class="container pop">
@@ -193,7 +189,7 @@
 
 <script>
  let popup = document.getElementById('popup');
- let accept = document.getElementById('accept');
+ //let accept = document.getElementById('accept');
 
  function openPopup(){
    popup.classList.add("open-popup");
