@@ -136,8 +136,8 @@ def jobAccepted(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
 
-    
-    job_info.artisan_assigned.set()
+    job_info= OrderItem.objects.get(id =id)
+    job_info.artisan_assigned.set(artisan)
     
    
 
