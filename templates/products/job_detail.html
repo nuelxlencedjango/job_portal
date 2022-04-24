@@ -84,6 +84,9 @@
     top: 50%;
     transform: translate(-50%,-50%) scale(1);
   }
+  #accept{
+    visibility: hidden;
+  }
   </style>
   
     <div class="row artisan-job-info" style="margin-top: 40px;">
@@ -130,7 +133,7 @@
             <div class="container" style="margin-top: 20px;">
               <div class="items" style="align-items: center; text-align: center;">
 
-            <td><a class="btn btn-success" href="">Accept</a></td>
+            <td><a class="btn btn-success" id="accept" href="">Accept</a></td>
             <td><button type="button" class="btn btn-danger" onclick="openPopup()">check</button></td>
             <td><a class="btn btn-danger" href="{% url 'artisan:confirmed_orders' %}">Decline</a></td>
               </div>
