@@ -117,7 +117,7 @@ def jobDetail(request,id):
    #  if request.user.is_authenticated:
     artisan = [Artisan.objects.filter(user=request.user)]
     job_info= OrderItem.objects.filter(id =id)
-    assigned = job_info.artisan_assigned.set(artisan)
+  
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
 
@@ -136,7 +136,9 @@ def jobAccepted(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
 
-    assigned = job_info.artisan_assigned.set(artisan)
+    
+    job_artisan= OrderItem.objects.get(id =id)
+    assigned = job_info.artisan_assigned.set(job_artisan)
 
     #for complete in job_detail:
      #   job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
