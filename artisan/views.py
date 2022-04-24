@@ -117,10 +117,16 @@ def paidJobs(request):
 def jobDetail(request,id):
    #  if request.user.is_authenticated:
     artisan = [Artisan.objects.filter(user=request.user)]
-
     job_info= OrderItem.objects.filter(id =id)
     
-    if request.method =="POST":
+    context = {'job_info': job_info }
+    return render(request,'products/job_detail.html',context)
+
+
+
+
+def jobAccepted(request,id):
+     if request.method =="POST":
         data = request.POST['accept']
         if data:
 
@@ -140,17 +146,11 @@ def jobDetail(request,id):
 
         #        order_item.save()
          #       messages.info(request ,"Added additional worker successfully")
-          #      return redirect("products:orderlist")        
+         
+          #      return redirect("products:orderlist")    
+        return render(request,'artisans/current_job.html',context)    
     
-    
-  #category=job.category,
-    #work here -conditions
-    #job_info.artisan_assigned.set(artisan)
-
-    context = {'job_info': job_info }
-    return render(request,'products/job_detail.html',context)
-
-
+  
 
 def currentJob(request):
     user = Artisan.objects.get(user=request.user)
