@@ -139,7 +139,8 @@ def jobAccepted(request,id):
     if  OrderItem.objects.filter(id =id).exists():
 
         info = OrderItem.objects.get(id=id)  
-        info.artisan_assigned = artisan 
+
+      
         info.artisan_assigned.set(artisan)  
      
 
