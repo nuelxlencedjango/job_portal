@@ -135,7 +135,7 @@ def jobAccepted(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
 
-    assigned = job_info.artisan_asiigned.set(artisan)
+    assigned = job_info.artisan_assigned.set(artisan)
 
     #for complete in job_detail:
      #   job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
