@@ -119,8 +119,9 @@ def jobDetail(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
 
     job_info= OrderItem.objects.filter(id =id)
+    accepted = request.Get.get('accept')
 
-    if request.POST:
+    if accepted =="accept":
 
         for job in job_info:
 
