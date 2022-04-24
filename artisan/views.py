@@ -137,13 +137,13 @@ def jobAccepted(request,id):
 
     assigned = job_info.artisan_asiigned.set(artisan)
 
-    for complete in job_detail:
-        job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
-            job_name=complete.job_name,category=complete.category,
-            description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
-            date=complete.date_created
-        )
-
+    #for complete in job_detail:
+     #   job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
+      #      job_name=complete.job_name,category=complete.category,
+       #     description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
+        #    date=complete.date_created
+        #)
+     
     return redirect('artisan:confirmed_orders')   
     
   
