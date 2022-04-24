@@ -137,7 +137,7 @@ def jobAccepted(request,id):
         )
 
     for b in job_info:
-        assigned_to = b.artisan_assigned.user.username   
+        assigned_to = b.artisan_assigned.artisan.username   
         assigned_to.save()
 
 
