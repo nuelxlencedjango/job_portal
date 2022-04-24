@@ -1,4 +1,5 @@
 from multiprocessing import context
+from urllib import request
 from django.shortcuts import render
 
 # Create your views here.
@@ -119,13 +120,14 @@ def jobDetail(request,id):
 
     job_info= OrderItem.objects.filter(id =id)
 
-   
-    for job in job_info:
+    if request.POST:
 
-        job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
-        job_name=job.product.name,category=job.product.category,
-        description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
-        date=job.date_created,phone=job.user.details.phone)
+        for job in job_info:
+
+            job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
+            job_name=job.product.name,category=job.product.category,
+            description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
+            date=job.date_created,phone=job.user.details.phone)
          #job_qs = ViewedJob.objects.filter(user=request.user,id =job_detail.id)
 
     #job_qs = ViewedJob.objects.filter(user=request.user,id =job_detail.id)
