@@ -127,7 +127,7 @@ def jobDetail(request,id):
 
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
-    job_info= OrderItem.objects.get(id =id)
+    job_info= OrderItem.objects.filter(id =id)
        
     for job in job_info:
         job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
@@ -136,7 +136,11 @@ def jobAccepted(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
 
-    for b in job_info:
+    if  OrderItem.objects.get(id =id).exists():
+        
+        info = OrderItem.objects.filter(id=id)   
+
+    for b in info:
         b.artisan_assigned.set(artisan)  
      
 
