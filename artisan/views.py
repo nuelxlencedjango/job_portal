@@ -137,8 +137,8 @@ def jobAccepted(request,id):
         )
 
     for b in job_info:
-        assigned_to = b.artisan_assigned =artisan   
-        assigned_to.save()
+        b.artisan_assigned.set(artisan)  
+     
 
 
     #job_info= OrderItem.objects.get(id =id)
