@@ -137,8 +137,8 @@ def jobAccepted(request,id):
         )
 
     
-    job_info.artisan_assigned=artisan
-    job_info.save()
+    job_info.artisan_assigned.set()
+    
    
 
     #for complete in job_detail:
