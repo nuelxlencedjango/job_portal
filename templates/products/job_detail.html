@@ -63,7 +63,7 @@
             <div class="container" style="margin-top: 20px;">
               <div class="items" style="align-items: center; text-align: center;">
 
-            <td><a class="btn btn-success" id="accept" href="{% url 'artisan:job_detail' result.id %}">Accept</a></td>
+            <td><a class="btn btn-success" id="accept" href="{% url 'artisan:accepted' result.id %}">Accept</a></td>
       
             <td><a class="btn btn-danger" href="{% url 'artisan:confirmed_orders' %}">Decline</a></td>
               </div>

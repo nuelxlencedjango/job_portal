@@ -18,7 +18,7 @@ urlpatterns = [
      path('job_detail/<int:id>/',views.jobDetail, name='job_detail'),
      path('services_completed/',views.artisan_services, name='services_completed'),
      path('current_job/', views.currentJob, name='current_job'),
-     # path('register_job/', views.registerJob, name='register_job'),
+     path('accepted/', views.jobAccepted, name='accepted'),
 
     
 ]

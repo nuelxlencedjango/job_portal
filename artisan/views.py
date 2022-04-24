@@ -108,47 +108,43 @@ def paidJobs(request):
     areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
 
     context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
-
-
-    
     return render(request,'products/paid_services.html',context)
+
+
 
 
 def jobDetail(request,id):
    #  if request.user.is_authenticated:
     artisan = [Artisan.objects.filter(user=request.user)]
     job_info= OrderItem.objects.filter(id =id)
-    
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
 
 
 
 
+
 def jobAccepted(request,id):
-     if request.method =="POST":
-        data = request.POST['accept']
-        if data:
-
-            for job in job_info:
-
-                job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
+    artisan = [Artisan.objects.filter(user=request.user)]
+    job_info= OrderItem.objects.filter(id =id)
+       
+    for job in job_info:
+        job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
-            date=job.date_created,phone=job.user.details.phone)
-         #job_qs = ViewedJob.objects.filter(user=request.user,id =job_detail.id)
+            date=job.date_created,phone=job.user.details.phone
+        )
 
-    #job_qs = ViewedJob.objects.filter(user=request.user,id =job_detail.id)
-    #if job_qs.exists():
-     #       order =job_qs[0]
-      #      if order.items.filter(product__pk=pk).exists():
-       #         order_item.quantity +=1
+    assigned = job_info.artisan_asiigned.set(artisan)
 
-        #        order_item.save()
-         #       messages.info(request ,"Added additional worker successfully")
-         
-          #      return redirect("products:orderlist")    
-        return render(request,'artisans/current_job.html',context)    
+    for complete in job_detail:
+        job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
+            job_name=complete.job_name,category=complete.category,
+            description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
+            date=complete.date_created
+        )
+
+    return redirect('artisan:confirmed_orders')   
     
   
 

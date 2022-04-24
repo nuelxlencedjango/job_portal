@@ -147,6 +147,7 @@ class CompletedJob(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   job_name =  models.CharField(max_length=200, null=True, unique = True)
   description = models.CharField(max_length=200, null=True, unique = True)
+  category = models.CharField(max_length=200, null=True, unique = False)
   client = models.CharField(max_length=200, null=True)
   address = models.CharField(max_length=200, null=True)
   pay =models.FloatField(default=00.00)
