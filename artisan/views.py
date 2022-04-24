@@ -136,12 +136,12 @@ def jobAccepted(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
 
-    if  OrderItem.objects.filter(id =id).exists():
+    OrderItem.objects.filter(id =id)
 
-        info = OrderItem.objects.get(id=id)  
+    info = OrderItem.objects.get(id=id)  
 
       
-        info.artisan_assigned.set(request.user.id)  
+    info.artisan_assigned.set(request.user.id)  
      
 
 
