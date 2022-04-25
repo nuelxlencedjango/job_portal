@@ -136,7 +136,7 @@ def jobAccepted(request,id):
 
     artisan = [Artisan.objects.filter(user=request.user)]
 
-    if OrderItem.objects.get(id =id).exists():
+    if OrderItem.objects.filter(id =id).exists():
         job_info= OrderItem.objects.filter(id =id)
         job_info.artisan_assigned =job_info.artisan_assigned.user.username
         job_info.update()
