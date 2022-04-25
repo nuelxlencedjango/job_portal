@@ -148,8 +148,6 @@ def jobAccepted(request,id):
       
     #info.artisan_assigned.set(request.user.id)  
      
-
-
     #job_info= OrderItem.objects.get(id =id)
     #job_info.artisan_assigned.set(artisan)
     
