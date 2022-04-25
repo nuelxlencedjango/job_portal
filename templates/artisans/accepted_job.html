@@ -39,10 +39,10 @@
 {% for info in accept.assignee.all %}
 <h2 style="color: green;"> artisan name :{{info.assignee.username}}}</h2>
 
-<h3 style="color: blue;">id is:{{info.assignee.user.id}}</h3>
-<h3 style="color: blue;">name is:{{info.user.name}}</h3>
-<h3 style="color: blue;">nin is:{{info.assignee.nin}}</h3>
-<h3 style="color: blue;">location is:{{info.assignee.location}}</h3>
+<h3 style="color: blue;">id is:{{info.user.id}}</h3>
+<h3 style="color: blue;">name is:{{info.username}}</h3>
+<h3 style="color: blue;">nin is:{{info.user.nin}}</h3>
+<h3 style="color: blue;">location is:{{info.user.location}}</h3>
 <h3 style="color: blue;">phone is:{{info.assignee.phone}}</h3>
 <h3 style="color: blue;">profession{{info.assignee.profeesional_name}}</h3>
 {% endfor %}
