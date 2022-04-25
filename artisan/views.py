@@ -142,6 +142,7 @@ def jobAccepted(request,id):
             for job in job_info:
                 for name in job.artisan_assigned.all():
                     name.save()
+                    messages.warning(request,"Job Accepted!")
 
             return redirect('artisan:confirmed_orders')         
         
@@ -163,7 +164,7 @@ def currentJob(request):
 
     #job = OrderItem.objects.all()
     if ViewedJob.objects.filter(user=user).exists():
-        current_job = ViewedJob.objects.filter(user=user)[0]
+        current_job = ViewedJob.objects.filter(user=request.user)[0]
 
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
