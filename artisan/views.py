@@ -141,8 +141,9 @@ def jobAccepted(request,id):
     info = OrderItem.objects.filter(id=id)  
     for job in info:
         for name in job.artisan_assigned.all():
-            artisan=name.user.username
-            artisan.artisan_assigned.set(artisan)
+            artisan_assigned=name.user.username
+            artisan_assigned.save()
+            #artisan.artisan_assigned.set(artisan)
      
 
       
