@@ -70,7 +70,7 @@
             </div>
 
 
-            {% for i in result.artisan_assigned %}
+            {% for i in result.artisan_assigned.all %}
             {{ i.user.username}}
             {{ i.user.nin}}
             {{ i.user.username}}
@@ -91,7 +91,12 @@
         
       </div>
 
+     
 
+     
+
+ 
+  
 
       <h3>ordered:{{job_info.ordered}}</h3>
       <h3>quantity:{{job_info.quantity}}</h3>
