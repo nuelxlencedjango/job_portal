@@ -37,8 +37,8 @@
 <h3>date_created:{{accept.date_created}}</h3>
 
 {% for info in accept.assignee.all %}
-<h2 style="color: green;"> artisan name :{{info.assignee.username}}}</h2>
-
+<h2 style="color: green;"> artisan name :{{info.user.username}}}</h2>
+<h2 style="color: green;"> artisan name :{{info.username}}}</h2>
 <h3 style="color: blue;">id is:{{info.user.id}}</h3>
 <h3 style="color: blue;">name is:{{info.username}}</h3>
 <h3 style="color: blue;">nin is:{{info.user.nin}}</h3>
