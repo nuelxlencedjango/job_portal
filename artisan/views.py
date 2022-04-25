@@ -172,6 +172,8 @@ def currentJob(request):
 
 
 
+
+
 def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
 
