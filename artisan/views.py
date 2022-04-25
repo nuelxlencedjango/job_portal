@@ -145,22 +145,22 @@ def jobDetail(request,id):
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
 
-    if OrderItem.objects.filter(id =id).exists():
-        job_info= OrderItem.objects.filter(id =id)
-        for job in job_info:
-            for assignee in job.artisan_assigned.all():
-                name = assignee.user.username
+    OrderItem.objects.filter(id =id)
+    job_info= OrderItem.objects.filter(id =id)
+    for job in job_info:
+        for assignee in job.artisan_assigned.all():
+            name = assignee.user.username
                 #name=OrderItem.objects.filter(id =id,artisan_assigned=artisan).update()
 
                 #name.artisan_assigned =artisan
                 #name.save()
-                context ={'name':name}        
-                return render(request,'artisans/accepted_job.html',context)       
+            context ={'name':name}        
+            return render(request,'artisans/accepted_job.html',context)       
 
 
    
                   
-    return redirect('/')                
+    #return redirect('/')                
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
 
