@@ -142,7 +142,7 @@ def jobAccepted(request,id):
             for job in job_info:
                 for name in job.artisan_assigned.all():
                     name.artisan_assigned=artisan
-                    name.save()
+                    name.update()
 
 
     else:
