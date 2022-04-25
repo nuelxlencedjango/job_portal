@@ -124,9 +124,7 @@ def jobDetail(request,id):
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
             date=job.date_created,phone=job.user.details.phone
         )
-    
-
-    
+  
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
 
@@ -144,7 +142,6 @@ def jobAccepted(request,id):
             for job in job_info:
                 for name in job.artisan_assigned.all():
                     name.save()
-                    messages.warning(request,"Job Accepted!")
 
             return redirect('artisan:confirmed_orders')         
         
@@ -165,13 +162,11 @@ def currentJob(request):
     user = Artisan.objects.get(user=request.user)
 
     #job = OrderItem.objects.all()
-    if ViewedJob.objects.filter(user=request.user).exists():
-        current_job = ViewedJob.objects.filter(user=request.user)[0]
+    if ViewedJob.objects.filter(user=user).exists():
+        current_job = ViewedJob.objects.filter(user=user)[0]
 
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
-
-
 
 
 
