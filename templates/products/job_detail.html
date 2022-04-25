@@ -70,7 +70,12 @@
             </div>
 
 
-          
+            {% for i result.artisan_assigned %}
+            {{ i.user.username}}
+            {{ i.user.nin}}
+            {{ i.user.username}}
+            {{ i.user.location}}
+            {% endfor %}
 
             {% endfor %}
        
