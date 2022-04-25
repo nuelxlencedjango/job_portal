@@ -144,13 +144,23 @@ def jobDetail(request,id):
                     
                     #name.update()
 
+
+
   
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
     #job_info= OrderItem.objects.filter(id =id)
     #id = job_info.id
-    if OrderItem.objects.filter(id =id).exists():
-        accepted_job= OrderItem.objects.filter(id =id)
+
+    if OrderItem.objects.filter(id=id, ordered=True,status='Paid'):
+
+       # OrderItem.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
+
+        #if OrderItem.objects.filter(user=request.user, ordered=True,status='Paid'):
+    #if OrderItem.objects.filter(id =id).exists():
+        accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
+        accepted_job.artisan_assigned =artisan
+        accepted_job.update()
         #for job in job_info:
          #   id = job.id
             #for assignee in job.artisan_assigned.all():
