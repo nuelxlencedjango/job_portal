@@ -228,3 +228,5 @@ class ViewedJob(models.Model):
   # heroku run bash
 #python manage.py makemigrations
 #python manage.py migrate    
+
+

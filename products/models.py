@@ -217,6 +217,15 @@ class Product(models.Model):
 
 
 
+#class Project(models.Model):
+  #  name = models.CharField(max_length=100)
+   # users = models.ManyToManyField(User)
+
+#class Task(models.Model):
+ #   project = models.ForeignKey(Project, related_name='project_tasks')
+  #  name = models.CharField(max_length=300)
+   # assignee = models.ForeignKey(User, related_name='tasks')
+
 
 
 class OrderItem(models.Model):
