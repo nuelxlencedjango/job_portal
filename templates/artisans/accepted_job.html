@@ -27,31 +27,28 @@
 
 <h2 style="color:red">name is {{name}}</h2>
 
-{% for accept in accepted_job %}
-<h3>ordered:{{accept.ordered}}</h3>
-<h3>quantity:{{accept.quantity}}</h3>
-<h3>status:{{accept.status}}</h3>
+<h3>ordered:{{accepted_job.ordered}}</h3>
+<h3>quantity:{{accepted_job.quantity}}</h3>
+<h3>status:{{accepted_job.status}}</h3>
 
-<h3>description:{{accept.description}}</h3>
-<h3>address:{{accept.address}}</h3>
-<h3>date_created:{{accept.date_created}}</h3>
+<h3>description:{{accepted_job.description}}</h3>
+<h3>address:{{accepted_job.address}}</h3>
+<h3>date_created:{{accepted_job.date_created}}</h3>
 
-{% for info in accept.artisan_assigned.all %}
+
 <h2 style="color: brown;">hi {{info }}</h2>
-<h2 style="color: green;"> artisan name :{{ info.user.username }}</h2>
+<h2 style="color: green;"> artisan name :{{accepted_job.artisan_assigned.user.username }}</h2>
 
 
-<h3 style="color: blue;">id is:{{ info.artisan_assigned.user.id }}</h3>
+<h3 style="color: blue;">id is:{{ accepted_job.artisan_assigned.user.id }}</h3>
 
-<h3 style="color: blue;">name is:{{ info.username }}</h3>
+<h3 style="color: blue;">name is:{{ accepted_job.artisan_assigned.username }}</h3>
 
-<h3 style="color: blue;">nin is:{{ info.user.nin }}</h3>
-<h3 style="color: blue;">location is:{{info.user.location}}</h3>
-<h3 style="color: blue;">phone is:{{info.user.phone}}</h3>
-<h3 style="color: blue;">profession{{info.user.profeesional_name}}</h3>
-{{accept}}
-{% endfor %}
-{% endfor %}
+<h3 style="color: blue;">nin is:{{ accepted_job.artisan_assigned.user.nin }}</h3>
+<h3 style="color: blue;">location is:{{accepted_job.artisan_assigned.user.location}}</h3>
+<h3 style="color: blue;">phone is:{{accepted_job.artisan_assigned.user.phone}}</h3>
+<h3 style="color: blue;">profession{{accepted_job.artisan_assigned.user.profeesional_name}}</h3>
+
 
 <h3 style="color: blue;">id is:{{id}}</h3>
 <h3 style="color: blue;">name is:{{name}}</h3>
