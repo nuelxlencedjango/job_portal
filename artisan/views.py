@@ -161,7 +161,7 @@ def jobAccepted(request,id):
         OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job= OrderItem.objects.get(id=id, ordered=True,status='Paid')
         for a in accepted_job.artisan_assigned.all():
-            a.artisan_assigned.user.username =artisan
+            a.user.username =artisan
             a.save()
           
 
