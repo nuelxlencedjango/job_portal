@@ -150,14 +150,14 @@ def jobAccepted(request,id):
     #job_info= OrderItem.objects.filter(id =id)
     #id = job_info.id
     if OrderItem.objects.filter(id =id).exists():
-        job_info= OrderItem.objects.filter(id =id)
-        for job in job_info:
-            id = job.id
+        accepted_job= OrderItem.objects.filter(id =id)
+        #for job in job_info:
+         #   id = job.id
             #for assignee in job.artisan_assigned.all():
             #for assignee in job_info.artisan_assigned.all():
-            for jab in job.artisan_assigned.all():
-                name = jab.assignee.user.username
-                name.save()
+          #  for jab in job.artisan_assigned.all():
+           #     name = jab.assignee.user.username
+            #    name.save()
             
             #nin = job.artisan_assigned.nin
             #location=job.artisan_assigned.location
@@ -167,11 +167,11 @@ def jobAccepted(request,id):
 
                 #name.artisan_assigned =artisan
                 #name.save()
-                context ={'name':name}#,'nin':nin,'location':location,'phone':phone,'profession':profession_name,'assigned':assignee}        
-                return render(request,'artisans/accepted_job.html',context)       
+        #context ={'name':name}#,'nin':nin,'location':location,'phone':phone,'profession':profession_name,'assigned':assignee}        
+        #return render(request,'artisans/accepted_job.html',context)       
 
 
-    context={'id':id,'nothing found':'nothing'}
+    context={'id':id,'accepted_job':accepted_job}
     return render(request,'artisans/accepted_job.html',context)               
                     
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
