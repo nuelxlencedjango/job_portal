@@ -156,9 +156,9 @@ def jobAccepted(request,id):
             #for assignee in job.artisan_assigned.all():
             #for assignee in job_info.artisan_assigned.all():
             for jab in job.artisan_assigned.all():
-                name = job.assignee.user.username
+                name = job.user.username
                 name.save()
-                return redirect('/')
+            
             #nin = job.artisan_assigned.nin
             #location=job.artisan_assigned.location
             #hone = job.artisan_assigned.phone
