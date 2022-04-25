@@ -163,6 +163,8 @@ def jobAccepted(request,id):
 
             artisan_assigned =accepted.artisan_assigned.user.username
         
+
+        
         #for job in job_info:
          #   id = job.id
             #for assignee in job.artisan_assigned.all():
