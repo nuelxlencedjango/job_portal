@@ -156,7 +156,7 @@ def jobAccepted(request,id):
             #for assignee in job.artisan_assigned.all():
             #for assignee in job_info.artisan_assigned.all():
             for jab in job.artisan_assigned.all():
-                name = job.artisan_assigned.assignee.user.username
+                name = job.assignee.user.username
             nin = job.artisan_assigned.nin
             location=job.artisan_assigned.location
             phone = job.artisan_assigned.phone
