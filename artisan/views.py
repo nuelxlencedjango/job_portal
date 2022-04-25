@@ -141,7 +141,7 @@ def jobAccepted(request,id):
     info = OrderItem.objects.filter(id=id)  
     for job in info:
         #for name in job:
-        job.artisan_assigned =info.artisan_assigned.artisan.username
+        job.artisan_assigned =job.artisan_assigned.artisan.username
         context ={'job':job}
         #OrderItem.objects.get(artisan_assigned=job.artisan_assigned.artisan.username).update()
 
