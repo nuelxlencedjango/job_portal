@@ -133,21 +133,25 @@ def jobDetail(request,id):
 
 
 def jobAccepted(request,id):
+
     artisan = [Artisan.objects.filter(user=request.user)]
 
     if OrderItem.objects.get(id =id).exists():
         job_info= OrderItem.objects.filter(id =id)
+        job_info.artisan_assigned =job_info.artisan_assigned.user.username
+        job_info.update()
+
        
-        for job in job_info:
-            job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
-            job_name=job.product.name,category=job.product.category,
-            description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
-            date=job.date_created,phone=job.user.details.phone
-        )
-    OrderItem.objects.get(id =id)
+       # for job in job_info:
+        #    job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
+        #    job_name=job.product.name,category=job.product.category,
+        #    description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
+        #    date=job.date_created,phone=job.user.details.phone
+       # )
+    #OrderItem.objects.get(id =id)
     #OrderItem.objects.get(id =id)
 
-    info = OrderItem.objects.filter(id=id)  
+    #info = OrderItem.objects.filter(id=id)  
   
         #artisan_assigned =assigned.artisan_assigned
 
@@ -173,7 +177,7 @@ def jobAccepted(request,id):
        #     description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
         #    date=complete.date_created
         #)
-    return render(request,'artisans/completed_services.html',context)
+    return render(request,'artisans/accepted_job.html',context)
     #return redirect('artisan:confirmed_orders')   
     
   
