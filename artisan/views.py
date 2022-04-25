@@ -139,8 +139,9 @@ def jobAccepted(request,id):
     OrderItem.objects.get(id =id)
 
     info = OrderItem.objects.filter(id=id)  
-    for job in info:
-        OrderItem.objects.get(artisan_assigned=job.artisan_assigned.artisan.username).update()
+    for job in info.artisan_assigned.all():
+        context ={'job':job}
+        #OrderItem.objects.get(artisan_assigned=job.artisan_assigned.artisan.username).update()
 
         #job.artisan_assigned=job.user.username
         #job.save()
@@ -162,8 +163,8 @@ def jobAccepted(request,id):
        #     description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
         #    date=complete.date_created
         #)
-     
-    return redirect('artisan:confirmed_orders')   
+    return render(request,'artisans/completed_services.html',context)
+    #return redirect('artisan:confirmed_orders')   
     
   
 
