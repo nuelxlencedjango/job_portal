@@ -166,11 +166,11 @@ def jobAccepted(request,id):
                 #name.artisan_assigned =artisan
                 #name.save()
                 context ={'name':name}#,'nin':nin,'location':location,'phone':phone,'profession':profession_name,'assigned':assignee}        
-            return render(request,'artisans/accepted_job.html',context)       
+                return render(request,'artisans/accepted_job.html',context)       
 
 
     context={'id':id,'nothing found':'nothing'}
-    return render('/')               
+    return render(request,'artisans/accepted_job.html',context)               
                     
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
