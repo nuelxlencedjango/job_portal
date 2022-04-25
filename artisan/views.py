@@ -139,8 +139,8 @@ def jobAccepted(request,id):
     OrderItem.objects.get(id =id)
 
     info = OrderItem.objects.filter(id=id)  
-    for job in info.artisan_assigned.all():
-        OrderItem.objects.get(artisan_assigned=job.user.username).update()
+    for job in info():
+        OrderItem.objects.get(artisan_assigned=job.artisan_assigned.user.username).update()
 
         #job.artisan_assigned=job.user.username
         #job.save()
