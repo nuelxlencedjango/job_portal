@@ -160,9 +160,9 @@ def jobAccepted(request,id):
     #if OrderItem.objects.filter(id =id).exists():
         OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
-        for accepted in accepted_job:
-            for accept in accepted.artisan_assigned:
-                artisan_assigned =accept.user.username
+      
+
+           
 
         
 
@@ -187,8 +187,8 @@ def jobAccepted(request,id):
         #return render(request,'artisans/accepted_job.html',context)       
 
 
-    context={'id':id,'accepted_job':accepted_job,'artisan_assigned':artisan_assigned}
-    return render(request,'artisans/accepted_job.html',context)               
+        context={'id':id,'accepted_job':accepted_job}#,'artisan_assigned':artisan_assigned}
+        return render(request,'artisans/accepted_job.html',context)               
                     
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
