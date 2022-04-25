@@ -144,6 +144,7 @@ def jobDetail(request,id):
                     
                     #name.update()
 
+  
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
     #job_info= OrderItem.objects.filter(id =id)
@@ -154,11 +155,15 @@ def jobAccepted(request,id):
             id = job.id
             for assignee in job.artisan_assigned.all():
                 name = assignee.user.username
+                nin = assignee.nin
+                location=assignee.location
+                phone = assignee.phone
+                profession_name =assignee.profeesional_name
                 #name=OrderItem.objects.filter(id =id,artisan_assigned=artisan).update()
 
                 #name.artisan_assigned =artisan
                 #name.save()
-                context ={'name':name}        
+                context ={'name':name,'nin':nin,'location':location,'phone':phone,'profession':profession_name}        
                 return render(request,'artisans/accepted_job.html',context)       
 
 
