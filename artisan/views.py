@@ -136,12 +136,17 @@ def jobAccepted(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
 
-    OrderItem.objects.filter(id =id)
+    OrderItem.objects.get(id =id)
 
-    info = OrderItem.objects.get(id=id)  
+    info = OrderItem.objects.filter(id=id)  
+    for job in info:
+        for name in job.artisan_assigned.all():
+            artisan_assigned=name.user.username
+            artisan_assigned.save()
+     
 
       
-    info.artisan_assigned.set(request.user.id)  
+    #info.artisan_assigned.set(request.user.id)  
      
 
 
