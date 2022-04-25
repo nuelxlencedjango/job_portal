@@ -127,23 +127,21 @@ def jobDetail(request,id):
 
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
-    job_info= OrderItem.objects.filter(id =id)
+
+    if OrderItem.objects.get(id =id).exists():
+        job_info= OrderItem.objects.filter(id =id)
        
-    for job in job_info:
-        job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
+        for job in job_info:
+            job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
             date=job.date_created,phone=job.user.details.phone
         )
-
     OrderItem.objects.get(id =id)
+    #OrderItem.objects.get(id =id)
 
     info = OrderItem.objects.filter(id=id)  
-    for job in info:
-        #for name in job:
-        assigned =job.artisan_assigned.user.username
-        assigned =  assigned.artisan_assigned
-        context ={'job':assigned}
+  
         #artisan_assigned =assigned.artisan_assigned
 
         #OrderItem.objects.get(artisan_assigned=job.artisan_assigned.artisan.username).update()
