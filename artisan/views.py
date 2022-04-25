@@ -152,7 +152,7 @@ def jobAccepted(request,id):
     #job_info= OrderItem.objects.filter(id =id)
     #id = job_info.id
 
-    if OrderItem.objects.filter(id=id, ordered=True,status='Paid'):
+    if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
 
        # OrderItem.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
 
