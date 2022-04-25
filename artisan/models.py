@@ -175,7 +175,7 @@ class ViewedJob(models.Model):
 
 
    def __str__(self):
-      return str(self.user.username)
+      return str(self.user.username,self.job_name)
 
    #work on this
    #def get_total_count(self):
