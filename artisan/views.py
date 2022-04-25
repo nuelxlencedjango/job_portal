@@ -159,7 +159,9 @@ def jobAccepted(request,id):
         #if OrderItem.objects.filter(user=request.user, ordered=True,status='Paid'):
     #if OrderItem.objects.filter(id =id).exists():
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
-        artisan_assigned =accepted_job.artisan_assigned.user.username
+        for accepted in accepted_job:
+
+            artisan_assigned =accepted.artisan_assigned.user.username
         
         #for job in job_info:
          #   id = job.id
