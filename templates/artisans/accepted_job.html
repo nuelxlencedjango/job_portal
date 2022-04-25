@@ -28,5 +28,7 @@
 <h2 style="color:red">name is {{name}}</h2>
 
 {% for a in job_info %}
-<h2 style="color: green;"> here is :{{name.artisan_assigned}}</h2>
+{% for b in a.rtisan_assigned.all %}
+<h2 style="color: green;"> here is :{{name.user.username}}}</h2>
+{% endfor %}
 {% endfor %}
