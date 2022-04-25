@@ -165,7 +165,7 @@ def jobAccepted(request,id):
             a.save()
           
 
-       # OrderItem.objects.filter(id=id, ordered=True,status='Paid',artisan_assigned=a).update()#update(artisan_assigned=request.user)
+            OrderItem.objects.filter(id=id, ordered=True,status='Paid',artisan_assigned=a).update()#update(artisan_assigned=request.user)
         #accepted_job.artisan_assigned =artisan
         #accepted_job.save()
 
