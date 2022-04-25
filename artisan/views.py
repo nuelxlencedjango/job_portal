@@ -124,7 +124,9 @@ def jobDetail(request,id):
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
             date=job.date_created,phone=job.user.details.phone
         )
-  
+    
+
+    
     context = {'job_info': job_info }
     return render(request,'products/job_detail.html',context)
 
