@@ -147,7 +147,7 @@ def jobDetail(request,id):
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
     job_info= OrderItem.objects.filter(id =id)
-    id = job_info.id
+    #id = job_info.id
     if OrderItem.objects.filter(id =id).exists():
         job_info= OrderItem.objects.filter(id =id)
         for job in job_info:
