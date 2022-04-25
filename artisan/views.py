@@ -119,7 +119,7 @@ def jobDetail(request,id):
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
         for job in job_info:
-            job_detail,create =ViewedJob.objects.get_or_create(user=artisan,
+            job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
             date=job.date_created,phone=job.user.details.phone
