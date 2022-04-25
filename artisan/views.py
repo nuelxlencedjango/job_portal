@@ -139,7 +139,9 @@ def jobAccepted(request,id):
     if OrderItem.objects.filter(id =id).exists():
         job_info= OrderItem.objects.filter(id =id)
         for job in job_info:
-            job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
+             for name in job.artisan_assigned.all():
+                 name.save()
+            #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
 
        
