@@ -160,7 +160,7 @@ def jobAccepted(request,id):
 
    
                   
-                    
+    return redirect('/')                
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
 
@@ -200,7 +200,7 @@ def jobAccepted(request,id):
        #     description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
         #    date=complete.date_created
         #)
-    return render(request,'artisans/accepted_job.html')
+   
     #return redirect('artisan:confirmed_orders')   
     
   
