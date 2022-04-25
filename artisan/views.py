@@ -161,10 +161,10 @@ def jobAccepted(request,id):
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         for accepted in accepted_job:
 
-            artisan_assigned =accepted.artisan_assigned.user.username
+            artisan_assigned =accepted.artisan_assigned.username
         
 
-        
+
         #for job in job_info:
          #   id = job.id
             #for assignee in job.artisan_assigned.all():
