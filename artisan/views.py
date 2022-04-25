@@ -130,23 +130,32 @@ def jobDetail(request,id):
 
 
 
+   #if request.user.is_authenticated:
 
+      #  artisan = [Artisan.objects.filter(user=request.user)]
 
-def jobAccepted(request,id):
-    if request.user.is_authenticated:
-
-        artisan = [Artisan.objects.filter(user=request.user)]
-
-        if OrderItem.objects.filter(id =id).exists():
-            job_info= OrderItem.objects.filter(id =id)
-            for job in job_info:
-                for name in job.artisan_assigned.all():
-                    name.artisan_assigned.set(artisan)
+      #  if OrderItem.objects.filter(id =id).exists():
+       #     job_info= OrderItem.objects.filter(id =id)
+         #   for job in job_info:
+          #      for name in job.artisan_assigned.all():
+          #          name.artisan_assigned.set(artisan)
+                    
                     #name.update()
 
+def jobAccepted(request,id):
+    artisan = [Artisan.objects.filter(user=request.user)]
 
-    else:
-        return redirect('/')                
+    if OrderItem.objects.filter(id =id).exists():
+        job_info= OrderItem.objects.filter(id =id)
+        for job in job_info:
+            for name in job.artisan_assigned.all():
+                name.artisan_assigned =artisan
+                name.save()
+        return redirect('artisan:confirmed_orders')         
+
+
+   
+                  
                     
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
