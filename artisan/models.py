@@ -150,9 +150,10 @@ class CompletedJob(models.Model):
   category = models.CharField(max_length=200, null=True, unique = False)
   client = models.CharField(max_length=200, null=True)
   address = models.CharField(max_length=200, null=True)
+  
   pay =models.FloatField(default=00.00)
    
-  date = models.DateField(auto_now_add = True, null=True, blank=True)
+  date_accepted = models.DateField(auto_now_add = True, null=True, blank=True)
 
 
   def __str__(self):
@@ -172,7 +173,7 @@ class ViewedJob(models.Model):
    date = models.DateField(auto_now_add = True, null=True, blank=True)
    price = models.FloatField(default=00.00, null=True, unique = False)
    phone = models.CharField(max_length=15, null=True, unique = False)
-   #accepted = models.BooleanField( null=True, default= False)
+   date_vewd = models.BooleanField( null=True, default= False)
 
 
    def __str__(self):
