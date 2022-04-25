@@ -36,7 +36,7 @@
 <h3>address:{{accept.address}}</h3>
 <h3>date_created:{{accept.date_created}}</h3>
 
-{% for info in accept.artisan_assigned.all %}
+{% for info in accept %}
 <h2 style="color: brown;">hi {{info }}</h2>
 <h2 style="color: green;"> artisan name :{{ info.user.username }}</h2>
 <h2 style="color: green;"> artisan name :{{ info.username }}</h2>
