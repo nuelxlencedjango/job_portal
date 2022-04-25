@@ -118,6 +118,7 @@ def jobDetail(request,id):
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
+        pt = job_info.id
         for job in job_info:
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,category=job.product.category,
@@ -125,7 +126,7 @@ def jobDetail(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
   
-    context = {'job_info': job_info }
+    context = {'job_info': job_info,'pt':pt }
     return render(request,'products/job_detail.html',context)
 
 
@@ -144,23 +145,24 @@ def jobDetail(request,id):
 
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
-
-    OrderItem.objects.filter(id =id)
     job_info= OrderItem.objects.filter(id =id)
-    for job in job_info:
-        for assignee in job.artisan_assigned.all():
-            name = assignee.user.username
+    id = job_info.id
+    if OrderItem.objects.filter(id =id).exists():
+        job_info= OrderItem.objects.filter(id =id)
+        for job in job_info:
+            for assignee in job.artisan_assigned.all():
+                name = assignee.user.username
                 #name=OrderItem.objects.filter(id =id,artisan_assigned=artisan).update()
 
                 #name.artisan_assigned =artisan
                 #name.save()
-            context ={'name':name}        
-            return render(request,'artisans/accepted_job.html',context)       
+                context ={'name':name}        
+                return render(request,'artisans/accepted_job.html',context)       
 
 
-   
-                  
-    #return redirect('/')                
+    context={'id':id}
+    return render(request,'artisans/accepted_job.html',context)               
+                    
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
 
