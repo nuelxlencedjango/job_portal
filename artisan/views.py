@@ -142,18 +142,47 @@ def jobAccepted(request,id):
             for job in job_info:
                 for name in job.artisan_assigned.all():
                     name.save()
+                    
+            #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
+        #job_info.update()
 
-            return redirect('artisan:confirmed_orders')         
-        
-        
-        #for complete in job_info:
-        #    job_detail,create =CompletedJob.objects.get_or_create(user=request.user,
-        #    job_name=complete.product.name,category=complete.product.category,
-        #    description =complete.description,price =complete.get_service_rate(),client=complete.user.last_name,address =complete.address,
+       
+       # for job in job_info:
+        #    job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
+        #    job_name=job.product.name,category=job.product.category,
+        #    description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
+        #    date=job.date_created,phone=job.user.details.phone
+       # )
+    #OrderItem.objects.get(id =id)
+    #OrderItem.objects.get(id =id)
+
+    #info = OrderItem.objects.filter(id=id)  
+  
+        #artisan_assigned =assigned.artisan_assigned
+
+        #OrderItem.objects.get(artisan_assigned=job.artisan_assigned.artisan.username).update()
+
+        #job.artisan_assigned=job.user.username
+        #job.save()
+        #info.update()
+        #for name in job.artisan_assigned.all():
+            #artisan_assigned=name.user.username
+            #artisan_assigned.save()
+            #artisan.artisan_assigned.set(artisan)
+
+      
+    #info.artisan_assigned.set(request.user.id)  
+     
+    #job_info= OrderItem.objects.get(id =id)
+    #job_info.artisan_assigned.set(artisan)
+    
+    #for complete in job_detail:
+     #   job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
+      #      job_name=complete.job_name,category=complete.category,
+       #     description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
         #    date=complete.date_created
         #)
-          
-    #return render(request,'artisans/accepted_job.html',context)
+    return render(request,'artisans/accepted_job.html')
     #return redirect('artisan:confirmed_orders')   
     
   
