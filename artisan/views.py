@@ -151,8 +151,6 @@ def jobAccepted(request,id):
     #job_info= OrderItem.objects.get(id =id)
     #job_info.artisan_assigned.set(artisan)
     
-   
-
     #for complete in job_detail:
      #   job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
       #      job_name=complete.job_name,category=complete.category,
