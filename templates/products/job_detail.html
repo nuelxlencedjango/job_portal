@@ -88,6 +88,27 @@
 
 
 
+      <h3>ordered:{{job_info.ordered}}</h3>
+      <h3>quantity:{{job_info.quantity}}</h3>
+      <h3>status:{{job_info.status}}</h3>
+      
+      <h3>description:{{job_info.description}}</h3>
+      <h3>address:{{job_info.address}}</h3>
+      <h3>date_created:{{job_info.date_created}}</h3>
+      
+      {% for name in job_info.artisan_assigned.all %}
+      <h2 style="color: green;"> artisan name :{{job_info..user.username }}</h2>
+      
+      
+      <h3 style="color: blue;">id is:{{ job_info.artisan_assigned.user.id }}</h3>
+      
+      <h3 style="color: blue;">name is:{{ job_info.artisan_assigned.username }}</h3>
+      
+      <h3 style="color: blue;">nin is:{{ job_info.artisan_assigned.user.nin }}</h3>
+      <h3 style="color: blue;">location is:{{job_info.artisan_assigned.user.location}}</h3>
+      <h3 style="color: blue;">phone is:{{job_info.artisan_assigned.user.phone}}</h3>
+      <h3 style="color: blue;">profession{{job_info.artisan_assigned.user.profeesional_name}}</h3>
+      {% endfor %}
 
   
 
