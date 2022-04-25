@@ -142,6 +142,7 @@ def jobAccepted(request,id):
     for job in info:
         #for name in job:
         assigned =job.artisan_assigned.all()
+        assigned =  assigned.artisan_assigned
         context ={'job':assigned}
         #artisan_assigned =assigned.artisan_assigned
 
