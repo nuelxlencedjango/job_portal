@@ -151,7 +151,7 @@ def jobAccepted(request,id):
             for name in job.artisan_assigned.all():
                 name.artisan_assigned =artisan
                 name.save()
-        context ={
+                context ={
             'name':name
         }        
         return render(request,'artisans/accepted_job.html',context)       
