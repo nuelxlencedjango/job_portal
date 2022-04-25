@@ -138,8 +138,8 @@ def jobAccepted(request,id):
 
     if OrderItem.objects.filter(id =id).exists():
         job_info= OrderItem.objects.get(id =id)
-        job_info.artisan_assigned =job_info.artisan_assigned.user.username
-        job_info.update()
+        job_info.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
+        #job_info.update()
 
        
        # for job in job_info:
