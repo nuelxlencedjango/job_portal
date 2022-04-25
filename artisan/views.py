@@ -157,15 +157,15 @@ def jobAccepted(request,id):
             #for assignee in job_info.artisan_assigned.all():
             for jab in job.artisan_assigned.all():
                 name = job.assignee.user.username
-            nin = job.artisan_assigned.nin
-            location=job.artisan_assigned.location
-            phone = job.artisan_assigned.phone
-            profession_name =job.artisan_assigned.profeesional_name
+            #nin = job.artisan_assigned.nin
+            #location=job.artisan_assigned.location
+            #hone = job.artisan_assigned.phone
+            #profession_name =job.artisan_assigned.profeesional_name
                 #name=OrderItem.objects.filter(id =id,artisan_assigned=artisan).update()
 
                 #name.artisan_assigned =artisan
                 #name.save()
-            context ={'name':name,'nin':nin,'location':location,'phone':phone,'profession':profession_name,'assigned':assignee}        
+            context ={'name':name}#,'nin':nin,'location':location,'phone':phone,'profession':profession_name,'assigned':assignee}        
             return render(request,'artisans/accepted_job.html',context)       
 
 
