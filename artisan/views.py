@@ -142,6 +142,10 @@ def jobAccepted(request,id):
             for job in job_info:
                 for name in job.artisan_assigned.all():
                     name.save()
+
+
+    else:
+        return redirect('/')                
                     
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
         #job_info.update()
