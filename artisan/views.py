@@ -149,7 +149,7 @@ def jobAccepted(request,id):
         job_info= OrderItem.objects.filter(id =id)
         for job in job_info:
             for name in job.artisan_assigned.all():
-                name=OrderItem.objects.filter(id =id,artisan_assigned=name.user.username).update()
+                name=OrderItem.objects.filter(id =id,artisan_assigned=artisan).update()
 
                 #name.artisan_assigned =artisan
                 #name.save()
