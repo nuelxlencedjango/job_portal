@@ -1,5 +1,4 @@
 from multiprocessing import context
-from unicodedata import name
 from urllib import request
 from django.shortcuts import render
 
@@ -162,8 +161,8 @@ def jobAccepted(request,id):
         OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job= OrderItem.objects.get(id=id, ordered=True,status='Paid')
         for a in accepted_job.artisan_assigned.all():
-            a.artisan_assigned =artisan
-            name =a.artisan_assigned
+            name=a.artisan_assigned 
+            name =artisan
 
             OrderItem.objects.filter(id=id, ordered=True,status='Paid',artisan_assigned=name).update()#update(artisan_assigned=request.user)
         #accepted_job.artisan_assigned =artisan
