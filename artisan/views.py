@@ -118,7 +118,7 @@ def jobDetail(request,id):
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
-        pt = job_info.id
+        
         for job in job_info:
             pn =job.id
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
@@ -127,7 +127,7 @@ def jobDetail(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
   
-    context = {'job_info': job_info,'pt':pt }
+    context = {'job_info': job_info,'pt':pn }
     return render(request,'products/job_detail.html',context)
 
 
