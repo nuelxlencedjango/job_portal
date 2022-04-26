@@ -169,7 +169,7 @@ def jobAccepted(request,id):
         #accepted_job.update(artisan_assigned =artisan)
     
         
-        context={'id':id,'accepted_job':accepted_job,'job':job}#,'artisan_assigned':artisan_assigned}
+        context={'id':id,'accepted_job':accepted_job}#,'artisan_assigned':artisan_assigned}
         return render(request,'artisans/accepted_job.html',context)               
                     
             #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
