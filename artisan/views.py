@@ -157,7 +157,8 @@ def jobAccepted(request,id):
        # OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job.artisan_assigned =artisan
-        accepted_job.update(artisan_assigned =artisan)
+        OrderItem.objects.filter(id=id, ordered=True,status='Paid',artisan_assigned =artisan).update()
+        #accepted_job.update(artisan_assigned =artisan)
        
         
         context={'id':id,'accepted_job':accepted_job}#,'artisan_assigned':artisan_assigned}
