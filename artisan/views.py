@@ -163,7 +163,7 @@ def jobAccepted(request,id):
         accepted_job.save() 
 
         if ViewedJob.objects.filter(id=id, ordered=True,status='Paid',user=request.user).exists():
-           ViewedJob.objects.get(id=id,accepted ="Job Accepted").update()  
+           ViewedJob.objects.get(id=id,accepted ="Accepted").update()  
 
  
         return redirect('artisan:confirmed_orders')             
