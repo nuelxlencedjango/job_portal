@@ -158,11 +158,8 @@ def jobAccepted(request,id):
         for name in accepted_job:
 
             name.artisan_assigned.add(*artisan)
-       # accepted_job.save()
+   
         
-
-    
-       
         context={'id':id,'accepted_job':accepted_job}#,'artisan_assigned':artisan_assigned}
         return render(request,'artisans/accepted_job.html',context)               
                     
