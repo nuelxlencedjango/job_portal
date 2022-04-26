@@ -170,7 +170,7 @@ def currentJob(request):
     user = Artisan.objects.get(user=request.user)
 
     #job = OrderItem.objects.all()
-    if ViewedJob.objects.filter(user=user).exists():
+    if ViewedJob.objects.filter(user=request.user).exists():
         current_job = ViewedJob.objects.get(user=user)[0]
 
         context ={'current_job':current_job}
