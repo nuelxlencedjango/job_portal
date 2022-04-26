@@ -149,14 +149,14 @@ def jobDetail(request,id):
   
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
+    artisan_id = [Artisan.objects.filter(user=request.user.id)]
    
 
     if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
 
        # OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job= OrderItem.objects.get(id=id, ordered=True,status='Paid')
-        for name in accepted_job.artisan_assigned.all():
-
+        for name in accepted_job:
             name.artisan_assigned.add(*artisan)
    
         
