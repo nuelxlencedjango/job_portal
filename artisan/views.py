@@ -148,7 +148,7 @@ def jobDetail(request,id):
 
   
 def jobAccepted(request,id):
-    artisan = [Artisan.objects.filter(user=request.user)]
+    artisan = [Artisan.objects.get(user=request.user)]
     artisan_id = Artisan.objects.filter(user=request.user.id)
    
 
