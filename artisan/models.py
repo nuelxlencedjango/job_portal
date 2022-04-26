@@ -173,7 +173,8 @@ class ViewedJob(models.Model):
    date = models.DateField(auto_now_add = True, null=True, blank=True)
    price = models.FloatField(default=00.00, null=True, unique = False)
    phone = models.CharField(max_length=15, null=True, unique = False)
-   date_vewd = models.BooleanField( null=True, default= False)
+   date_accepted = models.BooleanField( null=True, default= False)
+   accepted = models.BooleanField( null=True, default= False)
 
 
    def __str__(self):

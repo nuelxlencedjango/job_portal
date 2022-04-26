@@ -237,11 +237,11 @@ class OrderItem(models.Model):
    img = CloudinaryField(blank=True,null=True)
    status = models.CharField(max_length=200, null=True, blank=True, default='Pending')
    description=models.TextField(max_length=100,null=True,blank=True)
-   #location = models.ForeignKey('artsans.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
    address = models.CharField(max_length=300, null=True,blank=True)
    artisan_assigned = models.ManyToManyField('artisan.Artisan' ,blank=True) 
    date_created = models.DateField(auto_now_add = True, null=True, blank=True)
-   #date_accepted = models.DateField(auto_now_add = True, null=True, blank=True)
+   accepted = models.BooleanField( null=True, default= False)
+   date_accepted = models.DateField(auto_now_add = True, null=True, blank=True)
    #payment_id
    
    class Meta:
