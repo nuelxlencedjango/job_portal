@@ -149,7 +149,7 @@ def jobDetail(request,id):
   
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
-    artisan_id = [Artisan.objects.filter(user=request.user.id)]
+    artisan_id = Artisan.objects.filter(user=request.user.id)
    
 
     if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
