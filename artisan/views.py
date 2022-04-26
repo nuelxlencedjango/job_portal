@@ -156,12 +156,9 @@ def jobAccepted(request,id):
 
        # OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
-        for name in accepted_job:
-           
-            OrderItem.objects.get(id=id, ordered=True,status='Paid',artisan_assigned=artisan_id).update()
-                #n.artisan_assigned=artisan
-                #n.save()
-   
+        accepted_job.artisan_assigned =artisan
+        accepted_job.save()
+       
         
         context={'id':id,'accepted_job':accepted_job}#,'artisan_assigned':artisan_assigned}
         return render(request,'artisans/accepted_job.html',context)               
