@@ -159,60 +159,13 @@ def jobAccepted(request,id):
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         for b in accepted_job:
             b.artisan_assigned.set(artisan)
-            b.save()
+            #b.save()
  
-        #for job in accepted_job:
-         #   job.artisan_assigned.add(artisan)
-          #  job.save()
-            #job.save()
-            #OrderItem.objects.get(id=id, ordered=True,status='Paid',artisan_assigned =artisan).update()
-        #accepted_job.update(artisan_assigned =artisan)
-    
-        
-        context={'id':id,'accepted_job':accepted_job}#,'artisan_assigned':artisan_assigned}
-        return render(request,'artisans/accepted_job.html',context)               
-                    
-            #job.artisan_assigned.set(artisan) #=job_info.artisan_assigned.user.username
-        #job_info.update()
-
        
-       # for job in job_info:
-        #    job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
-        #    job_name=job.product.name,category=job.product.category,
-        #    description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
-        #    date=job.date_created,phone=job.user.details.phone
-       # )
-    #OrderItem.objects.get(id =id)
-    #OrderItem.objects.get(id =id)
-
-    #info = OrderItem.objects.filter(id=id)  
-  
-        #artisan_assigned =assigned.artisan_assigned
-
-        #OrderItem.objects.get(artisan_assigned=job.artisan_assigned.artisan.username).update()
-
-        #job.artisan_assigned=job.user.username
-        #job.save()
-        #info.update()
-        #for name in job.artisan_assigned.all():
-            #artisan_assigned=name.user.username
-            #artisan_assigned.save()
-            #artisan.artisan_assigned.set(artisan)
-
-      
-    #info.artisan_assigned.set(request.user.id)  
-     
-    #job_info= OrderItem.objects.get(id =id)
-    #job_info.artisan_assigned.set(artisan)
-    
-    #for complete in job_detail:
-     #   job_complete,create =CompletedJob.objects.get_or_create(user=request.user,
-      #      job_name=complete.job_name,category=complete.category,
-       #     description =complete.description,pay =complete.price,client=complete.client,address =complete.address,
-        #    date=complete.date_created
-        #)
-   
-    #return redirect('artisan:confirmed_orders')   
+        
+        return redirect('artisan:confirmed_orders')             
+                    
+           
     
   
 
