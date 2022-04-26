@@ -149,9 +149,8 @@ def jobDetail(request,id):
   
 def jobAccepted(request,id):
     artisan = [Artisan.objects.get(user=request.user)]
-    artisan_id = Artisan.objects.filter(user=request.user.id)
+    #artisan_id = Artisan.objects.filter(user=request.user.id)
    
-
     if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
 
        # OrderItem.objects.filter(id=id, ordered=True,status='Paid')
@@ -161,8 +160,6 @@ def jobAccepted(request,id):
             b.artisan_assigned.set(artisan)
             #b.save()
  
-       
-        
         return redirect('artisan:confirmed_orders')             
                     
            
@@ -174,7 +171,7 @@ def currentJob(request):
 
     #job = OrderItem.objects.all()
     if ViewedJob.objects.filter(user=user).exists():
-        current_job = ViewedJob.objects.filter(user=user)[0]
+        current_job = ViewedJob.objects.get(user=user)[0]
 
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
