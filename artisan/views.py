@@ -162,8 +162,7 @@ def jobAccepted(request,id):
             #job.save()
             #OrderItem.objects.get(id=id, ordered=True,status='Paid',artisan_assigned =artisan).update()
         #accepted_job.update(artisan_assigned =artisan)
-       
-   
+    
         
         context={'id':id,'accepted_job':accepted_job,'job':job}#,'artisan_assigned':artisan_assigned}
         return render(request,'artisans/accepted_job.html',context)               
