@@ -28,7 +28,7 @@
 <h2 style="color:red">name is {{name}}</h2>
 
 <h3>ordered:{{accepted_job.ordered}}</h3>
-<h3>quantity:{{accepted_job.quantity}}</h3>
+<h3>quantity:{{accepted_job.product.quantity}}</h3>
 <h3>status:{{accepted_job.status}}</h3>
 
 <h3>description:{{accepted_job.description}}</h3>
@@ -36,17 +36,17 @@
 <h3>date_created:{{accepted_job.date_created}}</h3>
 
 {% for name in accepted_job.artisan_assigned.all %}
-<h2 style="color: green;"> artisan name :{{accepted_job..user.username }}</h2>
+<h2 style="color: green;"> artisan name :{{name..user.username }}</h2>
 
 
-<h3 style="color: blue;">id is:{{ accepted_job.artisan_assigned.user.id }}</h3>
+<h3 style="color: blue;">id is:{{ name.artisan_assigned.user.id }}</h3>
 
-<h3 style="color: blue;">name is:{{ accepted_job.artisan_assigned.username }}</h3>
+<h3 style="color: blue;">name is:{{ name.artisan_assigned.username }}</h3>
 
-<h3 style="color: blue;">nin is:{{ accepted_job.artisan_assigned.user.nin }}</h3>
-<h3 style="color: blue;">location is:{{accepted_job.artisan_assigned.user.location}}</h3>
-<h3 style="color: blue;">phone is:{{accepted_job.artisan_assigned.user.phone}}</h3>
-<h3 style="color: blue;">profession{{accepted_job.artisan_assigned.user.profeesional_name}}</h3>
+<h3 style="color: blue;">nin is:{{ name.artisan_assigned.user.nin }}</h3>
+<h3 style="color: blue;">location is:{{name.artisan_assigned.user.location}}</h3>
+<h3 style="color: blue;">phone is:{{name.artisan_assigned.user.phone}}</h3>
+<h3 style="color: blue;">profession{{name.artisan_assigned.user.profeesional_name}}</h3>
 {% endfor %}
 
 <h3 style="color: blue;">id is:{{id}}</h3>
