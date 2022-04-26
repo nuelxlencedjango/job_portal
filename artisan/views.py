@@ -166,10 +166,8 @@ def jobAccepted(request,id):
   
 
 def currentJob(request):
-    user = Artisan.objects.get(user=request.user)
-
-  
-    if ViewedJob.objects.get(user=request.user).exists():
+    user=request.user  
+    if ViewedJob.objects.filter(user=user).exists():
         current_job =ViewedJob.objects.all()
        # current_job = ViewedJob.objects.get(user=request.user)[0]
 
