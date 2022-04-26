@@ -149,60 +149,19 @@ def jobDetail(request,id):
   
 def jobAccepted(request,id):
     artisan = [Artisan.objects.filter(user=request.user)]
-    #job_info= OrderItem.objects.filter(id =id)
-    #id = job_info.id
+   
 
     if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
 
-       # OrderItem.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
-
-        #if OrderItem.objects.filter(user=request.user, ordered=True,status='Paid'):
-    #if OrderItem.objects.filter(id =id).exists():
-        OrderItem.objects.filter(id=id, ordered=True,status='Paid')
+       # OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         accepted_job= OrderItem.objects.get(id=id, ordered=True,status='Paid')
      
-        accepted_job.artisan_assigned.add(artisan)
+        accepted_job.artisan_assigned=artisan
         accepted_job.save()
         
 
     
-        #for a in accepted_job.artisan_assigned.all():
-            #a.user.username =artisan
-            #a.save()
-          
-
-            #OrderItem.objects.get(id=id, ordered=True,status='Paid').update(artisan_assigned=a.user.username)#update(artisan_assigned=request.user)
-          
-        #accepted_job.save()
-
        
-
-
-           
-
-        
-
-
-        #for job in job_info:
-         #   id = job.id
-            #for assignee in job.artisan_assigned.all():
-            #for assignee in job_info.artisan_assigned.all():
-          #  for jab in job.artisan_assigned.all():
-           #     name = jab.assignee.user.username
-            #    name.save()
-            
-            #nin = job.artisan_assigned.nin
-            #location=job.artisan_assigned.location
-            #hone = job.artisan_assigned.phone
-            #profession_name =job.artisan_assigned.profeesional_name
-                #name=OrderItem.objects.filter(id =id,artisan_assigned=artisan).update()
-
-                #name.artisan_assigned =artisan
-                #name.save()
-        #context ={'name':name}#,'nin':nin,'location':location,'phone':phone,'profession':profession_name,'assigned':assignee}        
-        #return render(request,'artisans/accepted_job.html',context)       
-
-
         context={'id':id,'accepted_job':accepted_job}#,'artisan_assigned':artisan_assigned}
         return render(request,'artisans/accepted_job.html',context)               
                     
