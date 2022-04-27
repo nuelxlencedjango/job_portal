@@ -15,9 +15,9 @@ class Migration(migrations.Migration):
             name='accepted',
             field=models.BooleanField(default=False, null=True),
         ),
-        migrations.AddField(
-            model_name='orderitem',
-            name='date_accepted',
-            field=models.DateField(auto_now_add=True, null=True),
-        ),
+       # migrations.AddField(
+        #    model_name='orderitem',
+        #    name='date',
+       #     field=models.DateField(auto_now_add=True, null=True),
+        #)#,
     ]
