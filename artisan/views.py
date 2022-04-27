@@ -162,14 +162,14 @@ def jobAccepted(request,id):
     
      
     if ViewedJob.objects.filter(user=request.user).exists():
-        
+
         current_job = ViewedJob.objects.filter(user=request.user).last()
         ViewedJob.objects.filter(user=request.user).update(accepted ="Accepted" ,
         accepted_date =timezone.now())
 
-        context ={'current_job':current_job}
-   
-        return render(request,'artisans/accepted_job.html',context)    
+       
+        return redirect('artisan:confirmed_orders')
+        
 
     return redirect('/')
                        
