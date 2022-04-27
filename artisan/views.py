@@ -152,8 +152,6 @@ def jobAccepted(request,id):
  
     if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
 
-       # OrderItem.objects.filter(id=id, ordered=True,status='Paid')
-     
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         for b in accepted_job:
             b.artisan_assigned.set(artisan)
@@ -164,7 +162,10 @@ def jobAccepted(request,id):
     
      
     if ViewedJob.objects.filter(user=request.user).exists():
+        
         current_job = ViewedJob.objects.filter(user=request.user).last()
+        ViewedJob.objects.filter(user=request.user).update(accepted ="Accepted" ,
+        accepted_date =timezone.now())
 
         context ={'current_job':current_job}
    
