@@ -18,7 +18,7 @@
   }
   </style>
 
-<td> {{current_job.id}}</td>
+<td  style="background-color: #dc3545; color: #fff;"> {{current_job.id}}</td>
 <h2 style="text-align: center; color: #999;">On Going Job</h2>
   
     <div class="row artisan-job-info" style="margin-top: 40px;">
@@ -43,7 +43,7 @@
               <td>Phone</td>
               <td>Status</td>
               <td>Date</td>  
-              <td>Pay</td>
+              <td style="font-size: larger;">Amount</td>
              
  
             </tr>
@@ -66,7 +66,7 @@
               <td> {{current_job.phone}}</td>
               <td> {{current_job.accepted}}</td>
               <td>{{current_job.accepted_date}}</td>
-              <td> {{current_job.price}}</td>
+              <td style="background-color: #dc3545; color: #fff;"> {{current_job.price}}</td>
             
             
              
@@ -127,15 +127,15 @@
          
 
             <tr>
-              <td>{{ current_job.product.name }}</td>
-              <td>{{current_job.product.category }}</td>
+              <td>{{ current_job.name }}</td>
+              <td>{{current_job.category }}</td>
               <td>{{ current_job.quantity }}</td>
               <td>{{current_job.description}}</td>
               <td>{{current_jobt.address }}</td>
               <td>{current_jobt.date_created}}</td>
 
-              <td> {current_jobt.user.last_name}}</td>
-              <td> {{current_job.user.details.phone}}</td>
+              <td> {current_jobt.client}}</td>
+              <td> {{current_job.phone}}</td>
               <td style="background-color: #dc3545; color: #fff;">{{ current_job.get_service_rate }}</td>
 
               <!--<td><a class="btn btn-success" href="">Accept</a></td>
@@ -148,8 +148,8 @@
 
   
        
-        {{job}}
-<h1 style="color: red;">Job id :{{pt}}</h1>
+        
+<h1 style="color: red;">Job id :{{current_job.id}}</h1>
 
           </table>
           
