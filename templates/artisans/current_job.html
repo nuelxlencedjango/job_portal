@@ -126,18 +126,18 @@
 
           
          
-           {% for result in current_job %}
-            <tr>
-              <td>{{ result.product.name }}</td>
-              <td>{{result.product.category }}</td>
-              <td>{{ result.quantity }}</td>
-              <td>{{result.description}}</td>
-              <td>{{ result.address }}</td>
-              <td>{{result.date_created}}</td>
 
-              <td> {{result.user.last_name}}</td>
-              <td> {{result.user.details.phone}}</td>
-              <td style="background-color: #dc3545; color: #fff;">{{ result.get_service_rate }}</td>
+            <tr>
+              <td>{{ current_job.product.name }}</td>
+              <td>{{current_job.product.category }}</td>
+              <td>{{ current_job.quantity }}</td>
+              <td>{{current_job.description}}</td>
+              <td>{{current_jobt.address }}</td>
+              <td>{current_jobt.date_created}}</td>
+
+              <td> {current_jobt.user.last_name}}</td>
+              <td> {{current_job.user.details.phone}}</td>
+              <td style="background-color: #dc3545; color: #fff;">{{ current_job.get_service_rate }}</td>
 
               <!--<td><a class="btn btn-success" href="">Accept</a></td>
               <td><a class="btn btn-danger" href="">Decline</a></td>-->
@@ -154,7 +154,7 @@
 
          
 
-            {% endfor %}
+  
        
         {{job}}
 <h1 style="color: red;">Job id :{{pt}}</h1>
