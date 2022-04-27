@@ -180,7 +180,7 @@ def currentJob(request):
     user=request.user  
     if ViewedJob.objects.filter(user=user).exists():
         #current_job =ViewedJob.objects.all()
-        current_job = ViewedJob.objects.get(user=user)[0]
+        current_job = ViewedJob.objects.filter(user=user)[0]
 
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
