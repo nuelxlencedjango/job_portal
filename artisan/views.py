@@ -65,7 +65,7 @@ def confirmedOrders(request):
 
 
 
-
+@login_required
 def artisan_update(request):
     if request.method =="POST":
 
@@ -94,7 +94,7 @@ def artisan_update(request):
 
 
 
-
+@login_required
 def paidJobs(request):
     artisan = Artisan.objects.filter(user=request.user)
     
@@ -112,7 +112,7 @@ def paidJobs(request):
 
 
 
-
+@login_required
 def jobDetail(request,id):
 
     if request.user.is_authenticated:
@@ -148,7 +148,7 @@ def jobDetail(request,id):
 
 
 
-  
+@login_required  
 def jobAccepted(request,id):
     artisan = [Artisan.objects.get(user=request.user)]
  
