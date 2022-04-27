@@ -180,7 +180,7 @@ def jobAccepted(request,id):
 
 def currentJob(request):
     user=request.user  
-    if ViewedJob.objects.filter(user=user).exists():
+    if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
         #current_job =ViewedJob.objects.all()
         current_job = ViewedJob.objects.filter(user=user).last()
 
@@ -194,7 +194,7 @@ def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
 
     #job = OrderItem.objects.all()
-    if OrderItem.objects.filter(artisan_assigned=user).exists():
+    if OrderItem.objects.filter(artisan_assigned=user,accpted='Accepted').exists():
         job_info = OrderItem.objects.filter(artisan_assigned=user).order_by('-date_created')
         context ={'job_info':job_info}
     return render(request,'artisans/completed_services.html',context)
