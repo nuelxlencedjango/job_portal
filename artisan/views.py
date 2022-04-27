@@ -186,7 +186,7 @@ def currentJob(request):
         #current_job =ViewedJob.objects.all()
         current_job = ViewedJob.objects.filter(user=user).last()
 
-        
+
 
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
@@ -196,7 +196,10 @@ def currentJob(request):
 
 
 def registJob(request,id):
-    pass
+   
+    return render(request,'artisans/register_job.html')
+
+
 
 def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
