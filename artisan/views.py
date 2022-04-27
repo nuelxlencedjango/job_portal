@@ -132,6 +132,8 @@ def jobDetail(request,id):
 
 
 
+
+
    #if request.user.is_authenticated:
 
       #  artisan = [Artisan.objects.filter(user=request.user)]
