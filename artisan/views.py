@@ -165,7 +165,7 @@ def jobAccepted(request,id):
             #accepted_job.save() 
 
         if ViewedJob.objects.filter(id=id,user=request.user).exists():
-           ViewedJob.objects.get(id=id).update(accepted ="Accepted",accepted_date =timezone.now())  
+           ViewedJob.objects.filter(id=id,user=request.user).update(accepted ="Accepted",accepted_date =timezone.now())  
 
  
         return redirect('artisan:confirmed_orders')             
