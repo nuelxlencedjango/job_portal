@@ -158,10 +158,11 @@ def jobAccepted(request,id):
         for b in accepted_job:
             b.artisan_assigned.set(artisan)
             #b.save()
-
-        accepted_job.accepted ="Accepted"  
-        accepted_job.accepted_date =timezone.now() 
-        accepted_job.save() 
+        OrderItem.objects.filter(id=id, ordered=True,status='Paid',accepted ="Accepted" ,
+        accepted_date =timezone.now()).update()
+            #accepted_job.accepted ="Accepted"  
+           # accepted_job.accepted_date =timezone.now() 
+            #accepted_job.save() 
 
         if ViewedJob.objects.filter(id=id, ordered=True,status='Paid',user=request.user).exists():
            ViewedJob.objects.get(id=id,accepted ="Accepted",accepted_date =timezone.now()).update()  
