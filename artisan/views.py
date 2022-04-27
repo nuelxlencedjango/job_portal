@@ -163,7 +163,7 @@ def jobAccepted(request,id):
          
     
      
-    ViewedJob.objects.filter(user=request.user).exists()
+    ViewedJob.objects.filter(user=request.user)
 
         #current_job =ViewedJob.objects.all()
     job = ViewedJob.objects.filter(user=request.user)[0]
