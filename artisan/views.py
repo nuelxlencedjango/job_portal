@@ -162,7 +162,7 @@ def jobAccepted(request,id):
         accepted_date =timezone.now())
          
 
-        if ViewedJob.objects.filter(id=id,user=request.user).exists():
+        if ViewedJob.objects.filter(id=id).exists():
             ViewedJob.objects.filter(id=id, user=request.user).update(accepted ="Accepted" ,
             accepted_date =timezone.now())
 
