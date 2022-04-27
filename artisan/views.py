@@ -163,10 +163,10 @@ def jobAccepted(request,id):
          
     
      
-    if ViewedJob.objects.filter(user=request.user).exists():
+    if ViewedJob.objects.filter(id=id,user=request.user).exists():
 
         #current_job =ViewedJob.objects.all()
-        job = ViewedJob.objects.filter(user=request.user)[-1]
+        job = ViewedJob.objects.filter(user=request.user).order_by('-date')
     #if ViewedJob.objects.filter(id=id).exists():
      #   ab=ViewedJob.objects.filter(id=id, user=request.user)
         context ={'current_job':job}
