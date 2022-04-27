@@ -108,8 +108,9 @@
           <ul class="dropdown-menu" style=" color: #000; width: 250px; color: #fff;">
     
             <li><a class="dropdown-item" href="{% url 'artisan:current_job' %}">On Going Job</a>
-             </li> <td><button type="button" class="btn btn-danger" onclick="openPopup()">check</button>
-              <button type="submit" class="btnn btn-danger" onclick="openPopup()">Submit</button>
+             </li> 
+             <li><td><button type="button" class="btn btn-danger" onclick="openPopup()">Register Your Job</button>
+              <button type="submit" class="btnn btn-danger" onclick="openPopup()">Register Your Job</button></td></li>
             <li><a  href="" class="dropdown-item" type="button" >Register Your Job</a></li>
             <li><a href="{% url 'artisan:services_completed' %}" class="dropdown-item">Services Completed</a></li>
             
@@ -165,7 +166,7 @@
   .popp{
     width: 100%;
     height: 100%;
-    background-color: #3c5077;
+    /*background-color: #3c5077;*/
     display: flex;
     align-items: center;
     justify-content: center;
