@@ -194,7 +194,7 @@ def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
 
     #job = OrderItem.objects.all()
-    if OrderItem.objects.filter(artisan_assigned=user,accpted='Accepted').exists():
+    if OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted').exists():
         job_info = OrderItem.objects.filter(artisan_assigned=user).order_by('-date_created')
         context ={'job_info':job_info}
     return render(request,'artisans/completed_services.html',context)
