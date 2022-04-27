@@ -18,7 +18,7 @@
   }
   </style>
 
-
+<td> {{current_job.id}}</td>
 <h2 style="text-align: center; color: #999;">On Going Job</h2>
   
     <div class="row artisan-job-info" style="margin-top: 40px;">
@@ -42,6 +42,10 @@
               <td>Date</td>
               <td>Client's Name</td>
               <td>Phone</td>
+              <td>Status</td>
+              <td>Pay</td>
+              <td>Phone</td>
+              <td>Date</td>
             </tr>
 
           
@@ -53,7 +57,7 @@
          
            
             <tr>
-              <td> {{current_job.user.username}}</td>
+           
               <td>{{ current_job.job_name }}</td>
               <td>{{current_job.category }}</td>
             
@@ -65,10 +69,10 @@
               <td> {{current_job.phone}}</td>
               <td> {{current_job.price}}</td>
               <td> {{current_job.phone}}</td>
-              <td> {{current_job.phone}}</td>
+            
               <td> {{current_job.client}}</td>
               <td> {{current_job.address}}</td>
-              <td> {{current_job.date}}</td>
+           
               <td> {{current_job.id}}</td>
             </tr>
           
