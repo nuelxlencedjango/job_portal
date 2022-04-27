@@ -138,11 +138,16 @@
   <div class="popup" id="popup">
    <p>Please understand that it is a criminal offence to register a job you didnt do.</p>
     <a  href="" class="dropdown-item" type="submit" >Register Your Job</a>
-    <tr>
-    <td><a class="btn btn-success"  href="">Register</a>
-      <a class="btn btn-danger" href="">Go Back</a> 
-    </td>
-    </tr>
+
+    <div class="container" style="margin-top: 20px;">
+      <div class="items" style="align-items: center; text-align: center;">
+
+    <td><a class="btn btn-success"  href="{% url 'artisan:accepted' %}">Accept</a></td>
+
+    <td><a class="btn btn-danger" href="{% url 'artisan:confirmed_orders' %}">Decline</a></td>
+    <button type="button" onclick="closePopup()">Go Back</button>
+      </div>
+    </div>
       
    
       
