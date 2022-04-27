@@ -163,12 +163,10 @@ def jobAccepted(request,id):
          
 
         if ViewedJob.objects.filter(id=id,user=request.user).exists():
+            ViewedJob.objects.filter(id=id, user=request.user).update(accepted ="Accepted" ,
+            accepted_date =timezone.now())
 
-            accepted_job=ViewedJob.objects.filter(id=id)
-            for accept in accepted_job:
-                accept.accepted ="Accepted"
-                accept =timezone.now() 
-                accept.save() 
+           
             return redirect('artisan:confirmed_orders')      
 
         return redirect('/')
