@@ -160,11 +160,9 @@ def jobAccepted(request,id):
             #b.save()
         OrderItem.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
         accepted_date =timezone.now())
-            #accepted_job.accepted ="Accepted"  
-           # accepted_job.accepted_date =timezone.now() 
-            #accepted_job.save() 
+         
 
-        if ViewedJob.objects.filter(id=id,user=request.user).exists():
+        if ViewedJob.objects.filter(id=id,user=artisan).exists():
            accepted_job=ViewedJob.objects.filter(id=id,user=request.user)
            for accept in accepted_job:
             accept.accepted ="Accepted"
