@@ -192,6 +192,10 @@ def currentJob(request):
 
 
 
+
+def registJob(request,id):
+    pass
+
 def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
 
