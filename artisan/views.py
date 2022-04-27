@@ -161,9 +161,13 @@ def jobAccepted(request,id):
         OrderItem.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
         accepted_date =timezone.now())
          
-
-    if ViewedJob.objects.filter(id=id).exists():
-        ab=ViewedJob.objects.filter(id=id, user=request.user)
+    
+     
+    if ViewedJob.objects.filter(user=request.user).exists():
+        #current_job =ViewedJob.objects.all()
+        ab = ViewedJob.objects.filter(user=request.user)[0]
+    #if ViewedJob.objects.filter(id=id).exists():
+     #   ab=ViewedJob.objects.filter(id=id, user=request.user)
         context={'ab':ab}
         #.update(accepted ="Accepted" ,
         #accepted_date =timezone.now())
