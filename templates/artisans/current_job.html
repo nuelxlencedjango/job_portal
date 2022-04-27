@@ -31,21 +31,21 @@
             &nbsp;&nbsp;<a class="btn btn-dark  btn-sm btn-block" style=" border: none;" href="{% url 'artisan:confirmed_orders' %}">Dashboard</a>
              
           </button>
-          
+          <td style="background-color: #dc3545; color: #fff;"> {{current_job.id}}</td>
           <table class="table table-sm" style="margin-top: 30px;">
+            <td> {{current_job.id}}</td>
             <tr>
               <td>Job Name</td>
               <td>Category </td>
-            
+              <td>Client's Name</td>
               <td>Job Description</td>
               <td>Address </td>
-              <td>Date</td>
-              <td>Client's Name</td>
               <td>Phone</td>
               <td>Status</td>
+              <td>Date</td>  
               <td>Pay</td>
-              <td>Phone</td>
-              <td>Date</td>
+             
+ 
             </tr>
 
           
@@ -60,20 +60,19 @@
            
               <td>{{ current_job.job_name }}</td>
               <td>{{current_job.category }}</td>
-            
+              <td> {{current_job.client}}</td>
               <td>{{current_job.description}}</td>
               <td>{{ current_job.address }}</td>
-              <td>{{current_job.accepted_date}}</td>
-
+              <td> {{current_job.phone}}</td>
               <td> {{current_job.accepted}}</td>
-              <td> {{current_job.phone}}</td>
+              <td>{{current_job.accepted_date}}</td>
               <td> {{current_job.price}}</td>
-              <td> {{current_job.phone}}</td>
             
-              <td> {{current_job.client}}</td>
-              <td> {{current_job.address}}</td>
+            
+             
            
-              <td> {{current_job.id}}</td>
+           
+            
             </tr>
           
           </table>
