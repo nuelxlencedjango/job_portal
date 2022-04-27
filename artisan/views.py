@@ -163,7 +163,7 @@ def jobAccepted(request,id):
          
     
      
-    if ViewedJob.objects.filter(id=id,user=request.user).exists():
+    if ViewedJob.objects.filter(user=request.user).exists():
         current_job = ViewedJob.objects.filter(user=request.user).last()
 
         context ={'current_job':current_job}
