@@ -16,6 +16,9 @@
   th, td {
     /*background-color: #96D4D4;*/
   }
+  .confirm{
+    display: none;
+  }
   </style>
 
 
@@ -68,11 +71,18 @@
       </div>
 
 
-{% if id %}
-<h3>show this</h3>
-{% else %}
-<h3>remember to confirm your job when done</h3>
-{% endif %}
+<div class="container confirm">
+  <button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-secondary">Secondary</button>
+<button type="button" class="btn btn-success">Success</button>
+<button type="button" class="btn btn-danger">Danger</button>
+<button type="button" class="btn btn-warning">Warning</button>
+<button type="button" class="btn btn-info">Info</button>
+<button type="button" class="btn btn-light">Light</button>
+<button type="button" class="btn btn-dark">Dark</button>
+
+<button type="button" class="btn btn-link">Link</button>
+</div>
 
 
 
