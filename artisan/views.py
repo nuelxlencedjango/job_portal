@@ -158,8 +158,8 @@ def jobAccepted(request,id):
         for b in accepted_job:
             b.artisan_assigned.set(artisan)
             #b.save()
-        OrderItem.objects.filter(id=id, ordered=True,status='Paid',accepted ="Accepted" ,
-        accepted_date =timezone.now()).update()
+        OrderItem.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
+        accepted_date =timezone.now())
             #accepted_job.accepted ="Accepted"  
            # accepted_job.accepted_date =timezone.now() 
             #accepted_job.save() 
