@@ -180,7 +180,7 @@ let toggleJob = function(){
    
     let getChoice = document.querySelector("ourjob");
     let getJob= document.querySelector("myjob");
-    let getconfirm= document.querySelector("confirm");
+    let getconfirm= document.querySelector(".confirm");
    
 
     if(menuQuery === false){
