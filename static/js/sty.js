@@ -189,7 +189,7 @@ let toggleJob = function(){
         menuQ =true;
 
     }
-    else if(menuQuery === true){
+    else if(menuQ === true){
         getconfirm.style.visibility = "visible";
         menuQ =false;
 
