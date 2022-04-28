@@ -174,24 +174,9 @@ function payNow(e){
 
 
 
-let menuQ = false;
 
-let toggleJob = function(){
-   
-    let getChoice = document.querySelector("ourjob");
-    let getJob= document.querySelector("myjob");
-    let getconfirm= document.querySelector(".confirm");
-   
 
-    if(menuQ === false){
-        
-        getconfirm.style.visibility = "hidden";
-        menuQ =true;
-
-    }
-    else if(menuQ === true){
-        getconfirm.style.visibility = "visible";
-        menuQ =false;
-
-    }
-}
+let data=document.getElementById(".confirm")
+function myFunction() {
+    getconfirm.style.visibility = "hidden";
+  }
