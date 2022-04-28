@@ -183,15 +183,15 @@ let toggleJob = function(){
     let getconfirm= document.querySelector(".confirm");
    
 
-    if(menuQuery === false){
+    if(menuQ === false){
         
         getconfirm.style.visibility = "hidden";
-        menuQuery =true;
+        menuQ =true;
 
     }
     else if(menuQuery === true){
         getconfirm.style.visibility = "visible";
-        menuQuery =false;
+        menuQ =false;
 
     }
 }
