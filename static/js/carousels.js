@@ -14,12 +14,8 @@ let toggleChoice = function(){
         getChoice.style.visibility = "visible"
         
         getRow.style.visibility = "hidden";
-;
-        
-       
-      
-       
 
+    
         menuQuery =true;
 
     }

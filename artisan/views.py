@@ -186,6 +186,7 @@ def currentJob(request):
         #current_job =ViewedJob.objects.all()
         current_job = ViewedJob.objects.filter(user=user).last()
 
+
         context ={'current_job':current_job}
     return render(request,'artisans/current_job.html',context)
 

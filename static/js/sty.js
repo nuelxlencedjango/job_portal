@@ -170,3 +170,28 @@ function payNow(e){
        //customizations:true
     });
 }
+
+
+
+
+let menuQ = false;
+
+let toggleJob = function(){
+   
+    let getChoice = document.querySelector("ourjob");
+    let getJob= document.querySelector("myjob");
+    let getconfirm= document.querySelector("confirm");
+   
+
+    if(menuQuery === false){
+        
+        getconfirm.style.visibility = "hidden";
+        menuQuery =true;
+
+    }
+    else if(menuQuery === true){
+        getconfirm.style.visibility = "visible";
+        menuQuery =false;
+
+    }
+}
