@@ -6,6 +6,7 @@ from django.utils import timezone
 from django.shortcuts import render,redirect,get_object_or_404
 #from django.http import HttpResponse
 #from django.forms import inlineformset_factory
+from django.http import Http404
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from django.contrib.auth import authenticate ,login,logout
@@ -177,11 +178,12 @@ def jobAccepted(request,id):
                        
                     
            
- #def schoolDetails(request, school_id):
-  #  try:
-   #     school = PublicSchools.objects.get(pk=school_id)
-    ##   raise Http404
-    #return render(request, 'detail.html', {'school': school})   
+def schoolDetails(request, school_id):
+    try:
+        school = PublicSchools.objects.get(pk=school_id)
+    except school.DoesNotExist:
+        raise Http404
+    return render(request, 'detail.html', {'school': school})   
   
 
 def currentJob(request):
@@ -195,6 +197,17 @@ def currentJob(request):
     return render(request,'artisans/current_job.html',context)
 
 
+
+
+def CurrentJobInfo(request, school_id):
+    user = request.user
+    try:
+        jobinfo=ViewedJob.objects.get(user=user,accepted='Accepted').last()#.exists():
+    except jobinfo.DoesNotExist:
+        raise Http404
+    return render(request, 'artisan/currentjobinfo.html', {'jobinfo':jobinfo})
+
+    
 
 
 
