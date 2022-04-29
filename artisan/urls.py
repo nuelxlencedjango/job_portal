@@ -24,7 +24,7 @@ urlpatterns = [
 
 
 
-     path('register_job/', views.registJob, name='register_job'),
+     path('completed/', views.registJob, name='completed'),
     
 ]
 
