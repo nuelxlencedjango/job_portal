@@ -174,8 +174,3 @@ function payNow(e){
 
 
 
-
-let data=document.getElementById(".confirm")
-function myFunction() {
-    data.style.visibility = "hidden";
-  }
