@@ -216,23 +216,23 @@ def CurrentJobInfo(request):
 
 def completeJob(request,id):
     user = request.user
-    if ViewedJob.objects.filter(user=user,accepted='Accepted').exists() :
+    #if ViewedJob.objects.filter(user=user,accepted='Accepted').exists() :
 
-        if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
+    if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
 
             
-            OrderItem.objects.filter(id=id,accepted='Accepted').update(completed_job=True)
-            work =ViewedJob.objects.filter(id=id,user=user,accepted='Accepted')
-            work.completed_job=True
-            work.save()
+        OrderItem.objects.filter(id=id,accepted='Accepted').update(completed_job=True)
+        work =ViewedJob.objects.filter(id=id,user=user,accepted='Accepted').last()
+        work.completed_job=True
+        work.save()
      
     
-            messages.info(request,'Congratualtions!You will receive your payment soon')
-            return redirect('artisan:confirmed_orders')
+        messages.info(request,'Congratualtions!You will receive your payment soon')
+        return redirect('artisan:confirmed_orders')
 
-        messages.info(request,'Your service not confirmed yet.Please contact the admin')
+    messages.info(request,'Your service not confirmed yet.Please contact the admin')
               
-        return redirect('artisan:confirmed_orders')    
+    return redirect('artisan:confirmed_orders')    
 
 
 
