@@ -173,7 +173,10 @@ function payNow(e){
 
 
 
-
+const name = document.querySelector(".name");
+function changeColor(color) {
+  name.style.color = color;
+}
 
 
 let data=document.getElementById(".confirm")
