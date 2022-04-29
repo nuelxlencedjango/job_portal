@@ -9,9 +9,9 @@ function myFunction() {
   //name.style.color = color;
   //}
 
-const name = document.querySelector(".confirm");
-const btn = document.querySelector("ourjob");
+//const name = document.querySelector(".confirm");
+//const btn = document.querySelector("ourjob");
 
-      btn.addEventListener("click", function () {
-        name.style.display = "none";
- });
+  //    btn.addEventListener("click", function () {
+    //    name.style.display = "none";
+ //});
