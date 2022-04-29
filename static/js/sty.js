@@ -1,4 +1,35 @@
 
+
+
+/* check button here*/
+
+let menuQy = false;
+
+let toggleCheckBtn = function(){
+    let getCheck = document.querySelector(".confirm")
+    let getRow = document.querySelector("#ourjob");
+   
+
+    if(menuQy === false){
+        getcheck.style.display ="none";
+        menuQy = true;
+        
+        //getRow.style.visibility = "hidden";
+
+    }
+    else if(menuQy=== true){
+
+        //getCheck.style.visibility = "hidden";
+        //getRow.style.marginLeft = "0px";
+        getcheck.style.visibility = "visible";
+        
+        menuQueri =false;
+
+    }
+}
+
+
+
 const navSlide =()=>{
 const menuBtn =document.querySelector('.nav-check');
 const navlinks = document.querySelector('.carousel');
@@ -39,7 +70,7 @@ function toggleMenu(){
 
 /* check button here*/
 
-let menuQuery = false;
+let menuQueri = false;
 
 let toggleChoice = function(){
     //let getCard = document.querySelectorAll(".card")
@@ -47,11 +78,11 @@ let toggleChoice = function(){
     let getRow = document.querySelector(".carousel");
     //let getWhat = document.querySelector(".what-do-want")
 
-    if(menuQuery === false){
+    if(menuQueri === false){
         //getRow.style.marginLeft = "-3000px";
 
         getRow.style.display ="none";
-        menuQuery = true;
+        menuQueri = true;
         //getChoice.style.visibility = "visible"
         
         //getRow.style.visibility = "hidden";
@@ -62,16 +93,16 @@ let toggleChoice = function(){
       
        
 
-        menuQuery =true;
+        menuQueri =true;
 
     }
-    else if(menuQuery === true){
+    else if(menuQueri === true){
 
         getChoice.style.visibility = "hidden";
         getRow.style.marginLeft = "0px";
         getRow.style.visibility = "visible";
         
-        menuQuery =false;
+        menuQueri =false;
 
     }
 }
@@ -170,6 +201,7 @@ function payNow(e){
        //customizations:true
     });
 }
+
 
 
 
