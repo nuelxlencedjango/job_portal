@@ -233,8 +233,10 @@ def completeJob(request,id):
 def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
 
-   
     if OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted',completed_job=True).exists():
         job_info = OrderItem.objects.filter(artisan_assigned=user).order_by('-date_created')
         context ={'job_info':job_info}
-    return render(request,'artisans/completed_services.html',context)
+        return render(request,'artisans/completed_services.html',context)
+
+    messages.info(request,'No Job done yet')    
+    return render(request,'artisans/completed_services.html',context)    
