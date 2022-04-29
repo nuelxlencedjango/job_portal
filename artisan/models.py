@@ -176,7 +176,8 @@ class ViewedJob(models.Model):
   phone = models.CharField(max_length=15, null=True, unique = False)
   accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
   accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
-  completed_job  =  models.BooleanField(null=True,blank=True,default=False)
+  work_done = models.BooleanField(default=False,null=True)
+  #completed_job  =  models.BooleanField(null=True,blank=True,default=False)
 
 
   def __str__(self):
