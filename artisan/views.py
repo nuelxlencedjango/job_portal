@@ -210,7 +210,6 @@ def CurrentJobInfo(request):
     
 
 
-
 def registJob(request,id):
    
     return render(request,'artisans/register_job.html')
