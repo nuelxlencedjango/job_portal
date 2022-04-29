@@ -216,9 +216,9 @@ def CurrentJobInfo(request):
 
 def completeJob(request,id):
     user = request.user
-    if ViewedJob.objects.filter(id=id,user=user,accepted='Accepted').exists() and OrderItem.objects.filter(id=id,accepted='Accepted').exists():
+    if ViewedJob.objects.filter(product__id=id,user=user,accepted='Accepted').exists() and OrderItem.objects.filter(id=id,accepted='Accepted').exists():
 
-        ViewedJob.objects.filter(id=id,user=user,accepted='Accepted').update(completed_job=True)
+        ViewedJob.objects.filter(product__id=id,user=user,accepted='Accepted').update(completed_job=True)
         OrderItem.objects.filter(id=id,accepted='Accepted').update(completed_job=True)
      
     
