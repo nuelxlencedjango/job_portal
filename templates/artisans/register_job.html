@@ -68,7 +68,12 @@
       </div>
 
 
-<h3>we are here now</h3>
+
+      {% for message in messages %}
+      <p id="messages">{{ message }}</p>
+      {% endfor %}
+
+{% endblock %}  
 
 
 
