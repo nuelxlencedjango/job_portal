@@ -19,7 +19,7 @@ urlpatterns = [
      path('services_completed/',views.artisan_services, name='services_completed'),
      path('current_job/', views.currentJob, name='current_job'),
      path('accepted/<int:id>/', views.jobAccepted, name='accepted'),
-     path('currentjobinfo/', views.CurrentJobInfo, name='currentjobinfo'),
+     path('current_job_info/', views.CurrentJobInfo, name='current_job_info'),
 
 
 
