@@ -202,13 +202,14 @@ def currentJob(request):
 def CurrentJobInfo(request):
     user = request.user
     if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
+        try:
 
-        jobinfo = ViewedJob.objects.filter(user=user).last()
+            jobinfo = ViewedJob.objects.filter(user=user).last()
     #try:
     #jobinfo=ViewedJob.objects.get(user=user,accepted='Accepted').last()#.exists():
-    #except:
-     #   raise Http404
-    return render(request, 'artisans/currentjobinfo.html', {'jobinfo':jobinfo})
+        except:
+            raise Http404
+        return render(request, 'artisans/currentjobinfo.html', {'jobinfo':jobinfo})
 
     
 
