@@ -213,7 +213,9 @@ def CurrentJobInfo(request):
     
 
 
-def registJob(request,id):
+
+
+def completeJob(request,id):
     user = request.user
     if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
         pass

@@ -24,7 +24,7 @@ urlpatterns = [
 
 
 
-     path('completed/', views.registJob, name='completed'),
+     path('completed/<int:id>/', views.completeJob, name='completed'),
     
 ]
 
