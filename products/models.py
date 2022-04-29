@@ -244,6 +244,7 @@ class OrderItem(models.Model):
    accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
    
    accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
+   completed  = models.CharField(max_length=100, null=True,blank=True,default='No')
    #payment_id
    
    class Meta:
@@ -288,14 +289,14 @@ class Order(models.Model):
    ordered = models.BooleanField(default=False)
    order_id = models.CharField(max_length=50,unique=True, default =None,blank=True,null=True)
    datetime_ofpayment =models.DateTimeField(auto_now_add=True)
-   order_delivered = models.BooleanField(default=False)
-   order_received = models.BooleanField(default=False)
+   #order_delivered = models.BooleanField(default=False)
+   #order_received = models.BooleanField(default=False)
     
-   razorpay_order_id = models.CharField(max_length=50, blank=True,null=True)
+   #razorpay_order_id = models.CharField(max_length=50, blank=True,null=True)
 
    payment_id = models.CharField(max_length=50, blank=True,null=True)
 
-   razorpay_signature = models.CharField(max_length=50, blank=True,null=True)
+   #razorpay_signature = models.CharField(max_length=50, blank=True,null=True)
 
    def save(self, *args,**kwargs):
       if self.order_id is None and self.datetime_ofpayment and self.id:
