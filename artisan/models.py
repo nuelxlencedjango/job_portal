@@ -163,22 +163,23 @@ class CompletedJob(models.Model):
 
 
 class ViewedJob(models.Model):
-   user = models.ForeignKey(User, on_delete=models.CASCADE)
-   #user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
-   job_name =  models.CharField(max_length=200, null=True, unique = False)
-   category = models.CharField(max_length=200, null=True, unique = False)
-   description = models.CharField(max_length=200, null=True, unique = False)
-   client = models.CharField(max_length=200, null=True, unique = False)
-   address = models.CharField(max_length=200, null=True, unique = False)
-   date = models.DateField(auto_now_add = True, null=True, blank=True)
-   price = models.FloatField(default=00.00, null=True, unique = False)
-   phone = models.CharField(max_length=15, null=True, unique = False)
-   accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
-   accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
- 
+
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  #user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
+  job_name =  models.CharField(max_length=200, null=True, unique = False)
+  category = models.CharField(max_length=200, null=True, unique = False)
+  description = models.CharField(max_length=200, null=True, unique = False)
+  client = models.CharField(max_length=200, null=True, unique = False)
+  address = models.CharField(max_length=200, null=True, unique = False)
+  date = models.DateField(auto_now_add = True, null=True, blank=True)
+  price = models.FloatField(default=00.00, null=True, unique = False)
+  phone = models.CharField(max_length=15, null=True, unique = False)
+  accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
+  accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
+  completed  = models.CharField(max_length=100, null=True,blank=True,default='No')
 
 
-   def __str__(self):
+  def __str__(self):
       return str(self.user.username)
 
    #work on this

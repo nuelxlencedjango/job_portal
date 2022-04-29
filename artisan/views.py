@@ -177,13 +177,6 @@ def jobAccepted(request,id):
     return redirect('/')
                        
                     
-           
-def schoolDetails(request, school_id):
-    try:
-        school = PublicSchools.objects.get(pk=school_id)
-    except school.DoesNotExist:
-        raise Http404
-    return render(request, 'detail.html', {'school': school})   
   
 
 def currentJob(request):
@@ -218,9 +211,11 @@ def CurrentJobInfo(request):
 def completeJob(request,id):
     user = request.user
     if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
-        pass
+
+        ViewedJob.objects.filter(id=id,user=user,accepted='Accepted').update(completed='Compeleted')
     
-   
+    
+    messages.info(request,'Congratualtions!You will receive your payment soon')
     return render(request,'artisans/register_job.html')
 
 
