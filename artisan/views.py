@@ -220,7 +220,6 @@ def completeJob(request,id):
 
     if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
 
-            
         OrderItem.objects.filter(id=id,accepted='Accepted').update(completed_job=True)
         work =ViewedJob.objects.filter(user=user,accepted='Accepted').last()
         work.completed_job=True
