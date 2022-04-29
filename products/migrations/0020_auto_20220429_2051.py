@@ -26,9 +26,9 @@ class Migration(migrations.Migration):
             model_name='order',
             name='razorpay_signature',
         ),
-        migrations.AddField(
-            model_name='orderitem',
-            name='completed',
-            field=models.CharField(blank=True, default='No', max_length=100, null=True),
-        ),
+        #migrations.AddField(
+            #model_name='orderitem',
+            #name='completed',
+           # field=models.CharField(blank=True, default='No', max_length=100, null=True),
+        #),
     ]

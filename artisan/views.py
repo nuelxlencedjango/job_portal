@@ -225,7 +225,7 @@ def completeJob(request,id):
     user = request.user
     if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
 
-        ViewedJob.objects.filter(id=id,user=user,accepted='Accepted').update(completed='Compeleted')
+        ViewedJob.objects.filter(id=id,user=user,accepted='Accepted').update(completed='Completed')
     
     
     messages.info(request,'Congratualtions!You will receive your payment soon')
@@ -240,7 +240,7 @@ def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
 
     #job = OrderItem.objects.all()
-    if OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted',completed='completed').exists():
+    if OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted',completed='Completed').exists():
 
         job_info = OrderItem.objects.filter(artisan_assigned=user).order_by('-date_created')
         context ={'job_info':job_info}

@@ -244,7 +244,7 @@ class OrderItem(models.Model):
    accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
    
    accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
-   completed  = models.CharField(max_length=100, null=True,blank=True,default='No')
+   completed  =  models.BooleanField(default=False)
    #payment_id
    
    class Meta:
