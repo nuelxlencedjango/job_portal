@@ -220,8 +220,11 @@ def completeJob(request,id):
 
         if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
 
-            ViewedJob.objects.filter(id=id,user=user,accepted='Accepted').update(completed_job=True)
+            
             OrderItem.objects.filter(id=id,accepted='Accepted').update(completed_job=True)
+            work =ViewedJob.objects.filter(id=id,user=user,accepted='Accepted')
+            work.completed_job=True
+            work.save()
      
     
             messages.info(request,'Congratualtions!You will receive your payment soon')
