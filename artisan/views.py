@@ -220,13 +220,15 @@ def completeJob(request,id):
 
     if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
 
-        OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
-        work =ViewedJob.objects.filter(user=user,accepted='Accepted').last()
-        work.work_done=True
-        work.save()
+        #OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
+        #work =ViewedJob.objects.filter(user=user,accepted='Accepted').last()
+       # work.work_done=True
+        #work.save()
      
-    
-        messages.info(request,'Congratualtions!You will receive your payment soon')
+        messages.info(request,'product available')
+    else:    
+        messages.info(request,'No product available')
+       # messages.info(request,'Congratualtions!You will receive your payment soon')
         return redirect('artisan:confirmed_orders')
 
     messages.info(request,'Your service not confirmed yet.Please contact the admin')
