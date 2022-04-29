@@ -87,7 +87,7 @@
 
 
 
-{% for element in someList %}
+{% for element in templates %}
     {% include "popup.html" with element=element %}
     <div class="col s3 some-button"><a onclick="$(showPopup('popup'));">More Info</a></div>
 {% endfor %}
