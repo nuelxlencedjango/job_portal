@@ -177,7 +177,11 @@ def jobAccepted(request,id):
                        
                     
            
-    
+ #def schoolDetails(request, school_id):
+  #  try:
+   #     school = PublicSchools.objects.get(pk=school_id)
+    ##   raise Http404
+    #return render(request, 'detail.html', {'school': school})   
   
 
 def currentJob(request):
