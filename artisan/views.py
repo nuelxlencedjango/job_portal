@@ -214,6 +214,10 @@ def CurrentJobInfo(request):
 
 
 def registJob(request,id):
+    user = request.user
+    if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
+        pass
+    
    
     return render(request,'artisans/register_job.html')
 
