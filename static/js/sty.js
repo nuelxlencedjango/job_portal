@@ -145,7 +145,7 @@ let toggleSelect = function(){
 
 let loginQueryy = false;
 
-let toggleLogin= function(){
+let toggleLoginn= function(){
     
     let getlogin = document.querySelector(".h-100");
     let getButton= document.querySelector(".toggle");
