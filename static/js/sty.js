@@ -1,10 +1,14 @@
 
- const name = document.querySelector(".name");
+ const name = document.querySelector(".confirm");
 
- function changeColor(color) {
-    name.style.color = color;
+ function changeColor() {
+    name.style.display = "none";
  }
 
+
+ //function changeColor(color) {
+   // name.style.color = color;
+ //}
 /* check button here*/
 
 let menuQy = false;
