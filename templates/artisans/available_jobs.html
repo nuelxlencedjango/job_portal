@@ -78,10 +78,17 @@
     {% endif %}
     
     
+
+
+    <div>
+      <p class="name">freeCodeCamp</p>
+      <button onclick="changeColor('blue')" class="blue">Blue</button>
+      <button onclick="changeColor('green')" class="green">Green</button>
+      <button onclick="changeColor('orangered')" class="orange">Orange</button>
+</div>
     
     <hr>
-    <hr>
-    <br>
+ 
 
     <nav class="navbar navbar-expand-lg navbar-dark "  style="margin-top: 50px; background-color: #7abecc; padding: 20px; ">
       <div class="container-fluid">
@@ -124,6 +131,7 @@
 
     
     
+    
 
 
 
@@ -154,13 +162,8 @@
 
 
     </table>
- 
-      
-   
-      
-  
-   <!-- <a  href="" class="btn btn-success" type="button" >Confirm You that you completed your job</a></li>-->
-  </div>
+
+   </div>
 </div>
 
 
@@ -276,6 +279,11 @@
  function closePopup(){
    popup.classList.remove("open-popup");
  }
+
+ const name = document.querySelector(".name");
+ function changeColor(color) {
+   name.style.color = color;
+}
 </script>
 
 
