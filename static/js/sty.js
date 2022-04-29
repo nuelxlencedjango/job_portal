@@ -76,7 +76,7 @@ function toggleMenu(){
 
 let menuQueri = false;
 
-let toggleChoice = function(){
+let toggleChoices = function(){
     //let getCard = document.querySelectorAll(".card")
     let getChoice = document.querySelector(".nav-check")
     let getRow = document.querySelector(".carousel");
