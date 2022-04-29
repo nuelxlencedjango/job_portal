@@ -184,7 +184,7 @@ def jobAccepted(request,id):
 
 def currentJob(request):
     user=request.user  
-    if ViewedJob.objects.filter(user=user,accepted='Accepted',completed='completed').exists():
+    if ViewedJob.objects.filter(user=user,accepted='Accepted',completed='completed').last().exists():
         messages.info(request,'You have already confirmed that you are through with the job.')
         return redirect('artisan:confirmed_orders')
 
@@ -243,6 +243,9 @@ def artisan_services(request):
     if OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted',completed='completed').exists():
 
         job_info = OrderItem.objects.filter(artisan_assigned=user).order_by('-date_created')
-        
-    context ={'job_info':job_info}
-    return render(request,'artisans/completed_services.html',context)
+        context ={'job_info':job_info}
+        return render(request,'artisans/completed_services.html',context)
+    
+    messages.info(request,'Congratualtions!You will receive your payment soon')
+  
+    return render(request,'artisans/completed_services.html',context)    
