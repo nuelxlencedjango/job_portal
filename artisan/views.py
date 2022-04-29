@@ -203,7 +203,7 @@ def CurrentJobInfo(request):
     user = request.user
     try:
         jobinfo=ViewedJob.objects.get(user=user,accepted='Accepted').last()#.exists():
-    except jobinfo.DoesNotExist:
+    except:
         raise Http404
     return render(request, 'artisan/currentjobinfo.html', {'jobinfo':jobinfo})
 
