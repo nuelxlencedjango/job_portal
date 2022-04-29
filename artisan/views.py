@@ -199,7 +199,7 @@ def currentJob(request):
 
 
 
-def CurrentJobInfo(request, school_id):
+def CurrentJobInfo(request):
     user = request.user
     try:
         jobinfo=ViewedJob.objects.get(user=user,accepted='Accepted').last()#.exists():
