@@ -179,10 +179,14 @@ def jobAccepted(request,id):
                     
   
 
+
+
+
 def currentJob(request):
     user=request.user  
     if ViewedJob.objects.filter(user=user,accepted='Accepted',completed='completed').exists():
         messages.info(request,'You have already confirmed that you are through with the job.')
+        return redirect('artisan:confirmed_orders')
 
     elif ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
        
@@ -201,7 +205,8 @@ def CurrentJobInfo(request):
 
     if ViewedJob.objects.filter(user=user,accepted='Accepted',completed='completed').exists():
         messages.info(request,'You confirmed that you are through with the job.Please contact the admin')
-        
+        return redirect('artisan:confirmed_orders')
+
     elif ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
         try:
 
