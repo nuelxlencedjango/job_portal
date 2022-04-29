@@ -240,14 +240,17 @@
 
 <script>
     let popup = document.getElementById('popup');
-    //let accept = document.getElementById('accept');
+    let accept = document.getElementById('confirm');
    
     function openPopup(){
       popup.classList.add("open-popup");
+      accept.style.visibility ="hiden";
+
    
     }
     function closePopup(){
       popup.classList.remove("open-popup");
+      accept.style.visibility ="visible";
     }
    
     
