@@ -92,7 +92,7 @@
 <h3>job id: {{order.status}}</h3>
 
 <h3>orderitem id: {{order.ordered}}</h3>
-
+<h3>accepted?: {{order.accepted}}</h3>
 <h3>{% for itm in order.artisan_assigned.all %}</h3>
 <h3>{{itm.user.last_name}}</h3>
 <h3>{{itm.user.username}}</h3>
