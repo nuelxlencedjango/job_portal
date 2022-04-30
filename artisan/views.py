@@ -220,7 +220,9 @@ def completeJob(request,id):
     a=ab.client
     nn =ab.job_name
 
-    bc=OrderItem.objects.get(id=id, ordered=True,status='Paid')
+    if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
+        
+        bc= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
     #bb=OrderItem.objects.get(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
     #b=bb.user.last_name
    # n =bb.product.name
