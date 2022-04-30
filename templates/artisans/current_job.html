@@ -85,6 +85,7 @@
 
 
 {% for order in orders %}
+{% forloop.counter %}
 <h3>name: {{order.user.last_name}}</h3>
 <h3>viewdjob id: {{order.product.name}}</h3>
 <h3>viewdjob job name: {{order.quantity}}</h3>
