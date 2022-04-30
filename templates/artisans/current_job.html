@@ -106,26 +106,5 @@
 
 
 
-<h3>end of list</h3>
-{% for order in ord %}
-
-<h3>name: {{order.user.last_name}}</h3>
-<h3>viewdjob id: {{order.product.name}}</h3>
-<h3>viewdjob job name: {{order.quantity}}</h3>
-<h3>job id: {{order.status}}</h3>
-
-<h3>orderitem id: {{order.ordered}}</h3>
-<h3>accepted?: {{order.accepted}}</h3>
-<h3>{% for itm in order.artisan_assigned.all %}</h3>
-<h3>{{itm.user.last_name}}</h3>
-<h3>{{itm.user.username}}</h3>
-{% endfor %}
-
-<h3>id: {{order.address}}</h3>
-<h3>id: {{order.profeesional_name}}</h3>
-<h3>id: {{order.id}}</h3>
-<hr style="color: #dc3545;">
-{% endfor %}
-
 {% endblock %}
 
