@@ -221,7 +221,7 @@ def completeJob(request,id):
     nn =ab.job_name
 
 
-    bb=OrderItem.objects.filter(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
+    bb=OrderItem.objects.filter(pk=id,accepted='Accepted').last()
     #b=bb.user.last_name
     n =bb.product.name
     return render(request,'artisans/current_job.html',{'a':a,'b':b,'nn':nn,'n':n})   
