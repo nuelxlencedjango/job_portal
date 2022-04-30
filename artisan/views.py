@@ -222,7 +222,7 @@ def completeJob(request,id):
 
 
     bb=OrderItem.objects.filter(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
-    b=bb.user.last_name
+    #b=bb.user.last_name
     n =bb.product.name
     return render(request,'artisans/current_job.html',{'a':a,'b':b,'nn':nn,'n':n})   
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
