@@ -224,6 +224,10 @@ def completeJob(request,id):
         ad=True
         return render(request,'artisans/current_job.html',{'aa':ad}) 
 
+    else:
+        a=False
+        return render(request,'artisans/current_job.html',{'aa':a})     
+
         
     #bc= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
     #bb=OrderItem.objects.get(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
