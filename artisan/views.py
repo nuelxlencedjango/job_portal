@@ -220,11 +220,11 @@ def completeJob(request,id):
     a=ab.client
     nn =ab.job_name
 
-
-    bb=Order.objects.filter(pk=id,accepted='Accepted').last()
+    bc=OrderItem.objects.get(id=id, ordered=True,status='Paid',accepted='Accepted')
+    #bb=OrderItem.objects.get(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
     #b=bb.user.last_name
-    #n =bb.product.name
-    return render(request,'artisans/current_job.html',{'a':a,'b':bb,'nn':nn})   
+   # n =bb.product.name
+    return render(request,'artisans/current_job.html',{'a':a,'b':bc})   
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
      #   pass
         #OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
