@@ -215,25 +215,22 @@ def CurrentJobInfo(request):
 
 
 def completeJob(request,id):
+
     user = request.user
     ab=ViewedJob.objects.filter(user=user,accepted='Accepted',id=id).last()
     a=ab.client
     nn =ab.job_name
+    artisan = Artisan.objects.get(user=request.user)
 
-    if ab in OrderItem.objects.all():
-        ad=True
-        return render(request,'artisans/current_job.html',{'aa':ad}) 
-
-    else:
-        a=False
-        return render(request,'artisans/current_job.html',{'aa':a})     
+    
+           
 
         
     #bc= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
     #bb=OrderItem.objects.get(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
     #b=bb.user.last_name
    # n =bb.product.name
-    return render(request,'artisans/current_job.html',{'a':a})   
+    return render(request,'artisans/current_job.html',{'a':a,'n':nn,'artisan':artisan})   
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
      #   pass
         #OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
