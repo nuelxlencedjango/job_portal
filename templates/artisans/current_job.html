@@ -121,7 +121,7 @@
 
 <h3>orderitem id: {{ord.ordered}}</h3>
 <h3>accepted?: {{ord.accepted}}</h3>
-<h3>{% for itm in order.artisan_assigned.all %}</h3>
+<h3>{% for itm in ord.artisan_assigned.all %}</h3>
 <h3>{{itm.user.last_name}}</h3>
 <h3>{{itm.user.username}}</h3>
 {% endfor %}
