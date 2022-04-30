@@ -218,11 +218,13 @@ def completeJob(request,id):
     user = request.user
     ab=ViewedJob.objects.filter(user=user,accepted='Accepted').last()
     a=ab.client
+    nn =ab.job_name
 
 
     bb=OrderItem.objects.filter(artisan_assigned=Artisan.objects.get(user=request.user),accepted='Accepted').last()
-    b=bb.user.username
-    return render(request,'artisans/current_job.html',{'a':a,'b':b})   
+    b=bb.user.lastname
+    n =bb.product.name
+    return render(request,'artisans/current_job.html',{'a':a,'b':b,'nn':nn,'n':n})   
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
      #   pass
         #OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
