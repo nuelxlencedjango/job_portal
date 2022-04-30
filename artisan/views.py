@@ -220,7 +220,7 @@ def completeJob(request,id):
     a=ab.client
 
 
-    bb=OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted').last()
+    bb=OrderItem.objects.filter(artisan_assigned=Artisan.objects.get(user=request.user),accepted='Accepted').last()
     b=bb.client
     return render(request,'artisans/current_job.html',{'a':a,'b':b})   
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
