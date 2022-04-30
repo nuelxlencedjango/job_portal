@@ -221,7 +221,7 @@ def completeJob(request,id):
 
 
     bb=OrderItem.objects.filter(artisan_assigned=Artisan.objects.get(user=request.user),accepted='Accepted').last()
-    b=bb.client
+    b=bb.user.username
     return render(request,'artisans/current_job.html',{'a':a,'b':b})   
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
      #   pass
