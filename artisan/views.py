@@ -221,7 +221,8 @@ def completeJob(request,id):
     nn =ab.job_name
 
     if ab in OrderItem.objects.all():
-        a=True
+        ad=True
+        return render(request,'artisans/current_job.html',{'aa':ad}) 
 
         
     #bc= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
