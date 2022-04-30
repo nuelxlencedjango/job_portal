@@ -216,7 +216,7 @@ def CurrentJobInfo(request):
 
 def completeJob(request,id):
     user = request.user
-    ab=ViewedJob.objects.filter(accepted='Accepted',id=id).last()
+    ab=ViewedJob.objects.filter(user=user,accepted='Accepted',id=id).last()
     a=ab.client
     nn =ab.job_name
 
