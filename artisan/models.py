@@ -167,7 +167,7 @@ class ViewedJob(models.Model):
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   #user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
   job_name =  models.CharField(max_length=200, null=True, unique = False)
-  order_id =models.PositiveIntegerField(null=True)
+  order_id =models.PositiveIntegerField(null=True,blank=True)
   category = models.CharField(max_length=200, null=True, unique = False)
   description = models.CharField(max_length=200, null=True, unique = False)
   client = models.CharField(max_length=200, null=True, unique = False)

@@ -164,9 +164,10 @@ def jobAccepted(request,id):
          
     
      
-    if ViewedJob.objects.filter(user=request.user).exists():
-
+    if ViewedJob.objects.filter(user=request.user,id=id).exists():
+        id =id
         current_job = ViewedJob.objects.filter(user=request.user).last()
+        
         ViewedJob.objects.filter(user=request.user).update(accepted ="Accepted" ,
         accepted_date =timezone.now())
 
@@ -222,6 +223,7 @@ def completeJob(request,id):
     nn =ab.job_name
     i=ab.id
     ad =ab.address
+    #jb = ab.
     artisan = Artisan.objects.get(user=request.user)
     orders=OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted")
 
