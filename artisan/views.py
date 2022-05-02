@@ -107,9 +107,9 @@ def paidJobs(request):
     #services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
 
     areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
-    idd = areaJobs.id
+ 
 
-    context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs,'idd':idd}
+    context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
     return render(request,'products/paid_services.html',context)
 
 
