@@ -119,6 +119,7 @@ def jobDetail(request,id):
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
+        job= job_info.id
         
         for job in job_info:
             pn =job.id
@@ -158,17 +159,15 @@ def jobAccepted(request,id):
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         for b in accepted_job:
             b.artisan_assigned.set(artisan)
-           
             #b.save()
         OrderItem.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
         accepted_date =timezone.now())
          
     
      
-    if ViewedJob.objects.filter(user=request.use).exists():
-        
+    if ViewedJob.objects.filter(user=request.user).exists():
+
         current_job = ViewedJob.objects.filter(user=request.user).last()
-        
         ViewedJob.objects.filter(user=request.user).update(accepted ="Accepted" ,
         accepted_date =timezone.now())
 
@@ -224,7 +223,7 @@ def completeJob(request,id):
     nn =ab.job_name
     i=ab.id
     ad =ab.address
-    #jb = ab.
+  
     artisan = Artisan.objects.get(user=request.user)
     orders=OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted")
 
