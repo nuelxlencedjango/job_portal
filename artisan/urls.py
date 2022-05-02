@@ -21,10 +21,8 @@ urlpatterns = [
      path('accepted/<int:id>/', views.jobAccepted, name='accepted'),
      path('current_job_info/', views.CurrentJobInfo, name='current_job_info'),
 
-
-
-
      path('completed/<int:id>/', views.completeJob, name='completed'),
+     path('congratulation/', views.congratulations, name='congratulation'),
     
 ]
 

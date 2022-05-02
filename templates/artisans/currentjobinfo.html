@@ -162,7 +162,7 @@
               <td style="background-color: #dc3545; color: #fff;"> {{jobinfo.price}}</td>
             
             </tr>
-            <h1 style="color: red;">Job id :{{jobinfo.id}}</h1>
+            <h1 style="color: red;">Job id :{{jobinfo.job_order_id}}</h1>
           </table>
         
         </div>
@@ -195,7 +195,7 @@
               <div class="items" style="align-items: center; text-align: center;">
       
             <h3></h3>
-            <td><a class="btn btn-success" href="{% url 'artisan:completed' jobinfo.id %}">Confirm</a></td> 
+            <td><a class="btn btn-success" href="{% url 'artisan:completed' jobinfo.job_order_id %}">Confirm</a></td> 
               <td><a class="btn btn-danger"  onclick="closePopup()">Back</a></td> 
               </div>
             </div>

@@ -153,22 +153,24 @@ def jobDetail(request,id):
 @login_required  
 def jobAccepted(request,id):
     artisan = [Artisan.objects.get(user=request.user)]
- 
+    idn =id
     if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
 
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         for b in accepted_job:
             b.artisan_assigned.set(artisan)
+            idd =b.id
             #b.save()
         OrderItem.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
         accepted_date =timezone.now())
          
     
      
-    if ViewedJob.objects.filter(user=request.user).exists():
+    if ViewedJob.objects.filter(user=request.user,job_order_id=id).exists():
 
-        current_job = ViewedJob.objects.filter(user=request.user).last()
-        ViewedJob.objects.filter(user=request.user).update(accepted ="Accepted" ,
+        current_job = ViewedJob.objects.filter(user=request.user,job_order_id=id)
+        #current_job = ViewedJob.objects.filter(user=request.user,job_order_id=id).last()
+        ViewedJob.objects.filter(user=request.user,job_order_id=id).update(accepted ="Accepted" ,
         accepted_date =timezone.now())
 
        
@@ -183,7 +185,7 @@ def jobAccepted(request,id):
 def currentJob(request):
     user=request.user  
     if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
-        current_job = ViewedJob.objects.filter(user=user).last()
+        current_job = ViewedJob.objects.filter(user=user,accepted='Accepted').last()
         if current_job.work_done == True:
             messages.info(request,'This job is concluded already')
 
@@ -199,7 +201,7 @@ def CurrentJobInfo(request):
     if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
         try:
 
-            jobinfo = ViewedJob.objects.filter(user=user).last()
+            jobinfo = ViewedJob.objects.filter(user=user,accepted='Accepted').last()
             if jobinfo.work_done == True:
                 messages.info(request,'Job already registered for payment')
                 return redirect('artisan:confirmed_orders')
@@ -218,39 +220,47 @@ def CurrentJobInfo(request):
 def completeJob(request,id):
 
     user = request.user
-    ab=ViewedJob.objects.filter(user=user,accepted='Accepted',id=id).last()
-    a=ab.client
-    nn =ab.job_name
     artisan = Artisan.objects.get(user=request.user)
-    orders=OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted")
+    #if ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id,work_done=True).exists():
+    if ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id):
+        #ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id).last() 
+        if OrderItem.objects.filter(id=id,artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted"):
 
-    
+            ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id).update(work_done=True)
+            OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted",id=id).update(work_done=True)
+
+            return redirect('artisan:congratulation')
+
+        else:
+            messages.info(request,'Service Item not found')
+            return render(request,'artisans/no_service_rendered.html')
+    else:
+        messages.info(request,'Service not accepted yet.Contact the admin')  
+        return render(request,'artisans/no_service_rendered.html')      
+
            
 
         
     #bc= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
     #bb=OrderItem.objects.get(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
-    #b=bb.user.last_name
-   # n =bb.product.name
-    return render(request,'artisans/current_job.html',{'a':a,'n':nn,'artisan':artisan,})   
+   
+     
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
      #   pass
-        #OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
+       # OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
         #work =ViewedJob.objects.filter(user=user,accepted='Accepted').last()
        # work.work_done=True
-        #work.save()
+       # work.save()
      
-      #  messages.info(request,'product available')
-    #else:    
-     #   messages.info(request,'No product available')
-       # messages.info(request,'Congratualtions!You will receive your payment soon')
-      #  return redirect('artisan:confirmed_orders')
-
-    #messages.info(request,'Your service not confirmed yet.Please contact the admin')
-              
-    #return redirect('artisan:confirmed_orders')    
+     
 
 
+
+def congratulations(request):
+    messages.info(request,'Congratulations! Your payment is under processing') 
+    return render(request,'artisans/congrats.html')
+
+  
 
 
 
