@@ -125,7 +125,7 @@ def jobDetail(request,id):
             pn =job.id
 
             job= job.id
-            name=job.product.name
+        
 
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,job_order_id=job.id,category=job.product.category,
