@@ -126,7 +126,7 @@ def jobDetail(request,id):
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
-            date=job.date_created,phone=job.user.details.phone
+            date=job.date_created,phone=job.user.details.phone,job_order_id=job.id
         )
   
     context = {'job_info': job_info,'pt':pn }
