@@ -123,7 +123,7 @@ def jobDetail(request,id):
         for job in job_info:
             pn =job.id
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
-            job_name=job.product.name,category=job.product.category,
+            job_name=job.product.name,job_order_id=job.id,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
             date=job.date_created,phone=job.user.details.phone
         )
@@ -165,8 +165,8 @@ def jobAccepted(request,id):
          
     
      
-    if ViewedJob.objects.filter(user=request.user,id=id).exists():
-        id =id
+    if ViewedJob.objects.filter(user=request.use).exists():
+        
         current_job = ViewedJob.objects.filter(user=request.user).last()
         
         ViewedJob.objects.filter(user=request.user).update(accepted ="Accepted" ,
