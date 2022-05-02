@@ -537,9 +537,10 @@ color: #e83e8c;
   font-size: 22px;
   font-family: monospace;
   /*background-color: #999;*/
-  color: #333;
+  color: #dc3545;
   transition: 2s;
   padding: 20px 20px;
+  text-align: center;
 }
 /* product request */
 
