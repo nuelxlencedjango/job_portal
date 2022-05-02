@@ -120,6 +120,7 @@ def jobDetail(request,id):
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
         job= job_info.id
+        name=job.product.name
         
         for job in job_info:
             pn =job.id
@@ -129,7 +130,7 @@ def jobDetail(request,id):
             date=job.date_created,phone=job.user.details.phone
         )
   
-    context = {'job_info': job_info,'pt':pn }
+    context = {'job_info': job_info,'pt':pn,'job':job,'name':name }
     return render(request,'products/job_detail.html',context)
 
 
