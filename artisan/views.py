@@ -204,7 +204,7 @@ def currentJob(request):
 def CurrentJobInfo(request):
     user = request.user
 
-    if not ViewedJob.objects.get(user=user,accepted='Accepted'):
+    if not ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
             messages.info(request,'You dont have any job to confirm here!Go to dashboard and select a job to do')
             return render(request,'products/no_service_rendered.html')
 
