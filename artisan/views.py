@@ -146,7 +146,8 @@ def jobAccepted(request,id):
         accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
         for b in accepted_job:
             b.artisan_assigned.set(artisan)
-            idd =b.id
+            #b.taken=True
+         
             #b.save()
         OrderItem.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
         accepted_date =timezone.now())
@@ -167,14 +168,33 @@ def jobAccepted(request,id):
     return redirect('/')
                        
                     
+
+
+
+
+#def viewedJob(request):
+ #   user=request.user  
   
+
+  #  if ViewedJob.objects.filter(user=user).exists():
+   #     viewed_job = ViewedJob.objects.filter(user=user).last()
+      #  return render(request,'artisans/viewed_job.html',context)
+
+   # else:
+    #    messages.info(request,'Go back to your dashboard,click on "Available jobs in your area" to select jobs')
+     #   return render(request,'artisans/no_service_rendered.html')   
+       
+
+    
+
+
 
 def currentJob(request):
     user=request.user  
    
-    #if not ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
-     #       messages.info(request,'You dont have any on going job yet!Go to dashboard and select a job to do')
-      #      return render(request,'artisans/no_service_rendered.html')
+    if not ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
+            messages.info(request,'You dont have any on going job yet!Go to dashboard and select a job to do')
+            return render(request,'artisans/no_service_rendered.html')
 
     if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
         current_job = ViewedJob.objects.filter(user=user,accepted='Accepted').last()

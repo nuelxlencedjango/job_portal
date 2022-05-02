@@ -534,9 +534,9 @@ color: #e83e8c;
 
 #messages{
   margin-top: 30px;
-  font-size: 35px;
+  font-size: 22px;
   font-family: monospace;
-  background-color: #e91e63;
+  background-color: #333;
   color: #fff;
   transition: 2s;
   padding: 20px 20px;
