@@ -120,7 +120,7 @@ def jobDetail(request,id):
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
-        
+        #if not ViewedJob.objects.get(job_order_id =id)
         for job in job_info:
             pn =job.id
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
