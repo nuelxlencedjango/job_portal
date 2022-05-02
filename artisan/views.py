@@ -172,11 +172,11 @@ def jobAccepted(request,id):
 def currentJob(request):
     user=request.user  
    
-    if not ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
-            messages.info(request,'You dont have any on going job yet!Go to dashboard and select a job to do')
-            return render(request,'artisans/no_service_rendered.html')
+    #if not ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
+     #       messages.info(request,'You dont have any on going job yet!Go to dashboard and select a job to do')
+      #      return render(request,'artisans/no_service_rendered.html')
 
-    elif ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
+    if ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
         current_job = ViewedJob.objects.filter(user=user,accepted='Accepted').last()
         if current_job.work_done == True:
             messages.info(request,'This job is concluded already')
@@ -218,12 +218,13 @@ def completeJob(request,id):
 
     user = request.user
     artisan = Artisan.objects.get(user=request.user)
+
     if ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id,work_done=True).exists():
         messages.info(request,'Job already registered for payment. Pick up another job today.')
         return render(request,'artisans/no_service_rendered.html')
 
     elif ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id):
-        
+
         if OrderItem.objects.filter(id=id,artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted"):
             ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id).update(work_done=True)
             OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted",id=id).update(work_done=True)
