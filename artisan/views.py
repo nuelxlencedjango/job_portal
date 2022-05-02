@@ -120,17 +120,24 @@ def jobDetail(request,id):
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
-        #if not ViewedJob.objects.get(job_order_id =id)
-        for job in job_info:
-            pn =job.id
-            job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
+
+        if not ViewedJob.objects.get(job_order_id =id):
+            messages.info(request,'You dont have any on going job yet!Go to dashboard and select a job to do')
+            return render(request,'products/job_detail.html',context)  
+            
+        else:
+            for job in job_info:
+                pn =job.id
+                job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
             date=job.date_created,phone=job.user.details.phone,job_order_id=job.id
-        )
+            )
   
-    context = {'job_info': job_info,'pt':pn }
-    return render(request,'products/job_detail.html',context)
+            context = {'job_info': job_info,'pt':pn }
+            return render(request,'products/job_detail.html',context)
+        
+              
 
 
 
