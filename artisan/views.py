@@ -119,21 +119,16 @@ def jobDetail(request,id):
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]
         job_info= OrderItem.objects.filter(id =id)
-      
         
         for job in job_info:
             pn =job.id
-
-            job= job.id
-        
-
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
-            job_name=job.product.name,job_order_id=job.id,category=job.product.category,
+            job_name=job.product.name,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
             date=job.date_created,phone=job.user.details.phone
         )
   
-    context = {'job_info': job_info,'pt':pn,'job':job,'name':name }
+    context = {'job_info': job_info,'pt':pn }
     return render(request,'products/job_detail.html',context)
 
 
@@ -225,13 +220,10 @@ def completeJob(request,id):
     ab=ViewedJob.objects.filter(user=user,accepted='Accepted',id=id).last()
     a=ab.client
     nn =ab.job_name
-    i=ab.id
-    ad =ab.address
-  
     artisan = Artisan.objects.get(user=request.user)
     orders=OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted")
 
-    ord=OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted").last()
+    
            
 
         
@@ -239,7 +231,7 @@ def completeJob(request,id):
     #bb=OrderItem.objects.get(artisan_assigned=Artisan.objects.get(user=request.user),pk=id,accepted='Accepted').last()
     #b=bb.user.last_name
    # n =bb.product.name
-    return render(request,'artisans/current_job.html',{'a':a,'n':nn,'artisan':artisan,'orders':orders,'ord':ord,'i':i,'ad':ad})   
+    return render(request,'artisans/current_job.html',{'a':a,'n':nn,'artisan':artisan,})   
     #if OrderItem.objects.filter(id=id,accepted='Accepted').exists():
      #   pass
         #OrderItem.objects.filter(id=id,accepted='Accepted').update(work_done=True)
