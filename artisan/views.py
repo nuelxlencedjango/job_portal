@@ -187,7 +187,7 @@ def currentJob(request):
    
     if not ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
             messages.info(request,'You dont have any on going job yet!Go to dashboard and select a job to do')
-            return render(request,'products/no_service_rendered.html')
+            return render(request,'artisans/no_service_rendered.html')
 
     elif ViewedJob.objects.filter(user=user,accepted='Accepted').exists():
         current_job = ViewedJob.objects.filter(user=user,accepted='Accepted').last()
