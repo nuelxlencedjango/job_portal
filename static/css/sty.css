@@ -754,7 +754,7 @@ span.psw {
   background-color: whitesmoke;
 }
 .front-image{
-  width: 50%;
+  width: 100%;
 }
 
 
@@ -1270,12 +1270,14 @@ nav ul li a{
 }
 .investment .row .front-image {
 
-padding-left: 100px;
-padding-right: 100px;
-height: 300px;
+width: 100%;
 }
 .investment .row .front-image img{
   width: 100%;
+  margin-top: 40px;
+padding-left: 30px;
+padding-right: 30px;
+height: 300px;
 }
 
  
@@ -1379,6 +1381,13 @@ height: 300px;
     /*height: calc(100vh - 50px);
     overflow-y: auto;*/
   }
+  .investment .row .front-image{
+    width: 100%;
+    margin-top: 40px;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 300px;
+  }
 }
 
 @media(max-width:400px){
@@ -1445,6 +1454,13 @@ height: 300px;
   .nav > #nav-check:checked ~ .nav-links {
     margin-top: 22px;
    
+}
+.investment .row .front-image{
+  width: 100;
+  margin-top: 40px;
+padding-left: 30px;
+padding-right: 30px;
+height: 300px;
 }
 
 }
