@@ -3,143 +3,194 @@
 {% block content %}
 
 
+<style>
+    .investment{
+  margin-top: 50px;
+  
+}
+.info h3{
+  color: #07bcc8;
+  padding: 15px;
+  font-size: 20px;
+  font-family: 'Poppins';
+}
+.info h2{
+  font-size: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 10px;
+  color: #333;
+}
+.slide-item-wrapper{
+  width: 100%;
+
+  display: flex;
+}
+
+.slide-item-wrapper2{
+  width: 100%;
+  margin-top: 70px;
+  display: flex;
+
+}
+.marker{
+  height: 70px;
+  color: #07bcc8;
+  width: 10%;
+
+}
+.marker i{
+  height: 100%;
+  width: 100%;
+  font-size: 45px;
+  margin-left: 5px;
+
+}
+
+.slide-item-wrapper .property{
+ margin-left: 20px;
+
+}
+.slide-item-wrapper .property .heading{
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
+.slide-item-wrapper .property .text{
+  margin-top: 15px;
+  color: #666;
+  font-family: 'Spline Sans', sans-serif;
+
+}
+.fornt-image {
+  width: 50%;
+  padding: 20px;
+  
+}
+.fornt-image img{
+  height: 350px;
+  width: 100%;
+  margin-top: 80px;
+}
+
+/* second small slider*/
+.slide-item-wrapper2 .marker{
+  height: 70px;
+  color: #07bcc8;
+  width: 10%;
+
+}
+.slide-item-wrapper2 .marker i{
+  height: 100%;
+  width: 100%;
+  font-size: 45px;
+  margin-left: 5px;
+
+}
+
+.slide-item-wrapper2  .property{
+ margin-left: 20px;
+
+}
+.slide-item-wrapper2 .property .heading{
+  font-size: 25px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #333;
+}
+.slide-item-wrapper2 .property .text{
+  margin-top: 15px;
+  color: #666;
+  font-family: 'Spline Sans', sans-serif;
+
+}
+</style>
+
+
+<section class="investment">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="info">
+               <h3>Our Service</h3>
+              
+               <h2>Job Agency  & more.</h2>
+                   <div class="estate">
+                       <i></i><h3></h3>
+                   </div>
+            </div>
+<!--begin-->
 
 
 
 
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+   <div class="carousel-inner">
+     <div class="carousel-item active">
 
+       <div class="slide-item-wrapper">
+           <div class="marker">
+               <i class="fa fa-university"></i>
+           </div>
+           <div class="property">
+           <h6 class="heading animate__animated animate__rotateIn animation-delay-1s h2" style="animation-delay: 1s;"> Job Recruitment </h6>
+           <div class="text animate__animated animate__rotateInDownLeft animation-delay-2s" style="animation-delay: 2s;"> Public and Private Partnership on job creation and <br> employment
 
+              </div>
+           </div>
+           </div>
 
+           <div class="slide-item-wrapper2">
+               <div class="marker">
+                   <i class="fa fa-money"></i>
+               </div>
+               <div class="property">
+               <h6 class="animate__animated animate__bounce animation-delay-1s h3" style="animation-delay: 1s;">Long Term Staffing</h6>
+              
+               <div class="text animate__animated animate__backInLeft animation-delay-2s" style="animation-delay: 2s;">Strategic investment in employment out-sourcing  for <br> individuals and organizations
+   
+                  </div>
+               </div>
+               </div>
 
+     </div>
+     <div class="carousel-item">
+       <div class="slide-item-wrapper">
+           <div class="marker">
+               <i class="fa fa-building"></i>
+           </div>
+           <div class="property">
+           <h6 class="heading animate__animated animate__backInRight" >Skill Acquisition</h6>
+           <div class="text animate__animated animate__bounceInRight animation-delay-2s" style="animation-delay: 1s;">Training for workers for efficent  <br> productivity
 
-<!--carousel -->
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 4"></button>
+              </div>
+           </div>
+           </div>
+           <div class="slide-item-wrapper2">
+               <div class="marker">
+                   <i class="fa fa-bath"></i>
+               </div>
+               <div class="property">
+               <h6 class="animate__animated animate__bounce animation-delay-2s  " style="animation-delay: 2s;">Indoor & Outdoor Job Services </h6>
+              
+               <div class="text animate__animated animate__rotateIn animation-delay-3s"  style="animation-delay: 3s;">We work intensively create inspiring, innovative, and creative designs for job description for maximum productivity
+   
+                  </div>
+               </div>
+               </div>
     </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="{%  static 'images/hairdresser2.jpg' %}" class="img-fluid" alt="banner1">
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 bg-custom d-none d-lg-block py-3 px-0">
-                        <h2>Professional service at a go!</h2>
-                        <div class="border-top border-primary w-50 mx-auto my-3"></div>
-                        <h3 class="pb-3">Just a call away</h3>
-                        <a href="#" class="btn btn-danger btn-lg mr-2">view</a>
-                        <a href="#" class="btn btn-primary  btn-lg ml-2">start now</a>
-                    </div>
-                </div>
-            </div>
+   </div>
+ </div>
+</div>
+        <div class="col-md-6 fornt-image">
+            <img src="{% static 'images/welder2.jpg' %}" alt="">
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{%  static 'images/evenp1.jpg' %}" class="img-fluid" alt="banner4">
-         
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 bg-custom d-none d-lg-block py-3 px-0">
-                        <h2>Professional service at a go!</h2>
-                        <div class="border-top border-primary w-50 mx-auto my-3"></div>
-                        <h3 class="pb-3">Just a call away</h3>
-                        <a href="#" class="btn btn-danger btn-lg mr-2">view</a>
-                        <a href="#" class="btn btn-primary  btn-lg ml-2">start now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{%  static 'images/welder2.jpg' %}" class="img-fluid" alt="banner4">
-         
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 bg-custom d-none d-lg-block py-3 px-0">
-                        <h2>Professional service at a go!</h2>
-                        <div class="border-top border-primary w-50 mx-auto my-3"></div>
-                        <h3 class="pb-3">Just a call away</h3>
-                        <a href="#" class="btn btn-danger btn-lg mr-2">view</a>
-                        <a href="#" class="btn btn-primary  btn-lg ml-2">start now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{%  static 'images/barber2.jpg' %}" class="img-fluid" alt="banner2">
-       
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 bg-custom d-none d-lg-block py-3 px-0">
-                        <h2>Professional service at a go!</h2>
-                        <div class="border-top border-primary w-50 mx-auto my-3"></div>
-                        <h3 class="pb-3">Just a call away</h3>
-                        <a href="#" class="btn btn-danger btn-lg mr-2">view</a>
-                        <a href="#" class="btn btn-primary  btn-lg ml-2">start now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{%  static 'images/elect1.jpg' %}" class="img-fluid" alt="banner3">
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 bg-custom d-none d-lg-block py-3 px-0">
-                        <h2>Professional service at a go!</h2>
-                        <div class="border-top border-primary w-50 mx-auto my-3"></div>
-                        <h3 class="pb-3">Just a call away</h3>
-                        <a href="#" class="btn btn-danger btn-lg mr-2">view</a>
-                        <a href="#" class="btn btn-primary  btn-lg ml-2">start now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{%  static 'images/evenp1.jpg' %}" class="img-fluid" alt="banner4">
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 bg-custom d-none d-lg-block py-3 px-0">
-                        <h2>Professional service at a go!</h2>
-                        <div class="border-top border-primary w-50 mx-auto my-3"></div>
-                        <h3 class="pb-3">Just a call away</h3>
-                        <a href="#" class="btn btn-danger btn-lg mr-2">view</a>
-                        <a href="#" class="btn btn-primary  btn-lg ml-2">start now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="{%  static 'images/hairdresser2.jpg' %}" class="img-fluid" alt="banner5">
-        <div class="carousel-caption">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-8 bg-custom d-none d-lg-block py-3 px-0">
-                        <h2>Professional service at a go!</h2>
-                        <div class="border-top border-primary w-50 mx-auto my-3"></div>
-                        <h3 class="pb-3">Just a call away</h3>
-                        <a href="#" class="btn btn-danger btn-lg mr-2">view</a>
-                        <a href="#" class="btn btn-primary  btn-lg ml-2">start now</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </div>
     </div>
-    
-  </div>
-  <!--carousel end -->
+</section>
+
+
+
+
+
+
+
 
 
 
@@ -163,41 +214,7 @@
             <a href="{% url 'products:product_dest' product.id %} " class="btn btn-dark btn-md">View detail</a>
         </div>
         {% endfor %}
-        <!--<div class="col-md-4 my-4">
-            <img src="{% static 'images/photographer2.jpg' %}" alt="" class="w-100">
-            <h4 class="my-4">Amazing.Incredible</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur ipsam illum rem nisi eum error, repellat voluptatem minima quos neque.</p>
-            <a href="" class="btn btn-outline-dark btn-md">Read more</a>
-        </div>
-        <div class="col-md-4 my-4">
-            <img src="{% static 'images/photographer2.jpg' %}" alt="" class="w-100">
-            <h4 class="my-4">Amazing.Incredible</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur ipsam illum rem nisi eum error, repellat voluptatem minima quos neque.</p>
-            <a href="" class="btn btn-outline-dark btn-md">Read more</a>
-        </div>
-        <div class="col-md-4 my-4">
-            <img src="{% static 'images/photographer2.jpg' %}" alt="" class="w-100">
-            <h4 class="my-4">Amazing.Incredible</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur ipsam illum rem nisi eum error, repellat voluptatem minima quos neque.</p>
-            <a href="" class="btn btn-outline-dark btn-md">Read more</a>
-        </div>
-        <div class="col-md-4 my-4">
-            <img src="{% static 'images/elect1.jpg' %}" alt="" class="w-100">
-            <h4 class="my-4">Amazing.Incredible</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur ipsam illum rem nisi eum error, repellat voluptatem minima quos neque.</p>
-            <a href="" class="btn btn-outline-dark btn-md">Read more</a>
-        </div>
-        <div class="col-md-4 my-4">
-            <img src="{% static 'images/hairdresser2.jpg' %}" alt="" class="w-100">
-            <h4 class="my-4">Amazing.Incredible</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur ipsam illum rem nisi eum error, repellat voluptatem minima quos neque.</p>
-            <a href="" class="btn btn-outline-dark btn-md">Read more</a>
-        </div> <div class="col-md-4 my-4">
-            <img src="{% static 'images/welder2.jpg' %}" alt="" class="w-100">
-            <h4 class="my-4">Amazing.Incredible</h4>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequuntur ipsam illum rem nisi eum error, repellat voluptatem minima quos neque.</p>
-            <a href="" class="btn btn-outline-dark btn-md">Read more</a>
-        </div>-->
+       
     </div>
 </div>
 </div>
@@ -255,4 +272,44 @@
     </div>
     </div>
 
+
+
+
+
+
+    
+     
+      
+
+    <div class="container">
+      
+
+        <div class="row" style="margin-top: 2.5rem;">
+          <div class="col">
+             <a href="#" class="btn btn-primary btn-block btn-lg">Services</a>
+          </div>
+          <div class="col">
+             <a href="#" class="btn btn-secondary btn-block btn-lg">Plumber</a>
+           </div>
+           <div class="col">
+             <a href="#" class="btn btn-secondary btn-block btn-lg"> slylist</a>
+           </div>
+           <div class="col">
+             <a href="#" class="btn btn-secondary btn-block btn-lg">Mechanic</a>
+           </div>
+           <div class="col">
+             <a href="#" class="btn btn-secondary btn-block btn-lg">Electrician</a>
+           </div>
+           <div class="col">
+             <a href="#" class="btn btn-secondary btn-block btn-lg">Tiler</a>
+           </div>
+          <div class="col">
+          <a href="#" class="btn btn-info btn-block btn-lg">Cook</a>
+          </div>
+          <div class="col">
+           <a href="#" class="btn btn-info btn-block btn-lg">Nanny</a>
+           </div>
+        </div>
+  
+  </div>    
 {% endblock %}

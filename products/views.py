@@ -37,7 +37,7 @@ def home(request):
         'prod':prod
     }
 
-    return render(request,'main.html',context)
+    return render(request,'homePage.html',context)
 
 
 

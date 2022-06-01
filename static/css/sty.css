@@ -46,15 +46,22 @@
   padding-left: 5px;
   
 }
-  header .btn-group .navbar-brand{
-    width: 100px;
-    height: 130px;
-    padding-bottom: 30px;
-
+  .nav .navbar-brand{
+  
+  
     /*display: inline-block;*/
     padding-top: 0px;
-    padding-left: 0px;
+   
+
+    width: 120px;
+
+    padding-left: 20px;
+    position: relative;
+    top: 20px;
     
+  }
+  .nav .navbar-brand a img{
+    width: 100%;
   }
 
   header .container{
@@ -82,6 +89,9 @@
 
 }
 
+#content{
+  margin-top: 50px;
+}
 
 
   .nav > .nav-header {
@@ -109,7 +119,8 @@
     display: inline;
     float: right;
     font-size: 18px;
-    margin-left: 140px;
+
+    margin-left: 50px;
    
     
   }
@@ -145,6 +156,7 @@
 
   .nav > #nav-check {
     display: none;
+    cursor: pointer;
   }
 
  .nav .nav-links ul a.icon{
@@ -158,10 +170,17 @@
     padding: 7px;
     margin-left: 5px;
  }
-
+ .carousel-inner{
+  height: 400px;
+  padding-left: 5px;
+  padding-right: 5px;
+ }
+.carousel-item{
+  width: 100%;
+}
  .carousel-item img{
     width: 100%;
-    height: 75vh;
+   
     margin: 30px;
 
 }
@@ -734,7 +753,9 @@ span.psw {
 .req:hover{
   background-color: whitesmoke;
 }
-
+.front-image{
+  width: 50%;
+}
 
 
  
@@ -1089,17 +1110,49 @@ nav ul li a{
   to {transform: scale(1)}
 }
 
+@media (max-width: 930px){
+  .navbar-brand{
+    display: none;
+  }
+  .nav > .nav-links{
+    margin-left: 5px;
+    font-size: 16px;
+  }
+
+  .nav > .nav-links > ul li a{
+    display: block;
+    padding: 0 10px;
+    color: #2b3032a1;
+  
+    font-weight: 500;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 40px
+  }
+}
 
 
 
 /* media query here*/
 @media (max-width:750px) {
+  
+ 
+  .nav > .nav-links > ul li a {
+  
+    margin-top: 10px;
+    line-height: 15px;
+}
+.nav .nav-links ul li:hover{
+  background: #45ccb8;
+  font-size: 22px;
+}
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
     right: 0px;
     top: 0px;
-    background-color:#45ccb8;
+    margin-top: 10px;
+    /*background-color:#45ccb8;*/
  
   }
   
@@ -1134,7 +1187,7 @@ nav ul li a{
   
   }
   .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
+    /*background-color: rgba(0, 0, 0, 0.3);*/
     margin-top: 10px;
     left: 0px;
    
@@ -1151,13 +1204,16 @@ nav ul li a{
     position: absolute;
     display: block;
     width: 100%;
-    background-color:  #2b3032a1;
-    height: 10%;
+    /*background-color:  #2b3032a1;*/
+   
     transition: all 0.3s ease-in;
     overflow-y: hidden;
-    top: 50px;
-    left: -300px;
-    padding-right: 40px;
+    top: 52px;
+    /*left: -300px;*/
+    padding-right: 5px;
+    background-color: #d63384;
+    margin-top: 20px;
+    margin-bottom: 25px;
     
   
     /*color: #fff;*/
@@ -1199,21 +1255,47 @@ nav ul li a{
     height: 0px;
   }
   .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
+    /*height: calc(100vh - 50px);
+    overflow-y: auto;*/
   }
+  .nav  #nav-check{
+    background-color: #000;
+    margin-left: 92%;
+    cursor: pointer;
+  }
+ .carousel-inner {
+  height: 400px;
+  padding-left: 50px;
+  padding-right: 25px;
+}
+.investment .row .front-image {
+
+padding-left: 100px;
+padding-right: 100px;
+height: 300px;
+}
+.investment .row .front-image img{
+  width: 100%;
+}
+
+ 
 }
 
 
 
 
 @media (max-width:550px) {
+  .nav  #nav-check{
+    background-color: #000;
+   
+  }
+  
   .nav > .nav-btn {
     display: inline-block;
     position: absolute;
-    right: 0px;
+    right: 30px;
     top: 0px;
-    background-color:#2b3032a1;
+   /* background-color:#2b3032a1;*/
   }
   .nav > .nav-btn > label {
     display: inline-block;
@@ -1224,7 +1306,7 @@ nav ul li a{
   }
  
   .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
+    /*background-color: rgba(0, 0, 0, 0.3);*/
    
   }
   .nav > .nav-btn > label > span {
@@ -1239,12 +1321,13 @@ nav ul li a{
     position: absolute;
     display: block;
     width: 100%;
-    background-color:  #2b3032a1;;
+    /*background-color:  #2b3032a1;;*/
     height: 30%;
     transition: all 0.3s ease-in;
     overflow-y: hidden;
     top: 50px;
     left: 0px;
+    margin-top: 15px;
   
     /*color: #fff;*/
   }
@@ -1270,8 +1353,11 @@ nav ul li a{
         align-items: center;
        
     }
+   
     .nav > .nav-links > ul li a{
         margin-left: 40%;
+        margin-top: 2px;
+        line-height: 35px;
     }
 
     .nav .nav-links ul a.icon{
@@ -1282,9 +1368,16 @@ nav ul li a{
   .nav > #nav-check:not(:checked) ~ .nav-links {
     height: 0px;
   }
+  
   .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
+    height: auto;
+    width: 100%;
+    margin-top: 22px;
+    align-items: center;
+    font-size: 18px;
+   
+    /*height: calc(100vh - 50px);
+    overflow-y: auto;*/
   }
 }
 
@@ -1306,12 +1399,9 @@ nav ul li a{
  .cancelbtn {
     width: 100%;
  }
+ 
   .nav > .nav-btn {
-    display: inline-block;
-    position: absolute;
-    right: 0px;
-    top: 0px;
-    background-color:#2b3032a1;
+    right: 30px;
   }
   .nav > .nav-btn > label {
     display: inline-block;
@@ -1320,57 +1410,15 @@ nav ul li a{
     padding: 13px;
   
   }
-  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-    background-color: rgba(0, 0, 0, 0.3);
-   
-  }
-  .nav > .nav-btn > label > span {
-    display: block;
-    width: 25px;
-    height: 10px;
-    border-top: 2px solid #eee;
-  }
-
-  .nav > .nav-links {
-    position: absolute;
-    display: block;
-    width: 100%;
-    background-color:  #2b3032a1;
-    height: 10%;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 50px;
-    left: -300px;
-    padding-right: 40px;
-  }
-
-  .nav > .nav-links {
-    /*position: absolute;
-    display: block;
-    width: 100%;
-    background-color:  #2b3032a1;;
-    height: 30%;
-    transition: all 0.3s ease-in;
-    overflow-y: hidden;
-    top: 50px;
-    left: 0px;
-    text-align: left;
-    align-items: left;*/
-  
-    /*color: #fff;*/
-  }
-
+ 
 
   .nav > .nav-links > ul li a {
     display: block;
     width: 100%;
     color: white;
+    margin-top: 0px;
   }
  
-
-  /*   */
-
-
 
     .nav > .nav-links > ul li{
       display: block;
@@ -1384,10 +1432,7 @@ nav ul li a{
         align-items: center;
        
     }
-    .nav > .nav-links > ul li a{
-        margin-left: 40%;
-    }
-
+   
     .nav .nav-links ul a.icon{
       margin-left: 33%;
     }
@@ -1396,8 +1441,10 @@ nav ul li a{
   .nav > #nav-check:not(:checked) ~ .nav-links {
     height: 0px;
   }
+  
   .nav > #nav-check:checked ~ .nav-links {
-    height: calc(100vh - 50px);
-    overflow-y: auto;
-  }
+    margin-top: 22px;
+   
+}
+
 }

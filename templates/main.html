@@ -46,7 +46,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display:ital,wght@0,100;0,300;0,400;0,500;0,600;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400&family=Poppins:ital,wght@0,200;0,500;1,200;1,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="{% static 'css/stylenm.' %}">
+    <!--<link rel="stylesheet" href="{% static 'css/stylenm.' %}">-->
     <link rel="stylesheet" href="{% static 'css/sty.css' %}">
 </head>
 
@@ -84,8 +84,6 @@
       </div>
     
         {% endif %}
-
-       
       </div>
 
       <!--<form action="{% url 'products:search' %}" method="GET" class="d-flex">
@@ -98,14 +96,14 @@
 
 
 
+
+
+
+
     <div class="nav">
-        <input type="checkbox" id="nav-check" class="nav-check" onclick="toggleSelect()">
-        <div class="nav-header">
-          <div class="nav-title">
-            <!--MysteryCode-->
-          
-          </div>
-        </div>
+    
+        <input type="checkbox" id="nav-check" class="nav-check" onclick="toggleSelects()">
+     
 
         <div class="nav-btn">
           <label for="nav-check" id="nav-check">
@@ -114,13 +112,13 @@
             <span></span>
           </label>
         </div>
-        <!--<div class="col-md-4 col-sm-12 col-12">
-          <div class="btn-group">
-          <a  href="/"><img class="navbar-brand" src="{%  static 'images/brand2.jp' %}"  class="img-fluid logo" alt="banner1">
-        </a>
-          </div>
-      </div>-->
-        <div class="nav-links">
+      
+      <div class="navbar-brand" id="">
+        <a  href=""><img class="" src="{%  static 'images/brand2.jpg' %}"  class="img-fluid logo" alt="banner1">
+      </a>
+        </div>
+
+        <div class="nav-links" id="nav-links">
             <ul>
           <li><a href="{% url 'products:home' %}" target="_blank">Home</a></li>
          
@@ -154,47 +152,6 @@
 
 
 
-    <!--top bar-->
-    <!--<div class="top-bar">
-        <div class="container">
-            <div class="col-12 text-center">
-                <p><a href="tel:+2348079385255">call us at 1 (800) HTML -CSS</a></p>
-            </div>
-        </div>
-    </div>-->
-    
-    
-<!--navigation-->
-<!--<nav class="navbar bg-light navbar-light navbar-expand-lg">
-    <div class="container">
-        <a href="/" class="navbar-brand"><img src="{% static 'images/brand/logo3.jpg' %}" alt="logo"></a>
-       
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" >
-            <span class="navbar-toggler-icon"></span>
-          
-        </button>-->
-    <!--collapse navbar-collapse-->
-
-        <!--<div class="" id="navbarResponsive">
-          
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a href="" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Partners</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Services 24/7</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Request A Service</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Cart</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Contact us</a></li>
-                    <li class="nav-item"><a href="" class="nav-link">Terms and conditions</a></li>
-                </ul>-->
-                <!--<form action="{% url 'products:search' %}" method="GET" class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>-->
-        
-        <!--</div>
-    </div>
-</nav>-->
 
 
 
@@ -204,153 +161,17 @@
 
 
 
-
-
-
-
-
-
-
-
+<div class="all-content" id="content">
 {% block content %}
-<div class="container">
-
-</div>
 {% endblock %}
-
-
-
-
-
-
-
-
-<!--<div class="fixed-background">
-    <div class="row text-light py-5">
-        <div class="col-12 text-center">
-            <h2>Advance to the next level</h2>
-            <h3 class="py-4">..see what is on the other side</h3>
-
-            <button type="button" data-toggle="modal" data-target="#modal1" class="btn btn-danger btn-lg mr-2">view</a>
-            <button type="button" data-toggle="modal" data-target="#modal1" class="btn btn-primary  btn-lg ml-2">start </a>
-                      
-        </div>
-    </div>
-    <div class="fixed-wrap">
-        <div class="fixed"></div>
-    </div>
-</div>
-
-<div class="modal fade" id="modal1">
-    <div class="modal-dialog">
-        <img src="{% static 'images/avatar2.png' %}" alt="" class="w-100">
-    </div>
-</div>-->
-
-
-
-<hr>
-      
-    
-     
-      
-
-    <div class="container mt-5">
-      
-
-      <div class="row" style="margin-top: 2.5rem;">
-        <div class="col">
-           <a href="#" class="btn btn-primary btn-block btn-lg">Services</a>
-        </div>
-        <div class="col">
-           <a href="#" class="btn btn-secondary btn-block btn-lg">Plumber</a>
-         </div>
-         <div class="col">
-           <a href="#" class="btn btn-secondary btn-block btn-lg"> slylist</a>
-         </div>
-         <div class="col">
-           <a href="#" class="btn btn-secondary btn-block btn-lg">Mechanic</a>
-         </div>
-         <div class="col">
-           <a href="#" class="btn btn-secondary btn-block btn-lg">Electrician</a>
-         </div>
-         <div class="col">
-           <a href="#" class="btn btn-secondary btn-block btn-lg">Tiler</a>
-         </div>
-        <div class="col">
-        <a href="#" class="btn btn-info btn-block btn-lg">Cook</a>
-        </div>
-        <div class="col">
-         <a href="#" class="btn btn-info btn-block btn-lg">Nanny</a>
-         </div>
-      </div>
-
 </div>
 
 
 
+{% include 'footer.html' %}
 
 
 
-
-<!--<div class="row pt-5 px-3 border-top mt-5 " style="font-size: 13px;">
-  <div class="col">
-  
-  
-  <ul class="nav flex-column">
-   <li class="nav-item">
-     <a class="nav-link text-info" href="#"><b>Iwanwok for business</b></a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link text-info" href="#"><b>Become and Instructor</b></a>
-   </li>
-   <li class="nav-item">
-     <a class="nav-link text-info" href="#">Mobile Apps</a>
-   </li>
-  </ul>
-  
-  
-  </div>
-  <div class="col">
-  
-  <ul class="nav flex-column">
-     <li class="nav-item">
-       <a class="nav-link text-info" href="#">About</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link text-info" href="#">Careers</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link text-info" href="#">Blog</a>
-     </li>
-   </ul>
-  
-  </div>
-  <div class="col">
-  
-  <ul class="nav flex-column">
-     <li class="nav-item">
-       <a class="nav-link text-info" href="#">Topics</a>
-     </li>
-     <li class="nav-item">
-      <a class="nav-link" href="{% url 'products:terms' %}">Terms and conditions</a>
-    </li>
-     <li class="nav-item">
-       <a class="nav-link text-info" href="#">Support</a>
-     </li>
-     <li class="nav-item">
-       <a class="nav-link text-info" href="#">Affiliate</a>
-     </li>
-   </ul>
-  
-  </div>
-  <div class="col">
-  
-  
-  </div>
-  </div>-->
-
- 
 
 
 
@@ -374,50 +195,7 @@
 
 <script src="{% static 'js/sty.js' %}"></script>
 
-
-<script type="text/Javascript">
-    menuQuery =false;
-
-let toggleSelect = function(){
-    let getChoice = document.querySelector("nav-check");
-    let getSelect = document.querySelector(".carousel");
-    let getheader = document.querySelector(".head");
-    //let mt5 = document.querySelector('mt-5')  
   
-
-    if(menuQuery === false){
-        getSelect.style.visibility = "hidden";
-        getSelect.style.transition = "all 0.3s ease-in";
-        getheader.style.display ="none";
-
-
-
-
-        //getChoice.style.marginLeft ="-200px";
-       
-
-        
-        //mt5.style.marginTop ="40px";
-        menuQuery =true;
-
-    }
-    else if(menuQuery === true){
-        getSelect.style.visibility = "visible";
-        getheader.style.display ="block";
-        //mt5.style.marginTop ="auto";
-        menuQuery =false;
-
-    }
-}
-
-
-// In your Javascript (external .js resource or <script> tag)
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
-
-
-    </script>
 </body>
 
 </html>
