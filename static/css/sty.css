@@ -31,8 +31,20 @@
   }
   header{
     background-color: var(--primary-color);
+    height: 70px;
+}
+
+
+.nav .nav-header .nav-title .navbar-brand{
+  width: 80px;
+  height: 79px;
+  padding-bottom: 30px;
+
+  display: inline-block;
  
-    
+  padding-top: 0px;
+  padding-left: 5px;
+  
 }
   header .btn-group .navbar-brand{
     width: 100px;
@@ -40,30 +52,20 @@
     padding-bottom: 30px;
 
     /*display: inline-block;*/
-   
     padding-top: 0px;
     padding-left: 0px;
     
   }
+
   header .container{
     padding: 10px;
    
 }
-  .nav .nav-header .nav-title .navbar-brand{
-    width: 80px;
-    height: 79px;
-    padding-bottom: 30px;
-
-    display: inline-block;
-   
-    padding-top: 0px;
-    padding-left: 5px;
-    
-  }
+ 
 
   .nav {
     /*margin-top: 40px;*/
-    height: 100px;
+  
     width: 100%;
     /*background-color: #1177ca;*/
     /*background: #7aaec4;*/
@@ -72,7 +74,12 @@
     
   }
 .site-title {
-    color: #ff686b;
+    color: #222;
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-style: italic;
+
 }
 
 
@@ -709,26 +716,9 @@ span.psw {
   animation: animatezoom 0.6s
 }
 
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
 
 /* Change styles for span and cancel button on extra small screens */
-@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}
+
 /*login end*/
 .welcome{
   color: whitesmoke;
@@ -759,302 +749,14 @@ span.psw {
 
 
 
-/* media query here*/
-  @media (max-width:750px) {
-    .nav > .nav-btn {
-      display: inline-block;
-      position: absolute;
-      right: 0px;
-      top: 0px;
-      background-color:#45ccb8;
-   
-    }
-    
-
-   .nav-btn{
-     left: 0px;
-     width: auto;
-   }
-
-    .col-12{
-      margin-top: 70px;
-    }
-    .col-md-4 {
-      align-items: center;
-      
-    }
-  
-    .nav > .nav-btn > label {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      padding: 13px;
-    
-    }
-    .carousel-item img{
-        width: 100%;
-        height: 50vh;
-        margin: 30px;
-    
-    }
-    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-      background-color: rgba(0, 0, 0, 0.3);
-      margin-top: 10px;
-      left: 0px;
-     
-    }
-    .nav > .nav-btn > label > span {
-      display: block;
-      width: 25px;
-      height: 10px;
-      border-top: 2px solid #eee;
-    }
-
-
-    .nav > .nav-links {
-      position: absolute;
-      display: block;
-      width: 100%;
-      background-color:  #2b3032a1;
-      height: 10%;
-      transition: all 0.3s ease-in;
-      overflow-y: hidden;
-      top: 50px;
-      left: -300px;
-      padding-right: 40px;
-      
-    
-      /*color: #fff;*/
-    }
-    .nav > .nav-links > ul li a {
-      display: block;
-      width: 100%;
-      color: white;
-      padding-top: 0px;
-    }
-
-    /*   */
-
-
-
-      .nav > .nav-links > ul li{
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-        margin-top: 2px 2px;
-        padding-top: -50px;
-        /*background-color: #333;*/
-
-      }
-      .header-links a{
-          align-items: center;
-         
-      }
-      .nav > .nav-links > ul li a{
-          margin-left: 40%;
-      }
-
-      .nav .nav-links ul a.icon{
-        margin-left: 33%;
-      }
-
-    /*   */
-    .nav > #nav-check:not(:checked) ~ .nav-links {
-      height: 0px;
-    }
-    .nav > #nav-check:checked ~ .nav-links {
-      height: calc(100vh - 50px);
-      overflow-y: auto;
-    }
-  }
 
 
 
 
 
 
-  @media (max-width:550px) {
-    .nav > .nav-btn {
-      display: inline-block;
-      position: absolute;
-      right: 0px;
-      top: 0px;
-      background-color:#2b3032a1;
-    }
-    .nav > .nav-btn > label {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      padding: 13px;
-    
-    }
-   
-    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-      background-color: rgba(0, 0, 0, 0.3);
-     
-    }
-    .nav > .nav-btn > label > span {
-      display: block;
-      width: 25px;
-      height: 10px;
-      border-top: 2px solid #eee;
-    }
 
 
-    .nav > .nav-links {
-      position: absolute;
-      display: block;
-      width: 100%;
-      background-color:  #2b3032a1;;
-      height: 30%;
-      transition: all 0.3s ease-in;
-      overflow-y: hidden;
-      top: 50px;
-      left: 0px;
-    
-      /*color: #fff;*/
-    }
-    .nav > .nav-links > ul li a {
-      display: block;
-      width: 100%;
-      color: white;
-    }
-
-    /*   */
-
-
-
-      .nav > .nav-links > ul li{
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-        margin: 2px 2px;
-        /*background-color: #333;*/
-
-      }
-      .header-links a{
-          align-items: center;
-         
-      }
-      .nav > .nav-links > ul li a{
-          margin-left: 40%;
-      }
-
-      .nav .nav-links ul a.icon{
-        margin-left: 33%;
-      }
-
-    /*   */
-    .nav > #nav-check:not(:checked) ~ .nav-links {
-      height: 0px;
-    }
-    .nav > #nav-check:checked ~ .nav-links {
-      height: calc(100vh - 50px);
-      overflow-y: auto;
-    }
-  }
-
-
-
-
-
-
-  @media (max-width:300px) {
-    .nav > .nav-btn {
-      display: inline-block;
-      position: absolute;
-      right: 0px;
-      top: 0px;
-      background-color:#2b3032a1;
-    }
-    .nav > .nav-btn > label {
-      display: inline-block;
-      width: 50px;
-      height: 50px;
-      padding: 13px;
-    
-    }
-    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
-      background-color: rgba(0, 0, 0, 0.3);
-     
-    }
-    .nav > .nav-btn > label > span {
-      display: block;
-      width: 25px;
-      height: 10px;
-      border-top: 2px solid #eee;
-    }
-
-    .nav > .nav-links {
-      position: absolute;
-      display: block;
-      width: 100%;
-      background-color:  #2b3032a1;
-      height: 10%;
-      transition: all 0.3s ease-in;
-      overflow-y: hidden;
-      top: 50px;
-      left: -300px;
-      padding-right: 40px;
-    }
-
-    .nav > .nav-links {
-      /*position: absolute;
-      display: block;
-      width: 100%;
-      background-color:  #2b3032a1;;
-      height: 30%;
-      transition: all 0.3s ease-in;
-      overflow-y: hidden;
-      top: 50px;
-      left: 0px;
-      text-align: left;
-      align-items: left;*/
-    
-      /*color: #fff;*/
-    }
-
-
-    .nav > .nav-links > ul li a {
-      display: block;
-      width: 100%;
-      color: white;
-    }
-   
-
-    /*   */
-
-
-
-      .nav > .nav-links > ul li{
-        display: block;
-        margin-bottom: 20px;
-        padding: 0;
-        margin: 2px 2px;
-        /*background-color: #333;*/
-
-      }
-      .header-links a{
-          align-items: center;
-         
-      }
-      .nav > .nav-links > ul li a{
-          margin-left: 40%;
-      }
-
-      .nav .nav-links ul a.icon{
-        margin-left: 33%;
-      }
-
-    /*   */
-    .nav > #nav-check:not(:checked) ~ .nav-links {
-      height: 0px;
-    }
-    .nav > #nav-check:checked ~ .nav-links {
-      height: calc(100vh - 50px);
-      overflow-y: auto;
-    }
-  }
 /* ===========TOP BAR HEADER =======*/
 /*.top-bar{
     background: #7aaec4;
@@ -1364,3 +1066,338 @@ nav ul li a{
         font-size: 1rem;
     }
 }*/
+
+
+/*@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}*/
+
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+
+
+
+/* media query here*/
+@media (max-width:750px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color:#45ccb8;
+ 
+  }
+  
+
+ .nav-btn{
+   left: 0px;
+   width: auto;
+ }
+
+  .head .col-12{
+    margin-top: 0px;
+  }
+  .col-md-4 {
+    align-items: center;
+   
+    width: 50%;
+    margin-top: 30px;
+    
+  }
+
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  
+  }
+  .carousel-item img{
+      width: 100%;
+      height: 50vh;
+      margin: 30px;
+  
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+    margin-top: 10px;
+    left: 0px;
+   
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+
+
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color:  #2b3032a1;
+    height: 10%;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: -300px;
+    padding-right: 40px;
+    
+  
+    /*color: #fff;*/
+  }
+  .nav > .nav-links > ul li a {
+    display: block;
+    width: 100%;
+    color: white;
+    padding-top: 0px;
+  }
+
+  /*   */
+
+
+
+    .nav > .nav-links > ul li{
+      display: block;
+      margin-bottom: 20px;
+      padding: 0;
+      margin-top: 2px 2px;
+      padding-top: -50px;
+      /*background-color: #333;*/
+
+    }
+    .header-links a{
+        align-items: center;
+       
+    }
+    .nav > .nav-links > ul li a{
+        margin-left: 40%;
+    }
+
+    .nav .nav-links ul a.icon{
+      margin-left: 33%;
+    }
+
+  /*   */
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+
+
+
+
+@media (max-width:550px) {
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color:#2b3032a1;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  
+  }
+ 
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+   
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+
+
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color:  #2b3032a1;;
+    height: 30%;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+  
+    /*color: #fff;*/
+  }
+  .nav > .nav-links > ul li a {
+    display: block;
+    width: 100%;
+    color: white;
+  }
+
+  /*   */
+
+
+
+    .nav > .nav-links > ul li{
+      display: block;
+      margin-bottom: 20px;
+      padding: 0;
+      margin: 2px 2px;
+      /*background-color: #333;*/
+
+    }
+    .header-links a{
+        align-items: center;
+       
+    }
+    .nav > .nav-links > ul li a{
+        margin-left: 40%;
+    }
+
+    .nav .nav-links ul a.icon{
+      margin-left: 33%;
+    }
+
+  /*   */
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+
+@media(max-width:400px){
+  .col-md-4 {
+  
+   font-size: 14px;
+    width: 100%;
+   
+    
+  }
+}
+
+@media (max-width:300px) {
+  span.psw {
+    display: block;
+    float: none;
+ }
+ .cancelbtn {
+    width: 100%;
+ }
+  .nav > .nav-btn {
+    display: inline-block;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    background-color:#2b3032a1;
+  }
+  .nav > .nav-btn > label {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    padding: 13px;
+  
+  }
+  .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+    background-color: rgba(0, 0, 0, 0.3);
+   
+  }
+  .nav > .nav-btn > label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 100%;
+    background-color:  #2b3032a1;
+    height: 10%;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: -300px;
+    padding-right: 40px;
+  }
+
+  .nav > .nav-links {
+    /*position: absolute;
+    display: block;
+    width: 100%;
+    background-color:  #2b3032a1;;
+    height: 30%;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 50px;
+    left: 0px;
+    text-align: left;
+    align-items: left;*/
+  
+    /*color: #fff;*/
+  }
+
+
+  .nav > .nav-links > ul li a {
+    display: block;
+    width: 100%;
+    color: white;
+  }
+ 
+
+  /*   */
+
+
+
+    .nav > .nav-links > ul li{
+      display: block;
+      margin-bottom: 20px;
+      padding: 0;
+      margin: 2px 2px;
+      /*background-color: #333;*/
+
+    }
+    .header-links a{
+        align-items: center;
+       
+    }
+    .nav > .nav-links > ul li a{
+        margin-left: 40%;
+    }
+
+    .nav .nav-links ul a.icon{
+      margin-left: 33%;
+    }
+
+  /*   */
+  .nav > #nav-check:not(:checked) ~ .nav-links {
+    height: 0px;
+  }
+  .nav > #nav-check:checked ~ .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
