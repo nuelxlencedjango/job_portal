@@ -36,6 +36,8 @@ urlpatterns = [
 
     path('search/', views.search , name='search'),
 
+     #path('flip-searching/', views.flipSearch , name='flip-searching'),
+
     path('contact/',views.contact ,name='contact'),
     
     path('payment/', views.payment, name='payment'),

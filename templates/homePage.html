@@ -121,17 +121,24 @@
 
 
 <style>
-/*.flip-card {
+   .flipping .row{
+     width: 100%;
+  }
+  .flipping .row .col-lg-4{
+     margin-top: 30px;
+     padding: 10px
+  }
+.flip-card {
     background-color: transparent;
     width: 300px;
-    height: 500px;
+    height: 300px;
     perspective: 1000px;
     border: none;
   }
   
   .flip-card-inner {
     position: relative;
-    width: 300;
+    width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 0.6s;
@@ -147,17 +154,23 @@
   
   .flip-card-front, .flip-card-back {
     position: absolute;
-    width: 300px;
+    width: 100%;
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     align-items: center;
   }
-  
+  .flip-card-back {
+    height: auto !important;
+  }
+  .flip-card .flip-card-inner .flip-card-front img{
+    width: 100%;
+    height: 200px;
+  }
   .flip-card-front {
     
   }
-  
+ 
   .flip-card-back {
     background-color: #7bdcb5;
     color: white;
@@ -166,27 +179,40 @@
   }
   .flip-card-back p{
       margin-top: 30px;
-      text-align: center;
+      text-align: left;
       padding-left: 10px;
       padding-right: 10px;
   }
+  .inform h4{
+    
+    color: #000;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:16px;
+    font-weight: 300;
+    text-align: left;
+    margin-left: 5px;
+    
+  }
   
-  .info{
-      margin-top: 180px;
+  .inform{
+      margin-top: 0px;
       color: white;
      
      
   }
-  .info h3{
+  .inform h3{
       font-size: 22px;
-      color: white;
-     
-     
-     
-  
+      color: black;
+      text-align: left;
+      margin-left: 5px;
   }
-  
-  .tenant-application{
+  .flip-card-back .flip-text a{
+    padding-bottom: 50px;
+  }
+  .flip-text .flip-search{
+    color: red !important;
+  }
+  /*.tenant-application{
       min-height: 500px;
     
    
@@ -208,9 +234,7 @@
     background-size: cover;
   
   }
-  .row{
-      margin: 20px;
-  }
+  
   .month{
       min-height: 500px;
     
@@ -284,42 +308,9 @@
   
   
   
-  
-  
-  <!--<div class="containr">
-      <div class="row">
-      
-          <div class="col-md-8 animate__animated animate__backInLeft animation-delay-0s">
-            
-               <div class="row">
-                   <div class="col-lg-6">
-                      
-                      <div class="flip-card">
-                          <div class="flip-card-inner">
-                            <div class="flip-card-front tenant-application">
-                             <div class="info">
-                              <i class="icon-default-style fa fa-users" data-color="extra-color-1"></i>
-                              <h3>Tenant<br>
-                                  Application<br>
-                                  <i>Process</i></h3>
-                             </div>
-                                      </div>
-  
-                            <div class="flip-card-back">
-                              <p class="flip-text">We use the Texas Association of Realtors lease and other related forms when available. During the lease term, your property management specialist will do annual inspections of your property, keep track of lease violations, renewals, and handle maintenance issues as they arise. We collect all rent and fees and manage those funds for you.</p>
-            
-                            </div>
-                          </div>
-                        </div>
-                   </div>
-  
-  
-                  </div>
-                  
-               </div>
             
   
-          </div>
+          <!--</div>
       </div>-->
 
 
@@ -439,7 +430,8 @@
         <div class="col-md-4 my-4">
             <img  src="{{ product.img.url }}" alt="" class="w-100">
             <h4 class="my-">{{ product.name}}</h4>
-            <p>{{ product.desc}}</p>
+            
+            <p>{{product.desc |truncatewords:5}}</p>
             <a href="{% url 'products:product_dest' product.id %} " class="btn btn-dark btn-md">View detail</a>
         </div>
         {% endfor %}
@@ -447,6 +439,50 @@
     </div>
 </div>
 </div>
+
+
+
+
+  
+  
+<div class="container flipping">
+  <div class="row">
+    {% for product in prod %}
+               <div class="col-lg-4 animate__animated animate__backInLeft animation-delay-0s">
+                  
+                  <div class="flip-card">
+                  
+                      <div class="flip-card-inner">
+                       
+                        <div class="flip-card-front tenant-application">
+                          <img src="{{ product.img.url }}" alt="">
+                         <div class="inform">
+                           
+                          <h3>{{ product.name}}</h3>
+                          <h4 class="within">Within your reach</h4>
+                        
+                         </div>
+                                  </div>
+
+                        <div class="flip-card-back">
+                          
+                          <p class="flip-text">{{ product.desc}}</p>
+                          <!--<input name="q" type="text" placeholder="{{product.name}}">-->
+                          <a href="{% url 'artisan:searchArtisans' product.name %}" class="btn btn-dark btn-md" >Make A Request</a>
+
+                          <!--<input type="submit" class="flip-search" >-->
+    
+        
+                        </div>
+                      </div>
+                  
+                    </div>
+               </div>
+
+               {% endfor %}
+              </div>
+              
+           </div>
 
 
 

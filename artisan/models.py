@@ -137,7 +137,7 @@ class Artisan(models.Model):
 
 
    def __str__(self):
-      return str(self.user.username)
+      return str(self.profession_name)
 
       
 

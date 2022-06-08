@@ -16,7 +16,10 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import Group
 from products .models import *
 from django.db.models import Q 
-
+from django.views.generic.base import TemplateView
+from django.views.generic import (
+    ListView ,DetailView, CreateView, UpdateView ,DeleteView
+)
 
 #from .filters import OrderFilter
 from .models import *
@@ -289,3 +292,67 @@ def artisan_services(request):
 
     messages.info(request,'No Job done yet')    
     return render(request,'artisans/completed_services.html')    
+
+
+
+
+
+
+
+
+
+
+class ListArtisansAvailable(DetailView):
+    model: Artisan
+    template_name ="artisans/artisan-search.html"
+
+
+    def get_context_data(self,*args, **kwargs):
+        context= super(ListArtisansAvailable,self).get_context_data(*args,**kwargs)
+
+        context["items"] = Artisan.objects.filter(Q(profession_name__icontains ="name"))
+        return context
+
+
+
+
+def artisanList(request, name):
+    if Artisan.objects.filter(profession_name=name).exists():
+        details = Artisan.objects.filter(profession_name=name)
+        context={"details":details}
+        
+        return render(request, "artisans/artisan-search.html", context)
+    else:
+        return redirect('/')
+       # context={'name':name}
+        #messages.warning(request, name,"is not available at this point")
+        #return render(request, "artisans/artisan-search.html", context)
+
+
+
+
+
+class SearchFlipView(TemplateView):
+    model: Artisan
+    template_name ="artisans/artisan-search.html"
+
+
+    def get_queryset(self, **kwargs):
+        context= super().get_queryset(**kwargs)
+
+        context["items"] = Artisan.objects.filter(Q(profession_name__icontains ="q"))
+        return context
+            
+
+def searchResult(request):
+    query = request.POST.get('q')
+    item = Artisan.objects.filter(Q(profession_name__icontains=query))
+
+    
+    context ={'item':item,'query':query}
+    if item:
+        return render(request,"artisans/artisan-search.html",context)
+
+    else:
+        messages.warning(request,'Service not available at this time')
+        return redirect('/')   

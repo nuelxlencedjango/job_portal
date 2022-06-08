@@ -41,6 +41,8 @@ def home(request):
 
 
 
+
+
 class HomeView(ListView):
     model = Product
     template_name = 'home.html'
@@ -278,6 +280,11 @@ def search(request):
         messages.warning(request,'Service not available at this time')
         return render(request,'search.html',context)
             
+
+
+
+
+
 
 
 
