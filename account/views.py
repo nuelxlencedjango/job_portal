@@ -37,12 +37,14 @@ def loginPage(request):
             #obj = Customer.objects.get(user=user.id)
             if Customer.objects.filter(user = user).exists():
                 login(request,user)
-                return redirect('products:jobs')
+                return redirect('products:home')
 
             elif Artisan.objects.filter(user = user).exists():
                 login(request,user)
                 return redirect('artisan:confirmed_orders')
            
+
+           #work on this
             elif username =="iwanwok" and password =="iwanwok":
                 login(request,user)
                 return redirect('account:admin_page')

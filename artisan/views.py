@@ -16,6 +16,7 @@ from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import Group
 from products .models import *
 from django.db.models import Q 
+
 from django.views.generic.base import TemplateView
 from django.views.generic import (
     ListView ,DetailView, CreateView, UpdateView ,DeleteView
@@ -323,10 +324,26 @@ def artisanList(request, name):
         
         return render(request, "artisans/artisan-search.html", context)
     else:
-        return redirect('/')
-       # context={'name':name}
-        #messages.warning(request, name,"is not available at this point")
-        #return render(request, "artisans/artisan-search.html", context)
+        
+        context={'name':name}
+        messages.warning(request, name,"is not available at this point")
+        return render(request, "artisans/artisan-search.html", context)
+
+
+
+
+def artisanRequest(request, pk):
+    services = Artisan.objects.get(pk=pk)  
+    job = services.profession_name 
+    item = Product.objects.get(name=job)
+    if item:
+
+        context ={"services":services,"item":item}
+        return render(request ,'artisans/artisan_request.html',context) 
+
+    messages.warning(request,'No such service available')
+    return redirect ('/')     
+
 
 
 

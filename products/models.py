@@ -288,7 +288,8 @@ class Order(models.Model):
    ordered = models.BooleanField(default=False)
    order_id = models.CharField(max_length=50,unique=True, default =None,blank=True,null=True)
    datetime_ofpayment =models.DateTimeField(auto_now_add=True)
-   #order_delivered = models.BooleanField(default=False)
+   artisanName = models.CharField(max_length=200,unique=False,blank=True,null=True)
+   #Artisan_id = models.CharField(max_length=50,unique=True, default =None,blank=True,null=True)
    #order_received = models.BooleanField(default=False)
     
    #razorpay_order_id = models.CharField(max_length=50, blank=True,null=True)
