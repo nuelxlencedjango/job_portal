@@ -84,7 +84,7 @@
                             {% if user.is_authenticated %}
                              <a href="{% url 'artisan:artisan_request' job.id %}" class="btn btn-dark">Make A Request</a>
                              {% else %}
-                             <a href="{% url 'account:login' %}" class="btn btn-dark">Please login First</a>
+                             <a href="{% url 'account:login' %}" class="btn btn-danger">Please login First</a>
                              {% endif %}
                             </p>
    
