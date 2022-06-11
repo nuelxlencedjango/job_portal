@@ -64,6 +64,9 @@
             background-color: #07bcc8;
            
         }
+       .login-first{
+         background: #ff686b !important;
+       }
         </style>
        
         
@@ -84,7 +87,7 @@
                             {% if user.is_authenticated %}
                              <a href="{% url 'artisan:artisan_request' job.id %}" class="btn btn-dark">Make A Request</a>
                              {% else %}
-                             <a href="{% url 'account:login' %}" class="btn btn-danger">Please login First</a>
+                             <a href="{% url 'account:login' %}" class="btn btn-danger login-first">Please login First</a>
                              {% endif %}
                             </p>
    
