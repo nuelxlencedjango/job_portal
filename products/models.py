@@ -384,6 +384,19 @@ class PaymentDetail(models.Model):
       return self.name  
 
 
+
+
+class OurLocations(models.Model):
+   name = models.CharField(max_length=100) 
+   date_added = models.DateTimeField(auto_now_add=True,auto_now=False)
+
+   
+   class Meta:
+      verbose_name_plural = "OurLocation"
+
+   def __str__(self):
+      return self.name  
+
 #to be removed
 #class CheckoutAddress(models.Model):
   # user = models.ForeignKey(User, on_delete=models.CASCADE)

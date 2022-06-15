@@ -1,181 +1,354 @@
-
-/* ===========TOP BAR HEADER =======*/
-/*.top-bar{
-    background: #7aaec4;
-    height: 2.8rem;
-    padding: .5rem 0;
-}
-.top-bar a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-   
-}
-.navbar img{
-    width: 60px;
-    height: 60;
-    /*height: 3rem;*/
-    /*font-size: 20px;
-   
-}
-
-.navbar{
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .1);
-    z-index: 1;
-    /* letter-spacing:.1rem*/
-/*}
-.nav-item{
-    padding: .5rem;
-}
-.nav-link{
-    color: #5b5555!important;
-}
-.nav-link .active,
-.nav-link:hover{
-    color: #4981b3!important;
-}
-#carousel{
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .1);
-}
-.carousel-inner{
-    max-height: 38rem!important;
-}
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item .active{
-    transition: transform 1.2s ease;
-}
-.carousel-caption{
-    position: absolute;
-    top: 54%;
-    transform: translate(-50%);
-    text-transform: capitalize;
-    padding: 20px;
-    margin-left: 100px;
-    align-items: center;
-}
-.bg-cutom{
-    background-color: rgba(0, 0, 0, .4);
-    border-radius: 1rem;
-    color: #fff;
-}
-.carousel-caption h2{
-    font-size: 1.8rem;
-    text-shadow: .1rem .1rem .3rem rgba(0, 0, 0, .1);
-}
-.border-primary{
-    border-top: .2rem solid #4981b3!important;
-}
-.carousel-caption h3{
-    font-size: 2.2rem;
-    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .1);
-}
-.btn-lg{
-    border-radius: 0;
-    text-transform: capitalize;
-    font-size: 1rem;
-    border-width: medium;
-}
-.btn-danger{
-    background-color: #Ac2615;
-    border: .1rem solid #0000;
-}
-.btn-primary{
-    background-color: #68a0d2;
-    border: .1rem solid #Ac26;
-}
-.btn-primary:hover,
-.btn-primary:focus{
-    background-color: #68a0d2!important;
-    border: .1rem solid #68a0d2;
-}
-.fixed{
-    background-image: url('/images/evenp1.jpg');
-}
-.fixed-background{
-    /*padding: 10rem 0;
-    position: fixed;*/
-   
-/*}*/
-/*.navbars{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 20px;
-    color: green;
-}
-
-.navbars img{
-    width: 100px;
-    height: 60px;
-}
-ul{
-    list-style: none;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans Display', sans-serif;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Poppins', sans-serif;
  
-}
+    transition: all .2s linear;
+  }     
+body{
 
-.active {
-    color: green;
-    text-decoration: underline;
-    font-size: bold;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400; 
+    /*line-height: 1.5em;*/
+    background: whitesmoke;
+    }
+
+
+.header{
+        
+  background-image: url('/static/images/bg/bg2.jpg');
+     /*background-position: left top;*/
+          background-repeat: no-repeat;
+ background-color: #ffffff; 
+ font-family: "Roboto", sans-serif;
+ background-position: center; 
+      
+ background-size: cover;
+ opacity: 0.9;
+ height: 500px;  
+      }   
+.subHeader{
+    background-color: #999;
+}      
+a{
+   text-decoration: none;
 }
-.nav-links{
-    display: flex;
-    align-items: center;
-}
-.nav-links li{
-    margin: 0 20px;
-   
-}
-.menu-btn{
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    width: 20px;
-    cursor: pointer;
+li {
+   list-style: none;
+  }
+  /*RESPONSIVE NAVBAR MENU STARTS*/
+/* CHECKBOX HACK */
+input[type=checkbox]{
+  display: none;
+ } 
+ /*HAMBURGER MENU*/
+  .hamburger {
     display: none;
+    font-size: 40px;
+    user-select: none;
+    color: #fff;
+    border: 4px solid #dc3545;
+   }
+
+  /* NAVBAR STYLING STARTS */
+
+.navbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /*top: 0;*/
+ min-height: 0px;
+
+
 }
-*/
+
+.nav-links a {
+ color: #fff;
+ cursor: pointer;
+ text-transform: capitalize;
+ }
+ /* NAVBAR MENU */
+.menu {
+ display: flex;
+/*gap: .1em;*/
+ height: 80px;
+ top: 0;
+ /*flex-wrap: wrap;*/
+
+}
+.menu li:hover {
+
+border-radius: 3px;
+transition: 0.3s ease;
+background-color: #dc3545;
+text-decoration: underline;
+color: #fff;   
+}
+
+.menu li {
+
+cursor: pointer;
+padding: 20px;
+
+}
+.menu li a{
+    font-size: 18px;
+}
+
+/* dispaly bar */
+input[type=checkbox]{
+    display: none;
+   } 
+   /*HAMBURGER MENU*/
+.hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+    color: black;
+}
+
+.dropdown{
+    background: #dc3545;
+    color: #fff;
+   transition: 0.3s ease;
+   border-radius: 0%;
+}
+
+/*.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }*/
+  .employ-method{
+      margin-top: 100px;
+  }
+.employ-method{
+    border: #fff;
+    border-radius: 20px;
+}
+.employ-method h3{
+   
+    opacity: 0.9;
+    margin-top: 50px;
+    color: #fff;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #999;
+    width: 600px;
+}
+
+.search-info{
+    margin-top: 80px;
+}
+ .search-info button{
+    background-color: #dc3545;
+    color: #f2f2f2;
+    float: right;
+    padding: 5px 10px;
+    margin-right: 16px;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+}
+  /*.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+  
+ .sticky + .content {
+ padding-top: 102px;
+  }*/
+ 
 
 
 
 
 
-/*1024px*/
-/*@media only screen and (max-width:950px){
-    .menu-btn{
-        display: block;
-    }
-    .navbars{
-        padding: 0;
-    }
-    .logo{
-        position: absolute;
-        top: 30px;
-        left: 30px;
-    }
-    .nav-links{
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-        justify-content: center;
-        margin-top: -900px;
-        transition: all 0.5s ease;
-    }
-    .menu-btn{
-        margin-top: 0px;
-        border-bottom-right-radius: 30%;
-        overflow: hidden;
-        transition: 0.5s;
-    }
-    .nav-links li{
-        margin: 5px auto;
-    }
 
 
+
+
+
+
+
+
+
+
+ .menu #prop-mgn{
+   margin-left: 100px;
+ }
+ 
+ .content {
+   padding: 16px;
+ }
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+/* chat icon messenger  sidebar -right */
+.chat-point {
+position: fixed;
+top: 87%;
+-webkit-transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+right: 28px;
+cursor: pointer;
+}
+/*.chat-point{
+ cursor: pointer;
 }*/
+.chat-point-inner{
+display: flex; 
+align-items: center;
+}
+.chat-point-bg{
+width: 60px; 
+height: 60px; 
+background-color: #44bec7; 
+display: flex; 
+justify-content: center; 
+align-items: center; 
+border-radius:50px !important;
+}
+
+
+
+
+
+
+.chat-popping
+{
+display: none;
+right: 15px;
+position: fixed;
+top: 55%;
+-webkit-transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+
+
+/*z-index: 9;*/
+}
+
+.chat-body{
+width: 300px !important;
+height: 300px !important;
+}
+
+.chat-popping .chat-body .card{
+width: 100% !important;
+height:100% !important;
+border-radius: 10%;
+border: 3px solid #44bec7;
+
+}
+
+.chat-popping h1{
+font-size: 22px;
+
+font-weight: 200;
+font-family: Arial, Helvetica, sans-serif;
+text-transform: capitalize;
+text-align: left;
+padding: 10px;
+}
+.chat-popping p{
+font-size: 15px;
+text-align: left;
+padding: 5px;
+
+}
+.container .button-body button {
+border: none;
+outline: 0;
+display: inline-block;
+padding: 8px;
+color: white;
+background: #44bec7;
+text-align: center;
+cursor: pointer;
+width: 100%;
+font-size: 22px;
+border-radius: 15px;
+text-transform: capitalize;
+/* background-color: rgb(68, 190, 199);*/
+}
+.container .button-body button a:hover{
+background-color: #fff;
+color: #44bec7;
+text-decoration: none;
+border: none;
+}
+
+
+@media screen and (max-width: 950px)
+ {
+
+  .menu { 
+      margin-top: 80px;
+    display:none;
+    position: absolute;
+  
+    color: #fff;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 16px 0;
+   }
+   .dropdown{
+       background: none;
+       color: #fff;
+   }
+   .menu li a{
+     color: #fff;
+   }
+   .menu li:hover {
+   
+    background-color:#dc3545;
+    transition: 0.3s ease;
+   }
+   .menu li + li {
+    margin-top: 12px;
+   }
+   input[type=checkbox]:checked ~ .menu{
+    display: block;
+   }
+   
+   .hamburger {
+     display: block;
+    
+   
+     color: black;
+     margin-left: 50px;
+     cursor: pointer;
+    font-size: 40px;
+    color: #fff;
+    border: 4px solid #dc3545;
+     
+    }
+    
+}
+
+
+
+
+
+
+
+

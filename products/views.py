@@ -30,22 +30,18 @@ from .forms import *
 
 def home(request):
     #prod = Product.objects.all()
-    #products = Production.objects.all()
+   
     prod = Product.objects.all()
     context ={
-        #'products':products,
+       
         'prod':prod
     }
 
-    return render(request,'homePage.html',context)
+    return render(request,'home.html',context)
 
 
 
 
-
-class HomeView(ListView):
-    model = Product
-    template_name = 'home.html'
 
 
 
@@ -547,11 +543,33 @@ def add_to_shop(request,pk):
 
 
 
-
-
-
 def terms_and_conditions(request):
-    return render(request,'terms_and_conditions.html')      
+    return render(request,'terms_and_conditions.html')   
+
+
+
+
+
+
+class HomeView(ListView):
+    model = Product
+    template_name = 'new/home.html'
+
+    def get_queryset(self, *args,**kwargs):
+        qs= super(HomeView, self).get_queryset(*args, **kwargs)
+        qs = qs.ordered_by('-date_added')
+
+
+#new method
+
+
+def newMethod(request):
+    address = OurLocations.objects.all()
+    context ={
+        'address':address,
+       
+    }
+    return render(request,'new/home.html',context)  
 
 
          
