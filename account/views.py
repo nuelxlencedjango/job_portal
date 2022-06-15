@@ -93,7 +93,7 @@ def registerPage(request):
 
             messages.success(request, 'Account successfully created ' , id)
 
-            return redirect('account:login')
+            return redirect('account:dashboard')
 
 
     else:
@@ -162,3 +162,42 @@ def adminPage(request):
         
     }
     return render(request ,'admin_dashboard.html',context)    
+
+
+
+
+    #new 
+
+
+
+def clientRegister(request):
+    if request.method == 'POST':
+        form1 = CreateUserForm(request.POST)
+        form2 = CustomerForm(request.POST)
+
+        if form1.is_valid() and form2.is_valid():
+            user = form1.save()
+            profile = form2.save(commit=False)
+            profile.user =user
+            profile.save()
+
+            id = form1.cleaned_data.get('id')
+
+            messages.success(request, 'Account successfully created ' , id)
+
+            return redirect('account:login')
+
+
+    else:
+        form1 =CreateUserForm()
+        form2 = CustomerForm()
+        
+        
+    messages.success(request, 'Account was created for')    
+    context = {'form1':form1, 'form2': form2}   
+    return render(request, 'dashboard/client/index.html', context)
+
+
+
+def clientDashboard(request):
+    return render(request,'dashboard/client/index.html')    

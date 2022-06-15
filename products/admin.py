@@ -18,3 +18,5 @@ admin.site.register(Cart)
 admin.site.register(Order)
 admin.site.register(OrderItem)
 admin.site.register(OurLocations)
+
+#admin.site.register(Artisans)

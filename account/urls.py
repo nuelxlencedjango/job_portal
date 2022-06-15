@@ -21,5 +21,10 @@ urlpatterns = [
     path('logout/', views.logoutPage, name='logout'),
   
 
+  #new info
+    path('dashboard/',views.clientDashboard,name ='dashboard'),
+    
+    path('client_register/',views.clientRegister,name ='client_register'),
+
     
 ]

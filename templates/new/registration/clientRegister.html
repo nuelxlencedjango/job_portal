@@ -1,0 +1,89 @@
+
+{% extends 'main.html' %}
+{% load static %}  
+{% block content %} 
+
+{% load crispy_forms_tags %} 
+
+
+
+{% for message in messages %}
+{{ message}}
+{% endfor %}
+
+
+
+<div id="form2" class="container form2" style="width: 500px;  background-color: #e9ecef; align-items: center; text-align: center; margin-top: 50px;">
+  <form action="{% url 'account:register' %}" method="POST" class="row g-3">
+      {% csrf_token %}
+      <div class="col-md-8">
+          <label for="inputEmail4" class="form-label" >Username</label>
+          <input type="text" class="form-control" id="inputusername" name="username" placeholder="username">
+ 
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">First name</label>
+          <input type="text" class="form-control" id="inputfirst_name" name="first_name" placeholder="First name" >
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Last name</label>
+          <input type="text" class="form-control" id="inputlast_name" name="last_name" placeholder="Last name" >
+        </div>
+      
+
+      
+      <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Phone</label>
+          <input type="text" class="form-control" id="inputNumber" name="phone" placeholder="Phone Number">
+        </div>
+      <div class="col-md-6">
+          <label for="inputEmail4" class="form-label">Email</label>
+          <input type="email" class="form-control" id="inputlast_name" name="email" placeholder="Email" >
+   
+        </div>
+      
+      <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="password" class="form-control" id="inputPassword4" name="password1" placeholder="Password">
+        </div>
+        <div class="col-md-6">
+          <label for="inputPassword4" class="form-label">Password</label>
+          <input type="text" class="form-control" id="inputPassword4" name="password2" placeholder="Repeat Password">
+        </div>
+
+      <div class="col-12">
+       
+      <button type="submit" class="btn btn-danger">Submit</button>
+
+     
+      </div>
+    </form>
+
+
+
+{{ form1.errors }}
+{{ form2.errors }}
+
+<!--{{ form2.errors }}-->
+
+<div class="mt-4">
+  <div class="d-flex justify-content-center links" style="color:black">
+      Already Have An Account? <a href="{% url 'account:login' %}"
+      class="mm-3"">Login</a>
+  </div>
+</div>
+
+</div>
+
+
+
+
+
+   
+
+
+
+{% endblock content %}
+
+
+

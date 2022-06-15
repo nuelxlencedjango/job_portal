@@ -37,7 +37,7 @@ def home(request):
         'prod':prod
     }
 
-    return render(request,'home.html',context)
+    return render(request,'homePage.html',context)
 
 
 
@@ -564,9 +564,12 @@ class HomeView(ListView):
 
 
 def newMethod(request):
+
+    prod = Product.objects.all()
     address = OurLocations.objects.all()
     context ={
         'address':address,
+        'prod':prod,
        
     }
     return render(request,'new/home.html',context)  
