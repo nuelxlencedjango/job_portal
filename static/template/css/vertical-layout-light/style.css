@@ -18755,9 +18755,6 @@ input:focus {
 
 @font-face {
   font-family: 'Poppins';
-  /*src: url("../../fonts/Poppins/Poppins-Thin.eot");
-  src: url("../../fonts/Poppins/Poppins-Thin.eot?#iefix") format("embedded-opentype"), url("../../fonts/Poppins/Poppins-Thin.woff2") format("woff2"), url("../../fonts/Poppins/Poppins-Thin.woff") format("woff"), url("../../fonts/Poppins/Poppins-Thin.ttf") format("truetype");*/
-  font-weight: 100;
   font-style: normal;
 }
 
