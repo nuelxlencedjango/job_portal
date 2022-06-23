@@ -453,7 +453,7 @@ def handle_confirmation(request):
 
 def handle(request):
 
-    list_items = Order.objects.filter(user=request.user,ordered=True).order_by('-datetime_ofpayment')
+    list_items = ServiceOrder.objects.filter(user=request.user,ordered=True).order_by('-datetime_ofpayment')
 
     context ={'list_items':list_items}#,'listitem':listitem}
     return render(request, 'payments/payment_confirmation.html',context) 
@@ -662,3 +662,34 @@ def servicePayment(request):
         return render(request, 'payments/payment.html',context) 
 
     return render(request ,'products/serviclist.html',{'message': "your cart is empty"}) 
+
+
+
+
+
+
+
+@csrf_exempt
+def paymentConfirmation(request):
+ 
+    order = ServiceOrder.objects.get(user=request.user, ordered=False)
+    #get payment receipt from flutter wave
+    payment_id =request.POST.get("tx_ref")
+    
+    order = ServiceOrder.objects.get(user=request.user, payment_id=payment_id,ordered=False) 
+    order.ordered = True
+    order.save()
+
+    #orderItem goods
+    if ServiceRequest.objects.filter(user=request.user, ordered=False,status='Pending'):
+        ServiceRequest.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
+
+        if ServiceRequest.objects.filter(user=request.user, ordered=True,status='Paid'):
+           
+            return redirect('products:handle_confirmation')
+
+        else:
+            return render(request,'payments/no_order.html')    
+       
+        
+    return redirect('products:home')

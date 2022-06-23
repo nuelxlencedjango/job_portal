@@ -41,7 +41,7 @@ urlpatterns = [
     path('contact/',views.contact ,name='contact'),
     
     path('payment/', views.payment, name='payment'),
-    path('payment_confirmation/', views.payment_confirmation, name='payment_confirmation'),
+   
 
      path('handle_confirmation/', views.handle, name='handle_confirmation'),
 
@@ -54,6 +54,8 @@ urlpatterns = [
     path('add_service_item/<int:pk>', views.serviceRequestCart, name='add_service_item'), 
     path('servicelist/', views.Servicelist, name='servicelist'),
     path('service_payment/', views.servicePayment, name='service_payment'),
+
+    path('payment_confirmation/', views.paymentConfirmation, name='payment_confirmation'),
 ]
 
 
