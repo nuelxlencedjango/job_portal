@@ -52,7 +52,8 @@ urlpatterns = [
 
 
     path('add_service_item/<int:pk>', views.serviceRequestCart, name='add_service_item'), 
-  
+    path('servicelist/', views.Servicelist, name='servicelist'),
+    path('service_payment/', views.servicePayment, name='service_payment'),
 ]
 
 

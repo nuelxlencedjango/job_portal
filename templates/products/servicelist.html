@@ -1,0 +1,166 @@
+
+{% extends 'main.html' %}
+{% load static %}  
+
+{% block content %} 
+
+
+
+
+
+{% if user %}
+<div class="row">
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Customer:</h5>
+			<hr>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'account:update_info' %}">Update Your information</a>
+			<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'products:jobs' %}">Place Order</a>
+
+		</div>
+	</div>
+
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Contact Information</h5>
+			<hr>
+			<p>username: {{user.username}}</p>
+			<p>first name: {{user.first_name}}</p>
+			<p>Phone: {{user.details.phone}}</p>
+		
+			<p>Email: {{user.email}}</p>
+		</div>
+	</div>
+
+	<div class="col-md">
+		<div class="card card-body">
+			<h5>Total Orders</h5>
+			<hr>
+			<h1 style="text-align: center;padding: 10px">{{ order.get_total_count }}</h1>
+		</div>
+	</div>
+
+
+{% endif %}
+
+
+
+
+<br><br>
+{%  include 'status.html' %}
+<link rel="stylesheet" href="{% static 'css/cs.css' %}" >
+
+<br>
+
+
+
+
+
+
+
+
+<br>
+
+
+   
+
+
+
+
+
+<div class="row">
+	<div class="col-md-5">
+		
+	<br>
+	<br>
+		<div class="card card-body">
+			<!--<td colspan="4"><a href="{% url 'products:handle_confirmation' %}" class="btn btn-danger" style="color: whitesmoke; float: right; font-size: 25px;">View paid services</a>-->
+			<a class="btn btn-primary  btn-sm btn-block" style="color: whitesmoke; float: right; font-size: 20px;" href="{% url 'products:handle_confirmation' %}">Your previous  Paid Services</a>
+			<table class="table table-sm">
+				<tr>
+					<th></th>
+					
+					
+				</tr>
+
+
+			</table>
+		</div>
+	</div>
+
+
+	<div class="col-md-7">
+		
+		<h5>YOUR LASTEST  ORDERS</h5>
+		<hr>
+		<div class="card card-body">
+			<a class="btn btn-primary  btn-sm btn-block" href="{% url 'products:jobs' %}">Create Order</a>
+			
+			<table class="table table-sm" style="margin-top: 30px;">
+				<tr>
+					<th>No</th>
+					<th>Product</th>
+					<th>Price</th>
+					
+                    <th>No of workers </th>
+					<th>Total Amount </th>
+					<th>Paid</th>
+                    <th>Date Orderd</th>
+					<!--<th>Final Amount </th>-->
+				</tr>
+
+                {% for order_item in order.items.all %}
+                <tr>
+					<td>{{ forloop.counter }}</td>
+					<td>{{ order_item.product.name }}</td>
+                    <td>{{ order_item.product.price }}</td>
+					<td style="text-align: center;">
+							{{ order_item.quantity }}
+
+					
+					</td>		
+					
+					<td>{{order_item.get_total_item_price}}</td>
+					<td>{{order_item.ordered}}</td>
+
+					<td>{{order_item.date_created}}</td>
+				
+
+					
+					<td><a class="btn btn-sm btn-info" style="padding: 4px;" href="{% url 'products:update_order' order_item.id %}">Update</a></td>
+
+					<td><a class="btn btn-sm btn-danger" style="padding: 4px;" href="{% url 'products:remove_item' order_item.id %}">Delete</a></td>
+				</tr>
+		{% endfor %}
+
+		
+		
+		
+		   {% if order.get_total_price  %}
+		   <tr  style="background-color: black; padding: 30px;">
+			<td></td>
+	   
+			   <td colspan="3" ><b style="color: whitesmoke;"> Amount Before Tax /Amount payable</b></td>
+			   <td style="color: whitesmoke;"><b>{{ order.get_total_price }}</b></td>
+			   <td colspan="4"><a href="{% url 'products:service_payment' %}" class="btn btn-danger" style="color: whitesmoke; float: right;"> Pay Now</a>
+		   
+			   
+		   
+		   </tr>
+		   {% endif %}
+		
+			</table>
+			
+		
+		</div>
+			
+		</div>
+		
+	</div>
+</div>
+
+
+
+
+{% endblock %}

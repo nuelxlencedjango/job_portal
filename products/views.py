@@ -328,12 +328,17 @@ def payment(request):
     return render(request ,'products/orderlist.html',{'message': "your cart is empty"})            
 
 
+
+
+
+
+
 #should be removed
 #def checkout_page(request):
     #if CheckoutAddress.objects.filter(user=request.user).exists():
     #    return render(request,'checkout.html',{'payment_allow':'allow'})
 
-   # if request.method =="POST":
+   # if request.method =="POST":e
      #   form =CheckoutAddressForm(request.POST)
 
       #  try:
@@ -609,12 +614,12 @@ def serviceRequestCart(request, pk):
 
                 service_item.save()
                 messages.info(request ,"Added additional worker successfully")
-                return redirect("products:orderlist")
+                return redirect("products:servicelist")
 
             else:
                 order.items.add(service_item)
                 messages.info(request ," successfully booked")
-                return redirect("products:orderlist")  
+                return redirect("products:servicelist")  
 
         else:
             ordered_date =timezone.now()
@@ -622,7 +627,7 @@ def serviceRequestCart(request, pk):
             order.items.add(service_item)
             messages.info(request," Successfully booked")
 
-            return redirect('products:orderlist')          
+            return redirect('products:servicelist')          
     
     else:
         messages.info(request,"Request unsuccessful! Please login before you can make a request")
@@ -640,10 +645,20 @@ def Servicelist(request):
         context={
             'order':order
         }
-        return render(request, 'products/orderlist.html',context)
+        return render(request, 'products/servicelist.html',context)
 
-    return render(request ,'products/orderlist.html',{'message': "your cart is empty"})   
-
-
+    return render(request ,'products/servicelist.html',{'message': "your cart is empty"})   
 
 
+
+
+def servicePayment(request):
+    if ServiceOrder.objects.filter(user=request.user, ordered =False).exists():
+
+        order = ServiceOrder.objects.get(user=request.user, ordered=False)
+        #from django.db import connection
+        #order.query
+        context ={'order':order}
+        return render(request, 'payments/payment.html',context) 
+
+    return render(request ,'products/serviclist.html',{'message': "your cart is empty"}) 
