@@ -481,7 +481,7 @@ class ServiceOrder(models.Model):
 
 
    class Meta:
-      verbose_name_plural='ServiceRequest'
+      verbose_name_plural='ServiceOrder'
        
       ordering = ['-ordered_date']
 
