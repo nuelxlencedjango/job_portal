@@ -19,5 +19,6 @@ admin.site.register(Order)
 admin.site.register(OrderItem)
 admin.site.register(OurLocations)
 
-admin.site.register(ServiceRequest)
 admin.site.register(ServiceOrder)
+admin.site.register(ServiceRequest)
+

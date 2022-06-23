@@ -587,7 +587,7 @@ def serviceRequestCart(request, pk):
         job = artisan.profession_name 
         item = Product.objects.get(name=job)
     
-        order_item,created = ServiceRequest.objects.get_or_create(
+        service_item,created = ServiceRequest.objects.get_or_create(
             artisan = artisan,
             product =item,
             user = request.user,
@@ -605,21 +605,21 @@ def serviceRequestCart(request, pk):
         if order_qs.exists():
             order =order_qs[0]
             if order.items.filter(product__pk=pk).exists():
-                order_item.quantity +=1
+                service_item.quantity +=1
 
-                order_item.save()
+                service_item.save()
                 messages.info(request ,"Added additional worker successfully")
                 return redirect("products:orderlist")
 
             else:
-                order.items.add(order_item)
+                order.items.add(service_item)
                 messages.info(request ," successfully booked")
                 return redirect("products:orderlist")  
 
         else:
             ordered_date =timezone.now()
-            order =Order.objects.create(user=request.user, ordered_date=ordered_date)
-            order.items.add(order_item)
+            order =ServiceOrder.objects.create(user=request.user, ordered_date=ordered_date)
+            order.items.add(service_item)
             messages.info(request," Successfully booked")
 
             return redirect('products:orderlist')          
