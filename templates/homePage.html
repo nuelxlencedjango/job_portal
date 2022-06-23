@@ -212,107 +212,12 @@
   .flip-text .flip-search{
     color: red !important;
   }
-  /*.tenant-application{
-      min-height: 500px;
-    
-   
-    background-image: url('/static/images/background/property4.jpg');
-    background-repeat: no-repeat;
-    background-position: center; 
-    opacity: 0.8;
-    background-size: cover;
   
-  }
-  .leasing{
-      min-height: 500px;
-    
-   
-    background-image: url('/static/images/background/property2.jpg');
-    background-repeat: no-repeat;
-    background-position: center; 
-    opacity: 0.8;
-    background-size: cover;
-  
-  }
-  
-  .month{
-      min-height: 500px;
-    
-   
-    background-image: url('/static/images/background/property3.jpg');
-    background-repeat: no-repeat;
-    background-position: center; 
-    opacity: 0.8;
-    background-size: cover;
-  }
-  .market{
-      min-height: 500px;
-    
-   
-    background-image: url('/static/images/background/property5.jpg');
-    background-repeat: no-repeat;
-    background-position: center; 
-    opacity: 0.8;
-    background-size: cover;
-  }
-  section .quick{
-      background-color: #abb8c3;
-      margin-top: 70px;
-      margin-bottom: 40px;
-      text-align: center;
-      font-size: 22px;
-  }
-  .quick p{
-      text-align: center;
-      color: #fff;
-      font-weight: 400;
-      font-family: sans-serif;
-      padding-top: 40px;
-      font-size: 28px;
-  }
-  .video-wrap{
-      align-items: center;
-  }
-  .text{
-      margin-top: 10px;
-      background-color: #666;
-    
-      text-align: center;
-      padding-top: 30px;
-      padding-bottom: 30px;
-  }
-  .text h3{
-      color: #fff;
-      font-family: sans-serif;
-      font-size: 30px;
-      font-weight: 600;
-  }
-  .icon-default-style {
-      font-size: 40px!important;
-      line-height: 40px!important;
-      color: #7bdcb5; 
-      margin-bottom: 30px;
-  
-      
-  }
-  .col-md-8 .row .col-lg-6{
-      padding: 20px;
-  }
-  .video__thumbn video{
-      width: 500px;
-      height: 300px;
-     
-  }*/
 
   </style>
   
   
   
-            
-  
-          <!--</div>
-      </div>-->
-
 
 
 
@@ -423,7 +328,7 @@
 </div>
 
 
-  <div class="prod">
+  <!--<div class="prod">
 <div class="container">
     <div class="row my-5">
         {% for product in prod %}
@@ -438,7 +343,7 @@
        
     </div>
 </div>
-</div>
+</div>-->
 
 
 
@@ -448,41 +353,40 @@
 <div class="container flipping">
   <div class="row">
     {% for product in prod %}
-               <div class="col-lg-4 animate__animated animate__backInLeft animation-delay-0s">
-                  
-                  <div class="flip-card">
-                  
-                      <div class="flip-card-inner">
-                       
-                        <div class="flip-card-front tenant-application">
-                          <img src="{{ product.img.url }}" alt="">
-                         <div class="inform">
-                           
-                          <h3>{{ product.name}}</h3>
-                          <h4 class="within">Within your reach</h4>
-                        
-                         </div>
-                                  </div>
+        <div class="col-lg-4 animate__animated animate__backInLeft animation-delay-0s">
+          <div class="flip-card">
+          
+              <div class="flip-card-inner">
+                
+                <div class="flip-card-front tenant-application">
+                  <img src="{{ product.img.url }}" alt="">
+                  <div class="inform">
+                    
+                  <h3>{{ product.name}}</h3>
+                  <h4 class="within">Within your reach</h4>
+                
+                  </div>
+                          </div>
 
-                        <div class="flip-card-back">
-                          
-                          <p class="flip-text">{{ product.desc}}</p>
-                          <!--<input name="q" type="text" placeholder="{{product.name}}">-->
-                          <a href="{% url 'artisan:searchArtisans' product.name %}" class="btn btn-dark btn-md" >See Profiles </a>
-
-                          <!--<input type="submit" class="flip-search" >-->
-    
-        
-                        </div>
-                      </div>
+                <div class="flip-card-back">
                   
-                    </div>
-               </div>
+                  <p class="flip-text">{{ product.desc}}</p>
+                  <!--<input name="q" type="text" placeholder="{{product.name}}">-->
+                  <a href="{% url 'artisan:searchArtisans' product.name %}" class="btn btn-dark btn-md" >See Profiles </a>
 
-               {% endfor %}
+                  <!--<input type="submit" class="flip-search" >-->
+
+
+                </div>
               </div>
-              
-           </div>
+          
+            </div>
+        </div>
+
+        {% endfor %}
+      </div>
+      
+    </div>
 
 
 
