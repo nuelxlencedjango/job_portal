@@ -37,6 +37,7 @@ def artisanRegistration(request):
         if form1.is_valid() and form4.is_valid():
             user = form1.save()
             profile = form4.save(commit=False)
+
             profile.user =user
             profile.save()
             img_obj = form4.instance
@@ -46,7 +47,6 @@ def artisanRegistration(request):
             messages.success(request, 'Account was created for ' , id)
 
             return redirect('account:login')
-
 
        
     else:
@@ -178,18 +178,6 @@ def jobAccepted(request,id):
 
 
 
-#def viewedJob(request):
- #   user=request.user  
-  
-
-  #  if ViewedJob.objects.filter(user=user).exists():
-   #     viewed_job = ViewedJob.objects.filter(user=user).last()
-      #  return render(request,'artisans/viewed_job.html',context)
-
-   # else:
-    #    messages.info(request,'Go back to your dashboard,click on "Available jobs in your area" to select jobs')
-     #   return render(request,'artisans/no_service_rendered.html')   
-       
 
     
 
@@ -318,6 +306,7 @@ class ListArtisansAvailable(DetailView):
 
 
 def artisanList(request, name):
+    # icontains here
     if Artisan.objects.filter(profession_name=name).exists():
         details = Artisan.objects.filter(profession_name=name)
         context={"details":details}
@@ -342,7 +331,10 @@ def artisanRequest(request, pk):
         return render(request ,'artisans/artisan_request.html',context) 
 
     messages.warning(request,'No such service available')
-    return redirect ('/')     
+    return redirect ('/')    
+
+
+
 
 
 
@@ -373,3 +365,9 @@ def searchResult(request):
     else:
         messages.warning(request,'Service not available at this time')
         return redirect('/')   
+
+
+
+
+
+

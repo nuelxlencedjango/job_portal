@@ -44,41 +44,10 @@ class CreateUserForm(UserCreationForm):
 
 
   
-
-#class ArtisanForm(ModelForm):
-  #location= forms.CharField(max_length=30, required=True, label='location',widget=forms.TextInput(attrs={'placeholder': 'location'}))
-  #address = forms.CharField(max_length=30, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
-  #phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
-  #nin = forms.CharField(max_length=15, required=True,label='NIN',widget=forms.TextInput(attrs={'placeholder': 'NIN'}))
-
-  #class Meta:
-   # model = Worker
-   # fields ="__all__"
-    #fields = ['address','phone','location','nin']
-
-  #def clean_name(self):
-   # location = self.cleaned_data.get('location')
-   # if location =="":
-    #  raise forms.ValidateError('the field cant not be empty')
-
-   # for isinstance in Worker.objects.all():
-     # if isinstance.location == location:
-      #  raise forms.ValidateError('the field cant not be empty')
-
-   # return location    
-
-
-  
-  #def __init__(self ,*args ,**kwargs):
-   # super(ArtisanForm ,self).__init__(*args ,**kwargs)
-   # self.fields['location'].queryset = Worker.objects.all()
-    #self.fields['loc'].queryset = Worker.objects.all()
-    #self.fields['place'].queryset = Worker.objects.all()
-
   
 class WorkersForm(ModelForm):
   #location= forms.CharField(max_length=30, required=True, label='location',widget=forms.TextInput(attrs={'placeholder': 'location'}))
-  address = forms.CharField(max_length=30, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
+  address = forms.CharField(max_length=200, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
   profession_name = forms.CharField(max_length=50, required=True,label='Job Type',widget=forms.TextInput(attrs={'placeholder': 'Job Type'}))
   profile_img =CloudinaryField()

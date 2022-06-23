@@ -419,6 +419,98 @@ class OurLocations(models.Model):
 
 
 
+class ServiceRequest(models.Model):
+
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+   ordered = models.BooleanField(default=False)
+   product = models.ForeignKey(Product, on_delete=models.CASCADE)
+   quantity = models.IntegerField(default =1)
+   img = CloudinaryField(blank=True,null=True)
+   status = models.CharField(max_length=200, null=True, blank=True, default='Pending')
+   description=models.TextField(max_length=100,null=True,blank=True)
+   address = models.CharField(max_length=300, null=True,blank=True)
+   artisan = models.ForeignKey(Artisan, on_delete=models.CASCADE,null=True,blank=True)
+   date_created = models.DateField(auto_now_add = True, null=True, blank=True)
+
+   accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
+   
+   accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
+   work_done = models.BooleanField(default=False,null=True)
+   #completed_job  =  models.BooleanField(null=True,blank=True,default=False)
+   #payment_id
+   
+   class Meta:
+      verbose_name_plural='ServiceRequest'
+       
+      ordering = ['-date_created']
+
+   def __str__(self):
+      return f"{self.quantity} of {self.product.name}"
+
+   def get_total_item_price(self):
+      return self.quantity * self.product.price
+
+   def get_final_price(self):
+      return self.get_total_item_price() 
+
+   def vat(self):
+      return self.get_vat()   
+
+   def get_service_rate(self):
+      amount = (self.product.price * 75/100)
+      return amount      
+
+
+
+
+
+
+class ServiceOrder(models.Model):
+   #date=models.DateField(auto_now=False,auto_now_add=True)
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+   items = models.ManyToManyField(ServiceRequest)
+   start_date = models.DateTimeField(auto_now_add=True)
+   ordered_date = models.DateTimeField()
+   ordered = models.BooleanField(default=False)
+   order_id = models.CharField(max_length=50,unique=True, default =None,blank=True,null=True)
+   datetime_ofpayment =models.DateTimeField(auto_now_add=True)
+   artisanName = models.CharField(max_length=200,unique=False,blank=True,null=True)
+
+   payment_id = models.CharField(max_length=50, blank=True,null=True)
+
+   def save(self, *args,**kwargs):
+      if self.order_id is None and self.datetime_ofpayment and self.id:
+         self.order_id = self.datetime_ofpayment.strftime('PAY2ME%Y%m%dODR') + str(self.id)
+
+      return super().save(*args, **kwargs)
+
+
+   def __str__(self):
+      return self.user.username
+
+   
+   class Meta:
+      verbose_name_plural='Order'
+
+   def get_total_price(self):
+      total =0
+      for order_item in self.items.all():
+               total +=order_item.get_final_price()
+               
+
+      return total
+
+   def get_total_count(self):
+      order =Order.objects.get(pk=self.pk)
+      return order.items.count()  
+
+   
+   def get_vat(self):
+      return (self.get_total_price() * 5)/100
+
+   
+   def get_final_amount(self):
+      return (self.get_total_price() + self.get_vat())
 
 
 

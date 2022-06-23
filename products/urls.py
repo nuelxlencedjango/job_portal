@@ -49,6 +49,10 @@ urlpatterns = [
    
 
     path('new/', views.newMethod, name='new'),
+
+
+    path('add_service_item/<int:pk>', views.serviceRequestCart, name='add_service_item'), 
+  
 ]
 
 

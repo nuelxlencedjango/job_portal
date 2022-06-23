@@ -61,22 +61,6 @@ def logoutPage(request):
     return redirect('products:home')
 
 
-#def adminLoginPage(request):
-   # if request.method == 'POST':
-     #   username = request.POST['username']
-       # password =request.POST['password']
-        
-       # user = authenticate(request, username=username, password=password)
- 
-       # if user is not None:
-        #    login(request, user)
-         #   return redirect('account:admin_page')
-        #else:
-         #   messages.info(request, 'Username OR password is incorrect')
-
-   # context = {}
-   # return render(request, 'account/login.html', context)
-
 
 def registerPage(request):
     if request.method == 'POST':

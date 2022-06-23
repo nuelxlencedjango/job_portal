@@ -5,71 +5,6 @@
 {% block content %} 
 <body>
 
-    <div class="container h-100 " style="margin-top: 100px;">
-        <!--<div class="d-flex justify-content-center h-100">
-            <div class="user_card">
-                <div class="d-flex justify-content-center">
-
-                    <h3 id="form-title">Login</h3>
-                </div>
-                <div class="d-flex justify-content-center form_container">
-
-                    <form action="{% url 'account:login' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="input-group mb-3">
-                            <div class="input-group-append">
-                                <span class="input-group-text"><i class="fas fa-user"></i>
-                                </span>
-                            </div>
-                            <input type="text" name="username" placeholder=" username"><br>
-                        </div>
-                 
-                        <div class="input-group mb-2">
-                            <div class="input-group-append">
-                                <span class="input-group-text">
-                                    <i class="fas fa-key"></i>
-                                </span>
-                            </div>
-                            <input type="text" name="password" placeholder="password"><br>
-                           
-                        </div>
-                       
-                        <div class="d-flex justify-content-center mt-3 login_container">
-                            <input class="btn login_btn" type="submit" value="Login">
-
-                        </div>
-                    </form>
-                </div>-->
-
-               <!-- {% for message in messages %}
-                <p id="messages">{{ message }}</p>
-                {% endfor %}
-
-                <div class="mt-4">
-                    <div class="d-flex justify-content-center links">
-                        Don't Have An Account? <a href="{% url 'account:register' %}"
-                        class="ml-2">Sign Up</a>
-                    </div>
-                    <div class="d-flex justify-content-center links">
-                        Forgot password ? <a href=""
-                        class="ml-2">Reset Password</a>
-                    </div>
-                </div>
-            </div>
-        </div>-->
-
-    </div>
-
-     <!-- <span class="hello-msg">Hello ,{{ request.user }}</span>
-      <span><a class="hello-msg" href="">Logout</a></span>-->
-</body>
-
-
-
-
-<!DOCTYPE html>
-<html>
-<head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 /*body {font-family: Arial, Helvetica, sans-serif;}
@@ -184,17 +119,13 @@ span.psw {
      width: 100%;
   }
 }*/
+.modal{
+  width: 500px;
+}
 </style>
-</head>
-<body>
 
 
-<!--<div  class="container toggle " style="align-items: center; text-align: center;">
-    <h2>Please click the login button </h2>
 
-<button onclick="toggleLogin().style.display='block'" style="width:auto;">Login</button>
-
-</div>-->
 {% for message in messages %}
 <h4 id="messages">{{ message }}</h4>
 {% endfor %}
