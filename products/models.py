@@ -478,6 +478,14 @@ class ServiceOrder(models.Model):
 
    payment_id = models.CharField(max_length=50, blank=True,null=True)
 
+
+
+   class Meta:
+      verbose_name_plural='ServiceRequest'
+       
+      ordering = ['-ordered_date']
+
+
    def save(self, *args,**kwargs):
       if self.order_id is None and self.datetime_ofpayment and self.id:
          self.order_id = self.datetime_ofpayment.strftime('PAY2ME%Y%m%dODR') + str(self.id)
