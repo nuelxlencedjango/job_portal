@@ -628,3 +628,22 @@ def serviceRequestCart(request, pk):
         messages.info(request,"Request unsuccessful! Please login before you can make a request")
         return render(request ,'account/service_request.html')              
         
+
+
+
+
+
+
+def Servicelist(request):
+    if ServiceOrder.objects.filter(user=request.user, ordered =False).exists():
+        order = ServiceOrder.objects.get(user=request.user, ordered=False)
+        context={
+            'order':order
+        }
+        return render(request, 'products/orderlist.html',context)
+
+    return render(request ,'products/orderlist.html',{'message': "your cart is empty"})   
+
+
+
+
