@@ -1,3 +1,4 @@
+from multiprocessing import context
 from os import name
 from django.shortcuts import render,redirect ,get_object_or_404, resolve_url
 from django.contrib import auth, messages
@@ -693,3 +694,13 @@ def paymentConfirmation(request):
        
         
     return redirect('products:home')
+
+
+
+
+def ourServices(request):
+    service = Services.objects.all()
+
+    context ={'service':service}
+    return render(request,'service.html' , context) 
+

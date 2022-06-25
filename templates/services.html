@@ -111,17 +111,26 @@
             <div class="row">
              
                 <div class="col-lg-6">
+                  {% for serv in service %}
                     <div class="card">
 
                      
-                        <h3 class="service-title"><!--Job recruitment-->Artisans assembling </h3>
+                        <h3 class="service-title">{{serv.service_name }} </h3>
   
-                          <p>Join our team today and have a wide range of job offer. We have numerous clients in your neighborhood who require your service. </p>
-                            <p> Contact us today for best services you desire.</p>
+                          <p>{{ serv.desc1 }} </p>
+                            <p>{{ serv.desc2 }}</p>
+                            <p>{{ serv.desc3 }}</p>
 
                       </div>
+                      {% endfor %}
                 </div>
                 <div class="col-lg-6">
+
+
+                  <h3 class="service-title"><!--Job recruitment-->Artisans assembling </h3>
+  
+                  <p>Join our team today and have a wide range of job offer. We have numerous clients in your neighborhood who require your service. </p>
+                    <p> Contact us today for best services you desire.</p>
                   <div class="card">
                    
                       <h3>Employment Agency</h3>
