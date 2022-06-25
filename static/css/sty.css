@@ -1279,7 +1279,9 @@ padding-left: 30px;
 padding-right: 30px;
 height: 300px;
 }
-
+.serv p{
+  font-size: 14px;
+}
  
 }
 
