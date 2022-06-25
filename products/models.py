@@ -524,4 +524,22 @@ class ServiceOrder(models.Model):
 
 
 
+class Services(models.Model):
+   service_name = models.CharField(max_length=100,blank=True,null=True)
+   desc1 = models.CharField(max_length=100, blank=True,null=True)
+   desc2 = models.CharField(max_length=100, blank=True,null=True)
+   
+
+   desc3 = models.CharField(max_length=100, blank=True,null=True)
+
+
+   def __str__(self):
+      return self.service_name
+
+   
+   class Meta:
+      verbose_name_plural='Services'    
+   
+
+
 

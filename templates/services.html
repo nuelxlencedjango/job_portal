@@ -1,50 +1,209 @@
-
 {% extends 'main.html' %}
 {% load static %}
-{% block content %} 
+{% block content %}
 
-{% block title %}Services Title{% endblock %}
-
-<div class="container">
+<h1>Search Results</h1>
 
 
-<h2 style="margin-top: 70px; text-align: center; margin-bottom: 30px;">Our services include the following:</h2>
 
-<table>
-  <tr>
-    <th>Profession</th>
-    <th>Description</th>
-    <th>Location</th>
-  </tr>
-  <!--{% for job in jobs %}
- 
-  <tr>
-    <td><a href="{% url 'products:product_desc' job.pk %}"> {{ job.name }} </a></td>
-    <td><a href="{% url 'products:product_desc' job.pk %}"> {{ job.desc }} </a></td>
-    <td><a href="{% url 'products:product_desc' job.pk %}"> {{ job.category.title }} </a></td>
-  </tr>
+      <style>
+        .col-lg-6{
+          padding: 20px;
+        }
+        .card {
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+          max-width: 600px;
+          margin: auto;
+          text-align: center;
+          font-family: arial;
+          height: 330px;
+          padding: 20px;
+        }
 
-  {% endfor %}-->
+        .card{
+           /*box-shadow: 0 0 10px 4px #d0d0d0;*/
+           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+           border: 2px solid #7bdcb5;;
+          }
+          h3{
+            color: #333;
+          }
+         .card p{
+           text-align: left;
+           font-size: 18px;
+           font-weight: 300;
+           font-family: Arial, Helvetica, sans-serif;
+           line-height: 20px;
+         }
+          .card img{
+            padding: 20px;
+            height: 130px;
+            border-radius: 20px;
 
-  {% for pr in prod %}
-  <tr>
-    <td><a href="{% url 'products:product_dest' pr.pk %}">{{ pr.name }} </a></td>
-    <td><a href="{% url 'products:product_dest' pr.pk %}">{{ pr.desc }} </a></td>
-    <td><a href="{% url 'products:product_dest' pr.pk %}">{{ pr.category.title }} </a></td>
-  </tr>
-  {% endfor %}
+          }
+          .card:hover{
+            border: #fff;
+            border-bottom-style: red;
+          }
+        .artisan .row .col-lg-6 .card h1{
+           font-size: 20px;
+           text-align: left;
+           padding-left: 5px;
+           /*color: #7bdcb5;*/
+        }
+        .artisan .row .col-lg-6 .card img{
+            height: 190px;
+           
+        }
+        .artisan .row .col-lg-6 .card p{
+            text-align: left;
+            margin-left: 5px;
+            text-align: center;
+           
+        }
+        .artisan .row .col-lg-4 .card p a{
+           
+        }
+        .title {
+          /*color: grey;*/
+          font-size: 18px;
+          text-align: center;
+        }
+        
+        button {
+          border: none;
+          outline: 0;
+          display: inline-block;
+          padding: 8px;
+          color: white;
+          background-color: #000;
+          text-align: center;
+          cursor: pointer;
+          width: 100%;
+          font-size: 18px;
+        }
+        
+        p a {
+          text-decoration: none;
+          font-size: 22px;
+       
+          padding-bottom: 20px;
+        }
+        
+        button:hover, a:hover {
+          opacity: 0.7;
+        }
+        .artisan .row .col-lg-6 .card a{
+            width: auto;
+            background-color: #07bcc8;
+           
+        }
+       .login-first{
+         background: #ff686b !important;
+       }
+       
+        </style>
+       
+        
+       
+     
+        <div class="container artisan">
+            <div class="row">
+             
+                <div class="col-lg-6">
+                    <div class="card">
+
+                     
+                        <h3 class="service-title"><!--Job recruitment-->Artisans assembling </h3>
   
-</table>
-</div>
+                          <p>Join our team today and have a wide range of job offer. We have numerous clients in your neighborhood who require your service. </p>
+                            <p> Contact us today for best services you desire.</p>
+
+                      </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="card">
+                   
+                      <h3>Employment Agency</h3>
+                      <p>At I_wan_wok.com, we assemble the best artisans in your neighborhood.They are promptly trained and retrained always.We emphasis honesty as it is our core value for our esteemed clients all over the country.  &nbsp; &nbsp;
+                          
+                      </p>
+                     <p>Looking for workers who will give you maximum job satisfaction? Look no further as we have a pool of trained, dedicated and honest workers waiting for your call. Contact us today and have the best artisans/employees you desire.</p>
+                      <p>
+                        We are open for both private and corporate organizations.
+                          </p>
+                          <p>You are one call away from getting what you desire!</p>
+                    </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="card">
+                   
+                    <h3>Training and Career Coaching</h3>
+                   <p>Looking for experts to train your employees on any fields? At I_wan_wok.com ,we have all fields experts waiting to give modern training to memebers of your organizations.</p>
+
+                   <p>We also organize Career Coaching and mentorship</p>
+                   <p>Contact us today and have your needs met</p>
+                  </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="card">
+                 
+                  <h3>Long Term Employment</h3>
+                 <p>The issue of hiring today and firing tomorrow may affect your business. If your wish is to have long term employment,I_wan_wok has got you covered </p>
+                    
+                    
+                </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="card">
+               
+               <h3>Short Term Employment</h3>
+             
+
+            <p>We are here to meet your need. Be it a day, week or month service. I_wan_wok has got all you need at a go</p>
+              </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card">
+              
+             <h3>Out-sourcing</h3>
+             <p>Post a job on our platform and see it solved in no time. We go extra miles to make sure you are satisfied </p>
+            </div>
+      </div>
+           
+            </div>
+        </div>
+     
+        
 
 
-{% endblock %}
+     
+    
 
 
 
 
 
+       
+       <style>
+           
+        
+       
+       
+       
+       </style>
+       
+       
+     
+       
+       
+       
+  
+       
+       
+       
+       
+       
 
-
-
-
+       
+{% endblock %}      

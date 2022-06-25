@@ -6,10 +6,6 @@ from .models import *
 from django.contrib.auth.admin import UserAdmin
 from .models import User
 
-#admin.site.register(Carts)
-#admin.site.register(Production)
-#admin.site.register(Orders)
-#admin.site.register(OrderItems)
 
 
 admin.site.register(Product)
@@ -21,4 +17,6 @@ admin.site.register(OurLocations)
 
 admin.site.register(ServiceOrder)
 admin.site.register(ServiceRequest)
+
+admin.site.register(Services)
 
