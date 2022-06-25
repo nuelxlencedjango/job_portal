@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-
+<h1>Search Results</h1>
 
 
 
@@ -109,30 +109,19 @@
      
         <div class="container artisan">
             <div class="row">
-              {% for serv in service %}
+             
                 <div class="col-lg-6">
-                 
                     <div class="card">
 
                      
-                        <h3 class="service-title">{{serv.service_name }} </h3>
+                        <h3 class="service-title"><!--Job recruitment-->Artisans assembling </h3>
   
-                          <p>{{ serv.desc1 }} </p>
-                            <p>{{ serv.desc2 }}</p>
-                            <p>{{ serv.desc3 }}</p>
-
-                  <!--<h3 class="service-title">Artisans assembling </h3>
-  
-                  <p>Join our team today and have a wide range of job offer. We have numerous clients in your neighborhood who require your service. </p>
-                    <p> Contact us today for best services you desire.</p>-->
+                          <p>Join our team today and have a wide range of job offer. We have numerous clients in your neighborhood who require your service. </p>
+                            <p> Contact us today for best services you desire.</p>
 
                       </div>
-                     
                 </div>
-                {% endfor %}
                 <div class="col-lg-6">
-
-
                   <div class="card">
                    
                       <h3>Employment Agency</h3>
