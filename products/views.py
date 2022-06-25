@@ -702,5 +702,5 @@ def ourServices(request):
     service = Services.objects.all()
 
     context ={'service':service}
-    return render(request,'service.html' , context) 
+    return render(request,'services.html' , context) 
 
