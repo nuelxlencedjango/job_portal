@@ -23,8 +23,6 @@ let toggleSelects = function(){
 }
 
 
-
-
 window.onscroll = function() {myFunction()};
             
 var header = document.getElementById("head");
