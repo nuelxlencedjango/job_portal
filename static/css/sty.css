@@ -184,7 +184,12 @@
     margin: 30px;
 
 }
-
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
 
 .carousel-indicators{
    
@@ -371,14 +376,14 @@ color: #e83e8c;
 .contact{
   position: relative;
   min-height: 100vh;
-  padding: 50px 100px;
+  padding: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: #2b3032a1;
-  /*background-image: url('/static/images/photographer2.jpg');
-  background-size: cover;*/
+  
+
   
 
 }
@@ -414,6 +419,13 @@ color: #e83e8c;
   padding: 20px 0;
   display: flex;
 }
+.text p{
+  color: #fff;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 200;
+  
+}
 .contact .container .contactInfo .box .icon{
   min-width: 60px;
   height: 60px;
@@ -437,10 +449,16 @@ color: #e83e8c;
   color: #00bcd4;
 }
 .contactForm{
-  width: 40%;
-  padding: 40px;
+  width: 50%;
+  padding: 20px;
   background: #fff;
 
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 2px solid #7bdcb5;
+
+}
+.contactForm:hover{
+  border: #fff;
 }
 .contactForm h2{
   font-size: 30px;
@@ -761,345 +779,6 @@ span.psw {
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===========TOP BAR HEADER =======*/
-/*.top-bar{
-    background: #7aaec4;
-    height: 2.8rem;
-    padding: .5rem 0;
-}
-.top-bar a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.1rem;
-   
-}
-.navbar img{
-    width: 60px;
-    height: 60;
-    /*height: 3rem;*/
-    /*font-size: 20px;
-   
-}
-
-.navbar{
-    font-size: 1rem;
-    font-weight: 600;
-    box-shadow: 0 .5rem .5rem rgba(0, 0, 0, .1);
-    z-index: 1;
-    /* letter-spacing:.1rem*/
-/*}
-.nav-item{
-    padding: .5rem;
-}
-.nav-link{
-    color: #5b5555!important;
-}
-.nav-link .active,
-.nav-link:hover{
-    color: #4981b3!important;
-}
-#carousel{
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .1);
-}
-.carousel-inner{
-    max-height: 38rem!important;
-}
-.carousel-item-next,
-.carousel-item-prev,
-.carousel-item .active{
-    transition: transform 1.2s ease;
-}
-.carousel-caption{
-    position: absolute;
-    top: 54%;
-    transform: translate(-50%);
-    text-transform: capitalize;
-    padding: 20px;
-    margin-left: 100px;
-    align-items: center;
-}
-.bg-cutom{
-    background-color: rgba(0, 0, 0, .4);
-    border-radius: 1rem;
-    color: #fff;
-}
-.carousel-caption h2{
-    font-size: 1.8rem;
-    text-shadow: .1rem .1rem .3rem rgba(0, 0, 0, .1);
-}
-.border-primary{
-    border-top: .2rem solid #4981b3!important;
-}
-.carousel-caption h3{
-    font-size: 2.2rem;
-    text-shadow: .1rem .1rem .1rem rgba(0, 0, 0, .1);
-}
-.btn-lg{
-    border-radius: 0;
-    text-transform: capitalize;
-    font-size: 1rem;
-    border-width: medium;
-}
-.btn-danger{
-    background-color: #Ac2615;
-    border: .1rem solid #0000;
-}
-.btn-primary{
-    background-color: #68a0d2;
-    border: .1rem solid #Ac26;
-}
-.btn-primary:hover,
-.btn-primary:focus{
-    background-color: #68a0d2!important;
-    border: .1rem solid #68a0d2;
-}
-.fixed{
-    background-image: url('/images/evenp1.jpg');
-}
-.fixed-background{
-    /*padding: 10rem 0;
-    position: fixed;*/
-   
-/*}*/
-/*.navbars{
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    padding: 20px;
-    color: green;
-}
-
-.navbars img{
-    width: 100px;
-    height: 60px;
-}
-ul{
-    list-style: none;
- 
-}
-
-.active {
-    color: green;
-    text-decoration: underline;
-    font-size: bold;
-}
-.nav-links{
-    display: flex;
-    align-items: center;
-}
-.nav-links li{
-    margin: 0 20px;
-   
-}
-.menu-btn{
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    width: 20px;
-    cursor: pointer;
-    display: none;
-}
-*/
-
-
-
-
-
-/*1024px*/
-/*@media only screen and (max-width:950px){
-    .menu-btn{
-        display: block;
-    }
-    .navbars{
-        padding: 0;
-    }
-    .logo{
-        position: absolute;
-        top: 30px;
-        left: 30px;
-    }
-    .nav-links{
-        flex-direction: column;
-        width: 100%;
-        height: 100vh;
-        justify-content: center;
-        margin-top: -900px;
-        transition: all 0.5s ease;
-    }
-    .menu-btn{
-        margin-top: 0px;
-        border-bottom-right-radius: 30%;
-        overflow: hidden;
-        transition: 0.5s;
-    }
-    .nav-links li{
-        margin: 5px auto;
-    }
-
-
-}*/
-
-
-
-
-/*{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-   box-sizing: border-box;
-}
-
-body{
-    overflow-x: hidden;
-    font-family: 'Montserrat',sans-serif;
-    /*color: #616971;*/
-/*}
-a{
-    text-decoration: none;
-}
-a .active, a:hover{
-    color: green;
-    transition: 0.5s ease;
-}
-.navbar-brands{
-    width: 80px;
-    height: 100%;
-    margin-right:  20px;
-   
-}
-
-
-li{
-    list-style: none;
-}
-nav{
-    height: 80px;
-    width: 100%;
-    background: cornflowerblue;
-}
-nav ul{
-    float: right;
-    margin-right: 20px;
-    
-}
-nav ul li{
-    display: inline-block;
-    line-height: 80px;
-    margin: 0 10px;
-    align-items: center;
-}
-nav ul li a{
-    color: #fff;
-    font-size: 1rem;
-    border-radius: 3px;
-    letter-spacing:.0rem
-}
-.checkbtn{
-    position: absolute;
-    top: 30px;
-    right: 20px;
-    width: 50px;
-    cursor: pointer;
-   display: none;
-   line-height: 80px;
-   margin-right: 40px;*/
-
-    /*display: none;
-}*/
-
-
-
-
-
-
-
-
-
-
-/*@media only screen and (max-width:923px){
-    /*.navbar-brands{
-        width: 70px;
-       height: 100%;
-       margin-right:  20px;
-   
-
-    }*/
-    /*.col-md-4{
-        align-items: center;
-    }
-    .checkbtn{
-        position: absolute;
-        top: 30px;
-        right: 20px;
-        width: 50px;
-        cursor: pointer;
-       display: block;
-       line-height: 80px;
-       margin-right: 40px;
-    
-        /*display: none;*/
-    /*}
-}*/
-
-/*@media only screen and (max-width:852x){
-   
-    nav ul li a{
-        font-size: 1rem;
-    }
-    ul{
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        top: 78px;
-        left: -100%;
-        background-color: #1f2831;
-        text-align: center;
-        transition: all 0.5s;
-    }
-    nav ul li{
-        display: block;
-    }
-}
-
-@media only screen and (max-width:768px){
-   
-    nav ul li a{
-        font-size: 1rem;
-    }
-}*/
-
-
-/*@media screen and (max-width: 300px) {
-  span.psw {
-     display: block;
-     float: none;
-  }
-  .cancelbtn {
-     width: 100%;
-  }
-}*/
-
-
 @-webkit-keyframes animatezoom {
   from {-webkit-transform: scale(0)} 
   to {-webkit-transform: scale(1)}
@@ -1135,7 +814,7 @@ nav ul li a{
 
 /* media query here*/
 @media (max-width:750px) {
-  
+
  
   .nav > .nav-links > ul li a {
   
@@ -1279,10 +958,27 @@ padding-left: 30px;
 padding-right: 30px;
 height: 300px;
 }
-.serv p{
+serv p{
   font-size: 14px;
 }
- 
+.contactForm h2{
+  font-size: 20px;
+}
+.contact{
+  padding: 20px 30px;
+}
+.contact .container{
+  display: flex;
+  flex-wrap: wrap;
+}
+ .contactInfo{
+  flex-wrap: wrap;
+  width: 100%;
+ }
+ .contactForm{
+  width: 100%;
+  margin-bottom: 30px;
+ }
 }
 
 
@@ -1390,6 +1086,8 @@ height: 300px;
   padding-right: 30px;
   height: 300px;
   }
+
+ 
 }
 
 @media(max-width:400px){
@@ -1397,9 +1095,21 @@ height: 300px;
   
    font-size: 14px;
     width: 100%;
-   
-    
   }
+  .contact{
+    padding: 10px;
+
+  }
+  .contact .container .contactInfo {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+contact .container .contactInfo .box {
+ 
+  padding: 10px;
+ 
+}
 }
 
 @media (max-width:300px) {
@@ -1464,5 +1174,50 @@ padding-left: 30px;
 padding-right: 30px;
 height: 300px;
 }
+.contact .container{
+  padding: 1px;
+}
+.contact .container .contactInfo {
+  width: 100%;
 
+}
+.contact .container .contactInfo .box .text {
+
+  margin-left: 2px;
+  font-size: 16px;
+
+}
+.text p{
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+.contact .container .contactInfo .box .icon {
+  min-width: 30px;
+  height: 30px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-size: 16px;
+}
+.contactForm .inputBox {
+ 
+  margin-top: 5px;
+}
+.contactForm .inputBox input, .contactForm .inputBox textarea {
+  width: 100%;
+  padding: 5px 0;
+  font-size: 12px;
+  margin: 5px 0;
+  
+}
+.contact .content h2 {
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+}
+.contactForm h2{
+  font-size: 14px;
+}
 }

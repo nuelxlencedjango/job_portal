@@ -9,7 +9,7 @@ let toggleSelects = function(){
 
     if(menuQuery === false){
         getNavbar.style.display ="block";
-        mainContent.style.marginTop ="380px";
+        mainContent.style.marginTop ="430px";
         //getSelect.style.transition = "all 0.3s ease-in";
         menuQuery =true;
 
@@ -24,6 +24,23 @@ let toggleSelects = function(){
 
 
 
+
+window.onscroll = function() {myFunction()};
+            
+var header = document.getElementById("head");
+var sticky = header.offsetTop;
+
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+    //$(".head").css({"background-color":"whitesmoke"});
+   
+  } else {
+    header.classList.remove("sticky");
+    //$(".head").css({"background-color":"whitesmoke"});
+  }
+}
 
 
 
