@@ -657,7 +657,7 @@ def Servicelist(request):
         return render(request, 'dashboard/client/clients.html',context)
      
     #return render(request ,'products/servicelist.html',{'message': "your cart is empty"})  
-    return render(request ,'dashboard/client.html',{'message': "your cart is empty"})   
+    return render(request ,'dashboard/client/clients.html',{'message': "your cart is empty"})   
 
 
 
