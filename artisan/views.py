@@ -114,9 +114,10 @@ def paidJobs(request):
     #if OrderItem.objects.filter(artisan_assigned):
      #   work =taken
  
-
+    
     context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
-    return render(request,'products/paid_services.html',context)
+    #return render(request,'products/paid_services.html',context)
+    return render(request,'dashboard/client/index.html',context)
 
 
 
@@ -365,6 +366,9 @@ def searchResult(request):
     else:
         messages.warning(request,'Service not available at this time')
         return redirect('/')   
+
+
+
 
 
 

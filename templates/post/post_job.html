@@ -1,0 +1,72 @@
+
+
+{% extends 'main.html' %}
+{% load static %}  
+
+{% load crispy_forms_tags %}
+{% block content %} 
+
+
+
+<style>
+     .g-3{
+           /*box-shadow: 0 0 10px 4px #d0d0d0;*/
+           box-shadow: 0 4px 8px 0 #fff;
+          
+          }
+
+          .g-3:hover{
+            border: #fff;
+          }
+</style>
+
+
+
+
+              
+ 
+  
+
+
+<div id="form2" class="container form2">
+    <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
+        {% csrf_token %}
+      
+     
+      
+        <div class="col-md-6 form2">
+          {{ form.address|as_crispy_field }}
+ 
+        </div>
+  
+          <div class="col-md-6 form2">
+            {{ form.product|as_crispy_field }}
+        </div>
+        <div class="col-md-12 form2">
+          {{ form.number_of_workers|as_crispy_field }}
+        </div>
+       
+        
+        <div class="col-md-12 form2">
+            {{ form.description|as_crispy_field }}
+        </div>
+
+        <div class="col-md-12 form-control">
+           
+        </div>
+   
+  
+        <div class="col-12">
+     <input type="submit" class="btn btn-danger btn-lg" value="submit" >   
+        </div>
+      </form>
+
+
+
+{{ form.errors }}
+
+  
+
+       
+
+  {% endblock %}   

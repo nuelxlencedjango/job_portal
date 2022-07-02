@@ -20,7 +20,7 @@
           padding: 20px;
         }
 
-        .card{
+       .card{
            /*box-shadow: 0 0 10px 4px #d0d0d0;*/
            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
            border: 2px solid #7bdcb5;;
@@ -31,7 +31,7 @@
             font-family: Arial, Helvetica, sans-serif;
             font-weight: 400;
           }
-         .card p{
+          .card p{
            text-align: left;
            font-size: 16px;
            font-weight: 200;
@@ -39,7 +39,7 @@
            margin-top: 5px;
          }
        
-          .card:hover{
+           .card:hover{
             border: #fff;
             border-bottom-style: red;
           }
@@ -54,6 +54,7 @@
             <div class="row">
               <h1>Our Services</h1>
                 <div class="col-lg-6">
+               
                     <div class="card">
 
                      
@@ -61,8 +62,11 @@
   
                           <p>Join our team today and have a wide range of job offer. We have numerous clients in your neighborhood who require your service. </p>
                             <p> Contact us today for best services you desire.</p>
-
+                     
+  
                       </div>
+                      <!--<a href="" class="btn btn-dark">See list</a>-->
+               
                 </div>
                 <div class="col-lg-6">
                   <div class="card">
@@ -77,6 +81,7 @@
                           </p>
                           <p>You are one call away from getting what you desire!</p>
                     </div>
+                 
               </div>
               <div class="col-lg-6">
                 <div class="card">
@@ -119,8 +124,27 @@
      
         
 
+        <!--<div class="container serv">
+          <div class="row">
+            <h1>Our Services</h1>
+            {% for serv in service %}
+              <div class="col-lg-6">
+                  <div class="card">
 
-       
+                   
+                      <h3 class="service-title">{{ serv.service_name }} </h3>
+
+                        <p>{{serv.desc1}} </p>
+                          <p>{{serv.desc2}}</p>
+                          <p>{{serv.desc3}}</p>
+
+                    </div>
+              </div>
+              {% endfor %}
+              </div>
+              </div>-->
+     
+   
        
      
        

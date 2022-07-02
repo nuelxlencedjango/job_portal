@@ -22,116 +22,7 @@ from cloudinary.models import CloudinaryField
 
 
 
-
-#class Production(models.Model):#
-#   CATEGORY = (
-  #       ('Indoor', 'Indoor'),
-   #      ('OutDoor', 'Out Door'),
-   #      ) 
-
-  # name = models.CharField(max_length=200, null=True)
-  # price = models.DecimalField(max_digits=7,decimal_places=2, null=True)
-  # digital = models.BooleanField(default=False,null=True,blank=True)
-  # category = models.CharField(max_length=200, null=True, choices=CATEGORY)
-  # description = models.CharField(max_length=200, null=True, blank=True)
-  # date_created = models.DateTimeField(auto_now_add=True, null=True)
-   #tags = models.ManyToManyField(Tag)
-   #image = models.ImageField(blank=True,null=True,upload_to='images/')
-  # image = CloudinaryField(blank=True,null=True)
-
-  # def __str__(self):
-   #   return self.name
-
-  # @property
-  # def imageUrl(self):
-   #   try:
-   #      url = self.image.url
-   #   except:
-   #      url = ''
-   #   return url  
-
-
-
-
-#class Orders(models.Model):#
-#   STATUS = (
- #        ('Pending', 'Pending'),
-#         ('Out for delivery', 'Out for delivery'),
- #        ('Delivered', 'Delivered'),
- #        )
-    
-  # customer = models.ForeignKey(User, on_delete=models.CASCADE,blank= True, null=True)
-   #customer = models.ForeignKey('account.Customer', null=True, on_delete= models.SET_NULL)
-  # product = models.ForeignKey(Production, null=True, on_delete= models.SET_NULL)
-  # date_created = models.DateTimeField(auto_now_add=True, null=True)
-  # status = models.CharField(max_length=200, null=True, choices=STATUS)
-  # note = models.CharField(max_length=1000, null=True)
-  # complete = models.BooleanField(default=False,blank=False,null=False)
-  # transaction_id = models.CharField(max_length=20,null=True,blank=True)
-
-
- #  class Meta:
-  #    verbose_name_plural='Orders'
-
-  # def __str__(self):
-  #    return  self.customer.username 
-    
-  # @property 
-   #def get_cart_total(self):
-   #   orderitems = self.orderitem_set.all()
-   #   total = sum([item.get_total for item in orderitems ])  
-
-    #  return total 
-
-  # @property
-  # def get_cart_items(self):
-   #   orderitems = self.orderitem_set.all()
-   #   total = sum([item.quantity for item in orderitems])
-
    
-  # @property
-  # def shipping(self):
-   #   shipping =False
-   #   orderitems = self.orderitem_set.all()
-    #  for i in orderitems:
-     #    if i.product.digital == False:
-     #       shipping = True
-    #  return shipping
-         
-
-#class OrderItems(models.Model):  #
-
-  # product = models.ForeignKey(Production, null=True, on_delete= models.SET_NULL)
-  # orders = models.ForeignKey(Orders, null=True, on_delete= models.SET_NULL)
-  # quantity = models.IntegerField(default=0, null=True ,blank=True)
- #  date_added = models.DateTimeField(auto_now_add=True) 
-
-
-  # class Meta:
-  #    verbose_name_plural='Orderitems'
-
-   #def __str__(self):
-    #  return self.product.name
-
-
-
-
-#class Carts(models.Model):
-
-  # items = models.ManyToManyField(OrderItems,null=True,blank=True)
-  # products = models.ManyToManyField(Production,null=True,blank=True)
-  # total = models.DecimalField(max_digits=100, decimal_places=2,default=0.00)
-  # timestamp = models.DateTimeField(auto_now_add=True,auto_now=False)
-  # update = models.DateTimeField(auto_now_add=True,auto_now=False)
-  # active = models.BooleanField(default=False)
-
-    
-  # def __str__(self):
-  #    return "Cart Id: %s" %(self.id)
-
-   
-  # class Meta:
-   #   verbose_name_plural='Carts'     
 
 
 
@@ -217,15 +108,6 @@ class Product(models.Model):
 
 
 
-#class Project(models.Model):
-  #  name = models.CharField(max_length=100)
-   # users = models.ManyToManyField(User)
-
-#class Task(models.Model):
- #   project = models.ForeignKey(Project, related_name='project_tasks')
-  #  name = models.CharField(max_length=300)
-   # assignee = models.ForeignKey(User, related_name='tasks')
-
 
 
 class OrderItem(models.Model):
@@ -269,7 +151,7 @@ class OrderItem(models.Model):
       amount = (self.product.price * 75/100)
       return amount   
 
-#OrderItem.objects.order_by('-date_created')      
+  
      
 
 
@@ -316,8 +198,6 @@ class Order(models.Model):
       total =0
       for order_item in self.items.all():
                total +=order_item.get_final_price()
-               
-
       return total
 
    def get_total_count(self):
@@ -334,27 +214,7 @@ class Order(models.Model):
 
 
                 
-   
-class PaidServices(models.Model):
-   pass
-
-
-
-
-class Cart(models.Model):
-   items = models.ManyToManyField(OrderItem)
-   products = models.ManyToManyField(Product)
-   total = models.DecimalField(max_digits=100, decimal_places=2,default=0.00)
-   timestamp = models.DateTimeField(auto_now_add=True,auto_now=False)
-   update = models.DateTimeField(auto_now_add=True,auto_now=False)
-   active = models.BooleanField(default=False)
-
-    
-   def __str__(self):
-      return "Cart Id: %s" %(self.id)
-   
-   class Meta:
-      verbose_name_plural='Cart'   
+     
 
 
 
@@ -424,7 +284,7 @@ class ServiceRequest(models.Model):
    user = models.ForeignKey(User, on_delete=models.CASCADE)
    ordered = models.BooleanField(default=False)
    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-   quantity = models.IntegerField(default =1)
+   number_of_workers = models.IntegerField(default =1)
    img = CloudinaryField(blank=True,null=True)
    status = models.CharField(max_length=200, null=True, blank=True, default='Pending')
    description=models.TextField(max_length=100,null=True,blank=True)
@@ -445,10 +305,10 @@ class ServiceRequest(models.Model):
       ordering = ['-date_created']
 
    def __str__(self):
-      return f"{self.quantity} of {self.product.name}"
+      return f"{self.number_of_workers} of {self.product.name}"
 
    def get_total_item_price(self):
-      return self.quantity * self.product.price
+      return (self.number_of_workers * self.product.price)
 
    def get_final_price(self):
       return self.get_total_item_price() 
@@ -497,8 +357,6 @@ class ServiceOrder(models.Model):
       return self.user.username
 
    
-   class Meta:
-      verbose_name_plural='Order'
 
    def get_total_price(self):
       total =0
@@ -539,6 +397,96 @@ class Services(models.Model):
    
    class Meta:
       verbose_name_plural='Services'    
+
+
+ 
+
+
+
+
+class TrainStaff(models.Model):
+
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+   name =  models.CharField(max_length=200, null=True, blank=True)
+   type_of_service =  models.CharField(max_length=200, null=True, blank=True)
+   number_of_people = models.IntegerField(default =1)
+   status = models.CharField(max_length=200, null=True, blank=True, default='Pending')
+   description=models.TextField(max_length=200,null=True,blank=True)
+   address = models.CharField(max_length=200, null=True,blank=True)
+   date_created = models.DateField(auto_now_add = True, null=True, blank=True)
+   work_done = models.BooleanField(default=False,null=True)
+   location = models.ForeignKey('artisan.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
+
+   class Meta:
+      verbose_name_plural='TrainStaff'
+       
+      ordering = ['-date_created']
+
+
+   def __str__(self):
+      return f"{self.number_of_people} of {self.type_of_service}"
+
+   
+   
+
+
+
+
+
+
+
+class PostJob(models.Model):
+
+   user = models.ForeignKey(User, on_delete=models.CASCADE)
+ 
+   paid = models.BooleanField(default=False)
+  
+   number_of_people = models.IntegerField(default =1)
+   services = models.ForeignKey(Product, on_delete=models.CASCADE,null=True,blank=True)
+
+
+   status = models.CharField(max_length=200, null=True, blank=True, default='Pending')
+   description=models.TextField(max_length=200,null=True,blank=True)
+   address = models.CharField(max_length=200, null=True,blank=True)
+   artisan_assigned = models.ManyToManyField('artisan.Artisan' ,blank=True) 
+   date_created = models.DateField(auto_now_add = True, null=True, blank=True)
+
+   accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
+   accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
+   work_done = models.BooleanField(default=False,null=True)
+   location = models.ForeignKey('artisan.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
+
+   class Meta:
+      verbose_name_plural='PostJob'
+       
+      ordering = ['-date_created']
+
+
+   def __str__(self):
+      return f"{self.number_of_people} of {self.services}"
+
+   def get_total_item_price(self):
+      return self.number_of_people * self.services.price
+
+   def get_final_price(self):
+      return self.get_total_item_price() 
+
+   def vat(self):
+      return self.get_vat()   
+
+   def get_service_rate(self):
+      amount = (self.price * 75/100)
+      return amount   
+
+   
+   def get_total_price(self):
+
+      total =0
+      for order_item in self.items.all():
+               total +=order_item.get_final_price()
+      return total
+
+#OrderItem.objects.order_by('-date_created')   
    
 
 

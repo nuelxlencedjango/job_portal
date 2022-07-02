@@ -18,6 +18,10 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="{% static 'template/images/favicon.png' %}" />
 </head>
+
+<style>
+ 
+</style>
 <body>
   <!--<div class="row" id="proBanner">
     <div class="col-12">
@@ -196,7 +200,9 @@
               <p class="mb-0">Home</p>
               <i class="typcn typcn-chevron-right"></i>
               <p class="mb-0">Main Dahboard</p>
+            
             </div>
+            <p class="mb-0">Welcome,{{ request.user}}</p>
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
@@ -396,33 +402,36 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="typcn typcn-document-text menu-icon"></i>
-              <span class="menu-title">UI Elements</span>
+              <span class="menu-title">Services</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:servicelist' %}"><b>Unpaid Services</b> </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:handle_confirmation' %}"><b>Previous Transactions</b></a></li>
+                <!--<li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html"><b>Posted Jobs</b></a></li>-->
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>Check your order</b></a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>All jobs done</b></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:jobs' %}"><b>Place Order</b></a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
               <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Form elements</span>
+              <span class="menu-title">Account Setting</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a></li>
-              </ul>
+                <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}">Edit Your information</a></li>
+
             </div>
           </li>
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
               <i class="typcn typcn-chart-pie-outline menu-icon"></i>
-              <span class="menu-title">Charts</span>
+              <span class="menu-title">Place Order</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="charts">
@@ -489,9 +498,63 @@
           </li>
         </ul>
       </nav>
+
+      
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+
+
+          <!--start-->
+        
+           {% if not listing %}
+          <div class="row">
+            <div class="col-xl-4 grid-margin stretch-card">
+              <div class="card">
+                <div class="card-body border-bottom">
+                  <div class="d-flex justify-content-between align-items-center flex-wrap">
+                    <h6 class="mb-2 mb-md-0 text-uppercase font-weight-medium">Bio</h6>
+                   
+                     
+                   
+                    <!--<div class="dropdown">
+                      <button class="btn bg-white p-0 pb-1 text-muted btn-sm dropdown-toggle" type="button" id="dropdownMenuSizeButton3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Last 30 days
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton3">
+                        <h6 class="dropdown-header">Settings</h6>
+                        <a class="dropdown-item" href="javascript:;">Action</a>
+                        <a class="dropdown-item" href="javascript:;">Another action</a>
+                        <a class="dropdown-item" href="javascript:;">Something else here</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="javascript:;">Separated link</a>
+                      </div>
+                    </div>-->
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="card card-body">
+                    <h5>Contact Information</h5>
+                    <hr>
+                    <p>username: {{user.username}}</p>
+                    <p>Full name: {{user.first_name}} &nbsp; {{user.last_name}}</p>
+                    <p>Phone: {{user.details.phone}}</p>
+                   
+                   
+                    <p>Email: {{user.email}}</p>
+                   
+                  </div>
+                
+                
+                </div>
+              </div>
+            </div>
+          
+          </div>
+          <!--end-->
+
+
+          
 
           <div class="row">
             <div class="col-xl-6 grid-margin stretch-card flex-column">
@@ -564,7 +627,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-xl-6 grid-margin stretch-card flex-column">
+            <div class="col-xl-6 grid-margin stretch-card flex-column" id="income">
               <h5 class="mb-2 text-titlecase mb-4">Income statistics</h5>
               <div class="row h-100">
                 <div class="col-md-12 stretch-card">
@@ -653,7 +716,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6 col-xl-4 grid-margin stretch-card">
+          
+            <!--<div class="col-md-6 col-xl-4 grid-margin stretch-card">
               <div class="row">
                 <div class="col-md-12 grid-margin stretch-card">
                   <div class="card newsletter-card bg-gradient-warning">
@@ -698,32 +762,37 @@
                   </div>
                 </div>
               </div>
-            </div>
-            <div class="col-md-6 col-xl-4 grid-margin stretch-card">
+            </div>-->
+         
+            <!--<div class="col-md-12 col-xl-4 grid-margin stretch-card" id="stats">
               <div class="card">
+              
                 <div class="card-body border-bottom">
                   <div class="d-flex justify-content-between align-items-center flex-wrap">
-                    <h6 class="mb-2 mb-md-0 text-uppercase font-weight-medium">Sales statistics</h6>
-                    <div class="dropdown">
-                      <button class="btn bg-white p-0 pb-1 text-muted btn-sm dropdown-toggle" type="button" id="dropdownMenuSizeButton4" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Last 7 days
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuSizeButton4">
-                        <h6 class="dropdown-header">Settings</h6>
-                        <a class="dropdown-item" href="javascript:;">Action</a>
-                        <a class="dropdown-item" href="javascript:;">Another action</a>
-                        <a class="dropdown-item" href="javascript:;">Something else here</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="javascript:;">Separated link</a>
-                      </div>
-                    </div>
+                    <h6 class="mb-2 mb-md-0 text-uppercase font-weight-medium">Available jobs</h6>
                   </div>
+                    <div class="col-md-7" style="align-items: center;">
+                       <hr>
+                            <div class="card card-body">
+                            <a class="btn btn-primary  btn-sm btn-block" href="">Pick A Job</a>
+                            <table class="table table-sm" >
+                            <tr style="margin-top: 70px;"> 
+                            <h3 style="text-transform: capitalize;"> &nbsp;<a href="" style="align-items: center; text-transform: capitalize;" name="view-detail" class="btn btn-success right">See Detail</a>
+                            </h3>
+
+                            <hr>
+                            </tr>
+                            </table>
+                            </div>
+                            </div>                
                 </div>
+
                 <div class="card-body">
                   <canvas id="sales-chart-d" height="320"></canvas>
                 </div>
               </div>
-            </div>
+            </div>-->
+         
           </div>
 
           <div class="row">
@@ -771,6 +840,9 @@
             </div>
           </div>
 
+          <!--services ordered for-->
+        
+         {% elif listing %}
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -780,22 +852,39 @@
                       <tr>
                         <th class="ml-5">ID</th>
                         <th>Project name</th>
-                        <th>Customer</th>
-                        <th>Deadline</th>
-                        <th>Payouts	</th>
-                        <th>Traffic</th>
+                        <th>Price</th>
+                        <th>Workers</th>
+                        <th>Amount	</th>
+                        <th>Date</th>
+                        <th>Paid</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
                     <tbody>
+
+                      
+                      
+                      {% for order_item in order.items.all %}
                       <tr>
-                        <td>#D1</td>
-                        <td>Consectetur adipisicing elit </td>
-                        <td>Beulah Cummings</td>
-                        <td>03 Jan 2019</td>
-                        <td>$ 5235</td>
-                        <td>1.3K</td>
-                        <td>
+                        <td>#{{ forloop.counter }}</td>
+
+					              <td>{{ order_item.product.name }}</td>
+                        <td>{{ order_item.product.price }}</td>
+
+                   
+                        <td>	{{ order_item.number_of_workers }}</td>
+
+					              <td>{{order_item.get_total_item_price}}</td>
+                        <td>{{order_item.date_created}}</td>
+					              <td>{{order_item.status}}</td>
+					             
+ 
+					              <td><a class="btn btn-sm btn-info" style="padding: 4px;" href="{% url 'products:update_order' order_item.id %}">Update</a></td>
+
+					              <td><a class="btn btn-sm btn-danger" style="padding: 4px;" href="{% url 'products:remove_item' order_item.id %}">Delete</a></td>
+			
+                  
+                        <!--<td>
                           <div class="d-flex align-items-center">
                             <button type="button" class="btn btn-success btn-sm btn-icon-text mr-3">
                               Edit
@@ -806,9 +895,26 @@
                               <i class="typcn typcn-delete-outline btn-icon-append"></i>                          
                             </button>
                           </div>
-                        </td>
-                      </tr>
+                        </td>-->
+                      </tr> 
+                   
+                      {% endfor %}
+
+              
+                      {% if order.get_total_price  %}
                       <tr>
+                    
+                    
+                        <td colspan="3" ><b style="color: #000;">Amount payable</b></td>
+                        <td style="color: #000;"><b>{{ order.get_total_price }}</b></td>
+                        <td colspan="4"><a href="{% url 'products:service_payment' %}" class="btn btn-danger" style="color: whitesmoke; float: right;"> Pay Now</a>
+                      
+                        
+                      
+                      </tr>
+                      {% endif %}
+                    
+                      <!--<tr>
                         <td>#D2</td>
                         <td>Correlation natural resources silo</td>
                         <td>Mitchel Dunford</td>
@@ -887,8 +993,10 @@
                             </button>
                           </div>
                         </td>
-                      </tr>
+                      </tr>-->
+                  
                     </tbody>
+                    {% endif %}
                   </table>
                 </div>
               </div>
@@ -898,7 +1006,7 @@
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
+        <!--<footer class="footer">
             <div class="card">
                 <div class="card-body">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
@@ -907,7 +1015,7 @@
                     </div>
                 </div>    
             </div>        
-        </footer>
+        </footer>-->
         <!-- partial -->
       </div>
       <!-- main-panel ends -->

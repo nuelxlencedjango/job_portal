@@ -29,5 +29,9 @@ urlpatterns = [
       #path("searchArtisans/<str:name>/", ListArtisansAvailable.as_view(), name="searchArtisans"),
       path('searchArtisans/<str:name>/',views.artisanList,name="searchArtisans"),
       path("artisan_request/<int:pk>/", views.artisanRequest, name="artisan_request"),
+
+
+
+   
 ]
 

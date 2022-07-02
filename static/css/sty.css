@@ -132,6 +132,8 @@
     font-size: 18px;
     text-decoration: none;
     margin-top: 40px;
+
+  
   
     
 
@@ -145,15 +147,18 @@
   }
   .nav > .nav-links > ul li{
     display: inline-block;
+
     /*background-color: red;*/
 
 
   }
+ 
   .nav > .nav-links > ul li:hover{
       background-color: #ff686b;
+     color: white !important;
       border-radius: 5px;
   }
-
+ 
   .nav > #nav-check {
     display: none;
     cursor: pointer;
@@ -446,7 +451,8 @@ color: #e83e8c;
 }
 .contact .container .contactInfo .box .text h3{
   font-weight: 500;
-  color: #00bcd4;
+  color:var(--primary-color);
+ 
 }
 .contactForm{
   width: 50%;
@@ -504,7 +510,7 @@ color: #e83e8c;
 }
 .contactForm .inputBox input[type="submit"]{
   width: 100%;
-  background: #00bcd4;
+  background:var(--primary-color);
   color: #fff;
   border: none;
   cursor: pointer;
@@ -694,7 +700,13 @@ span.psw {
   font-weight: bold;
 }
 
-
+.form2{
+  width: 500px;  
+  background-color: #e9ecef; 
+  align-items: center; 
+  text-align: center; 
+  margin-top: 50px;
+}
 
 
 .main-content{
@@ -1086,6 +1098,10 @@ serv p{
   padding-right: 30px;
   height: 300px;
   }
+  .form2{
+    width: 100% !important;
+    padding: 20px;
+  }
 
  
 }
@@ -1109,6 +1125,10 @@ contact .container .contactInfo .box {
  
   padding: 10px;
  
+}
+textarea {
+  resize: vertical;
+  width: 100%;
 }
 }
 

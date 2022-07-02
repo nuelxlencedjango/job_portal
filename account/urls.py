@@ -20,11 +20,13 @@ urlpatterns = [
    
     path('logout/', views.logoutPage, name='logout'),
   
+    path('client_register/',views.clientRegister,name ='client_register'),
 
   #new info
     path('dashboard/',views.clientDashboard,name ='dashboard'),
+    path('artisanPage/',views.artisanDashboard,name ='artisanPage'),
     
-    path('client_register/',views.clientRegister,name ='client_register'),
+  
 
     
 ]

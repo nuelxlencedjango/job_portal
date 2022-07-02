@@ -41,7 +41,8 @@ def loginPage(request):
 
             elif Artisan.objects.filter(user = user).exists():
                 login(request,user)
-                return redirect('artisan:confirmed_orders')
+                return redirect('account:dashboard')
+                #return redirect('artisan:confirmed_orders')
            
 
            #work on this
@@ -183,5 +184,13 @@ def clientRegister(request):
 
 
 
+
+
+
 def clientDashboard(request):
-    return render(request,'dashboard/client/index.html')    
+    return render(request,'dashboard/client/clients.html')   
+
+
+
+def artisanDashboard(request):
+    return render(request,'dashboard/artisan/artisans.html') 

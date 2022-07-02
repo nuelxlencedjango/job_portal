@@ -12,7 +12,9 @@ from django.views.generic.base import TemplateView
 
 from django.views.generic import (
     ListView ,DetailView, CreateView, UpdateView ,DeleteView
+
 )
+from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin ,UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -148,7 +150,7 @@ def updateItem(request):
    
 
 def details(request,id):
-    home = Production.objects.get(id=id)
+    home = Product.objects.get(id=id)
     #out = OutdoorJobs.objects.filter(id=id)
     context ={'home':home,}
                #'out': out }
@@ -165,7 +167,7 @@ class AvailableJobs(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-       # context['jobs'] =Production.objects.all()
+        context['service'] = Services.objects.all()
         context['prod'] =Product.objects.all()
         return context
 
@@ -448,6 +450,7 @@ def handle_confirmation(request):
         return render(request, 'payments/payment_confirmation.html',context) 
         
 
+    #return render(request ,'payments/payment_details.html') 
     return render(request ,'payments/no_order.html')             
 
 
@@ -457,7 +460,8 @@ def handle(request):
     list_items = ServiceOrder.objects.filter(user=request.user,ordered=True).order_by('-datetime_ofpayment')
 
     context ={'list_items':list_items}#,'listitem':listitem}
-    return render(request, 'payments/payment_confirmation.html',context) 
+    return render(request, 'payments/payment_details.html',context) 
+    #return render(request, 'payments/payment_confirmation.html',context) 
         
     
     
@@ -641,14 +645,19 @@ def serviceRequestCart(request, pk):
 
 
 def Servicelist(request):
-    if ServiceOrder.objects.filter(user=request.user, ordered =False).exists():
+    
+    if ServiceOrder.objects.filter(user=request.user, ordered =False).exists(): #or PostJob.objects.filter(user=request.user, paid =False).exists():
         order = ServiceOrder.objects.get(user=request.user, ordered=False)
+        #post = PostJob.objects.get(user=request.user, paid=False)
         context={
-            'order':order
+            'order':order,'listing': 'listing'
         }
-        return render(request, 'products/servicelist.html',context)
 
-    return render(request ,'products/servicelist.html',{'message': "your cart is empty"})   
+        #return render(request, 'products/servicelist.html',context)
+        return render(request, 'dashboard/client/clients.html',context)
+     
+    #return render(request ,'products/servicelist.html',{'message': "your cart is empty"})  
+    return render(request ,'dashboard/client.html',{'message': "your cart is empty"})   
 
 
 
@@ -703,4 +712,117 @@ def ourServices(request):
 
     context ={'service':service}
     return render(request,'services.html' , context) 
+
+
+
+@login_required(login_url='/account/login')
+def PostJobItem(request):
+
+    form = PostJobForm()
+    if request.method == 'POST':
+
+        form = PostJobForm(request.POST)
+        if form.is_valid():
+                job_obj = form.save(commit=False)
+                job_obj.user = request.user
+                job_obj.save()
+                return redirect('account:dashboard')
+                
+    context={'form': form}
+    return render(request, 'post/post_job.html', context)
+
+
+
+
+@login_required(login_url='/account/login')
+def postServiceNeeded(request):
+    form = PostServiceForm()
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+
+            form = PostServiceForm(request.POST)
+          
+            if form.is_valid():
+                job_obj = form.save(commit=False)
+    
+                order_item,created = ServiceRequest.objects.get_or_create(
+                product = job_obj.product,
+                user = request.user,
+                ordered = False,
+                description = job_obj.description,
+                address =job_obj.address,
+                quantity = job_obj.quantity,
+
+            )
+            order_qs = ServiceOrder.objects.filter(user=request.user,ordered=False)
+            if order_qs.exists():
+                order =order_qs[0]
+                if order.items.filter(product__name=order_item.product).exists():
+                    order_item.quantity +=1
+
+                    order_item.save()
+                    #listing='listing'
+                    messages.info(request ,"Added additional worker successfully")
+                    return redirect("products:dashboard")
+
+                else:
+                    order.items.add(order_item)
+                    messages.info(request ," successfully booked")
+                    return redirect("products:dashboard")  
+
+            else:
+                ordered_date =timezone.now()
+                order =ServiceOrder.objects.create(user=request.user, ordered_date=ordered_date)
+                order.items.add(order_item)
+                messages.info(request," Successfully booked")
+
+                return redirect('products:dashboard')          
+    
+        else:
+            context={'form':form}
+            messages.info(request,"Request unsuccessful! Please login before you can make a request")
+            return render(request, 'post/post_job.html',context) 
+    
+
+
+
+
+def Servicelisting(request):
+    serv= ServiceOrder.objects.filter(user=request.user, ordered =False)
+    post = PostJob.objects.filter(user=request.user, paid=False)
+
+    if serv or post:
+        
+        context={
+            'serv':serv,'post':post,'listing':'listing',
+        }
+        return render(request, 'dashboard/client/clients.html',context)
+
+    return render(request ,'dashboard/client.html',{'message': "your cart is empty"}) 
+
+
+
+
+
+@login_required(login_url='/account/login')
+def StaffTraining(request):
+
+    form = TrainingStaff()
+    if request.method == 'POST':
+
+        form = TrainingStaff(request.POST)
+        if form.is_valid():
+                job_obj = form.save(commit=False)
+                job_obj.user = request.user
+                job_obj.save()
+                return redirect('account:dashboard')
+                
+    context={'form': form}
+    return render(request, 'post/staff_training.html', context)    
+
+
+
+
+
+    
 

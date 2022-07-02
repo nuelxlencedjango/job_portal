@@ -121,16 +121,20 @@
         <div class="nav-links" id="nav-links">
             <ul>
           <li><a href="{% url 'products:home' %}" target="_blank">Home</a></li>
-         
-          <li><a href="{% url 'products:jobs' %}" target="_blank">Services</a></li>
-          <li><a href="{% url 'products:contact' %}" target="_blank">partnership</a></li>
-          <li><a href="{% url 'products:jobs' %}" target="_blank">Request A Service</a></li>
-          <li><a href="{% url 'products:contact' %}" target="_blank">About Us</a></li>
+          <li><a href="{% url 'products:train_staff' %}" target="_blank">Train your staff</a></li>
+          <li><a href="{% url 'products:jobs' %}" target="_blank">Our Services</a></li>
+          <li><a href="{% url 'artisan:artisanReg' %}" target="_blank">Become A worker</a></li>
+         <!-- <li><a href="{% url 'products:contact' %}" target="_blank">partnership</a></li>-->
+          <li><a href="{% url 'products:post_service' %}" target="_blank">Post A Job</a></li>
+          <!--<li><a href="{% url 'products:post_job' %}" target="_blank">Post A Job</a></li>
+          <li><a href="{% url 'products:contact' %}" target="_blank">About Us</a></li>-->
+
+          <li><a  href="{% url 'account:dashboard' %}">Dashboard</a>
           <li><a  href="{% url 'products:servicelist' %}">Cart</a>
-            <!--<div style="color: red;" >{{ request.user }}</div>--></li>
+            <div style="color: red;" >{{ request.user }}</div></li>
          
           <li ><a  href="{% url 'products:contact' %}">Contact us</a></li>
-          <li><a  href="{% url 'products:terms' %}">Terms and conditions</a>
+          <li><a  href="{% url 'products:terms' %}">T&C</a>
           <li><a style="color:red;" href="{% url 'products:new' %}">New</a>
           </li>
        

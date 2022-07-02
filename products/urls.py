@@ -8,8 +8,10 @@ app_name = 'products'
 urlpatterns = [
     
     path('', views.home, name='home'),
+
     path('cart/',views.cart,name='cart'),
     path('checkout/',views.checkout ,name='checkout'),
+
     path('update_order/<int:pk>/',views.updateOrder,name='update_order'),
     
     # remove this update_item
@@ -20,6 +22,7 @@ urlpatterns = [
     path('detail/<int:id>/', views.details, name='detail'),
      path('jobs/' , AvailableJobs.as_view() ,name="jobs"),
     #path('product_dest/<pk>', ProductDetail.as_view() ,name="product_dest"),
+
 
     path('terms/',views.terms_and_conditions, name="terms"),
     path('product_desc/<pk>', views.product_desc, name='product_desc'),
@@ -46,7 +49,8 @@ urlpatterns = [
      path('handle_confirmation/', views.handle, name='handle_confirmation'),
 
 
-   
+     path("post_service/", views.postServiceNeeded, name="post_service"),
+
 
     path('new/', views.newMethod, name='new'),
 
@@ -56,6 +60,12 @@ urlpatterns = [
     path('service_payment/', views.servicePayment, name='service_payment'),
 
     path('payment_confirmation/', views.paymentConfirmation, name='payment_confirmation'),
+
+    path("post_job/", views.PostJobItem, name="post_job"),
+
+     path('service_list/', views.Servicelisting, name='service_list'),
+
+    path('train_staff/', views.StaffTraining, name='train_staff'),
 ]
 
 
