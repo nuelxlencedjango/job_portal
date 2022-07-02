@@ -20,6 +20,11 @@
 </head>
 
 <style>
+  li a{
+    list-style: none;
+  
+    list-style: lower-alpha;
+  }
  
 </style>
 <body>
@@ -402,7 +407,7 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="typcn typcn-document-text menu-icon"></i>
-              <span class="menu-title">Services</span>
+              <span class="menu-title"><b>Services</b></span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
@@ -419,19 +424,19 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
               <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title">Account Setting</span>
+              <span class="menu-title"><b>Account Setting</b></span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}">Edit Your information</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}"><b>Edit Your information</b></a></li>
 
             </div>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
               <i class="typcn typcn-chart-pie-outline menu-icon"></i>
-              <span class="menu-title">Place Order</span>
+              <span class="menu-title"><a href=""><b>Place Order</b></a></span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="charts">
@@ -489,11 +494,11 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
               </ul>
             </div>
-          </li>
+          </li>-->
           <li class="nav-item">
-            <a class="nav-link" href="https://bootstrapdash.com/demo/polluxui-free/docs/documentation.html">
+            <a class="nav-link" href="">
               <i class="typcn typcn-mortar-board menu-icon"></i>
-              <span class="menu-title">Documentation</span>
+              <span class="menu-title"><b>Place Order</b></span>
             </a>
           </li>
         </ul>
@@ -507,7 +512,7 @@
 
           <!--start-->
         
-           {% if not listing %}
+         
           <div class="row">
             <div class="col-xl-4 grid-margin stretch-card">
               <div class="card">
@@ -556,7 +561,7 @@
 
           
 
-          <div class="row">
+          <!--<div class="row">
             <div class="col-xl-6 grid-margin stretch-card flex-column">
                 <h5 class="mb-2 text-titlecase mb-4">Status statistics</h5>
               <div class="row">
@@ -715,7 +720,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div>-->
           
             <!--<div class="col-md-6 col-xl-4 grid-margin stretch-card">
               <div class="row">
@@ -791,11 +796,11 @@
                   <canvas id="sales-chart-d" height="320"></canvas>
                 </div>
               </div>
-            </div>-->
+            </div>-
          
-          </div>
+          </div>-->
 
-          <div class="row">
+          <!--<div class="row">
             <div class="col-md-4 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -838,12 +843,13 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
 
           <!--services ordered for-->
         
-         {% elif listing %}
+         
           <div class="row">
+            <h3>Your orders</h3>
             <div class="col-md-12">
               <div class="card">
                 <div class="table-responsive pt-3">
@@ -996,7 +1002,7 @@
                       </tr>-->
                   
                     </tbody>
-                    {% endif %}
+               
                   </table>
                 </div>
               </div>

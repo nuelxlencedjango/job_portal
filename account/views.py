@@ -104,7 +104,7 @@ def update_info(request):
             form2.save()
 
             messages.success(request,"Successfully updated")
-            return redirect('products:orderlist')
+            return redirect('products:dashboard')
             
            
         else:
