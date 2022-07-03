@@ -588,7 +588,6 @@ def newMethod(request):
 
 
 
-
 def serviceRequestCart(request, pk):
     if request.user.is_authenticated:
 
@@ -603,19 +602,19 @@ def serviceRequestCart(request, pk):
             user = request.user,
             ordered = False,
             description = request.POST['description'],
-        #desc = request.POST.get('desc', False),
             address = request.POST['address'],
-        #address = request.POST.get('address', False),
-            quantity = int(request.POST['quantity']),
+            number_of_workers = int(request.POST['number_of_workers']),
+            #location = request.POST['location'],
+            #number_of_workers = int(request.POST['number_of_workers']),
+
+
         )
            
-
-            
         order_qs = ServiceOrder.objects.filter(user=request.user,ordered=False)
         if order_qs.exists():
             order =order_qs[0]
             if order.items.filter(product__pk=pk).exists():
-                service_item.quantity +=1
+                service_item.number_of_workers +=1
 
                 service_item.save()
                 messages.info(request ,"Added additional worker successfully")
@@ -751,24 +750,25 @@ def postServiceNeeded(request):
                 ordered = False,
                 description = job_obj.description,
                 address =job_obj.address,
-                quantity = job_obj.quantity,
+                number_of_workers = job_obj.number_of_workers,
+                location =job_obj.location,
 
             )
             order_qs = ServiceOrder.objects.filter(user=request.user,ordered=False)
             if order_qs.exists():
                 order =order_qs[0]
                 if order.items.filter(product__name=order_item.product).exists():
-                    order_item.quantity +=1
+                    order_item.number_of_workers +=1
 
                     order_item.save()
                     #listing='listing'
                     messages.info(request ,"Added additional worker successfully")
-                    return redirect("products:dashboard")
+                    return redirect("account:dashboard")
 
                 else:
                     order.items.add(order_item)
                     messages.info(request ," successfully booked")
-                    return redirect("products:dashboard")  
+                    return redirect("account:dashboard")  
 
             else:
                 ordered_date =timezone.now()
@@ -776,7 +776,7 @@ def postServiceNeeded(request):
                 order.items.add(order_item)
                 messages.info(request," Successfully booked")
 
-                return redirect('products:dashboard')          
+                return redirect('account:dashboard')          
     
         else:
             context={'form':form}

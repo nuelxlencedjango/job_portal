@@ -294,6 +294,7 @@ class ServiceRequest(models.Model):
 
    accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
    
+   location = models.ForeignKey('artisan.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
    accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
    work_done = models.BooleanField(default=False,null=True)
    #completed_job  =  models.BooleanField(null=True,blank=True,default=False)

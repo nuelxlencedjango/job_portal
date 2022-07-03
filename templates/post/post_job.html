@@ -25,7 +25,7 @@
 
               
  
-  <h3>Post A Job</h3>
+  <h3 style="text-align: center;">Post A Job</h3>
 
 
 <div id="form2" class="container form2">
@@ -36,6 +36,10 @@
       
         <div class="col-md-6 form2">
           {{ form.address|as_crispy_field }}
+ 
+        </div>
+        <div class="col-md-6 form2">
+          {{ form.location|as_crispy_field }}
  
         </div>
   

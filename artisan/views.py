@@ -105,19 +105,21 @@ def paidJobs(request):
     
     job_location = request.user.artisan.location
     job_address = request.user.artisan.address
+    job_name   = request.user.artisan.profession_name
 
 #to be changed to orderitem.objects.filter
-    services_paid_for = Order.objects.filter(ordered =True)
+    services_paid_for = ServiceOrder.objects.filter(ordered =True)
+    #services_paid_for = Order.objects.filter(ordered =True)
     #services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
+    if ServiceRequest.objects.filter(status ="Paid"):
+        areaJobs = ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) | Q(product__name__icontains=job_name))
 
-    areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
-    #if OrderItem.objects.filter(artisan_assigned):
-     #   work =taken
- 
-    
-    context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
+   
+    # areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
+  
+        context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
     #return render(request,'products/paid_services.html',context)
-    return render(request,'dashboard/client/index.html',context)
+    return render(request,'dashboard/artisan/artisans.html',context)
 
 
 
@@ -126,10 +128,12 @@ def jobDetail(request,id):
 
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]
-        job_info= OrderItem.objects.filter(id =id)
+        job_info= ServiceRequest.objects.filter(id =id)
+        #job_info= OrderItem.objects.filter(id =id)
         #if not ViewedJob.objects.get(job_order_id =id)
         for job in job_info:
             pn =job.id
+            
             job_detail,create =ViewedJob.objects.get_or_create(user=request.user,
             job_name=job.product.name,category=job.product.category,
             description =job.description,price =job.get_service_rate(),client=job.user.last_name,address =job.address,
@@ -148,18 +152,19 @@ def jobDetail(request,id):
 def jobAccepted(request,id):
     artisan = [Artisan.objects.get(user=request.user)]
     idn =id
-    if OrderItem.objects.get(id=id, ordered=True,status='Paid'):
+    if ServiceRequest.objects.get(id=id, ordered=True,status='Paid'):
 
-        accepted_job= OrderItem.objects.filter(id=id, ordered=True,status='Paid')
+        accepted_job= ServiceRequest.objects.filter(id=id, ordered=True,status='Paid')
         for b in accepted_job:
-            b.artisan_assigned.set(artisan)
+            b.artisan.set(artisan)
             #b.taken=True
          
             #b.save()
-        OrderItem.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
+        ServiceRequest.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
         accepted_date =timezone.now())
          
-    
+    else:
+        ServiceRequest.objects.filter
      
     if ViewedJob.objects.filter(user=request.user,job_order_id=id).exists():
 

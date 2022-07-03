@@ -128,10 +128,18 @@
           <li><a href="{% url 'products:post_service' %}" target="_blank">Post A Job</a></li>
           <!--<li><a href="{% url 'products:post_job' %}" target="_blank">Post A Job</a></li>
           <li><a href="{% url 'products:contact' %}" target="_blank">About Us</a></li>-->
-
-          <li><a  href="{% url 'account:dashboard' %}">Dashboard</a>
+          
+          {% if user.artisan %}
+          <li><a  href="{% url 'account:artisanPage' %}">Dashboard</a>
           <!--<li><a  href="{% url 'products:orderlist' %}">Cart</a>-->
-            <div style="color: red;" >{{ request.user }}</div></li>
+            <div style="color: blue;" >{{ request.user }}</div></li>
+            {% elif user.details %}
+
+            <li><a  href="{% url 'account:dashboard' %}">Dashboard</a>
+              <!--<li><a  href="{% url 'products:orderlist' %}">Cart</a>-->
+                <div style="color: red;" >{{ request.user }}</div></li>
+
+            {% endif %}    
          
           <li ><a  href="{% url 'products:contact' %}">Contact us</a></li>
           <li><a  href="{% url 'products:terms' %}">T&C</a>

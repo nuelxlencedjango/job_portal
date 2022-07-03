@@ -24,6 +24,7 @@ urlpatterns = [
 
   #new info
     path('dashboard/',views.clientDashboard,name ='dashboard'),
+    #path('artisan_dashboard/',views.,name ='artisan_dashboard'),
     path('artisanPage/',views.artisanDashboard,name ='artisanPage'),
     
   

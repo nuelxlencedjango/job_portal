@@ -54,11 +54,16 @@ class  PostJobForm(forms.ModelForm):
  
 
 
+      
+            
+             
+        
+ 
 
 class  PostServiceForm(forms.ModelForm):
     class Meta:
         model = ServiceRequest
-        fields =('product','number_of_workers','description','address')
+        fields =('product','number_of_workers','description','address','location')
 
 
 
