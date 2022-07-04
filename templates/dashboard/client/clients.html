@@ -414,11 +414,13 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:servicelist' %}"><b>Unpaid Services</b> </a></li>
+                <li class="nav-item"> <a class="nav-link" href="#"><b>Artisan's Detail</b></a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:handle_confirmation' %}"><b>Previous Transactions</b></a></li>
                 <!--<li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html"><b>Posted Jobs</b></a></li>-->
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>Check your order</b></a></li>
+                <!--<li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>Check your order</b></a></li>-->
                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>All jobs done</b></a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'products:jobs' %}"><b>Place Order</b></a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}"><b>Edit Your information</b></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:home' %}"><b>Place Order</b></a></li>
               </ul>
             </div>
           </li>

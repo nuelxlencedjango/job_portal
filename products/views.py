@@ -610,8 +610,6 @@ def serviceRequestCart(request, pk):
 
 
         )
-        ServiceOrder.objects.filter(user=request.user,ordered=True).update(artisanName=artisan_name)  
-        
         order_qs = ServiceOrder.objects.filter(user=request.user,ordered=False)
         if order_qs.exists():
             order =order_qs[0]

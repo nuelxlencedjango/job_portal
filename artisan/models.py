@@ -154,6 +154,30 @@ class ViewedJob(models.Model):
 
 
 
+class BankDetails(models.Model):
+
+  user = models.ForeignKey(User, on_delete=models.CASCADE)
+  bank_name =  models.CharField(max_length=200, null=True, unique = True)
+  account_type = models.CharField(max_length=200, null=True, unique = True)
+  account_number = models.CharField(max_length=200, null=True, unique = False)
+ 
+ 
+  payment_date = models.DateField(auto_now_add = True, null=True, blank=True)
+  amount =models.FloatField(default=00.00)
+   
+
+
+
+  def __str__(self):
+      return str(self.user.username)
+
+  class Meta:
+      verbose_name_plural = "BankDetails"    
+
+
+
+
+
    
 
    

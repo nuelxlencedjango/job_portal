@@ -78,7 +78,7 @@ def artisan_update(request):
             form4.save()
 
             messages.success(request,"Successfully updated")
-            return redirect('artisan:confirmed_orders')
+            return redirect('account:artisanPage')
                
         else:
             messages.warning(request,"Not updated")
@@ -108,27 +108,30 @@ def artisan_update(request):
 @login_required
 def paidJobs(request):
     artisan = Artisan.objects.filter(user=request.user)
-    print(type(artisan),artisan)
-    
+   
     job_location = request.user.artisan.location
     #job_address = request.user.artisan.address
     job_name   = request.user.artisan.profession_name
+    #job_id = artisan.profession_name
 
     if ServiceRequest.objects.filter(ordered=True,status='Paid',artisan=artisan[0]).exists():
         res=ServiceRequest.objects.filter(ordered=True,status='Paid',artisan=artisan[0])
 
+        if ServiceRequest.objects.filter(ordered=True,status='Paid',artisan=artisan[0],accepted='Accepted').exists():
+            messages.info(request ,"No new jobs avaialable now.")
+            return render(request,'dashboard/artisan/artisans.html')
+
+
         context ={'areaJobs':res}
         return render(request,'dashboard/artisan/artisans.html',context) 
 
 
-    elif ServiceRequest.objects.filter(ordered=True,status='Paid',location=job_location).exists():
-       if ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address)):
-              
-
-        res =ServiceRequest.objects.filter(ordered=True,status='Paid',location=job_location)
+    elif ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name).exists():        
+        res =ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name)
 
         context ={'areaJobs':res}
         return render(request,'dashboard/artisan/artisans.html',context) 
+
 
     else:
         return redirect('/')   
@@ -144,8 +147,7 @@ def paidJobs(request):
     #if ServiceRequest.objects.filter(product=product,ordered =True,status='Paid'):
         #result =ServiceRequest.objects.filter(artisan=Artisan.objects.filter(user=request.user),ordered =True,status='Paid')
 
-        context ={'areaJobs':res}
-        return render(request,'dashboard/artisan/artisans.html',context) 
+     
 
     #if ServiceOrder.objects.filter(items=job_name,ordered=True):
      #   pass
@@ -244,7 +246,7 @@ def jobAccepted(request,id):
         accepted_date =timezone.now())
 
        
-        return redirect('artisan:confirmed_orders')
+        return redirect('account:artisanPage')
         
 
     return redirect('/')
@@ -291,7 +293,7 @@ def CurrentJobInfo(request):
             jobinfo = ViewedJob.objects.filter(user=user,accepted='Accepted').last()
             if jobinfo.work_done == True:
                 messages.info(request,'Job already registered for payment')
-                return redirect('artisan:confirmed_orders')
+                return redirect('account:artisanPage')
 
                 
     
@@ -315,9 +317,9 @@ def completeJob(request,id):
 
     elif ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id):
 
-        if OrderItem.objects.filter(id=id,artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted"):
+        if ServiceRequest.objects.filter(id=id,artisan =artisan, ordered=True,status='Paid',accepted ="Accepted"):
             ViewedJob.objects.filter(user=user,accepted='Accepted',job_order_id=id).update(work_done=True)
-            OrderItem.objects.filter(artisan_assigned =artisan, ordered=True,status='Paid',accepted ="Accepted",id=id).update(work_done=True)
+            ServiceRequest.objects.filter(artisan=artisan, ordered=True,status='Paid',accepted ="Accepted",id=id).update(work_done=True)
 
             return redirect('artisan:congratulation')
 
@@ -345,12 +347,12 @@ def congratulations(request):
 
 def artisan_services(request):
     user = Artisan.objects.get(user=request.user)
-    if not OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted',work_done=True).exists():
+    if not ServiceRequest.objects.filter(artisan=user,accepted='Accepted',work_done=True).exists():
         messages.info(request,'You dont have any recorded service yet.Go to Jobs in your neigborhood and select a job')
         return render(request,'artisans/no_service_rendered.html')
 
-    elif OrderItem.objects.filter(artisan_assigned=user,accepted='Accepted',work_done=True).exists():
-        job_info = OrderItem.objects.filter(artisan_assigned=user).order_by('-date_created')
+    elif ServiceRequest.objects.filter(artisan=user,accepted='Accepted',work_done=True).exists():
+        job_info = ServiceRequest.objects.filter(artisan=user).order_by('-date_created')
 
         context ={'job_info':job_info}
         return render(request,'artisans/completed_services.html',context)

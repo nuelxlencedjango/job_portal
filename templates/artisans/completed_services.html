@@ -27,7 +27,7 @@
        
         <div class="card card-body">
           <button class="btn btn-success  btn-sm btn-block" style="background-color: #96D4D4; font-size: 26px;">Job Details &nbsp;&nbsp;
-          <a class="btn btn-dark  btn-sm btn-block" style=" font-size: 26px;" href="{% url 'artisan:confirmed_orders' %}">Dashboard</a> 
+          <a class="btn btn-dark  btn-sm btn-block" style=" font-size: 26px;" href="{% url 'account:artisanPage' %}">Dashboard</a> 
           </button>
           <table class="table table-sm" style="margin-top: 30px;">
             <tr>
@@ -54,12 +54,12 @@
               <td>{{job.get_service_rate}}</td>
              
           
-              {% for name in job.artisan_assigned.all %}
-              <td> {{name.user.username}}</td>
-              {% endfor %}
+            
+              <td>{{ user.username}}</td>
+         }
             </tr>
             {% endfor %}
-        {{job}}
+      
 
 
           </table>
