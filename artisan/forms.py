@@ -94,3 +94,17 @@ class ArtisanUpdateForm(forms.ModelForm):
     model =Artisan
     fields =('address','phone','location','nin')    
 
+
+
+
+
+
+
+
+class BankDetailForm(forms.ModelForm):
+
+  class Meta:
+    model =BankDetails
+    fields =('bank_name','account_number','account_type') 
+
+

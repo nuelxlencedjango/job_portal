@@ -158,6 +158,7 @@ class BankDetails(models.Model):
 
   user = models.ForeignKey(User, on_delete=models.CASCADE)
   bank_name =  models.CharField(max_length=200, null=True, unique = True)
+  account_name =  models.CharField(max_length=200, null=True, unique = True)
   account_type = models.CharField(max_length=200, null=True, unique = True)
   account_number = models.CharField(max_length=200, null=True, unique = False)
  

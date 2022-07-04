@@ -451,4 +451,24 @@ def searchResult(request):
 
 
 
+@login_required(login_url='/account/login')
+def bankDetails(request):
+
+    form = BankDetailForm()
+    if request.method == 'POST':
+
+        form = BankDetailForm(request.POST)
+        if form.is_valid():
+                job_obj = form.save(commit=False)
+                job_obj.user = request.user
+                job_obj.save()
+                return redirect('account:artisanPage')
+                
+    context={'form': form}
+    return render(request, 'artisans/bank_info.html', context) 
+
+
+
+
+
 
