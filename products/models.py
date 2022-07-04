@@ -84,6 +84,9 @@ class Product(models.Model):
        #     "pk":self.pk
         #})   
 
+   def clean(self):
+        self.name = self.name.capitalize()     
+
    def get_add_to_cart(self):
       return reverse('product:add-to-cart' ,kwargs={
             "pk":self.pk
@@ -345,6 +348,7 @@ class ServiceOrder(models.Model):
       verbose_name_plural='ServiceOrder'
        
       ordering = ['-ordered_date']
+   
 
 
    def save(self, *args,**kwargs):

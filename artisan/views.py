@@ -1,3 +1,4 @@
+from itertools import product
 from multiprocessing import context
 from urllib import request
 from django.shortcuts import render
@@ -107,19 +108,44 @@ def paidJobs(request):
     job_address = request.user.artisan.address
     job_name   = request.user.artisan.profession_name
 
-#to be changed to orderitem.objects.filter
-    services_paid_for = ServiceOrder.objects.filter(ordered =True)
-    #services_paid_for = Order.objects.filter(ordered =True)
-    #services_paid_for = OrderItem.objects.filter(ordered =True,status='Paid')
-    if ServiceRequest.objects.filter(status ="Paid"):
-        areaJobs = ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) | Q(product__name__icontains=job_name))
+    products = ServiceOrder.objects.all()
+   
+    for name in products:
+        for item in name.items.all():
+            itt=item.product.id
+            if ServiceOrder.objects.filter(items=itt, ordered =True).exists():
+              
+                if ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address)):
+                    if ServiceRequest.objects.filter(Q(product__name__icontains=job_name)):
+
+                        areaJobs=ServiceRequest.objects.filter(Q(product__name__icontains=job_name))
+            #areaJobs = ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) | Q(product__name__icontains=job_name))
+
+                    context ={'areaJobs':areaJobs}
+                    return render(request,'dashboard/artisan/artisans.html',context) 
+                 
+            return render(request,'dashboard/artisan/artisans.html')  
+        
+         
+    return render(request,'dashboard/artisan/artisans.html')     
+
+               
+           
+                
+
+
+         
+             
+       
 
    
-    # areaJobs = OrderItem.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) )
+ 
   
-        context ={'services_paid_for':services_paid_for,'artisan':artisan,'areaJobs':areaJobs}
-    #return render(request,'products/paid_services.html',context)
-    return render(request,'dashboard/artisan/artisans.html',context)
+		
+
+
+					             
+   
 
 
 
@@ -156,15 +182,17 @@ def jobAccepted(request,id):
 
         accepted_job= ServiceRequest.objects.filter(id=id, ordered=True,status='Paid')
         for b in accepted_job:
-            b.artisan.set(artisan)
+            #b.artisan.set(artisan)
+            b.artisan =Artisan.objects.get(user=request.user)
+            b.save()
             #b.taken=True
          
             #b.save()
         ServiceRequest.objects.filter(id=id, ordered=True,status='Paid').update(accepted ="Accepted" ,
         accepted_date =timezone.now())
          
-    else:
-        ServiceRequest.objects.filter
+    #else:
+       
      
     if ViewedJob.objects.filter(user=request.user,job_order_id=id).exists():
 

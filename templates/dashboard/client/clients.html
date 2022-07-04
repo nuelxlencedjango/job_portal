@@ -859,6 +859,7 @@
                       <tr>
                         <th class="ml-5">ID</th>
                         <th>Project name</th>
+                        <th>Artisan</th>
                         <th>Price</th>
                         <th>Workers</th>
                         <th>Amount	</th>
@@ -876,6 +877,7 @@
                         <td>#{{ forloop.counter }}</td>
 
 					              <td>{{ order_item.product.name }}</td>
+                        <td>{{ order_item.artisan.user.last_name }}</td>
                         <td>{{ order_item.product.price }}</td>
 
                    
