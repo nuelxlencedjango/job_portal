@@ -597,7 +597,7 @@ def serviceRequestCart(request, pk):
         item = Product.objects.get(name=job)
     
         service_item,created = ServiceRequest.objects.get_or_create(
-            artisan = artisan,
+            artisan =Artisan.objects.get(pk=pk), #artisan,
             product =item,
             user = request.user,
             ordered = False,
@@ -609,7 +609,8 @@ def serviceRequestCart(request, pk):
 
 
         )
-           
+        ServiceOrder.objects.filter(user=request.user,ordered=True,status="Paid").update(artisanName=Artisan.objects.get(pk=pk))  
+        
         order_qs = ServiceOrder.objects.filter(user=request.user,ordered=False)
         if order_qs.exists():
             order =order_qs[0]
@@ -642,16 +643,14 @@ def serviceRequestCart(request, pk):
 
 
 
-
+#client unpaid request list
 def Servicelist(request):
-    
     if ServiceOrder.objects.filter(user=request.user, ordered =False).exists(): #or PostJob.objects.filter(user=request.user, paid =False).exists():
         order = ServiceOrder.objects.get(user=request.user, ordered=False)
         #post = PostJob.objects.get(user=request.user, paid=False)
         context={
             'order':order,'listing': 'listing'
         }
-
         #return render(request, 'products/servicelist.html',context)
         return render(request, 'dashboard/client/clients.html',context)
      

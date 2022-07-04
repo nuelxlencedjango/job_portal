@@ -94,6 +94,7 @@ class Artisan(models.Model):
   address = models.CharField(max_length=200, null=True)
   phone = models.CharField(max_length=15, null=True,unique=True)
   profession_name = models.CharField(max_length=200, null=True, unique = False)
+  job_name = models.ForeignKey('products.Product' ,on_delete =models.CASCADE ,null=True,blank=True,unique = False)
  
   profile_img = CloudinaryField(blank=True,null=True)
 

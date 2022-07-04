@@ -1,5 +1,6 @@
 from itertools import product
 from multiprocessing import context
+from unittest import result
 from urllib import request
 from django.shortcuts import render
 from django.utils import timezone
@@ -42,27 +43,21 @@ def artisanRegistration(request):
             profile.user =user
             profile.save()
             img_obj = form4.instance
-
             id = form1.cleaned_data.get('id')
-
             messages.success(request, 'Account was created for ' , id)
 
             return redirect('account:login')
 
-       
     else:
         form1 =CreateUserForm()
         form4 = WorkersForm()
-        #form3 = ArtisanForm()
-        
-        
-        
+       
+         
     context = {'form1':form1, 'form4': form4}   
     return render(request, 'account/artisan_register.html', context)
 
 
-#def availableJob(request):
- #   return render(request, 'available_order.html')
+#
 
 
 
@@ -98,36 +93,82 @@ def artisan_update(request):
 
 
 
+   #ordered = models.BooleanField(default=False)
+   #product = models.ForeignKey(Product, on_delete=models.CASCADE)
+ 
+  
+   #status = models.CharField(max_length=200, null=True, blank=True, default='Pending')
+  
+   #address = models.CharField(max_length=300, null=True,blank=True)
+   #artisan = models.ForeignKey(Artisan, on_delete=models.CASCADE,null=True,blank=True)
+   #location = models.ForeignKey('artisan.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
 
 
+#is it all the jobs in the area or based on the service the artisan offers?
 @login_required
 def paidJobs(request):
     artisan = Artisan.objects.filter(user=request.user)
+    print(type(artisan),artisan)
     
     job_location = request.user.artisan.location
-    job_address = request.user.artisan.address
+    #job_address = request.user.artisan.address
     job_name   = request.user.artisan.profession_name
 
-    products = ServiceOrder.objects.all()
-   
-    for name in products:
-        for item in name.items.all():
-            itt=item.product.id
-            if ServiceOrder.objects.filter(items=itt, ordered =True).exists():
-              
-                if ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address)):
-                    if ServiceRequest.objects.filter(Q(product__name__icontains=job_name)):
+    if ServiceRequest.objects.filter(ordered=True,status='Paid',artisan=artisan[0]).exists():
+        res=ServiceRequest.objects.filter(ordered=True,status='Paid',artisan=artisan[0])
 
-                        areaJobs=ServiceRequest.objects.filter(Q(product__name__icontains=job_name))
+        context ={'areaJobs':res}
+        return render(request,'dashboard/artisan/artisans.html',context) 
+
+    elif ServiceRequest.objects.filter(ordered=True,status='Paid',location=job_location).exists():
+       if ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address)):
+              
+
+        res =ServiceRequest.objects.filter(ordered=True,status='Paid',location=job_location)
+
+        context ={'areaJobs':res}
+        return render(request,'dashboard/artisan/artisans.html',context) 
+
+    else:
+        return redirect('/')   
+
+
+
+
+   
+
+       
+
+
+    #if ServiceRequest.objects.filter(product=product,ordered =True,status='Paid'):
+        #result =ServiceRequest.objects.filter(artisan=Artisan.objects.filter(user=request.user),ordered =True,status='Paid')
+
+        context ={'areaJobs':res}
+        return render(request,'dashboard/artisan/artisans.html',context) 
+
+    #if ServiceOrder.objects.filter(items=job_name,ordered=True):
+     #   pass
+
+    #products = ServiceOrder.objects.all()
+   
+    #for name in products:
+        #for item in name.items.all():
+            #itt=item.product.id
+            #if ServiceOrder.objects.filter(items=itt, ordered =True).exists():
+              
+                #if ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address)):
+                    #if ServiceRequest.objects.filter(Q(product__name__icontains=job_name)):
+
+                        #areaJobs=ServiceRequest.objects.filter(Q(product__name__icontains=job_name))
             #areaJobs = ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address) | Q(product__name__icontains=job_name))
 
-                    context ={'areaJobs':areaJobs}
-                    return render(request,'dashboard/artisan/artisans.html',context) 
+                    #context ={'areaJobs':areaJobs}
+                    #return render(request,'dashboard/artisan/artisans.html',context) 
                  
-            return render(request,'dashboard/artisan/artisans.html')  
+            #return render(request,'dashboard/artisan/artisans.html')  
         
          
-    return render(request,'dashboard/artisan/artisans.html')     
+    #return render(request,'dashboard/artisan/artisans.html')     
 
                
            
