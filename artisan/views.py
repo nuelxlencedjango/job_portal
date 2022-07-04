@@ -120,6 +120,7 @@ def paidJobs(request):
         context ={'areaJobs':res}
         return render(request,'dashboard/artisan/artisans.html',context) 
 
+
     elif ServiceRequest.objects.filter(ordered=True,status='Paid',location=job_location).exists():
        if ServiceRequest.objects.filter(Q(address__icontains=job_location) | Q(address__icontains=job_address)):
               
@@ -380,17 +381,17 @@ class ListArtisansAvailable(DetailView):
 
 
 
-def artisanList(request, name):
+def artisanList(request, pk):
     # icontains here
-    if Artisan.objects.filter(profession_name=name).exists():
-        details = Artisan.objects.filter(profession_name=name)
+    if Artisan.objects.filter(profession_name=pk).exists():
+        details = Artisan.objects.filter(profession_name=pk)
         context={"details":details}
         
         return render(request, "artisans/artisan-search.html", context)
     else:
         
-        context={'name':name}
-        messages.warning(request, name,"is not available at this point")
+        context={'name':pk}
+        messages.warning(request, pk,"is not available at this point")
         return render(request, "artisans/artisan-search.html", context)
 
 

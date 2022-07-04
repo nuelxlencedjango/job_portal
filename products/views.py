@@ -592,6 +592,7 @@ def serviceRequestCart(request, pk):
     if request.user.is_authenticated:
 
         artisan = Artisan.objects.get(pk=pk)  
+        artisan_name = artisan.user.last_name
         #product = Product.objects.get(pk=pk)  
         job = artisan.profession_name 
         item = Product.objects.get(name=job)
@@ -609,7 +610,7 @@ def serviceRequestCart(request, pk):
 
 
         )
-        ServiceOrder.objects.filter(user=request.user,ordered=True,status="Paid").update(artisanName=Artisan.objects.get(pk=pk))  
+        ServiceOrder.objects.filter(user=request.user,ordered=True).update(artisanName=artisan_name)  
         
         order_qs = ServiceOrder.objects.filter(user=request.user,ordered=False)
         if order_qs.exists():
