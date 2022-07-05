@@ -4,11 +4,25 @@
 
 {% load crispy_forms_tags %}
 
-<style>
 
+
+
+
+
+
+<style>
+  .g-3{
+        /*box-shadow: 0 0 10px 4px #d0d0d0;*/
+        box-shadow: 0 4px 8px 0 #fff;
+       
+       }
+
+       .g-3:hover{
+         border: #fff;
+       }
 </style>
 
-<div id="form2" class="container form2" style="width: 500px;  background-color: #2b3032a1; align-items: center; text-align: center; margin-top: 50px;">
+<!--<div id="form2" class="container form2" style="width: 500px;  background-color: #2b3032a1; align-items: center; text-align: center; margin-top: 50px;">
     <form action="{% url 'artisan:artisanReg' %}" method="POST" class="row g-3" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="col-md-8">
@@ -30,14 +44,8 @@
             <label for="inputAddress2" class="form-label">Job Type</label>
             <input type="text" class="form-control" id="inputAddress2" name="profession_name" placeholder="Job Type">
           </div>
-          <div class="col-md-4 form4">
-            {{ form4.profile_img|as_crispy_field }}
-        </div>
-         
         
-          <div class="col-md-4 form4">
-            {{ form4.location|as_crispy_field }}
-        </div>
+          
         
         <div class="col-6">
           <label for="inputAddress2" class="form-label">Address</label>
@@ -69,8 +77,6 @@
         
   
         <div class="col-12">
-     <!--<a action="" role="button" class="btn btn-danger btn-lg">Submit </a>    
-     <button role="button" class="btn btn-danger btn-lg">submit</button>   -->
      <input type="submit" class="btn btn-danger btn-lg" value="submit" >   
         </div>
       </form>
@@ -88,8 +94,94 @@
         class=" mm-2" >Login</a>
     </div>
 </div>
-</div>
+</div>-->
 
 
 
-{% endblock %}
+
+
+
+
+              
+
+
+<div id="form2" class="container form2">
+  <h3>Worker's Registration Form</h3>
+    <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
+      
+        {% csrf_token %}
+      
+     
+        <div class="col-md-6 form2">
+            {{ form1.username|as_crispy_field }}
+        </div>
+        <div class="col-md-12 form2">
+            {{ form1.first_name|as_crispy_field }}
+          </div>
+
+        <div class="col-md-12 form2">
+            {{ form1.last_name|as_crispy_field }}
+          </div>
+
+        <div class="col-md-12 form2">
+            {{ form4.profession_name|as_crispy_field }}
+          </div>
+
+          <div class="col-md-12 form2">
+            {{ form4.address|as_crispy_field }}
+          </div>
+          <div class="col-md-12 form2">
+            {{ form4.phone|as_crispy_field }}
+          </div>
+          <div class="col-md-12 form2">
+            {{ form1.email|as_crispy_field }}
+          </div>
+          <div class="col-md-12 form2">
+            {{ form4.nin|as_crispy_field }}
+          </div>
+
+          <div class="col-md-4 form4">
+            {{ form4.profile_img|as_crispy_field }}
+        </div>
+         
+        
+          <div class="col-md-4 form4">
+            {{ form4.location|as_crispy_field }}
+        </div>
+        <div class="col-md-4 form4">
+          {{ form1.password1|as_crispy_field }}
+      </div>
+      <div class="col-md-4 form4">
+        {{ form1.password2|as_crispy_field }}
+    </div>
+  
+        <div class="col-12">
+     <input type="submit" class="btn btn-danger btn-lg" value="submit" >   
+        </div>
+
+
+    
+  {{ form.errors }}
+ 
+  
+  
+  <div class="mt-4">  
+    
+      <div class="d-flex justify-content-center links">
+          Already Have An Account? <a href="{% url 'account:login' %}"
+          class=" mm-2" >Login</a>
+      </div>
+  </div>    
+      </form>
+
+
+
+
+  </div>
+  
+
+  
+
+       
+
+  {% endblock %}   

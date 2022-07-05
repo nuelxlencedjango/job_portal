@@ -105,6 +105,6 @@ class BankDetailForm(forms.ModelForm):
 
   class Meta:
     model =BankDetails
-    fields =('bank_name','account_number','account_type') 
+    fields =('bank_name','account_number','account_type','account_name') 
 
 
