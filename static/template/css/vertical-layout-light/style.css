@@ -8834,6 +8834,10 @@ samp {
   font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 1em;
 }
+.brand-logo img{
+  border-radius: 50%;
+  width: 100px;
+}
 
 pre {
   margin-top: 0;
@@ -24034,10 +24038,14 @@ div.tagsinput span.tag a {
 
 .auth .brand-logo {
   margin-bottom: 2rem;
+
+
 }
 
 .auth .brand-logo img {
   width: 150px;
+
+
 }
 
 .auth form .form-group {
@@ -24433,10 +24441,12 @@ div.tagsinput span.tag a {
   display: none;
 }
 
+
 @media (max-width: 991px) {
   .navbar .navbar-brand-wrapper .navbar-brand-inner-wrapper .navbar-brand.brand-logo-mini {
     display: inline-block;
     width: 3.125rem;
+
   }
 }
 
@@ -25067,9 +25077,13 @@ div.tagsinput span.tag a {
   }
   .navbar .navbar-brand-wrapper .navbar-brand.brand-logo {
     display: none;
+
+
   }
   .navbar .navbar-brand-wrapper .navbar-brand.brand-logo-mini {
     display: inline-block;
+
+
   }
   .navbar-collapse {
     display: -webkit-box;
@@ -25085,6 +25099,8 @@ div.tagsinput span.tag a {
   }
   .navbar .navbar-brand-wrapper .brand-logo-mini {
     padding-top: 0px;
+
+
   }
 }
 
@@ -25323,6 +25339,7 @@ div.tagsinput span.tag a {
   }
   .sidebar-icon-only .navbar .navbar-brand-wrapper .brand-logo {
     display: none;
+
   }
   .sidebar-icon-only .navbar .navbar-menu-wrapper {
     width: calc(100% - 70px - 0.5rem);

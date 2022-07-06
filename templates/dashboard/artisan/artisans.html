@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PolluxUI Admin</title>
+  <title>I_client_dashboard</title>
   <!-- base:css -->
   <link rel="stylesheet" href="{% static 'template/vendors/typicons/typicons.css' %}">
   <link rel="stylesheet" href="{% static 'template/vendors/css/vendor.bundle.base.css' %}">
@@ -15,7 +15,9 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{% static 'template/css/vertical-layout-light/style.css' %}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{% static 'template/images/favicon.png' %}" />
+  <link rel="shortcut icon" href="{% static 'images/brand/title_image2.png' %}" />
+  <!--<link rel="shortcut icon" href="{% static 'template/images/favicon.png' %}" />-->
+  <link rel="stylesheet" href="/static/template/css/vertical-layout-light/styling.css">
 </head>
 <body>
 
@@ -28,6 +30,15 @@
       padding: 10px 20px;
       border-radius: 50%;
     }
+    li {
+   list-style: none !important;
+  }
+  a{
+    text-decoration: none;
+  }
+  .collapse li a{
+    color: #000 !important;
+  }
   </style>
   <!--<div class="row" id="proBanner">
     <div class="col-12">
@@ -40,12 +51,12 @@
   </div>-->
 
     <!-- partial:partials/_navbar.html -->
-  <!--<div class="container-scroller">
+  <div class="container-scroller">
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo"/></a>
-          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+          <a class="navbar-brand brand-logo" href=""><img src="/static/images/brand2.jpg" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href=""><img src="/static/images/brand4.jpg" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
           </button>
@@ -53,40 +64,39 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav mr-lg-2">
-          <li class="nav-item nav-profile dropdown">
-            <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face5.jpg" alt="profile"/>
-              <span class="nav-profile-name">Eugenia Mullins</span>
+          <!--<li class="nav-item nav-user-status dropdown">
+            <p class="mb-0">Logout</p>
+        </li>-->
+          <!--<li class="nav-item nav-profile dropdown">
+            <a class="nav-link" href="{% url 'products:home' %}" data-toggle="dropdown" id="profileDropdown">
+            
+              <span class="nav-profile-name"><b>HomePage</b></span>
             </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="typcn typcn-cog-outline text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
-                <i class="typcn typcn-eject text-primary"></i>
-                Logout
-              </a>
-            </div>
-          </li>
-          <li class="nav-item nav-user-status dropdown">
-              <p class="mb-0">Last login was 23 hours ago.</p>
-          </li>
+          
+          </li>-->
+          <li class="nav-item nav-date dropdown">
+            <a class="nav-link d-flex justify-content-center align-items-center" href="{% url 'account:logout' %}">
+              <h6 class="date mb-0"><b>Home Page</b></h6>
+              <!--<i class="typcn typcn-calendar"></i>-->
+            </a>
+          <!--<li class="nav-item nav-user-status dropdown">
+              <p class="mb-0">Logout</p>
+          </li>-->
         </ul>
         <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-date dropdown">
-            <a class="nav-link d-flex justify-content-center align-items-center" href="javascript:;">
-              <h6 class="date mb-0">Today : Mar 23</h6>
-              <i class="typcn typcn-calendar"></i>
+            <a class="nav-link d-flex justify-content-center align-items-center" href="{% url 'account:logout' %}">
+              <h6 class="date mb-0"><b>logout</b></h6>
+              <!--<i class="typcn typcn-calendar"></i>-->
             </a>
           </li>
-          <li class="nav-item dropdown">
+          <!--<li class="nav-item dropdown">
             <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">
               <i class="typcn typcn-cog-outline mx-0"></i>
-              <span class="count"></span>
+              <span class="count">iii</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-              <p class="mb-0 font-weight-normal float-left dropdown-header">Messages</p>
+              <p class="mb-0 font-weight-normal float-left dropdown-header">Mess</p>
               <a class="dropdown-item preview-item">
                 <div class="preview-thumbnail">
                     <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
@@ -124,8 +134,8 @@
                 </div>
               </a>
             </div>
-          </li>
-          <li class="nav-item dropdown mr-0">
+          </li>-->
+          <!--<li class="nav-item dropdown mr-0">
             <a class="nav-link count-indicator dropdown-toggle d-flex align-items-center justify-content-center" id="notificationDropdown" href="#" data-toggle="dropdown">
               <i class="typcn typcn-bell mx-0"></i>
               <span class="count"></span>
@@ -172,36 +182,37 @@
                 </div>
               </a>
             </div>
-          </li>
-        </ul>-->
+          </li>-->
+        </ul>
         <!--<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
           <span class="typcn typcn-th-menu"></span>
-        </button>
+        </button>-->
       </div>
-    </nav>-->
+    </nav>
     <!-- partial -->
     <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
       <div class="navbar-links-wrapper d-flex align-items-stretch">
         <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-calendar-outline"></i></a>
+          <a href="{% url 'products:jobs' %}"><b>Services</b></a>
         </div>
         <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-mail"></i></a>
+          <a href="{% url 'products:contact' %}"><b>ContactUs</b></a>
+          <!--<a href="javascript:;"><i class="typcn typcn-mail"></i></a>-->
         </div>
         <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-folder"></i></a>
+          <a href="{% url 'products:terms' %}"><b>T&C</b></a>
         </div>
-        <div class="nav-link">
+        <!--<div class="nav-link">
           <a href="javascript:;"><i class="typcn typcn-document-text"></i></a>
-        </div>
+        </div>-->
       </div>
       
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav mr-lg-2">
           <li class="nav-item ml-0">
-            <h4 class="mb-0">Dashboard</h4>
+            <h4 class="mb-0">Welcome,{{ request.user.last_name}}</h4>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <div class="d-flex align-items-baseline">
               <p class="mb-0">Home</p>
               <i class="typcn typcn-chevron-right"></i>
@@ -209,9 +220,9 @@
             
             </div>
             <p class="mb-0">Welcome,{{ request.user}}</p>
-          </li>
+          </li>-->
         </ul>
-        <ul class="navbar-nav navbar-nav-right">
+        <!--<ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-search d-none d-md-block mr-0">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search">
@@ -222,7 +233,7 @@
               </div>
             </div>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </nav>
     <div class="container-fluid page-body-wrapper">
@@ -399,7 +410,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">
+            <a class="nav-link" href="#">
               <i class="typcn typcn-device-desktop menu-icon"></i>
               <span class="menu-title">Dashboard</span>
               <div class="badge badge-danger">new</div>
@@ -415,12 +426,12 @@
 
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{% url 'artisan:paidJobs' %}"><b>Available Jobs</b></a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'artisan:current_job' %}"><b>Your current job</b></a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'artisan:current_job_info' %}"><b>Register job for payment</b></a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'artisan:services_completed' %}"><b>Previous Jobs</b></a></li>
-                <li class="nav-item"> <a class="nav-link" href=""><b>Bank Info</b></a></li>
-                <li class="nav-item"> <a class="nav-link" href="{% url 'artisan:bank' %}"><b>Bank Info</b></a></li>
+                <li class="nav-item"> <a class="nav-link btn btn-light " href="{% url 'artisan:paidJobs' %}"><b>Available Jobs</b></a></li>
+                <li class="nav-item"> <a class="nav-link btn btn-light" href="{% url 'artisan:current_job' %}" ><b>Your current job</b></a></li>
+                <li class="nav-item"> <a class="nav-link btn btn-light" href="{% url 'artisan:current_job_info' %}"><b>Register job for payment</b></a></li>
+                <li class="nav-item"> <a class="nav-link btn btn-light" href="{% url 'artisan:services_completed' %}"><b>Previous Jobs</b></a></li>
+                <!--<li class="nav-item"> <a class="nav-link btn btn-light" href=""><b>Bank Info</b></a></li>-->
+                <li class="nav-item"> <a class="nav-link btn btn-light" href="{% url 'artisan:bank' %}"><b>Bank Info</b></a></li>
               </ul>
             </div>
           </li>
@@ -432,12 +443,12 @@
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
+                <li class="nav-item"><a class="nav-link  btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
               </ul>
             </div>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"><a class="nav-link" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>
+                <li class="nav-item"><a class="nav-link  btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>
               </ul>
             </div>
           </li>
