@@ -130,9 +130,10 @@
           <li><a href="{% url 'products:contact' %}" target="_blank">About Us</a></li>-->
           
           {% if user.artisan %}
-          <li><a  href="{% url 'account:artisanPage' %}">Dashboard</a>
+        
+          <li><a style="color: #dc3545;" href="{% url 'account:artisanPage' %}">Dashboard</a>
           <!--<li><a  href="{% url 'products:orderlist' %}">Cart</a>-->
-            <div style="color: blue;" >{{ request.user }}</div></li>
+           </li>
             {% elif user.details %}
 
             <li><a  href="{% url 'account:dashboard' %}">Dashboard</a>

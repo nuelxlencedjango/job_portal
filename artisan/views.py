@@ -93,17 +93,6 @@ def artisan_update(request):
 
 
 
-   #ordered = models.BooleanField(default=False)
-   #product = models.ForeignKey(Product, on_delete=models.CASCADE)
- 
-  
-   #status = models.CharField(max_length=200, null=True, blank=True, default='Pending')
-  
-   #address = models.CharField(max_length=300, null=True,blank=True)
-   #artisan = models.ForeignKey(Artisan, on_delete=models.CASCADE,null=True,blank=True)
-   #location = models.ForeignKey('artisan.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
-
-
 #is it all the jobs in the area or based on the service the artisan offers?
 @login_required
 def paidJobs(request):
@@ -134,7 +123,8 @@ def paidJobs(request):
 
 
     else:
-        return redirect('/')   
+        messages.success(request, f"No {job_name} work available now.Please check back later.") 
+        return render(request,'dashboard/artisan/artisans.html')  
 
 
 

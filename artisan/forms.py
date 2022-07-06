@@ -44,12 +44,12 @@ class CreateUserForm(UserCreationForm):
 
 
   
-  
+ 
 class WorkersForm(ModelForm):
   #location= forms.CharField(max_length=30, required=True, label='location',widget=forms.TextInput(attrs={'placeholder': 'location'}))
   address = forms.CharField(max_length=200, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
-  profession_name = forms.CharField(max_length=50, required=True,label='Job Type',widget=forms.TextInput(attrs={'placeholder': 'Job Type'}))
+  #profession_name = forms.ModelChoiceField(max_length=50, required=True,label='Job Type',widget=forms.TextInput(attrs={'placeholder': 'Job Type'}))
   profile_img =CloudinaryField()
   nin = forms.CharField(max_length=15, required=True,label='NIN',widget=forms.TextInput(attrs={'placeholder': 'NIN'}))
  

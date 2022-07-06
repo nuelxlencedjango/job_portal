@@ -20,6 +20,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin ,UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 
+from account.models import Customer
+
 #import products                 
 from .models import *
 from django.db.models import Q 
@@ -734,7 +736,7 @@ def PostJobItem(request):
 @login_required(login_url='/account/login')
 def postServiceNeeded(request):
     form = PostServiceForm()
-    if request.user.is_authenticated:
+    if request.user.is_authenticated and Customer.objects.filter(user=request.user):
         if request.method == 'POST':
 
             form = PostServiceForm(request.POST)
@@ -777,10 +779,13 @@ def postServiceNeeded(request):
                 return redirect('account:dashboard')          
     
         else:
+            messages.info(request,"Request unsuccessful! Please login as before you can make a request")
+           
             context={'form':form}
-            messages.info(request,"Request unsuccessful! Please login before you can make a request")
             return render(request, 'post/post_job.html',context) 
-    
+
+    messages.info(request," Please login as a client before you can make a request")    
+    return render(request, 'artisans/as_client.html') 
 
 
 
