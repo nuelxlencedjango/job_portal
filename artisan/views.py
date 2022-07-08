@@ -108,23 +108,24 @@ def paidJobs(request):
 
         if ServiceRequest.objects.filter(ordered=True,status='Paid',artisan=artisan[0],accepted='Accepted').exists():
             messages.info(request ,"No new jobs avaialable now.")
-            return render(request,'dashboard/artisan/artisans.html')
+            return render(request,'check.html')
+            
 
 
         context ={'areaJobs':res}
-        return render(request,'dashboard/artisan/artisans.html',context) 
+        return render(request,'check.html',context) 
 
 
     elif ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name).exists():        
         res =ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name)
 
         context ={'areaJobs':res}
-        return render(request,'dashboard/artisan/artisans.html',context) 
+        return render(request,'check.html',context) 
 
 
     else:
         messages.success(request, f"No {job_name} work available now.Please check back later.") 
-        return render(request,'dashboard/artisan/artisans.html')  
+        return render(request,'check.html')  
 
 
 

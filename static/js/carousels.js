@@ -1,5 +1,5 @@
 
-let menuQuery = false;
+/*let menuQuery = false;
 
 let toggleChoice = function(){
     //let getCard = document.querySelectorAll(".card")
@@ -8,7 +8,7 @@ let toggleChoice = function(){
     let getWhat = document.querySelector(".what-do-want")
 
     if(menuQuery === false){
-        //getRow.style.marginLeft = "-3000px";
+        
 
         getChoice.style.marginLeft ="300px";
         getChoice.style.visibility = "visible"
@@ -29,9 +29,9 @@ let toggleChoice = function(){
 
     }
 }
+*/
 
-
-let toggleSelected = function(){
+/*let toggleSelected = function(){
     //let getCard = document.querySelectorAll(".card")
     let getChoice = document.querySelector(".select-choice")
     let getSelect = document.querySelector(".cont");
@@ -55,13 +55,13 @@ let toggleSelected = function(){
         menuQuery =false;
 
     }
-}
+}*/
 
 
 //login button
 
 
-let loginQuery = false;
+/*let loginQuery = false;
 
 let toggleLogin= function(){
     
@@ -79,4 +79,4 @@ let toggleLogin= function(){
 
     }
    
-}
+}*/

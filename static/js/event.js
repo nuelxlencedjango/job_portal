@@ -83,7 +83,7 @@ let toggleSelect = function(){
 //login button
 
 
-let loginQueryy = false;
+/*let loginQueryy = false;
 
 let toggleLoginn= function(){
     
@@ -107,7 +107,7 @@ const name = document.querySelector(".confirm");
 
  function changeColor() {
     name.style.display = "none";
- }
+ }*/
 
 
  //function changeColor(color) {

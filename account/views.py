@@ -62,7 +62,6 @@ def logoutPage(request):
     return redirect('products:home')
 
 
-
 def registerPage(request):
     if request.method == 'POST':
         form1 = CreateUserForm(request.POST)
@@ -186,10 +185,11 @@ def clientRegister(request):
 
 
 
-
 def clientDashboard(request):
     return render(request,'dashboard/client/clients.html')   
 
-
 def artisanDashboard(request):
-    return render(request,'dashboard/artisan/artisans.html') 
+   
+    #return render(request,'new/home.html')
+    #return render(request,'dashboard/artisan/try.html')
+    return render(request,'dashboard/artisan/artisans_admin.html')
