@@ -1,0 +1,69 @@
+{% extends 'main.html' %}
+{% block content %}
+
+<style>
+    .main-panel {
+  transition: width 0.25s ease, margin 0.25s ease;
+  width: calc(100% - 236px);
+  min-height: calc(100vh - 4.625rem);
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.6875rem;
+  margin-left: -0.6875rem;
+}
+.content-wrapper {
+  padding: 0 1.812rem 1.812rem;
+  width: 100%;
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+
+@media (max-width: 767px) {
+  .content-wrapper {
+    padding: 1.5rem 1.5rem;
+  }
+}
+</style>
+ <div class="main-panel">
+    <div class="content-wrapper">
+
+<div class="col-md-12 col-xl-4 grid-margin stretch-card" id="stats">
+    <div class="card">
+      <div class="card-body border-bottom">
+        <div class="d-flex justify-content-between align-items-center flex-wrap">
+          <h6 class="mb-2 mb-md-0 text-uppercase font-weight-medium">Available jobs</h6>
+        </div>
+          <div class="col-md-7" style="align-items: center;">
+             <hr>
+                  <div class="card card-body">
+                  <table class="table table-sm" >
+                  <tr style="margin-top: 70px;"> 
+
+                  {% for item in areaJobs %}
+
+                  <h3 style="text-transform: capitalize;">{{item.product.name}} &nbsp;<a href="{% url 'artisan:job_detail' item.id %}" style="align-items: center; text-transform: capitalize;" name="view-detail" class="btn btn-success right">See Detail</a>
+                  </h3>
+
+                  <hr>
+                  {% endfor %}
+                  </tr>
+                  </table>
+                  </div>
+                </div>
+      </div>
+
+      <div class="card-body">
+        <canvas id="sales-chart-d" height="320"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock %}

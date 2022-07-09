@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-	<link rel="stylesheet" href="style.css">
+	<!--<link rel="stylesheet" href="style.css">-->
 	<title>AdminSite</title>
 </head>
 
@@ -61,7 +61,7 @@ li {
 	max-width: 260px;
 	width: 100%;
 	background: var(--light);
-	top: 0;
+	top: 80px;
 	left: 0;
 	height: 100%;
 	overflow-y: auto;
@@ -120,7 +120,7 @@ li {
 	align-items: center;
 	font-size: 14px;
 	color: var(--dark);
-	padding: 12px 16px 12px 0;
+	padding: 8px 10px 12px 0;
 	transition: all .3s ease;
 	border-radius: 10px;
 	margin: 4px 0;
@@ -588,13 +588,79 @@ main .btn-send {
 main .btn-send:hover {
 	background: var(--dark-blue);
 }
+.card-body{
+	margin-top: 20px;
+	padding: 20px;
+	display: flex;
+	background: #fff;
+	margin-left: 10px;
+	margin-right: auto;
+}
+
+.new_navbar{
+	/*top: 0;
+	position: fixed;*/
+}
+.new_navbar ul{
+	display: flex;
+
+
+}
+.new_navbar ul li{
+	padding: 20px;
+}
+.new_navbar ul li a{
+	color: #000;
+	font-size: 18px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: 500;
+}
+li:hover{
+	background-color: #FC3B56;
+	
+}
+.card-body .profile{
+	height: 150px;
+	width: 200px;
+	margin-left: 100px;
+	
+}
+.card-body .profile img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-body-info{
+	
+}
+.card-body-info h5{
+	margin-top: 10px;
+	font-size: 18px;
+	color: #000;
+	font-weight: 500;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+.card-body-info p{
+	margin-top: 5px;
+	font-size: 16px;
+	color: #000;
+	font-weight: 300;
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+.footer{
+	background: #000;
+	bottom: 0;
+}
 /* MAIN */
 /* CONTENT */
 
 
 
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
 	#content {
 		position: relative;
 		width: calc(100% - 60px);
@@ -604,18 +670,179 @@ main .btn-send:hover {
 	nav .divider {
 		display: none;
 	}
+}*/
+
+@media screen and (max-width: 580px) {
+
+
+#sidebar {
+    position: fixed;
+    max-width: 150px;
+    width: 100%;
+    background: var(--light);
+    /*top: 0;*/
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: all .3s ease;
+    z-index: 200;
+}
+#sidebar .brand {
+    font-size: 18px;
+    display: block;
+    align-items: center;
+    height: 25px;
+    font-weight: 500;
+    color: var(--blue);
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background: var(--light);
+    transition: all .3s ease;
+    padding: 0 6px;
+}
+#sidebar .icon {
+    min-width: 48px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    margin-right: 6px;
+}
+#sidebar .side-menu {
+    margin: auto;
+    padding: 10px;
+    transition: all .3s ease;
+}
+#sidebar .side-menu a {
+    display: flex;
+    align-items: center;
+    font-size: 10px;
+    color: var(--dark);
+	
+    padding: 12px 16px 0px 5px;
+    transition: all .3s ease;
+    border-radius: 10px;
+    margin: 4px 0;
+    white-space: nowrap;
+}
+#content {
+    position: relative;
+    width: calc(100% - 150px);
+    left: 135px;
+    transition: all .3s ease;
+}
+main {
+    width: 100%;
+    padding: 24px 20px 0 20px;
+}
+main .info-data .card {
+    padding: 5px;
+    border-radius: 10px;
+    background: var(--light);
+    box-shadow: 4px 4px 16px rgb(0 0 0 / 5%);
+}
+main .card .head h2 {
+    font-size: 16px;
+    font-weight: 600;
+}
+/*	#content {
+		position: relative;
+		width: calc(100% - 60px);
+		transition: all .3s ease;
+	}
+	nav .nav-link,
+	nav .divider {
+		display: none;
+	}*/
+}
+@media screen and (max-width: 400px){
+#sidebar {
+    position: fixed;
+    max-width:100%;
+    width: 100%;
+    background: var(--light);
+    top: 150px;
+    left: 0;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: all .3s ease;
+    z-index: 200;
+	
+}
+#sidebar .side-menu a {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: var(--dark);
+    padding: 12px 16px 0px 5px;
+    transition: all .3s ease;
+    border-radius: 10px;
+    margin: 4px 0;
+    white-space: nowrap;
+}
+#content {
+    display: none;
+}
+}
+@media screen and (max-width: 300px){
+	.new_navbar ul li{
+	padding: 10px;
+}
+.new_navbar ul li a{
+	color: #000;
+	font-size: 16px;
+	
+	font-weight: 300;
+}
+
+
 }
 </style>
 <body>
+	<nav class="new_navbar">
+		<!--<i class='bx bx-menu toggle-sidebar' ></i>
+		<form action="#">
+			<div class="form-group">
+				<input type="text" placeholder="Search...">
+				<i class='bx bx-search icon' ></i>
+			</div>
+		</form>-->
+		<a href="#" class="nav-link"></a>
+			<ul>
+				<li><a href="{% url 'products:home' %}">home</a></li>
+				<li><a href="{% url 'products:contact' %}">contact us</a></li>
+				<li><a href="{% url 'account:logout' %}">logout</a></li>
+			</ul>
+			<!--<i class='bx bxs-bell icon' ></i>
+			<span class="badge">home</span>
+		<a href="#" class="nav-link">
+			<i class='bx bxs-message-square-dots icon' ></i>
+			<span class="badge">logout</span>
+		</a>-->
+	
+
+		<!--<div class="profile ">
+			<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
+			<ul class="profile-link">
+				<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
+				<li><a href="#"><i class='bx bxs-cog' ></i> Settings</a></li>
+				<li><a href="#"><i class='bx bxs-log-out-circle' ></i> Logouts</a></li>
+			</ul>
+		</div>-->
+
+	</nav>
 
 	
 	<!-- SIDEBAR -->
 	<section id="sidebar">
-		<a href="#" class="brand"><i class='bx bxs-smile icon'></i> AdminSite artisans</a>
+		<a href="#" class="brand"  style="background:red;color: #fff;"><i class='bx bxs-smile icon'></i>{{user.last_name}}'s Page</a>
 		<ul class="side-menu">
-			<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
+			<!--<li><a href="#" class="active"><i class='bx bxs-dashboard icon' ></i> Dashboard</a></li>
 			<li class="divider" data-text="main">Main</li>
-			<!--<li>
+			<li>
 				<a href="#"><i class='bx bxs-inbox icon' ></i>Job Details<i class='bx bx-chevron-right icon-right' ></i></a>
 				<ul class="side-dropdown">
 					<li><a href="{% url 'artisan:paidJobs' %}"><b>Available Jobs</b></a></li>
@@ -626,11 +853,20 @@ main .btn-send:hover {
 				</ul>
 			</li>-->
 
-			<li><a style="background:red" href="{% url 'artisan:paidJobs' %}"><b>Available Jobs</b></a></li>
-			<li><a href="#"><b>Your current job</b></a></li>
-			<li><a href="#"><b>Register job for payment</b></a></li>
+			<li><a href="{% url 'artisan:paidJobs' %}"><b>Available Jobs</b></a></li>
+			<li><a href="{% url 'artisan:current_job' %}"><b>Your current job</b></a></li>
+			<li><a href="{% url 'artisan:current_job_info' %}"><b>Register job for payment</b></a></li>
 			<li><a href="{% url 'products:handle_confirmation' %}"><b>Previous Jobs</b></a></li>
+			
+			<!--if bank detail check-->
 			<li><a href="#"><b>Add Bank Detail</b></a></li>
+			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
+
+			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>
+
+			<li><a href="#"><b>No of jobs completed</b></a></li>
+			<li><a href="#"><b>Outstanding payment</b></a></li>
+			<li><a href="#"><b>Total payment</b></a></li>
 
 			<li>
                 <a href="#"><i class='bx bxs-chart icon' ></i> Update Information<i class='bx bx-chevron-right icon-right' ></i></a>
@@ -640,11 +876,11 @@ main .btn-send:hover {
                    <li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>
                 </ul>
             </li>
-			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
+			<!--<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
 
-			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>
+			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>-->
 
-			<li><a href="#"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
+			<!--<li><a href="#"><i class='bx bxs-widget icon' ></i> Widgets</a></li>
 			<li class="divider" data-text="table and forms">Table and forms</li>
 			<li><a href="#"><i class='bx bx-table icon' ></i> Tables</a></li>
 			<li>
@@ -669,7 +905,7 @@ main .btn-send:hover {
 	<!-- NAVBAR -->
 	<section id="content">
 		<!-- NAVBAR -->
-		<nav>
+		<!--<nav>
 			<i class='bx bx-menu toggle-sidebar' ></i>
 			<form action="#">
 				<div class="form-group">
@@ -677,34 +913,59 @@ main .btn-send:hover {
 					<i class='bx bx-search icon' ></i>
 				</div>
 			</form>
-			<a href="#" class="nav-link">
-				<i class='bx bxs-bell icon' ></i>
-				<span class="badge">5</span>
-			</a>
-			<a href="#" class="nav-link">
-				<i class='bx bxs-message-square-dots icon' ></i>
-				<span class="badge">8</span>
-			</a>
-			<span class="divider"></span>
+			
 			<div class="profile">
 				<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
 				<ul class="profile-link">
 					<li><a href="#"><i class='bx bxs-user-circle icon' ></i> Profile</a></li>
 					<li><a href="#"><i class='bx bxs-cog' ></i> Settings</a></li>
-					<li><a href="#"><i class='bx bxs-log-out-circle' ></i> Logout</a></li>
+					<li><a href="#"><i class='bx bxs-log-out-circle' ></i> Logouts</a></li>
 				</ul>
-			</div>
-		</nav>
+			</div>-
+		</nav>-->
 		<!-- NAVBAR -->
 
 		<!-- MAIN -->
+
+		<div class="row">
+			{% for message in messages %}
+			   <p id="messages" style="text-align: center; font-size:18px">Hello  {{user.last_name}}, {{ message }}</p>
+			{% endfor %}
+			</div>
+		  <div class="card-body">
+			<div class=" card-body-info">
+			  <h5>Contact Information</h5>
+			  <hr>
+			  <p>username: {{user.username}}</p>
+			  <p>Full name: {{user.first_name}} &nbsp; {{user.last_name}}</p>
+			  <p>Phone: {{user.artisan.phone}}</p>
+			  <p>NIN: {{user.artisan.nin}}</p>
+			 
+			  <p>Email: {{user.email}}</p>
+			  <p>Address: {{user.artisan.address}}</p>
+			</div> 
+
+		<div class="profile ">
+			<img src="{{ user.artisan.profile_img.url }}" alt="">
+			
+		</div>
+		  </div>
+
 		<main>
-			<h1 class="title">Dashboard</h1>
+			
+			
+			<!--<h1 class="title">Dashboard</h1>
 			<ul class="breadcrumbs">
 				<li><a href="#">Home</a></li>
 				<li class="divider">/</li>
 				<li><a href="#" class="active">Dashboard</a></li>
-			</ul>
+				<li><h3><b>Username: {{user.username}}</b></h3></li>
+				<li><b> <p>Full name: {{user.first_name}} &nbsp; {{user.last_name}}</p></b></li>
+				<li><b> <p>Phone: {{user.artisan.phone}}</p></b></li>
+				<li><b> <p>NIN: {{user.artisan.nin}}</p></b></li>
+				<li><b> <p>Email: {{user.email}}</p></b></li>
+				<li><b> <p>Address: {{user.artisan.address}}</p></b></li>
+			</ul>-->
 
 
 
@@ -742,7 +1003,7 @@ main .btn-send:hover {
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>234 Number of jobs done</h2>
+							<h2> Number of jobs done</h2>
 
 							<div class="col-md">
 								<div class="card card-body">
@@ -762,8 +1023,8 @@ main .btn-send:hover {
 				<div class="card">
 					<div class="head">
 						<div>
-							<h2>465 outsting pay</h2>
-							<p>Pageviews</p>
+							<h2> outsting pay</h2>
+						
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
@@ -774,7 +1035,7 @@ main .btn-send:hover {
 					<div class="head">
 						<div>
 							<h2>235</h2>
-							<p>Visitors</p>
+							
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
@@ -782,17 +1043,19 @@ main .btn-send:hover {
 					<span class="label">80%</span>
 				</div>
 			</div>
+
+
 			<div class="data">
 				<div class="content-data">
 					<div class="head">
 						<h3>Sales Report</h3>
 						<div class="menu">
 							<i class='bx bx-dots-horizontal-rounded icon'></i>
-							<ul class="menu-link">
+							<!--<ul class="menu-link">
 								<li><a href="#">Edit</a></li>
 								<li><a href="#">Save</a></li>
 								<li><a href="#">Remove</a></li>
-							</ul>
+							</ul>-->
 						</div>
 					</div>
 					<div class="chart">
@@ -811,8 +1074,9 @@ main .btn-send:hover {
 							</ul>
 						</div>
 					</div>
+
 					<div class="chat-box">
-						<p class="day"><span>Today</span></p>
+						<!--<p class="day"><span>Today</span></p>
 						<div class="msg">
 							<img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGVvcGxlfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="">
 							<div class="chat">
@@ -822,8 +1086,8 @@ main .btn-send:hover {
 								</div>
 								<p>Hello</p>
 							</div>
-						</div>
-						<div class="msg me">
+						</div>-->
+						<!--<div class="msg me">
 							<div class="chat">
 								<div class="profile">
 									<span class="time">18:30</span>
@@ -846,20 +1110,27 @@ main .btn-send:hover {
 								</div>
 								<p>Lorem ipsum, dolor sit amet.</p>
 							</div>
-						</div>
+						</div>-->
 					</div>
-					<form action="#">
+					<!--<form action="#">
 						<div class="form-group">
 							<input type="text" placeholder="Type...">
 							<button type="submit" class="btn-send"><i class='bx bxs-send' ></i></button>
 						</div>
-					</form>
+					</form>-->
 				</div>
 			</div>
 		</main>
 		<!-- MAIN -->
 	</section>
 	<!-- NAVBAR -->
+
+
+
+<footer>
+	<h3>hello</h3>
+
+</footer>
 
 </body>
 </html>

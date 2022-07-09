@@ -122,7 +122,6 @@ def paidJobs(request):
         context ={'areaJobs':res}
         return render(request,'check.html',context) 
 
-
     else:
         messages.success(request, f"No {job_name} work available now.Please check back later.") 
         return render(request,'check.html')  
