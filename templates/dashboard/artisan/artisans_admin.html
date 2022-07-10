@@ -857,16 +857,20 @@ main .card .head h2 {
 			<li><a href="{% url 'artisan:current_job' %}"><b>Your current job</b></a></li>
 			<li><a href="{% url 'artisan:current_job_info' %}"><b>Register job for payment</b></a></li>
 			<li><a href="{% url 'artisan:services_completed' %}"><b>Previous Jobs</b></a></li>
+
+			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
 			
 			<!--if bank detail check-->
-			{% if user.artisan_bank %}
-			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
+			{% if user.artisan_bank.bank_name %}
+			<li><a class="btn-danger" href=""><b>Edi Bank Information</b></a></li>
+		
 			{% else %}
-			<li><a href="#"><b>Add Bank Detail</b></a></li>
+			<li><a href="{% url 'artisan:bank' %}"><b>Add Bank Detail</b></a></li>
 			{% endif %}
 
 
-			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>
+
+			
 
 			<li><a href="#"><b>No of jobs completed</b></a></li>
 			<li><a href="#"><b>Outstanding payment</b></a></li>

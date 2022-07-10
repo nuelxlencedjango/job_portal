@@ -157,10 +157,10 @@ class ViewedJob(models.Model):
 class BankDetails(models.Model):
 
   user = models.ForeignKey(User,null=True,blank=True, on_delete=models.CASCADE,related_name='artisan_bank')
-  bank_name =  models.CharField(max_length=200, null=True, unique = True)
-  account_name =  models.CharField(max_length=11, null=True, unique = True)
-  account_type = models.CharField(max_length=50, null=True, unique = True)
-  account_number = models.CharField(max_length=200, null=True, unique = False)
+  bank_name =  models.CharField(max_length=200, null=True,  unique = False)
+  account_name =  models.CharField(max_length=200, null=True,  unique = False)
+  account_type = models.CharField(max_length=50, null=True,  unique = False)
+  account_number = models.CharField(max_length=10, null=True,  unique = False)
  
  
   payment_date = models.DateField(auto_now_add = True, null=True, blank=True)
