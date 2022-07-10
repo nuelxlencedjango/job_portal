@@ -120,9 +120,7 @@ class CompletedJob(models.Model):
   date = models.DateField(auto_now_add = True, null=True, blank=True)
   pay =models.FloatField(default=00.00)
    
-
-
-
+   
   def __str__(self):
       return str(self.user.username)
 

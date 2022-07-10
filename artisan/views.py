@@ -110,11 +110,8 @@ def paidJobs(request):
             messages.info(request ,"No new jobs avaialable now.")
             return render(request,'check.html')
             
-
-
         context ={'areaJobs':res}
         return render(request,'check.html',context) 
-
 
     elif ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name).exists():        
         res =ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name)
@@ -344,8 +341,11 @@ def artisan_services(request):
 
     elif ServiceRequest.objects.filter(artisan=user,accepted='Accepted',work_done=True).exists():
         job_info = ServiceRequest.objects.filter(artisan=user).order_by('-date_created')
+        
 
-        context ={'job_info':job_info}
+       
+
+        context ={'job_info':job_info, 'no_job':no_job}
         return render(request,'artisans/completed_services.html',context)
 
     messages.info(request,'No Job done yet')    
@@ -459,6 +459,21 @@ def bankDetails(request):
     return render(request, 'artisans/bank_info.html', context) 
 
 
+
+
+def outstandingPay(request):
+    out_standing =  ViewedJob.objects.filter(user=request.user,accepted='Accepted',work_done=True).last()
+    price = out_standing.price
+    
+   
+    context={'price':price}
+    return render(request,'check.html',context)
+
+
+def JobList(request):
+    no_job =  ServiceRequest.objects.filter(artisan=Artisan.objects.get(user=request.user),accepted='Accepted',ordered=True,status='Paid',work_done=True).count()
+    context={'no_job':no_job}
+    return render(request,'check.html',context)
 
 
 

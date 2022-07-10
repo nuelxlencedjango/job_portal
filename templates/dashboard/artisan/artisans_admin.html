@@ -837,6 +837,7 @@ main .card .head h2 {
 
 	
 	<!-- SIDEBAR -->
+	
 	<section id="sidebar">
 		<a href="#" class="brand"  style="background:red;color: #fff;"><i class='bx bxs-smile icon'></i>{{user.last_name}}'s Page</a>
 		<ul class="side-menu">
@@ -861,7 +862,7 @@ main .card .head h2 {
 			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
 			
 			<!--if bank detail check-->
-			{% if user.artisan_bank.bank_name %}
+			{% if user.artisan_bank %}
 			<li><a class="btn-danger" href=""><b>Edi Bank Information</b></a></li>
 		
 			{% else %}
@@ -869,21 +870,18 @@ main .card .head h2 {
 			{% endif %}
 
 
+			<li><a href="{% url 'artisan:listJob' %}"><b>No of jobs completed</b></a></li>
+			<li><a href="{% url 'artisan:outstanding' %}"><b>Outstanding payment</b></a></li>
+			<!--<li><a href="#"><b>Total payment</b></a></li>-->
 
-			
-
-			<li><a href="#"><b>No of jobs completed</b></a></li>
-			<li><a href="#"><b>Outstanding payment</b></a></li>
-			<li><a href="#"><b>Total payment</b></a></li>
-
-			<li>
+			<!--<li>
                 <a href="#"><i class='bx bxs-chart icon' ></i> Update Information<i class='bx bx-chevron-right icon-right' ></i></a>
                 <ul class="side-dropdown">
                     <li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
 
                    <li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>
                 </ul>
-            </li>
+            </li>-->
 			<!--<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edit Information</b></a></li>
 
 			<li><a class="btn-danger" href="{% url 'artisan:artisan_update' %}"><b>Edi Bank Information</b></a></li>-->
@@ -987,8 +985,12 @@ main .card .head h2 {
                              <tr style="margin-top: 70px;"> 
 
                                 {% for item in areaJobs %}
+								{% if item.accepted %}
+								<h3>No new job</h3>
+								{% else %}
                              <h3 style="text-transform: capitalize;">{{ item.product.name }} &nbsp;<a href="" style="align-items: center; text-transform: capitalize;" name="view-detail" class="btn btn-success right">See Detail</a>
                              </h3>
+							 {% endif %}
                              <hr>
                              {% endfor %}
                            
@@ -1008,6 +1010,7 @@ main .card .head h2 {
 					<span class="progress" data-value="40%"></span>
 					<span class="label">40%</span>-->
 				</div>
+				
 				<div class="card">
 					<div class="head">
 						<div>
@@ -1015,35 +1018,35 @@ main .card .head h2 {
 
 							<div class="col-md">
 								<div class="card card-body">
-									<h5>Total Orders</h5>
-									<hr>
-									<h1 style="text-align: center;padding: 10px">{{ order.get_total_count }}</h1>
+									<h2>{{ no_job }}</h2>
+								
+									<!--<h1 style="text-align: center;padding: 10px">{{ order.get_total_count }}</h1>-->
 								</div>
 							</div>
 							
-							<p>Sales</p>
+							<p>***</p>
 						</div>
 						<i class='bx bx-trending-down icon down' ></i>
 					</div>
 					<span class="progress" data-value="60%"></span>
-					<span class="label">60%</span>
+					<span class="label"></span>
 				</div>
 				<div class="card">
 					<div class="head">
 						<div>
 							<h2> outsting pay</h2>
-						
+						     <h2 style="color: red; margin-top:20px;"># {{ price }}</h2>
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
-					<span class="progress" data-value="30%"></span>
-					<span class="label">30%</span>
+					<!--<span class="progress" data-value="30%">{{ price }}</span>-->
+					<span class="label"></span>
 				</div>
 				<div class="card">
 					<div class="head">
 						<div>
 							<h2>235</h2>
-							
+							<h2>{{ totalpay }}</h2>
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>

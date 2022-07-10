@@ -27,8 +27,9 @@ urlpatterns = [
      path('congratulation/', views.congratulations, name='congratulation'),
 
       path("artisan-search/", SearchFlipView.as_view(), name="artisan-search"),
-      #path("artisan-search/", views.searchResult, name="artisan-search"),
-      #path("searchArtisans/<str:name>/", ListArtisansAvailable.as_view(), name="searchArtisans"),
+      path("outstanding/", views.outstandingPay, name="outstanding"),
+     path("listJob/", views.JobList, name="listJob"),
+          #path("searchArtisans/<str:name>/", ListArtisansAvailable.as_view(), name="searchArtisans"),
       path('searchArtisans/<int:pk>/',views.artisanList,name="searchArtisans"),
       path("artisan_request/<int:pk>/", views.artisanRequest, name="artisan_request"),
 

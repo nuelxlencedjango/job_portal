@@ -1,3 +1,4 @@
+from multiprocessing import context
 from django.shortcuts import render
 
 # Create your views here.
@@ -12,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import views as auth_views
 from products.models import *
 from django.contrib.auth.models import Group
+from django.db.models import Sum
 #from .filters import OrderFilter
 from artisan .models import *
 
@@ -188,8 +190,27 @@ def clientRegister(request):
 def clientDashboard(request):
     return render(request,'dashboard/client/clients.html')   
 
+
+
+
 def artisanDashboard(request):
-   
-    #return render(request,'new/home.html')
-    #return render(request,'dashboard/artisan/try.html')
-    return render(request,'dashboard/artisan/artisans_admin.html')
+    job_name   = request.user.artisan.profession_name
+
+    no_job = ServiceRequest.objects.filter(artisan=Artisan.objects.get(user=request.user),accepted='Accepted',ordered=True,status='Paid',work_done=True)
+    out_standing =  ViewedJob.objects.filter(user=request.user,accepted='Accepted',work_done=True).last()
+    price = out_standing.price
+    
+    no_job =  ServiceRequest.objects.filter(artisan=Artisan.objects.get(user=request.user),accepted='Accepted',ordered=True,status='Paid',work_done=True).count()
+    #totalpay = ViewedJob.objects.filter(user=request.user,accepted='Accepted',work_done=True)
+
+    areaJobs=ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name)
+
+    context={'no_job':no_job,'price':price,'areaJobs':areaJobs}
+    return render(request,'dashboard/artisan/artisans_admin.html',context)
+
+     
+    
+    
+
+    #context={'no_job':no_job,'price':price,}
+    #return render(request,'dashboard/artisan/artisans_admin.html',context)

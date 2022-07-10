@@ -19524,6 +19524,7 @@ code {
 .documentation .content-wrapper {
   padding-top: 0;
   min-height: calc(100vh - 75px);
+  
 }
 
 .doc-table-contents,
