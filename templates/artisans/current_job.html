@@ -25,32 +25,29 @@
         
        
         <div class="card card-body">
-          <button class="btn btn-success  btn-sm btn-block" style="background-color: #96D4D4;" href="">On Going Job
-            &nbsp;&nbsp;<a class="btn btn-danger  btn-sm btn-block" style=" border: none;" href="{% url 'account:artisanPage' %}">Dashboard</a>
-             
-          </button>
+         
 
           <table class="table table-sm" style="margin-top: 30px;">
         
             <tr>
-              <td>Job Name</td>
-              <td>Category </td>
+              <td>Work</td>
+              <!--<td>Category </td>-->
               <td>Client's Name</td>
-              <td>Job Description</td>
+              <!--<td>Job Description</td>-->
               <td>Address </td>
               <td>Phone</td>
               <td>Status</td>
               <td>Date</td>  
-              <td style="font-size: larger;">Amount</td>
+              <td >Amount</td>
              
  
             </tr>  
             <tr>
            
               <td>{{ current_job.job_name }}</td>
-              <td>{{current_job.category }}</td>
+              <!--<td>{{current_job.category }}</td>-->
               <td> {{current_job.client}}</td>
-              <td>{{current_job.description}}</td>
+              <!--<td>{{current_job.description}}</td>-->
               <td>{{ current_job.address }}</td>
               <td> {{current_job.phone}}</td>
               <td> {{current_job.accepted}}</td>

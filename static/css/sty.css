@@ -1053,6 +1053,33 @@ height: 300px;
 border: none;
 margin: 10px;
 }
+.card-body {
+  flex: 1 1 auto;
+  padding: 0px !important;
+}
+.col-md-12{
+  padding: 0px !important;
+}
+.table-sm>:not(caption)>*>* {
+  padding: 0rem;
+}
+.conf{
+  padding: 8px;
+}
+.conf .confirmed {
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  margin-left: 5px;
+ 
+  width: 300px;
+
+}
+.popup {
+ 
+  margin-left: 150px;
+}
+
 }
 
 
@@ -1188,6 +1215,15 @@ margin-right: auto;
 margin-top: 30px;
 }
 
+.table-sm>:not(caption)>*>* {
+    padding: 0rem;
+    font-size: 12px;
+    font-weight: bold;
+}
+.popup {
+ 
+  margin-left: 250px;
+}
  
 }
 
@@ -1214,6 +1250,34 @@ margin-top: 30px;
 textarea {
   resize: vertical;
   width: 100%;
+}
+
+.table-sm>:not(caption)>*>* {
+  padding: 0rem;
+  font-size: 10px;
+  font-weight: bold;
+}
+.popup {
+  width: 100%;
+  background-color: whitesmoke;
+  border-radius: 6px;
+  position: absolute;
+ 
+  transform: translate(-50%,-50%) scale(0.1);
+  text-align: center;
+  padding: 0 30px 30px;
+  color: #333;
+  visibility: hidden;
+  transition: transform 0.4s, top 0.4s;
+}
+.register-job {
+  color: #333 !important;
+  font-size: 18px !important;
+  font-weight: 200 !important;
+  font-size: 16px;
+  
+  padding-left: 30px;
+  
 }
 }
 
@@ -1328,5 +1392,23 @@ height: 300px;
 #id01{
   width: 250px;
   padding: 5px;
+}
+.conf .confirmed {
+  font-size: 14px;
+  font-weight: 300;
+  color: #fff;
+  margin-left: 5px;
+ 
+  width: 100%;
+
+}
+.register-job {
+  color: #333 !important;
+  font-size: 18px !important;
+  font-weight: 200 !important;
+  font-size: 16px;
+  
+  padding-left: 50px;
+  
 }
 }

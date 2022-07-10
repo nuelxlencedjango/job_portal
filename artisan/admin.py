@@ -7,7 +7,7 @@ from .models import User
 
 admin.site.register(Area)#
 #admin.site.register(Profession)# ,CustomerAdmin)
-#admin.site.register(Zone)#
-admin.site.register(Artisan)#
+admin.site.register(BankDetails)
+admin.site.register(Artisan)
 admin.site.register(ViewedJob)
 admin.site.register(CompletedJob)

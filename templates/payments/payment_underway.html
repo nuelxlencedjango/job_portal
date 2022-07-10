@@ -1,17 +1,10 @@
 {% extends 'main.html' %}
 {% load static %}  
-
 {% block content %} 
 
-
-
-<div class="card card-body">
-    <h3>Congratulations!</h3>
-   
-    </div>
-    
+<h3 slot="">Processing Payment</h3>
 {% for message in messages %}
 <p id="messages">{{ message }}</p>
-
 {% endfor %}
-{% endblock%}
+
+{% endblock %}

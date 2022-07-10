@@ -283,7 +283,8 @@ def CurrentJobInfo(request):
             jobinfo = ViewedJob.objects.filter(user=user,accepted='Accepted').last()
             if jobinfo.work_done == True:
                 messages.info(request,'Job already registered for payment')
-                return redirect('account:artisanPage')
+                #return redirect('account:artisanPage')
+                return render(request,'payments/payment_underway.html')
 
                 
     

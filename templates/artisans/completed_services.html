@@ -26,14 +26,11 @@
         
        
         <div class="card card-body">
-          <button class="btn btn-success  btn-sm btn-block" style="background-color: #96D4D4; font-size: 26px;">Job Details &nbsp;&nbsp;
-          <a class="btn btn-dark  btn-sm btn-block" style=" font-size: 26px;" href="{% url 'account:artisanPage' %}">Dashboard</a> 
-          </button>
+       
+          <h3 style="color: var(--primary-color);">List Of Jobs Completed</h3>
           <table class="table table-sm" style="margin-top: 30px;">
             <tr>
               <td>Job Name</td>
-              <td>Category </td>
-              <!--<td>How Mnaay Time?</td>-->
               <td>Address </td>
             
               <td>Client's Name</td>
@@ -45,8 +42,8 @@
             {% for job in job_info %}
             <tr>
               <td>{{ job.product.name }}</td>
-              <td>{{job.product.category }}</td>
-              <!--<td>{{ job.quantity }}</td>-->
+              <!--<td>{{job.product.category }}</td>
+              <td>{{ job.quantity }}</td>-->
               <td>{{ job.address }}</td>
              
               <td> {{job.user.last_name}}</td>
@@ -56,10 +53,10 @@
           
             
               <td>{{ user.username}}</td>
-         }
+         
             </tr>
             {% endfor %}
-      
+    
 
 
           </table>
@@ -77,6 +74,13 @@
       {% for message in messages %}
       <p id="messages">{{ message }}</p>
       {% endfor %}
+
+
+
+
+
+
+      
       
 {% endblock %}
 

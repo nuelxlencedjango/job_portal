@@ -104,7 +104,7 @@
       border: 0;
       outline: none;
       cursor: pointer;
-      font-size: 22px;
+      font-size: 20px;
       font-weight: 500;
       border-radius: 30px;
    
@@ -115,7 +115,11 @@
      
     
   }
-
+.register-job{
+  color: #333 !important; 
+  font-size: 20px !important; 
+  font-weight: 400 !important;
+}
    
   </style>
 
@@ -129,21 +133,16 @@
         
        
         <div class="card card-body">
-          <button class="btn btn-success  btn-sm btn-block" style="background-color: #96D4D4;" href="">On Going Job
-            &nbsp;&nbsp;<a class="btn btn-danger  btn-sm btn-block" style=" border: none;" href="{% url 'account:artisanPage' %}">Dashboard</a>
-             
-          </button>
-
           <table class="table table-sm" style="margin-top: 30px;">
         
             <tr>
               <td>Job Name</td>
-              <td>Category </td>
+              <!--<td>Category </td>-->
               <td>Client's Name</td>
-              <td>Job Description</td>
+              <!--<td>Job Description</td>
               <td>Address </td>
               <td>Phone</td>
-              <td>Status</td>
+              <td>Status</td>-->
               <td>Date</td>  
               <td style="font-size: larger;">Amount</td>
              
@@ -152,12 +151,12 @@
             <tr>
            
               <td>{{ jobinfo.job_name }}</td>
-              <td>{{jobinfo.category }}</td>
+              <!--<td>{{jobinfo.category }}</td>-->
               <td> {{jobinfo.client}}</td>
-              <td>{{jobinfo.description}}</td>
-              <td>{{ jobinfo.address }}</td>
+              <!--<td>{{jobinfo.description}}</td>-->
+              <!--<td>{{ jobinfo.address }}</td>
               <td> {{jobinfo.phone}}</td>
-              <td> {{jobinfo.accepted}}</td>
+              <td> {{jobinfo.accepted}}</td>-->
               <td>{{jobinfo.accepted_date}}</td>
               <td style="background-color: #dc3545; color: #fff;"> {{jobinfo.price}}</td>
             
@@ -181,7 +180,7 @@
       
             <tr>
               <p></p>
-              <p style="color: #333; font-size: 20px; font-weight: 400;">Please understand that it is a criminal offence to register a job you didnt do.</p>
+              <p class="register-job">Please understand that it is a criminal offence to register a job you didnt do.</p>
       
             </tr>
             <div class="container" style="margin-top: 20px;">
@@ -201,7 +200,8 @@
 
       <div class="container conf">
 
-        <button type="button" class="btn btn-secondary confirmed" id="confirm" onclick="openPopup()">Click Here To Confirm Your Job</button>
+        <button type="button" class="btn btn-secondary confirmed" id="confirm" onclick="openPopup()">Register This Job For Payment</button>
+        
       <!--<button type="button" class="btn btn-danger">Danger</button>
     
       <button type="button" class="btn btn-danger" onclick="openPopup()">check</button>-->

@@ -13,9 +13,7 @@
     word-wrap: break-word;
     
   }
-  th, td {
-    /*background-color: #96D4D4;*/
-  }
+  
   
   </style>
   
@@ -33,16 +31,16 @@
             </button>
           
           <table class="table table-sm" style="margin-top: 30px;">
-            <tr>
+            <tr class="tr">
               <td>Job Name</td>
-              <td>Category </td>
-              <td>No Of Person</td>
+              <!--<td>Category </td>
+              <td>No Of Person</td>-->
               <td>Job Description</td>
-              <td>Address </td>
+              <!--<td>Address </td>-->
               <td>Date</td>
-              <td>Client's Name</td>
-              <td>Phone</td>
-              <td style="font-size: larger;">Amount</td>
+              <!--<td>Client's Name</td>
+              <td>Phone</td>-->
+              <td>Amount</td>
             </tr>
 
           
@@ -50,14 +48,14 @@
            {% for result in job_info %}
             <tr>
               <td>{{ result.product.name }}</td>
-              <td>{{result.product.category }}</td>
-              <td>{{ result.number_of_workers }}</td>
+              <!--<td>{{result.product.category }}</td>
+              <td>{{ result.number_of_workers }}</td>-->
               <td>{{result.description}}</td>
-              <td>{{ result.address }}</td>
+              <!--<td>{{ result.address }}</td>-->
               <td>{{result.date_created}}</td>
 
-              <td> {{result.user.last_name}}</td>
-              <td> {{result.user.details.phone}}</td>
+              <!--<td> {{result.user.last_name}}</td>
+              <td> {{result.user.details.phone}}</td>-->
               <td style="background-color: #dc3545; color: #fff;">{{ result.get_service_rate }}</td>
 
               <!--<td><a class="btn btn-success" href="">Accept</a></td>
@@ -74,7 +72,6 @@
 
 
          
-
             {% endfor %}
        
         {{job}}
