@@ -100,6 +100,101 @@
     
   
 
+
+
+<style>
+     .g-3{
+           /*box-shadow: 0 0 10px 4px #d0d0d0;*/
+           box-shadow: 0 4px 8px 0 #fff;
+          
+          }
+
+          .g-3:hover{
+            border: #fff;
+          }
+          .col-md-12 .col-md-6{
+            font-size: 18px;
+            font-weight: 400;
+            text-align: left;
+            text-transform: capitalize;
+          }
+          .col-md-12 .col-md-6  span{
+            color: firebrick;
+    
+          }
+          #worker{
+            color: #000;
+            font-size: 18px;
+          }
+          
+</style>
+
+
+
+
+              
+ 
+  <h3 style="text-align: center;">Post A Job</h3>
+
+
+<div id="form2" class="container form2">
+   
+
+    <form class="row g-3" action="{% url 'products:add_service_item' services.pk %}"  method="POST" enctype="multipart/form-data" >
+           
+        {% csrf_token %}
+      
+     
+        <div class="col-md-6 form2 artisanDetails">
+            <p>{{services.user.last_name}}</p>
+            <img  src="{{ services.profile_img.url }}" alt="No Image" >
+            <!--<p>{{services.user.last_name}}</p>-->
+          </div>
+
+        <div class="col-md-6 form2">
+            <label for="inputAddress2" class="form-label" style="font-size: 15px;">Address</label>
+            <input type="text" class="form-control" id="inputtext" name="address" placeholder="Complete address, please">
+ 
+        </div>
+
+        <div class="col-md-12 form2">
+            <h2 class="col-md-6" class="form-control" id="floatingInput" > {{ item.name }} &nbsp; &nbsp;
+            <span>{{ item.price}} <span id="worker">/Worker</span></span> 
+            </h2>
+ 
+        </div>
+  
+          <div class="col-md-6 form2">
+            <label for="inputAddress2" class="form-label" style="font-size: 15px;">How many workers do you want?</label>
+            <input type="number" class="form-control" id="inputtext" name="number_of_workers" placeholder="How many workers do you want?">
+
+        </div>
+        <div class="col-md-12 form2">
+            <label for="inputAddress2" class="form-label" style="font-size: 15px;">Describe what you want to do</label>
+            <textarea class="form-control" id="w3review" name="description" rows="4" cols="50" placeholder="describe what you want to do ">
+            </textarea>
+        </div>
+       
+        
+      
+   
+  
+        <div class="col-12">
+     <input type="submit" class="btn btn-danger btn-lg" value="submit" >   
+        </div>
+      </form>
+
+
+
+{{ form.errors }}
+
+  
+
+       
+
+  
+
+
        
 
   {% endblock %}   
