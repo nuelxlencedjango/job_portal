@@ -428,7 +428,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:handle_confirmation' %}"><b>Previous Transactions</b></a></li>
                 <!--<li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html"><b>Posted Jobs</b></a></li>-->
                 <!--<li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>Check your order</b></a></li>-->
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>All jobs done</b></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:all_services' %}"><b>All jobs done</b></a></li>
                 <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}"><b>Edit Your information</b></a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:home' %}"><b>Place Order</b></a></li>
               </ul>
@@ -437,21 +437,16 @@
           <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
               <i class="typcn typcn-film menu-icon"></i>
-              <span class="menu-title"><b>Account Setting</b></span>
+              <span class="menu-title"><b>Setting</b></span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}"><b>Edit Your information</b></a></li>
-
+                <li class="nav-item"><a class="nav-link" href=""><b>Edit Bank information</b></a></li>
             </div>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'products:home' %}">
-              <i class="typcn typcn-mortar-board menu-icon"></i>
-              <span class="menu-title"><b>Place Order</b></span>
-            </a>
-          </li>
+        
 
           <li class="nav-item nav-link-items">
             <div class="nav-link">

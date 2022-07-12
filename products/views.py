@@ -854,3 +854,13 @@ def artisanDetail(request):
 
     
 
+def serviceCompeleted(request):
+    if ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted",work_done=True).exists():
+        all_jobs=ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted",work_done=True).order_by('-date_created')
+        context ={'all_jobs':all_jobs}
+        return render(request,'dashboard/client/completed_services.html',context)
+
+    else:
+        messages.info(request," Either you dont have any request yet or your job is still in progress")    
+        return render(request,'dashboard/client/completed_services.html')
+           
