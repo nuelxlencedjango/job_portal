@@ -8,7 +8,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>PolluxUI Admin</title>
+  <title>Client Dashboard</title>
   <!-- base:css -->
   <link rel="stylesheet" href="{% static 'template/vendors/typicons/typicons.css' %}">
   <link rel="stylesheet" href="{% static 'template/vendors/css/vendor.bundle.base.css' %}">
@@ -18,7 +18,8 @@
   <!-- inject:css -->
   <link rel="stylesheet" href="{% static 'template/css/vertical-layout-light/style.css' %}">
   <!-- endinject -->
-  <link rel="shortcut icon" href="{% static 'template/images/favicon.png' %}" />
+  <!--<link rel="shortcut icon" href="{% static 'template/images/favicon.png' %}" />-->
+  <link rel="shortcut icon" href="{% static 'images/brand/title_image2.png' %}" />
 </head>
 
 <style>
@@ -45,7 +46,7 @@
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="navbar-brand-wrapper d-flex justify-content-center">
         <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
-          <a class="navbar-brand brand-logo" href="index.html"><img src="images/logo.svg" alt="logo"/></a>
+          <a class="navbar-brand brand-logo" href="index.html"><img src="{%  static 'images/brand2.jpg' %}" alt="logo"/></a>
           <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
           <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="typcn typcn-th-menu"></span>
@@ -180,20 +181,28 @@
         </button>
       </div>
     </nav>
+  
+
+      
+   
+
+ 
+        
+      
     <!-- partial -->
     <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
       <div class="navbar-links-wrapper d-flex align-items-stretch">
         <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-calendar-outline"></i></a>
+          <a href="{% url 'products:home' %}">Home</a><!--<i class="typcn typcn-calendar-outline"></i></a>-->
+        </div>
+        <!--<div class="nav-link">
+          <a href="{% url 'products:post_service' %}">Post A Job</a><i class="typcn typcn-mail"></i></a>
         </div>
         <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-mail"></i></a>
-        </div>
+          <a href="{% url 'products:contact' %}">Contact us<i class="typcn typcn-folder"></i></a>
+        </div>-->
         <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-folder"></i></a>
-        </div>
-        <div class="nav-link">
-          <a href="javascript:;"><i class="typcn typcn-document-text"></i></a>
+          <a href="% url 'account:logout' %}">Logout<!--<i class="typcn typcn-document-text"></i>--></a>
         </div>
       </div>
       
@@ -212,7 +221,7 @@
             <p class="mb-0">Welcome,{{ request.user}}</p>
           </li>
         </ul>
-        <ul class="navbar-nav navbar-nav-right">
+        <!--<ul class="navbar-nav navbar-nav-right">
           <li class="nav-item nav-search d-none d-md-block mr-0">
             <div class="input-group">
               <input type="text" class="form-control" placeholder="Search..." aria-label="search" aria-describedby="search">
@@ -223,7 +232,7 @@
               </div>
             </div>
           </li>
-        </ul>
+        </ul>-->
       </div>
     </nav>
     <div class="container-fluid page-body-wrapper">
@@ -415,7 +424,7 @@
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:servicelist' %}"><b>Unpaid Services</b> </a></li>
-                <li class="nav-item"> <a class="nav-link" href="#"><b>Artisan's Detail</b></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:workers_detail' %}"><b>Artisan's Detail</b></a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:handle_confirmation' %}"><b>Previous Transactions</b></a></li>
                 <!--<li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html"><b>Posted Jobs</b></a></li>-->
                 <!--<li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>Check your order</b></a></li>-->
@@ -435,6 +444,21 @@
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}"><b>Edit Your information</b></a></li>
 
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products:home' %}">
+              <i class="typcn typcn-mortar-board menu-icon"></i>
+              <span class="menu-title"><b>Place Order</b></span>
+            </a>
+          </li>
+
+          <li class="nav-item nav-link-items">
+            <div class="nav-link">
+              <a href="{% url 'products:home' %}" class="btn btn-dark">Home</a><!--<i class="typcn typcn-calendar-outline"></i></a>-->
+            </div>
+            <div class="nav-link">
+              <a href="% url 'account:logout' %}" class="btn btn-danger">Logout<!--<i class="typcn typcn-document-text"></i>--></a>
             </div>
           </li>
           <!--<li class="nav-item">
@@ -499,12 +523,7 @@
               </ul>
             </div>
           </li>-->
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'products:home' %}">
-              <i class="typcn typcn-mortar-board menu-icon"></i>
-              <span class="menu-title"><b>Place Order</b></span>
-            </a>
-          </li>
+         
         </ul>
       </nav>
       

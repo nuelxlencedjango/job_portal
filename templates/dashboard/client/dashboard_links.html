@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Client Dashboard</title>
+  <!-- base:css -->
+  <link rel="stylesheet" href="{% static 'template/vendors/typicons/typicons.css' %}">
+  <link rel="stylesheet" href="{% static 'template/vendors/css/vendor.bundle.base.css' %}">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{% static 'template/css/vertical-layout-light/style.css' %}">
+  <!-- endinject -->
+  <!--<link rel="shortcut icon" href="{% static 'template/images/favicon.png' %}" />-->
+  <link rel="shortcut icon" href="{% static 'images/brand/title_image2.png' %}" />
+
+</head>
+
+
+
+<style>
+  li a{
+    list-style: none;
+  
+    list-style: lower-alpha;
+  }
+ 
+</style>
+<body>
+  
+
+    <!-- partial:partials/_navbar.html -->
+  <div class="container-scroller">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="navbar-brand-wrapper d-flex justify-content-center">
+        <div class="navbar-brand-inner-wrapper d-flex justify-content-between align-items-center w-100">
+          <a class="navbar-brand brand-logo" href="index.html"><img src="{%  static 'images/brand2.jpg' %}" alt="logo"/></a>
+          <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
+          <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+            <span class="typcn typcn-th-menu"></span>
+          </button>
+        </div>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+       
+        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+          <span class="typcn typcn-th-menu"></span>
+        </button>
+      </div>
+    </nav>
+  
+
+      
+   
+
+ 
+        
+      
+    <!-- partial -->
+    <nav class="navbar-breadcrumb col-xl-12 col-12 d-flex flex-row p-0">
+      <div class="navbar-links-wrapper d-flex align-items-stretch">
+        <div class="nav-link">
+          <a href="{% url 'products:home' %}">Home</a><!--<i class="typcn typcn-calendar-outline"></i></a>-->
+        </div>
+        <div class="nav-link">
+          <a href="% url 'account:dashboard' %}">Dashboard<!--<i class="typcn typcn-document-text"></i>--></a>
+        </div>
+        <div class="nav-link">
+          <a href="% url 'account:logout' %}">Logout<!--<i class="typcn typcn-document-text"></i>--></a>
+        </div>
+      </div>
+      
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <ul class="navbar-nav mr-lg-2">
+        
+          <li class="nav-item">
+           
+            <h4 class="mb-0">Welcome,{{ request.user}}</h4>
+          </li>
+        </ul>
+    
+      </div>
+    </nav>
+    <div class="container-fluid page-body-wrapper">
+   
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <!--<li class="nav-item">
+            <a class="nav-link" href="index.html">
+              <i class="typcn typcn-device-desktop menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+              <div class="badge badge-danger">new</div>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="typcn typcn-document-text menu-icon"></i>
+              <span class="menu-title"><b>Services</b></span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:servicelist' %}"><b>Unpaid Services</b> </a></li>
+                <li class="nav-item"> <a class="nav-link" href="#"><b>Artisan's Detail</b></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:handle_confirmation' %}"><b>Previous Transactions</b></a></li>
+                 <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html"><b>All jobs done</b></a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}"><b>Edit Your information</b></a></li>
+                <li class="nav-item"> <a class="nav-link" href="{% url 'products:home' %}"><b>Place Order</b></a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="typcn typcn-film menu-icon"></i>
+              <span class="menu-title"><b>Account Setting</b></span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="{% url 'account:update_info' %}"><b>Edit Your information</b></a></li>
+
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'products:home' %}">
+              <i class="typcn typcn-mortar-board menu-icon"></i>
+              <span class="menu-title"><b>Place Order</b></span>
+            </a>
+          </li>-->
+
+          <li class="nav-item nav-link-items">
+            <div class="nav-link">
+              <a href="{% url 'account:dashboard' %}" class="btn btn-success">Dashboard</a><!--<i class="typcn typcn-calendar-outline"></i></a>-->
+            </div>
+            <div class="nav-link">
+              <a href="{% url 'products:home' %}" class="btn btn-dark">Home</a><!--<i class="typcn typcn-calendar-outline"></i></a>-->
+            </div>
+            <div class="nav-link">
+              <a href="% url 'account:logout' %}" class="btn btn-danger">Logout<!--<i class="typcn typcn-document-text"></i>--></a>
+            </div>
+          </li>
+         
+         
+        </ul>
+      </nav>
+      
+   
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+ 
+{% block content %}
+
+
+{% endblock %}
+
+
+  {% include 'footer.html' %}
+
+  <!-- base:js -->
+  <script src="{% static 'template/vendors/js/vendor.bundle.base.js ' %}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <script src="{% static 'template/vendors/chart.js/Chart.min.js ' %}"></script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="{% static 'template/js/off-canvas.js ' %}"></script>
+  <script src="{% static 'template/js/hoverable-collapse.js ' %}"></script>
+  <script src="{% static 'template/js/template.js ' %}"></script>
+  <script src="{% static 'template/js/settings.js ' %}"></script>
+  <script src="{% static 'template/js/todolist.js ' %}"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="{% static 'template/js/dashboard.js ' %}"></script>
+  <!-- End custom js for this page-->
+</body>
+
+</html>

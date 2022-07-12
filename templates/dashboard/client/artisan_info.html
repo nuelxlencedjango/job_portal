@@ -1,0 +1,144 @@
+
+{% extends 'dashboard/client/dashboard_links.html' %}
+
+{% block content %}
+
+<style>
+
+  .container-fluid{
+    display: none;
+  }
+    .row{
+        margin-top: 70px;
+    }
+    h3{
+        text-align: center;
+        margin-left: 20px;
+        font-size: 18px;
+        font-weight: 800;
+    }
+    td img{
+        width: 150px !important;
+        height: 130px !important;
+        margin-left: 40px;
+
+    }
+    .card-img{
+    width: 100px;
+    height: 100px;
+    
+}
+.card-img img{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+   
+}
+@media (max-width:950px) {
+    .container-fluid{
+        display: block;
+    }
+    .container-scroller {
+    overflow: hidden;
+    height: 100px;
+}
+    
+}
+    @media (max-width:650px) {
+  td img {
+    width: 75px !important;
+    height: 75px !important;
+  }.table th, .table td {
+    padding: 2px;
+    vertical-align: top;
+    border-top: 1px solid #f3f3f3;
+}
+.table td {
+    font-size: 14px !important;
+}
+    }
+@media (max-width:500px) {
+    .table thead th {
+    border-top: 0;
+    border-bottom-width: 1px;
+    font-weight: 500;
+    font-size: 14px !important;
+}
+.project-orders-table thead tr th:first-child {
+    padding-left: 0.3rem;
+    padding-right: 0.5rem;
+}
+}
+@media (max-width:400px) {
+    .table thead th {
+    border-top: 0;
+    border-bottom-width: 1px;
+    font-weight: 500;
+    font-size: 12px !important;
+}
+    
+}
+    
+
+
+
+</style>
+<div class="row">
+    <h3>Artisan's information</h3>
+     <br>
+    {% for order_item in artisans %}
+
+     <div class="card-img mt-2">
+    <img src="{{ order_item.artisan.profile_img.url }}" alt="">
+     </div>
+    {% endfor %}
+    
+    <div class="col-md-12">
+      <div class="card">
+       
+        <div class="table-responsive pt-3">
+          <table class="table table-striped project-orders-table">
+            <thead>
+              <tr>
+                <!--<th class="ml-5">ID</th>-->
+                
+                <th>Work Type</th>
+               
+                <th>Full Name</th>
+                <th>Phone</th>
+              
+                <th>Date</th>
+            
+              </tr>
+            </thead>
+            <tbody>
+
+              
+              
+              {% for order_item in artisans %}
+              <tr>
+                <!--<td>#{{ forloop.counter }}</td>-->
+
+                <td>{{ order_item.product.name }}</td>
+                <td>{{ order_item.artisan.user.first_name }} &nbsp;{{ order_item.artisan.user.last_name }}</td>
+             
+                <td>{{ order_item.artisan.phone }} </td>
+           
+                <td>{{order_item.date_created}}</td>
+
+                
+
+                
+              </tr> 
+           
+              {% endfor %}
+            </tbody>
+       
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  {% endblock %}

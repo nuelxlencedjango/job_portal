@@ -9470,6 +9470,9 @@ pre code {
 .offset-11 {
   margin-left: 91.66667%;
 }
+.nav-link-items{
+  display: none !important;
+}
 
 @media (min-width: 576px) {
   .col-sm {
@@ -9967,6 +9970,13 @@ pre code {
   .offset-lg-11 {
     margin-left: 91.66667%;
   }
+ 
+}
+@media (max-width:950px) {
+  .nav-link-items{
+    display: block !important;
+  }
+  
 }
 
 @media (min-width: 1200px) {

@@ -66,6 +66,8 @@ urlpatterns = [
      path('service_list/', views.Servicelisting, name='service_list'),
 
     path('train_staff/', views.StaffTraining, name='train_staff'),
+    
+    path("workers_detail/", views.artisanDetail, name="workers_detail"),
 ]
 
 

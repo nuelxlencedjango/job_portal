@@ -826,6 +826,31 @@ def StaffTraining(request):
 
 
 
+   
+
+
+ 
+
+def artisanDetail(request):
+    if ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted").exists():
+        artisans_info=ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted").order_by('-date_created')
+        context ={'artisans':artisans_info}
+        return render(request,'dashboard/client/artisan_info.html',context)
+           
+    elif ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid").exists():
+        messages.info(request,"The artisan is preparing to take up the job")
+           
+        return render(request,'dashboard/client/artisan_info.html')
+
+    elif ServiceRequest.objects.filter(user=request.user,ordered=False,status="No").exists():  
+        messages.info(request,"KIndly make payment to confirm your request") 
+        return render(request,'dashboard/client/artisan_info.html')  
+
+
+    else:     
+        messages.info(request,"You dont have any request yet")
+        return render(request,'dashboard/client/artisan_info.html')
+  
 
     
 

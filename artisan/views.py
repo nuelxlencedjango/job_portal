@@ -57,7 +57,7 @@ def artisanRegistration(request):
     return render(request, 'account/artisan_register.html', context)
 
 
-#
+
 
 
 
@@ -474,6 +474,7 @@ def JobList(request):
     no_job =  ServiceRequest.objects.filter(artisan=Artisan.objects.get(user=request.user),accepted='Accepted',ordered=True,status='Paid',work_done=True).count()
     context={'no_job':no_job}
     return render(request,'check.html',context)
+
 
 
 
