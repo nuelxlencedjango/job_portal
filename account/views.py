@@ -214,33 +214,6 @@ def artisanDashboard(request):
 
 
 
-def update_bank_info(request):
-    if request.method =="POST":
-
-        form1 = BankDetailForm(request.POST, instance = request.user)
-        form2 = CustomerUpdateForm(request.POST, request.FILES,instance = request.user.details)
-
-        if form1.is_valid() and form2.is_valid():
-            form1.save()
-            form2.save()
-
-            messages.success(request,"Successfully updated")
-            return redirect('products:dashboard')
-            
-           
-        else:
-            messages.warning(request,"Not updated")
-    
-    else:
-        form1 = UserUpdateForm(instance = request.user)
-        form2 = CustomerUpdateForm(instance=request.user.details)          
-
-    context = {'form1':form1, 'form2':form2}
-
-    return render(request,'account/update_info.html',context)  
-     
-    
-    
 
     #context={'no_job':no_job,'price':price,}
     #return render(request,'dashboard/artisan/artisans_admin.html',context)

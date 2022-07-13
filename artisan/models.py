@@ -154,7 +154,7 @@ class ViewedJob(models.Model):
 
 class BankDetails(models.Model):
 
-  user = models.ForeignKey(User,null=True,blank=True, on_delete=models.CASCADE,related_name='artisan_bank')
+  user = models.OneToOneField(User,null=True,blank=True, on_delete=models.CASCADE,related_name='artisan_bank')
   bank_name =  models.CharField(max_length=200, null=True,  unique = False)
   account_name =  models.CharField(max_length=200, null=True,  unique = False)
   account_type = models.CharField(max_length=50, null=True,  unique = False)

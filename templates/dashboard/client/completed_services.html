@@ -93,65 +93,6 @@
 
 
 
- 
-
-
-
-
-
-
-
-<!--<div class="container">
-<div class="row">
-    <td><b>{{ list_items.get_total_count }}</b></td>
-    <div class="col-lg-12">
-        
-        <h5>YOUR LASTEST  ORDERS</h5>
-        <div class="card card-body">
-            <a class="btn btn-primary  btn-sm btn-block" href="">Request another services</a>
-            <table class="table table-sm margin-top50px">
-
-                <tr>
-                    <th>Service requested</th>
-                    <th>No of workers </th>
-                    <th>Unity price </th>
-                    <th>Amount </th>
-                    <th>Paid</th>
-                    <th>Date paid</th>
-                    <th>Job Location </th>
-                    <th>Payment ID </th>
-                </tr>
-
-
-        
-             {% for order_item in list_items  %}
-        
-            
-                {% for item in order_item.items.all %}
-        
-                    <tr>
-                        <td>{{item.product.name }}</td>
-                      
-                        <td>{{item.number_of_workers}}</td>
-                        <td> {{item.product.price}}</td>
-                        <td>{{item.get_total_item_price}}</td>
-                        <td>{{order_item.ordered}}</td>
-                        <td >{{item.date_created}}</td>
-                        <td>{{item.address}}</td>
-                        <td>{{order_item.order_id}}</td>
-                        </tr>
-                    {% endfor %}
-                    <tr  style="padding-top: 30px;">
-                        <td></td>
-                            <td colspan="4" ><b style="color: hsl(0, 85%, 35%);"> Total amount paid </b></td>
-                            <td style="color:hsl(0, 85%, 35%); padding-bottom: 70px; margin-top: 50px;"><b>{{ order_item.get_total_price}}</b></td>
-                        </tr>
-            {% endfor %}
-                </table>
-        </div>
-        </div> 
-    </div>
-</div>-->
     
 
 

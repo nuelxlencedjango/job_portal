@@ -478,4 +478,36 @@ def JobList(request):
 
 
 
+def update_bank_info(request):
+    if request.method =="POST":
+
+        form = BankUpdateForm(request.POST,instance = request.user.artisan_bank)
+        if form.is_valid():
+            form.save()
+           
+            messages.success(request,"Successfully updated")
+            return redirect('account:artisanPage')
+               
+        else:
+            messages.warning(request,"Not updated")
+    
+    else:
+        form = BankUpdateForm(instance=request.user.artisan_bank)  
+                
+        
+
+    context = {'form':form}
+
+    return render(request,'artisans/bank_update_form.html',context)  
+     
+
+  
+
+    
+    
+
+
+
+
+
 

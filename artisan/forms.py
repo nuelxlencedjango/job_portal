@@ -108,3 +108,10 @@ class BankDetailForm(forms.ModelForm):
     fields =('bank_name','account_number','account_type','account_name') 
 
 
+
+
+class BankUpdateForm(forms.ModelForm):
+
+  class Meta:
+    model =BankDetails
+    fields =('bank_name','account_number','account_type','account_name') 

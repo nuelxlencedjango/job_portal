@@ -34,6 +34,7 @@ urlpatterns = [
       path("artisan_request/<int:pk>/", views.artisanRequest, name="artisan_request"),
 
        path("bank/", views.bankDetails, name="bank"),
+     path("bank_update/", views.update_bank_info, name="bank_update"),
     
 
 
