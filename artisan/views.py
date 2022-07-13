@@ -340,12 +340,10 @@ def artisan_services(request):
         return render(request,'artisans/no_service_rendered.html')
 
     elif ServiceRequest.objects.filter(artisan=user,accepted='Accepted',work_done=True).exists():
-        job_info = ServiceRequest.objects.filter(artisan=user).order_by('-date_created')
+        job_info = ServiceRequest.objects.filter(artisan=user,accepted='Accepted',work_done=True).order_by('-date_created')
         
 
-       
-
-        context ={'job_info':job_info, 'no_job':no_job}
+        context ={'job_info':job_info}
         return render(request,'artisans/completed_services.html',context)
 
     messages.info(request,'No Job done yet')    
