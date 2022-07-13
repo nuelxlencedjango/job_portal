@@ -48,16 +48,12 @@
 }
   .nav .navbar-brand{
   
-  
-    /*display: inline-block;*/
     padding-top: 0px;
-   
-
     width: 120px;
 
     padding-left: 20px;
     position: relative;
-    top: 20px;
+    top: 7px;
     
   }
   .nav .navbar-brand a img{
@@ -71,14 +67,11 @@
  
 
   .nav {
-    /*margin-top: 40px;*/
-  
     width: 100%;
     /*background-color: #1177ca;*/
-    /*background: #7aaec4;*/
+   
     position: relative;
-  
-    
+    background: whitesmoke;
   }
 .site-title {
     color: #222;
@@ -119,7 +112,6 @@
     display: inline;
     float: right;
     font-size: 18px;
-
     margin-left: 50px;
    
     
@@ -132,11 +124,6 @@
     font-size: 18px;
     text-decoration: none;
     margin-top: 40px;
-
-  
-  
-    
-
   }
   .nav > .nav-links > ul{
     padding: 0;
@@ -149,7 +136,6 @@
     display: inline-block;
 
     /*background-color: red;*/
-
 
   }
  
@@ -195,7 +181,9 @@
   width: 100%;
   z-index: 1;
 }
-
+ul{
+  padding-left: 2rem;
+}
 .carousel-indicators{
    
   left: 0;
@@ -466,6 +454,7 @@ color: #e83e8c;
 .contactForm:hover{
   border: #fff;
 }
+
 .contactForm h2{
   font-size: 30px;
   color: #333;
@@ -772,13 +761,13 @@ span.psw {
 .welcome{
   color: whitesmoke;
   text-align: left;
-  font-size: 28px;
+  font-size: 18px;
 
 }
 .req{
-  color: #ff3838;
+  color: #fff;
   text-align: left;
-  font-size: 28px;
+  font-size: 18px;
 }
 .req:hover{
   background-color: whitesmoke;
