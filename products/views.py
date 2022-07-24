@@ -45,45 +45,7 @@ def home(request):
     return render(request,'homePage.html',context)
 
 
-
-
-
-
-
-
-def cart(request):
-    if request.user.is_authenticated:
-        customer = request.user.details.customer
-        order, created = Orders.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-        cartItems = order.get_cart_items
-
-    else:
-        items = []
-        order = {'get_cart_total':0 , 'get_cart_item':0, 'shipping':False} 
-        cartItems = order['get_cart_items']
-
-
-    context = {'items':items, 'order':order, 'cartItems':cartItems } 
-    return render(request, 'products/orderlist.html', context)
-
-
-def checkout(request):
-    if request.is_authenticated:
-        customer = request.user.details.customer
-
-        order, created = Orders.objects.get_or_create(customer=customer, complete=False)
-        items = order.orderitem_set.all()
-
-    
-    else:
-        items = []
-        ordering = {'get_cart_total':0 , 'get_cart_item':0}  
-
-   
-
-    context = {'items':items, 'order':order } 
-    return render(request, 'products/checkout.html', context)        
+      
 
   
   
@@ -114,42 +76,6 @@ def delete_order(request,pk):
 
 
 
-def updateItem(request):
-    data = json.loads(request.body)
-    productId =data['productId']
-    action = data['action']
-    #print('action:',action, 'productId :','\n', productId)
-
-    customer = request.user
-    product = Production.objects.get(id= productId)
-    #order,created = Order.objects.get_or_create(customer=customer,complete=False)
-    order,created = Orders.objects.get_or_create(customer=customer, complete=False)
-    orderItem, created = OrderItems.objects.get_or_create(orders=order, product=product)
-
-    if action == 'add':
-        orderItem.quantity = (orderItem.quantity + 1) 
-        return render(request, 'product/orderlist')
-        message = "Added"
-
-    elif action == 'remove':
-        orderItem.quantity = (orderItem.quantity - 1)
-        message = "Removed"
-
-    orderItem.save()
-
-    if orderItem.quantity <= 0:
-        orderItem.delete() 
-        message = "Deleted"
-        #return redirect("ecom:orderlist")   
-
-    
-    ctx = {'message': message}
-
-
-    #return JsonResponse('item was added ',safe=False)
-    #return render(request, 'product/orderlist',context)
-    return HttpResponse(json.dumps(ctx),content_type='application/json')
-   
 
 def details(request,id):
     home = Product.objects.get(id=id)
@@ -374,44 +300,6 @@ def payment(request):
         #return render(request,'checkout.html',{"form":form})    
 
 
-@csrf_exempt
-def payment_confirm(request):
-    try:
-
-        order = Order.objects.get(user=request.user, ordered=False)
-        order_amount = order.get_total_price()
-        order_currency = "NGA"
-        order_receipt = order.order_id
-        note ={"stree_address":address.street_address,
-           "aprtment_address":address.apartment_address,
-           "country":address.country.name,
-           "zip_code":address.zip_code }
-        razorpay_order = razorpay_client.order.create(
-         dict(
-             amount=order_amount ,
-             currency =order_currency,
-             receipt =order_receipt,
-             notes= notes,
-             payment_capture ="0"
-         )
-     )
-        print(razorpay_order["id"])
-        order.razorpay_order_id = razorpay_order["id"]
-        order.save()
-
-        context ={
-        "order":order,
-        "order_id":razorpay_order["id"],
-        "orderId":order.order_id,
-        "final_price":order_amount,
-        "razorpay_merchant_id":settings.razorpay_id
-        }
-        return render(request,"pay.html",context) 
-
-
-    except Order.DoesNotExist:
-        return HttpResponse("404 error")
-
 
 @csrf_exempt
 def payment_confirmation(request):
@@ -467,59 +355,6 @@ def handle(request):
         
     
     
-
-
-# to be removed
-@csrf_exempt
-def handlerequest(request):
-    if request.method == "POST":
-        try:
-            payment_id =request.POST.get("razorpay_payment_id")
-            order_id =request.POST.get("razorpay_order_id")
-            signature =request.POST.get("signature")
-
-            params_dict ={
-                "razorpay_order_id":order_id,
-                "razorpay_payment_id":payment_id,
-                "razorpay_signature":signature
-            }
-            try:
-                order_db = Order.objects.get(razorpay_order_id=order_id)
-            except:
-                return HttpResponse("505 not found")  
-
-            order_db.razorpay_payment_id =payment_id
-            order_db.razorpay_signature =signature
-            order_db.save()
-            result =razorpay_client.utility.verify_payment_signature(params_dict)
-            if result == None:
-                amount =order_db.get_total_price()  
-                amout = amount *100
-                payment_status =razorpay_client.payment.captur(payment_id,amount)
-                if payment_status is not None:
-                    order_db.ordered = True
-                    order_db.save()   
-                    
-
-                    order_db.ordered = False
-                    order_db.save()
-                    request.session["order_failed"]   = "unfortunately your order could not be placed"
-
-                    return redirect("/")
-                else:
-                    order_db.ordered =False
-                    order_db.save()
-                    return render(request, "paymentfail.html") 
-        except:
-            return HttpResponse("error occurred")             
-
-
-
-def cartContent(request):
-    if request.user.is_authenticated():
-        customer = request.user.customer
-        order,created = Order.objects.get_or_create(user=customer, ordered =False)
-        items = Order.orderitem_set.all()
   
 
 def add_to_shop(request,pk):
