@@ -10,13 +10,9 @@ urlpatterns = [
     path('', views.home, name='home'),
 
     path('cart/',views.cart,name='cart'),
-    path('checkout/',views.checkout ,name='checkout'),
-
+   
     path('update_order/<int:pk>/',views.updateOrder,name='update_order'),
     
-    # remove this update_item
-    path('update_item/',views.updateItem,name='update_item'),
-
 
 
     path('detail/<int:id>/', views.details, name='detail'),
