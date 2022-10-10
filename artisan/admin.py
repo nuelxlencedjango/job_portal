@@ -6,7 +6,6 @@ from .models import User
 # Register your models here.
 
 admin.site.register(Area)#
-#admin.site.register(Profession)# ,CustomerAdmin)
 admin.site.register(BankDetails)
 admin.site.register(Artisan)
 admin.site.register(ViewedJob)

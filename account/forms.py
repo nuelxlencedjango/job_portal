@@ -43,17 +43,12 @@ class CreateUserForm(UserCreationForm):
 
 
 class CustomerForm(forms.ModelForm):
-  #address = forms.CharField(max_length=30, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
-  #nin = forms.CharField(max_length=15, required=True,label='NIN',widget=forms.TextInput(attrs={'placeholder': 'NIN'}))
- 
+  
   class Meta:
     model =Customer
     fields = '__all__'
 
-  #def __init__(self ,*args ,**kwargs):
-   # super(CustomerForm ,self).__init__(*args ,**kwargs)
-    #self.fields['location'].empty_label ="Select your area"
 
 
 
@@ -75,12 +70,11 @@ class UserUpdateForm(forms.ModelForm):
 
 
 class CustomerUpdateForm(forms.ModelForm):
-  #address = forms.CharField(max_length=30, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
 
   class Meta:
     model =Customer
     fields =('phone',)
-    #fields =('address','phone','location')
+    
 
 

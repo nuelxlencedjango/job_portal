@@ -10,10 +10,10 @@ app_name = 'account'
 
 
 urlpatterns = [
-     #path('', views.account_product, name='home'),
+
     path('registration/',views.registration,name ='registration'),
     path('register/',views.registerPage,name ='register'),
-    #path('register/',views.registration,name ='register'),
+   
     path('login/' ,views.loginPage , name='login'),
     path('admin_page/',views.adminPage ,name='admin_page'),
     path('update_info/', views.update_info, name="update_info"),
@@ -21,11 +21,10 @@ urlpatterns = [
     path('logout/', views.logoutPage, name='logout'),
   
     path('client_register/',views.clientRegister,name ='client_register'),
-
-  #new info
     path('dashboard/',views.clientDashboard,name ='dashboard'),
-    #path('artisan_dashboard/',views.,name ='artisan_dashboard'),
+  
     path('artisanPage/',views.artisanDashboard,name ='artisanPage'),
+    
     
   
 

@@ -8,9 +8,8 @@ from django.dispatch import receiver
 
 from django.contrib.auth.models import AbstractUser
 
-#from django.contrib.auth import get_user_model
 
-#User = get_user_model()
+
 lagos_choices ={
     ('Alimosho' ,'Alimosho'),
     ('Ajeromi-Ifelodun' ,'Ajeromi-Ifelodun'),
@@ -44,10 +43,6 @@ lagos_choices ={
 class Customer(models.Model):
 
     user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='details')
-    #location = models.ForeignKey('artisan.Area' ,on_delete =models.CASCADE ,null=True,blank=True)
-    #nin =  models.CharField(max_length=20, null=True, unique = True)
-  
-    #address = models.CharField(max_length=200, null=True)
     phone = models.CharField(max_length=15, null=True,unique=True)
     date_created = models.DateTimeField(auto_now_add=True, null=True)
    

@@ -105,26 +105,7 @@
   font-family: 'Spline Sans', sans-serif;
 
 }
-@media(max-width:750px){
-    .fornt-image {
-        margin-top: 20px;
-  width: 100%;
-  padding-left: 40px;
-  padding-right: 40px;
-  
-}
-}
-</style>
-
-
-
-
-
-
-
-
-<style>
-   .flipping .row{
+.flipping .row{
      width: 100%;
   }
   .flipping .row .col-lg-4{
@@ -216,16 +197,21 @@
     color: red !important;
   }
   
+@media(max-width:750px){
+    .fornt-image {
+        margin-top: 20px;
+  width: 100%;
+  padding-left: 40px;
+  padding-right: 40px;
+  
+}
+}
+
 
   </style>
   
   
   
-
-
-
-
-
 
 
 
@@ -358,10 +344,10 @@
                 <div class="flip-card-back">
                   
                   <p class="flip-text">{{ product.desc}}</p>
-                  <!--<input name="q" type="text" placeholder="{{product.name}}">-->
+                 
                   <a href="{% url 'artisan:searchArtisans' product.pk %}" class="btn btn-dark btn-md" >See Profiles </a>
 
-                  <!--<input type="submit" class="flip-search" >-->
+                
 
 
                 </div>

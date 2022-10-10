@@ -1,55 +1,43 @@
-from multiprocessing import context
-from os import name
-from django.shortcuts import render,redirect ,get_object_or_404, resolve_url
+
+from django.shortcuts import render,redirect ,get_object_or_404
 from django.contrib import auth, messages
-import json 
-
 from django.utils import timezone
-
-from django.http import HttpResponse,JsonResponse, request
-from django.forms import inlineformset_factory
 from django.views.generic.base import TemplateView
-
 from django.views.generic import (
-    ListView ,DetailView, CreateView, UpdateView ,DeleteView
-
+    ListView 
 )
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-from django.contrib.auth.mixins import LoginRequiredMixin ,UserPassesTestMixin
-from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
-
-from account.models import Customer
-
-#import products                 
+from account.models import Customer                
 from .models import *
 from django.db.models import Q 
-
 from django.core.mail import send_mail
-
 from django.conf import settings
 from .forms import *
 
 
 
-def home(request):
-    #prod = Product.objects.all()
-   
+def home(request): 
     prod = Product.objects.all()
-    context ={
-       
-        'prod':prod
-    }
+    context ={'prod':prod }
 
     return render(request,'homePage.html',context)
 
 
-      
 
-  
-  
+#list of jobs available
+class AvailableJobs(TemplateView):
+    template_name = 'services.html'  
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
 
+        context['service'] = Services.objects.all()
+        context['prod'] =Product.objects.all()
+        return context
+
+    
+#updating order
 def updateOrder(request,pk):
     order = OrderItem.objects.get(pk=pk)
     form = OrderItemForm(instance = order)
@@ -68,6 +56,8 @@ def updateOrder(request,pk):
     return render(request,'products/update_order.html',context)         
 
 
+
+
 def delete_order(request,pk):
     item = OrderItem.objects.get(pk=pk)
     item.delete()
@@ -75,49 +65,16 @@ def delete_order(request,pk):
 
 
 
-
-
 def details(request,id):
     home = Product.objects.get(id=id)
-    #out = OutdoorJobs.objects.filter(id=id)
     context ={'home':home,}
-               #'out': out }
+             
     return render(request ,'detail.html',context )
-
-
-
-
-class AvailableJobs(TemplateView):
-   
-    template_name = 'services.html'  
-
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-
-        context['service'] = Services.objects.all()
-        context['prod'] =Product.objects.all()
-        return context
-
-
-
-        
-
-def product_desc(request, pk):
-   # desc = Production.objects.get(pk =pk)
-    #prod = Product.objects.get(pk=pk)   
-    context ={'desc':desc}
-    return render(request ,'products/desc.html',context)   
+ 
     
-
-
-
-
 
 def add_to_cart(request, pk):
     if request.user.is_authenticated:
-
-   
         product = Product.objects.get(pk=pk)  
     
         order_item,created = OrderItem.objects.get_or_create(
@@ -125,13 +82,12 @@ def add_to_cart(request, pk):
             user = request.user,
             ordered = False,
             description = request.POST['description'],
-        #desc = request.POST.get('desc', False),
+       
             address = request.POST['address'],
-        #address = request.POST.get('address', False),
-            quantity = int(request.POST['quantity']),
+            quantity = int(request.POST['quantity']),)
 
-            )
         order_qs = Order.objects.filter(user=request.user,ordered=False)
+        
         if order_qs.exists():
             order =order_qs[0]
             if order.items.filter(product__pk=pk).exists():
@@ -182,13 +138,12 @@ def products(request):
     }
 
     return render(request ,'products/items.html',context)
-    #return render(request,'index.html',context)
+ 
 
 
 
 
 def product_dest(request, pk):
-    #desc = Production.objects.get(pk =pk)
     prod = Product.objects.get(pk=pk)   
     context ={'prod':prod}
     return render(request ,'products/dest.html',context) 
@@ -209,12 +164,6 @@ def search(request):
             
 
 
-
-
-
-
-
-
 def contact(request):
     if request.method =='POST':
         message_name = request.POST['message-name']
@@ -222,7 +171,6 @@ def contact(request):
         message_email = request.POST['message-email']
         message  = request.POST['message']
 
-        # seend a mail
         send_mail(
             message_name , # email subject
             message ,      # main message
@@ -230,8 +178,6 @@ def contact(request):
             [settings.EMAIL_HOST_USER], # recipient, to email
         fail_silently=False)
         
-        
-        #contacts = ContactUs(name=message_name ,phone=message_phone ,email=message_email ,message=message)
         contacts = ContactUs()
         contacts.name =message_name
         contacts.phone = message_phone
@@ -251,53 +197,11 @@ def payment(request):
     if Order.objects.filter(user=request.user, ordered =False).exists():
 
         order = Order.objects.get(user=request.user, ordered=False)
-        #from django.db import connection
-        #order.query
         context ={'order':order}
         return render(request, 'payments/payment.html',context) 
 
     return render(request ,'products/orderlist.html',{'message': "your cart is empty"})            
 
-
-
-
-
-
-
-#should be removed
-#def checkout_page(request):
-    #if CheckoutAddress.objects.filter(user=request.user).exists():
-    #    return render(request,'checkout.html',{'payment_allow':'allow'})
-
-   # if request.method =="POST":e
-     #   form =CheckoutAddressForm(request.POST)
-
-      #  try:
-         #   if form.is_valid():
-              #  street_address = form.cleaned_data.get('street_address') 
-              #  apartment_address = form.cleaned_data.get('apartment_address') 
-              #  country = form.cleaned_data.get('country') 
-               # zip_code = form.cleaned_data.get('zip')    
-
-               # checkout_address = CheckoutAddress(
-                #    user =request.user,
-                #    street_address = street_address,
-                #    apartment_address =apartment_address,
-                #    country = country,
-                 #   zip_code = zip_code
-               # )
-               # checkout_address.save()
-
-               # return render(request,'checkout.html',{'payment_allow':'allow'})
-
-        #except Exception as e:
-          #  context={'e':e}
-           # messages.warning(request,'failed checkout',context)
-           # return redirect('product:orderlist')
-
-    #else:
-        #form = CheckoutAddressForm()    
-        #return render(request,'checkout.html',{"form":form})    
 
 
 
@@ -311,8 +215,6 @@ def payment_confirmation(request):
     order = Order.objects.get(user=request.user, payment_id=payment_id,ordered=False) 
     order.ordered = True
     order.save()
-
-    #orderItem goods
     if OrderItem.objects.filter(user=request.user, ordered=False,status='Pending'):
         OrderItem.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
 
@@ -339,8 +241,6 @@ def handle_confirmation(request):
 
         return render(request, 'payments/payment_confirmation.html',context) 
         
-
-    #return render(request ,'payments/payment_details.html') 
     return render(request ,'payments/no_order.html')             
 
 
@@ -349,9 +249,9 @@ def handle(request):
 
     list_items = ServiceOrder.objects.filter(user=request.user,ordered=True).order_by('-datetime_ofpayment')
 
-    context ={'list_items':list_items}#,'listitem':listitem}
+    context ={'list_items':list_items}
     return render(request, 'payments/payment_details.html',context) 
-    #return render(request, 'payments/payment_confirmation.html',context) 
+   
         
     
     
@@ -362,9 +262,7 @@ def add_to_shop(request,pk):
 
     order_item,created =OrderItem.objects.get_or_create(
         product=product,
-         #description = request.POST.get('description'),
-          #address = request.POST.get('address'),
-          #quantity = request.POST.get('quantity')
+       
     )
 
     order_qs = Order.objects.filter(user =request.user, ordered=False)
@@ -430,7 +328,6 @@ def serviceRequestCart(request, pk):
 
         artisan = Artisan.objects.get(pk=pk)  
         artisan_name = artisan.user.last_name
-        #product = Product.objects.get(pk=pk)  
         job = artisan.profession_name 
         item = Product.objects.get(name=job)
     
@@ -442,9 +339,7 @@ def serviceRequestCart(request, pk):
             description = request.POST['description'],
             address = request.POST['address'],
             number_of_workers = int(request.POST['number_of_workers']),
-            #location = request.POST['location'],
-            #number_of_workers = int(request.POST['number_of_workers']),
-
+           
 
         )
         order_qs = ServiceOrder.objects.filter(user=request.user,ordered=False)
@@ -483,14 +378,11 @@ def serviceRequestCart(request, pk):
 def Servicelist(request):
     if ServiceOrder.objects.filter(user=request.user, ordered =False).exists(): #or PostJob.objects.filter(user=request.user, paid =False).exists():
         order = ServiceOrder.objects.get(user=request.user, ordered=False)
-        #post = PostJob.objects.get(user=request.user, paid=False)
         context={
             'order':order,'listing': 'listing'
         }
-        #return render(request, 'products/servicelist.html',context)
-        return render(request, 'dashboard/client/clients.html',context)
      
-    #return render(request ,'products/servicelist.html',{'message': "your cart is empty"})  
+        return render(request, 'dashboard/client/clients.html',context) 
     return render(request ,'dashboard/client/clients.html',{'message': "your cart is empty"})   
 
 
@@ -500,8 +392,6 @@ def servicePayment(request):
     if ServiceOrder.objects.filter(user=request.user, ordered =False).exists():
 
         order = ServiceOrder.objects.get(user=request.user, ordered=False)
-        #from django.db import connection
-        #order.query
         context ={'order':order}
         return render(request, 'payments/payment.html',context) 
 
@@ -526,6 +416,7 @@ def paymentConfirmation(request):
 
     #orderItem goods
     if ServiceRequest.objects.filter(user=request.user, ordered=False,status='Pending'):
+        #updating status when payment is confirmed
         ServiceRequest.objects.filter(user=request.user, ordered=False,status='Pending').update(ordered=True,status='Paid')
 
         if ServiceRequest.objects.filter(user=request.user, ordered=True,status='Paid'):
@@ -535,12 +426,10 @@ def paymentConfirmation(request):
         else:
             return render(request,'payments/no_order.html')    
        
-        
     return redirect('products:home')
 
 
-
-
+#list of services
 def ourServices(request):
     service = Services.objects.all()
 
@@ -548,13 +437,13 @@ def ourServices(request):
     return render(request,'services.html' , context) 
 
 
-
+#client posting the job he wants
 @login_required(login_url='/account/login')
 def PostJobItem(request):
 
     form = PostJobForm()
     if request.method == 'POST':
-
+        
         form = PostJobForm(request.POST)
         if form.is_valid():
                 job_obj = form.save(commit=False)
@@ -567,7 +456,7 @@ def PostJobItem(request):
 
 
 
-
+#
 @login_required(login_url='/account/login')
 def postServiceNeeded(request):
     form = PostServiceForm()
@@ -596,7 +485,6 @@ def postServiceNeeded(request):
                     order_item.number_of_workers +=1
 
                     order_item.save()
-                    #listing='listing'
                     messages.info(request ,"Added additional worker successfully")
                     return redirect("account:dashboard")
 
@@ -660,12 +548,7 @@ def StaffTraining(request):
 
 
 
-
-   
-
-
- 
-
+#artisan details
 def artisanDetail(request):
     if ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted").exists():
         artisans_info=ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted").order_by('-date_created')
@@ -688,7 +571,7 @@ def artisanDetail(request):
   
 
     
-
+#services completed 
 def serviceCompeleted(request):
     if ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted",work_done=True).exists():
         all_jobs=ServiceRequest.objects.filter(user=request.user,ordered=True,status="Paid",accepted="Accepted",work_done=True).order_by('-date_created')

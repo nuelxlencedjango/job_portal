@@ -3,74 +3,12 @@
 {% block content %} 
 
 {% load crispy_forms_tags %} 
-<style>
-    /*.form2{
-        visibility: hidden;
-       
-     
-
-        
-    }
-    * {box-sizing: border-box}
 
 
-.container {
-  padding: 16px;
-}
-
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
-}
-
-
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
-}
-
-.registerbtn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-.registerbtn:hover {
-  opacity:1;
-}
-
-
-a {
-  color: dodgerblue;
-}
-
-
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
-}*/
-
-</style>
+<!--select account type-->
 
 <div class="container" style="width: 20rem; margin-top: 70px; height: 20rem; background-color:#e9ecef;" >
   <div class="col-md-10 offset-md-1 mt-5" >
-      <!--<div class="jumbotron"> 
-           <h3 id="form-title" style="text-align: center;">Please login to enable you request the service you want</h3>-->
           <h3 class="display-44" style="text-align: center; font-size: 22px; margin-top: 50px; color: #343a40;">request service</h3>
           <p id="form-title" >Please login to enable you request the service you want</p>
          
@@ -78,127 +16,13 @@ a {
                style="font-size: 24px; text-align: center; text-decoration: none;"role="button" class="btn btn-danger"  >Worker</a>
                <a href="{% url 'account:register' %}"
                style="font-size: 24px; text-align: center; text-decoration: none;" role="button" class="btn btn-success" >Client</a>
-        
-         <!-- <a action="" role="button" class="btn btn-primary btn-lg">Submit</a>-->
+      
       </div>
   </div>
 
-<!--<div id="regi" class="container" style="text-align: center; align-items: center; padding: 50px; height: 700px; margin-top: 30px;">
-  <div class="row">
-      <div class="col-sm-6">
-        <div class="card">
-          <div  class="card-body">
-            <h5 class="card-title"><button>Workers/Artisans</button></h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="{% url 'artisan:artisanReg' %}"  onclick="myFunction()" class="btn btn-primary"  style="text-align: center; align-items: center; padding: 50px;">Workers/Artisans</a>
-            <a href="{% url 'artisan:artisanReg' %}" class="btn btn-primary"  style="text-align: center; align-items: center; padding: 50px;">Workers/Artisans</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="card">
-          <div id="client" class="card-body">
-           
-            <h5 class="card-title"><button>Clients</button></h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-            <a href="{% url 'account:register' %}" class="btn btn-danger"   style="text-align: center; align-items: center; padding: 50px;">Clients</a>
-          </div> 
-        </div>
-      </div>
-    </div>
-</div>-->
-
-<!--<div id="form2" class="container form2" style="width: 500px;  background-color: #e9ecef; align-items: center; text-align: center; margin-top: 50px;">
-    <form action="{% url 'artisan:artisanReg' %}" method="POST" class="row g-3">
-        {% csrf_token %}
-        <div class="col-md-8">
-            <label for="inputEmail4" class="form-label"> User</label>
-            <input type="text" class="form-control" id="inputusername" name="username" placeholder="username">
-
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">First name</label>
-            <input type="text" class="form-control" id="inputfirst_name" name="first_name" placeholder="First name" >
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="inputlast_name" name="last_name" placeholder="Last name" >
-          </div>
-        
-     
-        <div class="col-6">
-          <label for="inputAddress" class="form-label">Location</label>
-          <input type="text" class="form-control" id="inputAddress" name="location" >
-     
-        </div>-->
-        <!--<div class="col-6">
-          <label for="inputAddress" class="form-label">place</label>
-          <input type="text" class="form-control" id="inputAddress" name="place" >
-     
-        </div>-->
-        <!--<div class="col-6">
-          <label for="inputAddress" class="form-label">NIN</label>
-          <input type="text" class="form-control" id="inputAddress" name="nin" >
-     
-        </div>
-        <div class="col-6">
-          <label for="inputAddress2" class="form-label">Address</label>
-          <input type="text" class="form-control" id="inputAddress2" name="address" placeholder="Address">
-        </div>
-        <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Phone</label>
-            <input type="text" class="form-control" id="inputNumber" name="phone" placeholder="Phone Number">
-          </div>
-        <div class="col-md-6">
-            <label for="inputEmail4" class="form-label">Email</label>
-            <input type="email" class="form-control" id="inputlast_name" name="email" placeholder="Email" >
-     
-          </div>
-       
-        <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" name="password1" placeholder="Password">
-          </div>
-          <div class="col-md-6">
-            <label for="inputPassword4" class="form-label">Password</label>
-            <input type="text" class="form-control" id="inputPassword4" name="password2" placeholder="Repeat Password">
-          </div>-->
-  
-     
-        <!--<div class="col-12">
-        <button role="button" class="btn btn-danger btn-lg" style="align-items: center; margin-top: 40px;">Submit</button>
-
-     <a action="" role="button" class="btn btn-danger btn-lg">Submit </a>
-     
-              <button type="submit" class="btn btn-danger">Submit</button>
-        </div>
-      </form>-->
-            
-       
 
 
 
 
-<!--<div class="mt-4">
-    <div class="d-flex justify-content-center links">
-        Already Have An Account? <a href="{% url 'account:login' %}"
-        class="mm-3">Login</a>
-    </div>
-</div>
-</div>-->
-
-
-
-
-
-  <script>
-    function myFunction() {
-     var x= document.getElementById("form2");
-     var y= document.getElementById("regi");
-     x.style.visibility ="visible";
-     y.style.visibility ="hidden";
-
-    }
-    </script>
 
   {% endblock %}

@@ -14,9 +14,9 @@ from django.contrib.auth.models import AbstractUser
 from cloudinary.models import CloudinaryField
 from products.models import *
 
-#from django.contrib.auth import get_user_model
 
-#User = get_user_model()
+
+
 LAGOS_CHOICES =(
     ('Alimosho' ,'Alimosho'),
     ('Ajeromi-Ifelodun' ,'Ajeromi-Ifelodun'),
@@ -82,9 +82,6 @@ class Area(models.Model):
 
 
 
-
-
-
 class Artisan(models.Model):
 
   user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='artisan')
@@ -98,16 +95,12 @@ class Artisan(models.Model):
  
   profile_img = CloudinaryField(blank=True,null=True)
 
-   #date_created = models.DateTimeField(auto_now_add=True, null=True)
   date_created = models.DateField(auto_now_add = True, null=True, blank=True)
-
 
   def __str__(self):
     return str(self.user.username)
 
       
-
-
 
 class CompletedJob(models.Model):
   
@@ -120,17 +113,13 @@ class CompletedJob(models.Model):
   date = models.DateField(auto_now_add = True, null=True, blank=True)
   pay =models.FloatField(default=00.00)
    
-   
   def __str__(self):
       return str(self.user.username)
 
 
 
-
 class ViewedJob(models.Model):
-
   user = models.ForeignKey(User, on_delete=models.CASCADE)
-  #user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='jobview')
   job_name =  models.CharField(max_length=200, null=True, unique = False)
   job_order_id =models.PositiveIntegerField(null=True,blank=True)
   category = models.CharField(max_length=200, null=True, unique = False)
@@ -143,12 +132,9 @@ class ViewedJob(models.Model):
   accepted = models.CharField(max_length=100, null=True,blank=True,default='No')
   accepted_date = models.DateField(auto_now_add = True, null=True, blank=True)
   work_done = models.BooleanField(default=False,null=True)
-  #completed_job  =  models.BooleanField(null=True,blank=True,default=False)
-
-
+ 
   def __str__(self):
       return str(self.user.username)
-
 
 
 
@@ -159,14 +145,9 @@ class BankDetails(models.Model):
   account_name =  models.CharField(max_length=200, null=True,  unique = False)
   account_type = models.CharField(max_length=50, null=True,  unique = False)
   account_number = models.CharField(max_length=10, null=True,  unique = False)
- 
- 
   payment_date = models.DateField(auto_now_add = True, null=True, blank=True)
   amount =models.FloatField(default=00.00)
    
-
-
-
   def __str__(self):
       return str(self.user.username)
 

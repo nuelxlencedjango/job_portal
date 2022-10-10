@@ -7,17 +7,14 @@ from .models import *
 
 
 class CreateUserForm(UserCreationForm):
-
   username = forms.CharField(max_length=30, required=True, label='username',widget=forms.TextInput(attrs={'placeholder': 'Username'}))
   first_name = forms.CharField(max_length=30, required=True,label='first_name',widget=forms.TextInput(attrs={'placeholder': 'first name'}))
   last_name = forms.CharField(max_length=30, required=True,widget=forms.TextInput(attrs={'placeholder': 'last name'}))
-  
   email = forms.EmailField(max_length=100,required=True, widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
   password1 = forms.CharField(max_length=50,required=True ,widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
   password2 = forms.CharField(max_length=50, required=True ,widget=forms.TextInput(attrs={'placeholder': 'Re-enter password'}))
   
   class Meta:
-
     model = User
     fields =('username','first_name','last_name' ,'email','password1','password2')
 
@@ -25,7 +22,6 @@ class CreateUserForm(UserCreationForm):
   def save(self, commit=True):
 
     user = super().save(commit=False)  
-
     user.username =self.cleaned_data['username']
     user.first_name =self.cleaned_data['first_name']
     user.last_name =self.cleaned_data['last_name']
@@ -37,26 +33,16 @@ class CreateUserForm(UserCreationForm):
     return user
 
     
-
-
-
-    
-
-
-  
  
 class WorkersForm(ModelForm):
-  #location= forms.CharField(max_length=30, required=True, label='location',widget=forms.TextInput(attrs={'placeholder': 'location'}))
   address = forms.CharField(max_length=200, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
-  #profession_name = forms.ModelChoiceField(max_length=50, required=True,label='Job Type',widget=forms.TextInput(attrs={'placeholder': 'Job Type'}))
   profile_img =CloudinaryField()
   nin = forms.CharField(max_length=15, required=True,label='NIN',widget=forms.TextInput(attrs={'placeholder': 'NIN'}))
  
   class Meta:
     model = Artisan
     fields ="__all__"
-    #fields = ['address','phone','','nin']
   
   
   def __init__(self ,*args ,**kwargs):
@@ -65,21 +51,13 @@ class WorkersForm(ModelForm):
   
 
   
- 
-
-
-
-
-
 class UserUpdateForm(forms.ModelForm):
-
   username = forms.CharField(max_length=30, required=True, label='username',widget=forms.TextInput(attrs={'placeholder': 'Username'}))
   first_name = forms.CharField(max_length=30, required=True,label='first_name',widget=forms.TextInput(attrs={'placeholder': 'first name'}))
   last_name = forms.CharField(max_length=30, required=True,label='last_name',widget=forms.TextInput(attrs={'placeholder': 'last name'}))
   email = forms.EmailField(max_length=100,required=True,label='email', widget=forms.EmailInput(attrs={'placeholder': 'Email'}))
 
   class Meta:
-
     model = User
     fields =('username','first_name','last_name' ,'email')
 
@@ -96,11 +74,6 @@ class ArtisanUpdateForm(forms.ModelForm):
 
 
 
-
-
-
-
-
 class BankDetailForm(forms.ModelForm):
 
   class Meta:
@@ -109,9 +82,7 @@ class BankDetailForm(forms.ModelForm):
 
 
 
-
 class BankUpdateForm(forms.ModelForm):
-
   class Meta:
     model =BankDetails
     fields =('bank_name','account_number','account_type','account_name') 

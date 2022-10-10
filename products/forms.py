@@ -9,10 +9,9 @@ from .models import *
 
 class ProductForm(forms.ModelForm):
     
-    #location =forms.CharField(required=True)
+  
     class Meta:
         model = Product
-        #fields = '__all__'
         fields =('name','desc' ,'location')
 
     def __init__(self ,*args ,**kwargs):
@@ -23,28 +22,17 @@ class ProductForm(forms.ModelForm):
 
 
 class OrderItemForm(forms.ModelForm):
-
-    #product = forms.CharField(max_length=5, required=True, label='product',widget=forms.TextInput(attrs={'placeholder': 'Username'}))
-    #quantity = forms.IntegerField(max_length=30, required=True,label='quantity',widget=forms.TextInput(attrs={'placeholder': 'first name'}))
-    #address = forms.CharField(max_length=30, required=True, label='username',widget=forms.TextInput(attrs={'placeholder': 'Username'}))
-    #desc = forms.CharField(max_length=30, required=True,widget=forms.TextInput(attrs={'placeholder': 'last name'}))
-    class Meta:
+     class Meta:
         model = OrderItem
         fields =('product','quantity','address' ,'description')
 
 
 
 
-
-
- 
-  
-
 class  PostJobForm(forms.ModelForm):
     class Meta:
         model = PostJob
         fields =('services','number_of_people' ,'description','location','address')
-
 
     def __init__(self ,*args ,**kwargs):
 
@@ -53,18 +41,10 @@ class  PostJobForm(forms.ModelForm):
 
  
 
-
-      
-            
-             
-        
- 
-
 class  PostServiceForm(forms.ModelForm):
     class Meta:
         model = ServiceRequest
         fields =('product','number_of_workers','description','address','location')
-
 
 
     def __init__(self ,*args ,**kwargs):
@@ -74,17 +54,10 @@ class  PostServiceForm(forms.ModelForm):
 
 
 
-
-
-
-
-
 class  TrainingStaff(forms.ModelForm):
     class Meta:
         model = TrainStaff
         fields =('name','number_of_people','description','address','type_of_service','location')
-
-
 
     def __init__(self ,*args ,**kwargs):
 
