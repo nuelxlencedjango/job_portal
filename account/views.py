@@ -136,10 +136,12 @@ def adminPage(request):
     total_orders =orders.count()
 
     completed =orders.filter(status='Completed')
-    pending =orders.filter(status='pending')
-
+    pending =orders.filter(status='Pending')
+    paid =orders.filter(status='Paid')
+    paid_len =orders.filter(status='Paid').count()
+    
     completed_job =orders.filter(status='Completed').count()
-    pending_job =orders.filter(status='pending').count()
+    pending_job =orders.filter(status='Pending').count()
 
     context={
         'orders':orders,
@@ -150,7 +152,9 @@ def adminPage(request):
         'pending':pending,
         'completed_job':completed_job,
         'pending_job':pending_job,
-        'ord_product':ord_product
+        'ord_product':ord_product,
+        'paid':paid,
+        'paid_len':paid_len
 
         
     }

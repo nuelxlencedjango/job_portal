@@ -1,4 +1,5 @@
 
+from turtle import title
 from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import render,redirect
@@ -279,14 +280,16 @@ def artisanList(request, pk):
     #all artsan of a particular trade
     if Artisan.objects.filter(profession_name=pk).exists():
         details = Artisan.objects.filter(profession_name=pk)
-        context={"details":details}
+        for i in details:
+            title =i.profession_name
+
+        context={"details":details,'title':title}
         
         return render(request, "artisans/artisan-search.html", context)
     else:
         
-        context={'name':pk}
         messages.warning(request, pk,"is not available at this point")
-        return render(request, "artisans/artisan-search.html", context)
+        return render(request, "artisans/artisan-search.html")
 
 
 
@@ -353,6 +356,7 @@ def JobList(request):
     no_job =  ServiceRequest.objects.filter(artisan=Artisan.objects.get(user=request.user),accepted='Accepted',ordered=True,status='Paid',work_done=True).count()
     context={'no_job':no_job}
     return render(request,'check.html',context)
+
 
 
 #updating artisan's information
