@@ -96,14 +96,25 @@ WSGI_APPLICATION = 'iwan_work.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#DATABASES = {
+ #     'default': {
+  #      'ENGINE': 'django.db.backends.postgresql',
+   #     'NAME':  'd81ahs7rvjvkul',
+    #    'HOST' :'ec2-54-197-43-39.compute-1.amazonaws.com',
+     #   'PORT':5432,
+      #  'USER' :'kctuneuiczrpno',
+       # 'PASSWORD' :'29037e39cda2628820439350b4f08a43fd26f7a6769f3a8a997d01db5c0c18cc',
+
+    #}
+#}
 DATABASES = {
       'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':  'd81ahs7rvjvkul',
-        'HOST' :'ec2-54-197-43-39.compute-1.amazonaws.com',
-        'PORT':5432,
-        'USER' :'kctuneuiczrpno',
-        'PASSWORD' :'29037e39cda2628820439350b4f08a43fd26f7a6769f3a8a997d01db5c0c18cc',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'HOST' :os.environ.get('DATABASE_HOST'),
+        'PORT':os.environ.get('DATABASE_PORT'),
+        'USER' :os.environ.get('DATABASE_USER'),
+        'PASSWORD' :os.environ.get('DATABASE_PASSWORD'),
 
     }
 }
