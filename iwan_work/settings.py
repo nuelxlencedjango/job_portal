@@ -32,9 +32,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = 'django-insecure-yc_7*7@a0q_l-ln0pe&v%do&tkdppu5p$drobcwn8qj6-ik&en'
-SECRET_KEY ='bw75k+ht*@g+03m7p1((mu1f@!2xk4x)!m2i0bwdxo9!h8mun='
+
+SECRET_KEY=os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ['127.0.0.1','web-production-94b5.up.railway.app']
 
