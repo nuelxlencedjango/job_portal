@@ -36,7 +36,7 @@ SECRET_KEY = 'django-insecure-yc_7*7@a0q_l-ln0pe&v%do&tkdppu5p$drobcwn8qj6-ik&en
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['www.i-wan-wok.com','i-wan-wok.com','iwanwok.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1','web-production-94b5.up.railway.app']
 
 
 
@@ -183,7 +183,13 @@ EMAIL_USE_TLS = True
 EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 
 
-if os.getcwd() == '/app':
-    SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_SSL_REDIRECT =True
+#if os.getcwd() == '/app':
+ #   SECURE_PROXY_SSL_HEADER =('HTTP_X_FORWARDED_PROTO', 'https')
+  #  SECURE_SSL_REDIRECT =True
     #DEBUG = False
+
+
+
+CSRF_TRUSTED_ORIGINS=['web-production-94b5.up.railway.app']
+
+
