@@ -31,8 +31,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-yc_7*7@a0q_l-ln0pe&v%do&tkdppu5p$drobcwn8qj6-ik&en'
-
+#SECRET_KEY = 'django-insecure-yc_7*7@a0q_l-ln0pe&v%do&tkdppu5p$drobcwn8qj6-ik&en'
+SECRET_KEY ='bw75k+ht*@g+03m7p1((mu1f@!2xk4x)!m2i0bwdxo9!h8mun='
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -190,6 +190,6 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 
 
 
-CSRF_TRUSTED_ORIGINS=['web-production-94b5.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://web-production-94b5.up.railway.app']
 
 
