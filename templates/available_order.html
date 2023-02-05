@@ -41,8 +41,7 @@
           <h5>Customer:</h5>
           <hr>
           <a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'artisan:artisan_update' %}">Update Your information</a>
-          <!--<a class="btn btn-outline-info  btn-sm btn-block" href="{% url 'products:jobs' %}">Place Order</a>-->
-    
+
         </div>
       </div>
     
@@ -138,14 +137,7 @@
               <td>{{ order_item.product.name }}</td>
                         <td>{{ order_item.product.price }}</td>
               <td style="text-align: center;">
-                <!--<p><strong><i class="fas fa-arrow-up"></i></strong></p>
-                    <img data-product="{{ item.product.id }}" data-action="add" class="chg-quantity update-cart" src="{% static 'images/arrow-up.png' %}" alt="" style="background-color: green; font-size: x-large;">-->
-                    
-                  <!--<img data-product="{{ item.product.id }}" data-action="remove" class="chg-quantity update-cart" class="chg-quantity" src="{% static 'images/arrow-down.png' %}" alt="" style="background-color: green;">
-                  <i class="fas fa-sort"></i>-->
-        
-    
-                <!--<strong><a href="{% url 'products:add_item' order_item.pk %}"><i class="fas fa-sort-up"></i></a></strong>-->
+               
                 {{ order_item.quantity }}
     
               
@@ -156,10 +148,6 @@
     
               <td>{{order_item.date_created}}</td>
             
-    
-              <!--<td>{{order_item.get_final_price}}</td>
-              <td style="color: tomato;">{{order_item.id}}</td>
-              <td style="color: blue;">{{order_item.pk}}</td>-->
         
               
               <td><a class="btn btn-sm btn-info" style="padding: 4px;" href="{% url 'products:update_order' order_item.id %}">Update</a></td>
@@ -170,23 +158,13 @@
     
         
         
-        
-        
-        <!--<tr style="margin-top: 40px; padding: 40px;">
-          <td style="margin-bottom: 40px;"></td>
-          
-             <td colspan="3" ><b>VAT </b></td>
-             <td><b>100</b></td>
-             
-           </tr>-->
+      
            <tr  style="background-color: black; padding: 30px;">
           <td></td>
          
              <td colspan="3" ><b style="color: whitesmoke;">Total Amount  </b></td>
              <td style="color: whitesmoke;"><b>{{ order.get_total_price }}</b></td>
-            <!--<td colspan="4"><a href="" class="btn btn-danger" style="color: whitesmoke; float: right;"> Pay</a>-->
-           
-             
+  
       
            </tr>
   

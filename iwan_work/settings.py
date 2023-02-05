@@ -37,7 +37,7 @@ SECRET_KEY=os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1','web-production-94b5.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1','web-production-cc80.up.railway.app']
 
 
 
@@ -96,17 +96,17 @@ WSGI_APPLICATION = 'iwan_work.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
- #     'default': {
-  #      'ENGINE': 'django.db.backends.postgresql',
-   #     'NAME':  'd81ahs7rvjvkul',
-    #    'HOST' :'ec2-54-197-43-39.compute-1.amazonaws.com',
-     #   'PORT':5432,
-      #  'USER' :'kctuneuiczrpno',
-       # 'PASSWORD' :'29037e39cda2628820439350b4f08a43fd26f7a6769f3a8a997d01db5c0c18cc',
+DATABASES = {
+      'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('DATABASE_NAME'),
+        'HOST' :os.environ.get('DATABASE_HOST'),
+        'PORT':os.environ.get('DATABASE_PORT'),
+        'USER' :os.environ.get('DATABASE_USER'),
+        'PASSWORD' :os.environ.get('DATABASE_PASSWORD'),
 
-    #}
-#}
+    }
+}
 
 
 
@@ -193,6 +193,6 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 
 
 
-CSRF_TRUSTED_ORIGINS=['https://web-production-94b5.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://web-production-cc80.up.railway.app']
 
 
