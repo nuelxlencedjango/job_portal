@@ -206,12 +206,13 @@ def clientDashboard(request):
 def artisanDashboard(request):
     #artisan name
     job_name   = request.user.artisan.profession_name
-    
+    print('job name:',job_name)
     #all jobs done by the artisan
     no_job = ServiceRequest.objects.filter(artisan=Artisan.objects.get(user=request.user),accepted='Accepted',ordered=True,status='Paid',work_done=True)
     #last viewed job
     out_standing =  ViewedJob.objects.filter(user=request.user,accepted='Accepted',work_done=True).last()
-    price = out_standing.price
+    
+  
     
     #number of job done
     no_job =  ServiceRequest.objects.filter(artisan=Artisan.objects.get(user=request.user),accepted='Accepted',ordered=True,status='Paid',work_done=True).count()
@@ -219,7 +220,7 @@ def artisanDashboard(request):
     #available jobs
     areaJobs=ServiceRequest.objects.filter(ordered=True,status='Paid',product=job_name)
 
-    context={'no_job':no_job,'price':price,'areaJobs':areaJobs}
+    context={'no_job':no_job,'out_standing':out_standing,'areaJobs':areaJobs}
     return render(request,'dashboard/artisan/artisans_admin.html',context)
 
 

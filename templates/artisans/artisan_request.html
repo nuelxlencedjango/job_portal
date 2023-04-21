@@ -45,12 +45,21 @@
             color: #000;
             font-size: 18px;
           }
-          
+  .notPermitted{
+    text-align: center;
+    font-size: 20px;
+    color: #000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 700;
+
+
+  }        
 </style>
 
 
-
-
+{% if request.user.artisan %}
+<h5 class="notPermitted">You can not make an order.You make first register as a customer first.</h5>
+{% else %}
   <!-- partial -->
   <div class="main-panel">
     <div class="content-wrapper">
@@ -113,7 +122,7 @@
             </div>
             <!-- main-panel ends -->
 
-            
+            {% endif %}
 
 
 {{ form.errors }}

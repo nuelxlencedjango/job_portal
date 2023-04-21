@@ -901,11 +901,14 @@ main .card .head h2 {
 					<span class="progress" data-value="60%"></span>
 					<span class="label"></span>
 				</div>
+				
 				<div class="card">
 					<div class="head">
 						<div>
 							<h2> outsting pay</h2>
-						     <h2 style="color: red; margin-top:20px;"># {{ price }}</h2>
+							{% for amt in out_standing %}
+						     <h2 style="color: red; margin-top:20px;"># {{ amt.price }}</h2>
+							 {% endfor %}
 						</div>
 						<i class='bx bx-trending-up icon' ></i>
 					</div>
@@ -967,5 +970,4 @@ main .card .head h2 {
 
 </body>
 </html>
-
 

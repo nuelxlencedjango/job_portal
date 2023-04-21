@@ -1,6 +1,4 @@
 
-#from turtle import title
-from django.shortcuts import render
 from django.utils import timezone
 from django.shortcuts import render,redirect
 
@@ -16,6 +14,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic import (
     ListView ,DetailView,
 )
+from account.models import *
 from .forms import *
 
 
@@ -278,20 +277,22 @@ def artisan_services(request):
 #list of artisans
 def artisanList(request, pk):
     #all artsan of a particular trade
+    #if Customer.objects.get(user=request.user):
     if Artisan.objects.filter(profession_name=pk).exists():
         details = Artisan.objects.filter(profession_name=pk)
         for i in details:
             title =i.profession_name
 
-        context={"details":details,'title':title}
+            context={"details":details,'title':title}
         
-        return render(request, "artisans/artisan-search.html", context)
-    else:
+            return render(request, "artisans/artisan-search.html", context)
+        else:
         
-        messages.warning(request, pk,"is not available at this point")
-        return render(request, "artisans/artisan-search.html")
-
-
+            messages.warning(request, pk,"is not available at this point")
+            return render(request, "artisans/artisan-search.html")
+        
+    messages.warning(request,"Register as a customer if you want to order a service")
+    return redirect('/')
 
 def artisanRequest(request, pk):
     #artisan detail
@@ -383,8 +384,6 @@ def update_bank_info(request):
 
   
 
-    
-    
 
 
 

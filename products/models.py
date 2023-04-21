@@ -177,7 +177,7 @@ class PaymentDetail(models.Model):
    email = models.EmailField(unique = False) 
    amount = models.CharField(max_length=100) 
    class Meta:
-      verbose_name_plural = "Contact Us"
+      verbose_name_plural = "Payment Detail"
 
    def __str__(self):
       return self.name  
