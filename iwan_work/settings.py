@@ -14,9 +14,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os 
 from pathlib import Path
 
-import django_heroku
+#import django_heroku
 
-
+import dj_database_url
 
 #import cloudinary_storage
 import cloudinary
@@ -31,15 +31,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = 'django-insecure-yc_7*7@a0q_l-ln0pe&v%do&tkdppu5p$drobcwn8qj6-ik&en'
+
 
 SECRET_KEY=os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG')
 
-ALLOWED_HOSTS = ['127.0.0.1','web-production-cc80.up.railway.app']
 
-
+ALLOWED_HOSTS = ['127.0.0.1','web-production-85af.up.railway.app']
 
 # Application definition
 
@@ -51,10 +50,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'products',
-    #'cloudinary_storage',
     'cloudinary',
-    #'account',
-  
     'account',
      'artisan',
     'crispy_forms',
@@ -96,6 +92,7 @@ WSGI_APPLICATION = 'iwan_work.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+'''
 DATABASES = {
       'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -105,6 +102,15 @@ DATABASES = {
         'USER' :os.environ.get('DATABASE_USER'),
         'PASSWORD' :os.environ.get('DATABASE_PASSWORD'),
 
+    }
+}
+
+'''
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -174,7 +180,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
 
 
     #EMAIL_HOST = 'smtp.gmail.com'
@@ -193,6 +199,6 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 
 
 
-CSRF_TRUSTED_ORIGINS=['https://web-production-cc80.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://web-production-85af.up.railway.app']
 
 

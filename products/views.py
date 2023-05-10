@@ -16,6 +16,10 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import *
 
+from django.core.management.utils import get_random_secret_key
+print(get_random_secret_key())
+
+#8162810489
 
 
 def home(request): 
