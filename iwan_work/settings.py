@@ -38,7 +38,7 @@ SECRET_KEY=os.environ.get('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG')
 
 
-ALLOWED_HOSTS = ['127.0.0.1','web-production-85af.up.railway.app']
+ALLOWED_HOSTS = ['127.0.0.1','web-production-85af.up.railway.app','www.i-wan-wok.com','i-wan-wok.com']
 
 # Application definition
 
@@ -199,6 +199,7 @@ EMAIL_BACKEND ='django.core.mail.backends.smtp.EmailBackend'
 
 
 
-CSRF_TRUSTED_ORIGINS=['https://web-production-85af.up.railway.app']
+CSRF_TRUSTED_ORIGINS=['https://web-production-85af.up.railway.app','https://www.i-wan-wok.com']
+
 
 
