@@ -58,6 +58,7 @@
   }
   .nav .navbar-brand a img{
     width: 100%;
+    border-radius: 50%;
   }
 
   header .container{
@@ -95,14 +96,7 @@
       text-decoration: none;
   }
 
-  .nav > .nav-header > .nav-title {
-    /*display: inline-block;
-    font-size: 22px;
-    color: #fff;
-    font-weight: 550;
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 10px 10px 10px 10px;*/
-  }
+
 
   .nav > .nav-btn {
     display: none;
@@ -118,11 +112,12 @@
   }
   .nav > .nav-links > ul li a{
     display: block;
-    padding: 0 10px;
+   /* padding: 0 10px;*/
     color:  #2b3032a1;
     line-height: 40px;
     font-size: 18px;
     text-decoration: none;
+    margin: 0 10px;
     margin-top: 40px;
   }
   .nav > .nav-links > ul{
@@ -139,10 +134,13 @@
 
   }
  
-  .nav > .nav-links > ul li:hover{
-      background-color: #ff686b;
-     color: white !important;
+  .nav > .nav-links > ul li a:hover{
+     
+     /*color: white !important;*/
       border-radius: 5px;
+      text-decoration: underline;
+      /*color: #7bdcb5 !important;*/
+      color: #45ccb8 !important;
   }
  
   .nav > #nav-check {

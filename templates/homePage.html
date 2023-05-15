@@ -61,12 +61,12 @@
   font-family: 'Spline Sans', sans-serif;
 
 }
-.fornt-image {
+.fornt-image a { 
   width: 50%;
   padding: 20px;
   
 }
-.fornt-image img{
+.fornt-image a img{
   height: 350px;
   width: 100%;
   margin-top: 80px;
@@ -74,7 +74,10 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
      
 }
-
+.fornt-image .item h4{
+  text-align: center;
+  color: #000;
+}
 /* second small slider*/
 .slide-item-wrapper2 .marker{
   height: 70px;
@@ -203,9 +206,15 @@
 .inform h3{
   margin: 10px;
 }
+.owl-dot{
+  display: none !important;
+}
+.fornt-image{ 
+  z-index: -1;
+}
 
 @media(max-width:750px){
-    .fornt-image {
+    .fornt-image { 
         margin-top: 20px;
   width: 100%;
   padding-left: 40px;
@@ -213,15 +222,18 @@
   
 }
 }
-
-
   </style>
   
   
   
 
 
-
+  <link rel="stylesheet" href="/static/owlCarousel/owl.carousel.min.css">
+  <link rel="stylesheet" href="/static/owlCarousel/owl.theme.default.min.css">
+  
+  
+  <script src="/static/js/jquery/jquery.js"></script>
+  <script src="/static/js/owlCarousel/owl.carousel.min.js"></script>
 
 
 
@@ -300,7 +312,34 @@
  </div>
 </div>
         <div class="col-md-6 fornt-image">
-            <img src="{% static 'images/hairdresser2.jpg' %}" alt="">
+          <div class="owl-carousel owl-theme">
+            {% for serv in prod %}
+            <a href="{% url 'artisan:searchArtisans' serv.pk %}">
+            <div class="item">
+              <h4>{{ serv.name }}</h4>
+              <!--<img src="{% static 'images/hairdresser2.jpg' %}" alt="">-->
+              <img src="{{ serv.img.url }}" alt="">
+            </div>
+            </a>
+            {% endfor %}
+            <!--<div class="item">
+              <h4>2</h4>
+              <img src="{% static 'images/hairdresser2.jpg' %}" alt="">
+            </div>
+            <div class="item">
+              <h4>3</h4>
+              <img src="{% static 'images/hairdresser2.jpg' %}" alt="">
+            </div>
+            <div class="item">
+              <h4>4</h4>
+              <img src="{% static 'images/hairdresser2.jpg' %}" alt="">
+            </div>
+            <div class="item">
+              <h4>5</h4>
+              <img src="{% static 'images/hairdresser2.jpg' %}" alt="">
+            </div>-->
+            
+          </div>
         </div>
     </div>
 </section>
@@ -458,4 +497,38 @@
         </div>
   
   </div>    
+
+
+
+
+
+
+
+<script>
+  $('.owl-carousel').owlCarousel({
+  loop:false,
+  margin:10,
+  nav:false,
+  center: true,
+
+  autoplay:true,
+autoplayTimeout:5000,
+autoplayHoverPause:true,
+  responsive:{
+      0:{
+          items:1
+      },
+      600:{
+          items:1
+      },
+      1000:{
+          items:1
+      }
+  }
+})
+
+
+</script>
+
+
 {% endblock %}
