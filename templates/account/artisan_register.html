@@ -9,7 +9,6 @@
 
 
 
-
 <style>
   .g-3{
         /*box-shadow: 0 0 10px 4px #d0d0d0;*/
@@ -20,6 +19,19 @@
        .g-3:hover{
          border: #fff;
        }
+    .worker-act{
+      text-align: center;
+    } 
+    .worker-act .center h3{
+      color: #000;
+    
+      font-weight: 700;
+      font-family: Arial, Helvetica, sans-serif;
+    }  
+    .links{
+      color: #000;
+      font-family: Arial, Helvetica, sans-serif;
+    }
 </style>
 
 
@@ -27,19 +39,24 @@
 
 
 
+<div class="container">
+  <div class="worker-act">
+    <div class="center">
 
-
+        <h3>Registration Form </h3>
+    </div>
+  </div>
+</div>
               
 
 
 <div id="form2" class="container form2">
-  <h3>Worker's Registration Form</h3>
     <form action="" method="POST" class="row g-3" enctype="multipart/form-data">
       
         {% csrf_token %}
       
      
-        <div class="col-md-6 form2">
+        <div class="col-md-12 form2">
             {{ form1.username|as_crispy_field }}
         </div>
         <div class="col-md-12 form2">

@@ -286,13 +286,15 @@ def artisanList(request, pk):
             context={"details":details,'title':title}
         
             return render(request, "artisans/artisan-search.html", context)
-        else:
+    else:
         
-            messages.warning(request, pk,"is not available at this point")
-            return render(request, "artisans/artisan-search.html")
+        messages.warning(request, pk,"is not available at this point")
+        return render(request, "artisans/artisan-search.html")
         
     messages.warning(request,"Register as a customer if you want to order a service")
     return redirect('/')
+
+
 
 def artisanRequest(request, pk):
     #artisan detail
