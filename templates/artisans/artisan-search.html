@@ -28,9 +28,13 @@
          }
           .card img{
             padding: 20px;
-            height: 130px;
-            border-radius: 20px;
+            width: 100%;
+            border-radius: 30px;
+            height: 70px;
+        
+            /*object-fit: cover;*/
             border: 2px solid whitesmoke;
+
 
           }
           .card:hover{
@@ -113,7 +117,7 @@
 
         {% if title  %}
        
-       <h3 class="title-name">Available {{ title}} in your neigbourhood</h3>
+       <h3 class="title-name">Available {{ title}}s in your neigbourhood</h3>
     
 
 
@@ -124,7 +128,7 @@
                 {% if job %}
                 <div class="col-lg-4">
                     <div class="card">
-                        <img src="{{job.profile_img.url }}" alt="John" style="width:100%">
+                        <img src="{{job.profile_img.url }}" alt="John">
                         <h1>Name: <span class="pro-name">{{ job.user.first_name }}  {{ job.user.last_name }}</span> </h1>
                         <p class="title">Profession: {{ job.profession_name }}</p>
   

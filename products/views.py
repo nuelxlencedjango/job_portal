@@ -20,13 +20,25 @@ from django.core.management.utils import get_random_secret_key
 print(get_random_secret_key())
 
 #8162810489
+from django.contrib.auth.models import User
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+
 
 
 def home(request): 
+    
     prod = Product.objects.all()
-    context ={'prod':prod }
+    page = request.GET.get('page', 1)
+    paginator = Paginator(prod, 5)
+    try:
+        prod = paginator.page(page)
+    except PageNotAnInteger:
+        prod = paginator.page(1)
+    except EmptyPage:
+        prod = paginator.page(paginator.num_pages)
 
-    return render(request,'homePage.html',context)
+    return render(request,'homePage.html',{ 'prod': prod })
 
 
 
@@ -35,7 +47,6 @@ class AvailableJobs(TemplateView):
     template_name = 'services.html'  
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-
         context['service'] = Services.objects.all()
         context['prod'] =Product.objects.all()
         return context
