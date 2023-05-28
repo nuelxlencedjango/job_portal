@@ -39,7 +39,7 @@ class WorkersForm(ModelForm):
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
   profile_img =CloudinaryField()
   nin = forms.CharField(max_length=15, required=True,label='NIN',widget=forms.TextInput(attrs={'placeholder': 'NIN'}))
- 
+  years_experience = forms.CharField(max_length=100, required=True,label='years experience',widget=forms.TextInput(attrs={'placeholder': 'how many years experience?'}))
   class Meta:
     model = Artisan
     fields ="__all__"
@@ -67,10 +67,11 @@ class ArtisanUpdateForm(forms.ModelForm):
   address = forms.CharField(max_length=30, required=True,label='address',widget=forms.TextInput(attrs={'placeholder': 'address'}))
   phone = forms.CharField(max_length=15, required=True,label='phone',widget=forms.TextInput(attrs={'placeholder': 'phone'}))
   nin = forms.CharField(max_length=30, required=True,label='nin',widget=forms.TextInput(attrs={'placeholder': 'nin'}))
+  years_experience = forms.CharField(max_length=100, required=True,label='years experience',widget=forms.TextInput(attrs={'placeholder': 'how many years experience?'}))
  
   class Meta:
     model =Artisan
-    fields =('address','phone','location','nin')    
+    fields =('address','phone','location','nin','years_experience')    
 
 
 
