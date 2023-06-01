@@ -14,7 +14,8 @@ function payNow(e){
        tx_ref: "iwanwok_" +Math.floor((Math.random()*1000000000)+1),
        amount: document.getElementById("amount").value,
        currency:"NGN",
-       redirect_url:"https://iwanwok.herokuapp.com/payment_confirmation/",
+       //redirect_url:"https://iwanwok.herokuapp.com/payment_confirmation/",
+       redirect_url:"https://www.i-wan-wok.com/payment_confirmation/",
      
        //payment_options:true,
        //  country: "US",
