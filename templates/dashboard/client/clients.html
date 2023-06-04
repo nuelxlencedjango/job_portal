@@ -215,12 +215,12 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+            <a class="nav-link" id="serv" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
               <i class="typcn typcn-document-text menu-icon"></i>
               <span class="menu-title"><b>Services</b></span>
               <i class="menu-arrow"></i>
             </a>
-            <div class="collapse" id="ui-basic">
+            <div class="colps" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:servicelist' %}"><b>Unpaid Services</b> </a></li>
                 <li class="nav-item"> <a class="nav-link" href="{% url 'products:workers_detail' %}"><b>Artisan's Detail</b></a></li>
@@ -378,6 +378,7 @@
     <!-- page-body-wrapper ends -->
   </div>
   <!-- container-scroller -->
+
 
 
   {% include 'footer.html' %}

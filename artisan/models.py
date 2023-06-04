@@ -98,8 +98,7 @@ class Artisan(models.Model):
   date_created = models.DateField(auto_now_add = True, null=True, blank=True)
 
   def __str__(self):
-    return str(self.user.username)
-
+    return f"{self.user.username} - {self.profession_name}"
       
 
 class CompletedJob(models.Model):
@@ -134,7 +133,7 @@ class ViewedJob(models.Model):
   work_done = models.BooleanField(default=False,null=True)
  
   def __str__(self):
-      return str(self.user.username)
+      return f"{self.user.username} - {self.job_name}"
 
 
 
