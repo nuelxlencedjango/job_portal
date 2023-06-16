@@ -84,9 +84,21 @@ def artisan_update(request):
 
 
 
-
 @login_required
 def paidJobs(request):
+
+    if ServiceRequest.objects.filter(ordered=True,status='Paid').exists():
+        res=ServiceRequest.objects.filter(ordered=True,status='Paid')
+        context ={'areaJobs':res}
+        return render(request,'check.html',context) 
+    else:
+        messages.success(request, f"No {res} work available now.Please check back later.") 
+        return render(request,'check.html') 
+    
+
+
+@login_required
+def paidJobssssssss(request):
     #the artisan
     artisan = Artisan.objects.filter(user=request.user)
    
@@ -118,10 +130,18 @@ def paidJobs(request):
         return render(request,'check.html')  
 
 
-
 #job detail
 @login_required
 def jobDetail(request,id):
+    job_info= ServiceRequest.objects.get(id =id)
+    context = {'job_info': job_info }
+    return render(request,'products/job_detail.html',context)
+
+
+
+#job detail
+@login_required
+def jobDetailsssss(request,id):
     #authenticate the user
     if request.user.is_authenticated:
         artisan = [Artisan.objects.filter(user=request.user)]

@@ -294,14 +294,14 @@ nav .divider {
 	display: block;
 }
 nav .profile {
-	position: relative;
+	position: relative;  
 }
 nav .profile img {
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
 	object-fit: cover;
-	cursor: pointer;
+	cursor: pointer; 
 }
 nav .profile .profile-link {
 	position: absolute;
@@ -314,12 +314,12 @@ nav .profile .profile-link {
 	width: 160px;
 	opacity: 0;
 	pointer-events: none;
-	transition: all .3s ease;
+	transition: all .3s ease; 
 }
 nav .profile .profile-link.show {
 	opacity: 1;
 	pointer-events: visible;
-	top: 100%;
+	top: 100%; 
 }
 nav .profile .profile-link a {
 	padding: 10px 16px;
@@ -328,10 +328,10 @@ nav .profile .profile-link a {
 	font-size: 14px;
 	color: var(--dark);
 	align-items: center;
-	transition: all .3s ease;
+	transition: all .3s ease;  
 }
 nav .profile .profile-link a:hover {
-	background: var(--grey);
+	background: var(--grey); 
 }
 /* NAVBAR */
 
@@ -527,11 +527,11 @@ main .chat-box .profile .username {
 	font-size: 14px;
 	font-weight: 600;
 	display: inline-block;
-	margin-right: 6px;
+	margin-right: 6px; 
 }
 main .chat-box .profile .time {
 	font-size: 12px;
-	color: var(--dark-grey);
+	color: var(--dark-grey); 
 }
 main .chat-box .chat p {
 	font-size: 14px;
@@ -549,7 +549,7 @@ main .chat-box .msg.me {
 	justify-content: flex-end;
 }
 main .chat-box .msg.me .profile {
-	text-align: right;
+	text-align: right; 
 }
 main .chat-box .msg.me p {
 	background: var(--grey);
@@ -627,8 +627,8 @@ li:hover{
 }
 .card-body .profile img{
 	width: 100%;
-	height: 100%;
-	border-radius: 50%;
+	height: 190px;
+	border-radius: 50%; 
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 .card-body-info{
@@ -654,7 +654,9 @@ li:hover{
 	background: #000;
 	bottom: 0;
 }
-
+.fname{
+	text-transform: capitalize;
+}
 
 @media screen and (max-width: 580px) {
 
@@ -836,7 +838,8 @@ main .card .head h2 {
 			  <h5>Contact Information</h5>
 			  <hr>
 			  <p>username: {{user.username}}</p>
-			  <p>Full name: {{user.first_name}} &nbsp; {{user.last_name}}</p>
+			  <p class="fname">Full name: {{user.first_name}} &nbsp; {{user.last_name}}</p>
+			  <p>Phone: {{user.artisan.profession_name}}</p>
 			  <p>Phone: {{user.artisan.phone}}</p>
 			  <p>NIN: {{user.artisan.nin}}</p>
 			 
