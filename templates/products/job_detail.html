@@ -5,14 +5,6 @@
 
  
 <style>
-
-  /*table, th, td {
-    border: 1px solid white;
-    border-collapse: collapse;
-    text-align: center;
-    word-wrap: break-word;
-    
-  }*/
   h3{
     text-align: center;
     font-size: 20px;
@@ -32,68 +24,7 @@
     }
   }
   </style>
-  
-   <!---<div class="row artisan-job-info" style="margin-top: 40px;">
-     
-      <div class="col-md-12">
-        <div class="card card-body">
-        
 
-         
-            <button class="btn btn-success  btn-sm btn-block" style="background-color: #96D4D4;" href="">artisanPage
-              &nbsp;&nbsp;<a class="btn btn-danger  btn-sm btn-block" style=" border: none;" href="{% url 'account:artisanPage' %}">Dashboard</a>
-            </button>
-          
-          <table class="table table-sm" style="margin-top: 30px;">
-            <tr class="tr">
-              <td>Job Name</td>
-           
-              <td>Job Description</td>
-          
-              <td>Date</td>
-           
-              <td>Amount</td>
-            </tr>
-
-          
-         
-           
-            <tr>
-              <td>{{ job_info.product.name }}</td>
-             
-              <td>{{job_info.description}}</td>
-            
-              <td>{{job_info.date_created}}</td>
-
-             
-              <td style="background-color: #dc3545; color: #fff;">{{ job_info.get_service_rate }}</td>
-
-          
-            </tr>
-            <div class="container" style="margin-top: 20px;">
-              <div class="items" style="align-items: center; text-align: center;">
-
-            <td><a class="btn btn-success"  href="{% url 'artisan:accepted' job_info.id %}">Accept</a></td>
-      
-            <td><a class="btn btn-danger" href="{% url 'artisan:confirmed_orders' %}">Decline</a></td>
-              </div>
-            </div>
-
-
-         
-           
-       
-      
-<h1 style="color: #000;">Job id :<span style="color: red;">{{pt}}</span> </h1>
-
-          </table>
-      
-      
-        </div>
-          
-        </div>
-        
-      </div>-->
 
      
       <div class="row artisan-job-info" style="margin-top: 40px;">
@@ -127,6 +58,7 @@
 
        <div class="col-md-4">
         <a class="btn btn-success"  href="{% url 'artisan:accepted' job_info.id %}">Apply Now</a>
+        <!--<a class="btn btn-danger" href="{% url 'artisan:confirmed_orders' %}">Decline</a>-->
        </div>
       </div>
      </div>
