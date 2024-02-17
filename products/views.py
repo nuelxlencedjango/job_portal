@@ -16,10 +16,8 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import *
 
-#from django.core.management.utils import get_random_secret_key
-#print(get_random_secret_key())
 
-#8162810489
+
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
@@ -386,9 +384,6 @@ def serviceRequestCart(request, pk):
         
 
 
-
-
-
 #client unpaid request list
 def Servicelist(request):
     if ServiceOrder.objects.filter(user=request.user, ordered =False).exists(): #or PostJob.objects.filter(user=request.user, paid =False).exists():
@@ -411,10 +406,6 @@ def servicePayment(request):
         return render(request, 'payments/payment.html',context) 
 
     return render(request ,'products/serviclist.html',{'message': "your cart is empty"}) 
-
-
-
-
 
 
 
