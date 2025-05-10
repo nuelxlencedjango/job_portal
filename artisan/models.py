@@ -87,14 +87,11 @@ class Artisan(models.Model):
   user = models.OneToOneField(User,null=True,blank=True, on_delete= models.SET_NULL,related_name='artisan')
   nin =  models.CharField(max_length=20, null=True, unique = True)
   location = models.ForeignKey(Area ,on_delete =models.CASCADE ,null=True,blank=True)
-   
   address = models.CharField(max_length=200, null=True)
   phone = models.CharField(max_length=15, null=True,unique=True)
   years_experience = models.CharField(max_length=100, null=True,blank=True)
   profession_name = models.ForeignKey('products.Product' ,on_delete =models.CASCADE ,null=True,blank=True,unique = False)
- 
   profile_img = CloudinaryField(blank=True,null=True)
-
   date_created = models.DateField(auto_now_add = True, null=True, blank=True)
 
   def __str__(self):
